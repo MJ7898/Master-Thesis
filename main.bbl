@@ -1,0 +1,137 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{Wagg2020}{article}{}
+      \name{author}{4}{}{%
+        {{hash=44f82f3b71e32c5549fa66ecb2b11fd4}{%
+           family={Wagg},
+           familyi={W\bibinitperiod},
+           given={D.\bibnamedelimi J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=61dfbe54f38dae3f82c7627fffdc9ecc}{%
+           family={Worden},
+           familyi={W\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod}}}%
+        {{hash=8fdf9206a83bb93139435adbef69bf5b}{%
+           family={Barthorpe},
+           familyi={B\bibinitperiod},
+           given={R.\bibnamedelimi J.},
+           giveni={R\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=13756ca3acc718d5518b863f8267f92f}{%
+           family={Gardner},
+           familyi={G\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{87aab7bb771efb08cc6662f8702e4bb6}
+      \strng{fullhash}{be9c1053881a85d780e6c053b0e730a6}
+      \strng{bibnamehash}{87aab7bb771efb08cc6662f8702e4bb6}
+      \strng{authorbibnamehash}{87aab7bb771efb08cc6662f8702e4bb6}
+      \strng{authornamehash}{87aab7bb771efb08cc6662f8702e4bb6}
+      \strng{authorfullhash}{be9c1053881a85d780e6c053b0e730a6}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{This paper presents a review of the state of the art for digital twins in the application domain of engineering dynamics. The focus on applications in dynamics is because: (i) they offer some of the most challenging aspects of creating an effective digital twin, and (ii) they are relevant to important industrial applications such as energy generation and transport systems. The history of the digital twin is discussed first, along with a review of the associated literature; the process of synthesizing a digital twin is then considered, including definition of the aims and objectives of the digital twin. An example of the asset management phase for a wind turbine is included in order to demonstrate how the synthesis process might be applied in practice. In order to illustrate modeling issues arising in the construction of a digital twin, a detailed case study is presented, based on a physical twin, which is a small-scale three-story structure. This case study shows the progression toward a digital twin highlighting key processes including system identification, data-augmented modeling, and verification and validation. Finally, a discussion of some open research problems and technological challenges is given, including workflow, joints, uncertainty management, and the quantification of trust. In a companion paper, as part of this special issue, a mathematical framework for digital twin applications is developed, and together the authors believe this represents a firm framework for developing digital twin applications in the area of engineering dynamics.}}
+      \field{issn}{2332-9017}
+      \field{journaltitle}{ASCE-ASME J Risk and Uncert in Engrg Sys Part B Mech Engrg}
+      \field{month}{05}
+      \field{note}{030901}
+      \field{number}{3}
+      \field{title}{{Digital Twins: State-of-the-Art and Future Directions for Modeling and Simulation in Engineering Dynamics Applications}}
+      \field{volume}{6}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.1115/1.4046739
+      \endverb
+      \verb{eprint}
+      \verb https://asmedigitalcollection.asme.org/risk/article-pdf/6/3/030901/6534130/risk\_006\_03\_030901.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1115/1.4046739
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1115/1.4046739
+      \endverb
+    \endentry
+    \entry{Jones2020}{article}{}
+      \name{author}{5}{}{%
+        {{hash=eb0aecd83160d1f552629af8b8a74fba}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=8b9e0b4eed4e077b50d6c26573930e59}{%
+           family={Snider},
+           familyi={S\bibinitperiod},
+           given={Chris},
+           giveni={C\bibinitperiod}}}%
+        {{hash=aee06f4f71fb601bdbb4525f1a3f6d8b}{%
+           family={Nassehi},
+           familyi={N\bibinitperiod},
+           given={Aydin},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e52ba7b16129a74a1260d1c22e371c2a}{%
+           family={Yon},
+           familyi={Y\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a4154cfbb6e9315f1c85b072e9b2e5c1}{%
+           family={Hicks},
+           familyi={H\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{0d2dd35e2f0a0827e2202ba42e3d8ff1}
+      \strng{fullhash}{c11d28ed7db749a0c13672563dbc5e41}
+      \strng{bibnamehash}{0d2dd35e2f0a0827e2202ba42e3d8ff1}
+      \strng{authorbibnamehash}{0d2dd35e2f0a0827e2202ba42e3d8ff1}
+      \strng{authornamehash}{0d2dd35e2f0a0827e2202ba42e3d8ff1}
+      \strng{authorfullhash}{c11d28ed7db749a0c13672563dbc5e41}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While there has been a recent growth of interest in the Digital Twin, a variety of definitions employed across industry and academia remain. There is a need to consolidate research such to maintain a common understanding of the topic and ensure future research efforts are to be based on solid foundations. Through a systematic literature review and a thematic analysis of 92 Digital Twin publications from the last ten years, this paper provides a characterisation of the Digital Twin, identification of gaps in knowledge, and required areas of future research. In characterising the Digital Twin, the state of the concept, key terminology, and associated processes are identified, discussed, and consolidated to produce 13 characteristics (Physical Entity/Twin; Virtual Entity/Twin; Physical Environment; Virtual Environment; State; Realisation; Metrology; Twinning; Twinning Rate; Physical-to-Virtual Connection/Twinning; Virtual-to-Physical Connection/Twinning; Physical Processes; and Virtual Processes) and a complete framework of the Digital Twin and its process of operation. Following this characterisation, seven knowledge gaps and topics for future research focus are identified: Perceived Benefits; Digital Twin across the Product Life-Cycle; Use-Cases; Technical Implementations; Levels of Fidelity; Data Ownership; and Integration between Virtual Entities; each of which are required to realise the Digital Twin.}
+      \field{issn}{1755-5817}
+      \field{journaltitle}{CIRP Journal of Manufacturing Science and Technology}
+      \field{title}{Characterising the Digital Twin: A systematic literature review}
+      \field{volume}{29}
+      \field{year}{2020}
+      \field{pages}{36\bibrangedash 52}
+      \range{pages}{17}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.cirpj.2020.02.002
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S1755581720300110
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S1755581720300110
+      \endverb
+      \keyw{Digital Twin,Virtual Twin}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
