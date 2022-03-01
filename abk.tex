@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe, Datei mit Abkürzungen
+%% Author:      Prof. Dr. Jürgen Vollmer, vollmer@dhbw-karlsruhe.de
+%% $Id: abk.tex,v 1.4 2017/10/06 14:02:03 vollmer Exp $
+%% -*- coding: utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abkürzungsverzeichnis}                   % chapter*{..} -->   keine Nummer, kein "Kapitel"
+						         % Nicht ins Inhaltsverzeichnis
+% \addcontentsline{toc}{chapter}{Akürzungsverzeichnis}   % Damit das doch ins Inhaltsverzeichnis kommt
+
+% Hier werden die Abkürzungen definiert
+\begin{acronym}[DHBW]
+  % \acro{Name}{Darstellung der Abkürzung}{Langform der Abkürzung}
+ \acro{Abk}[Abk.]{Abkürzung}
+ \acro{API}[API]{Application Programming Interface}
+ \acro{AR}[AR]{Augmented Reality}
+ \acro{DBMS}[DBMS]{Datenbank-Management-System}
+ %\acro{ER}[ER]{deutsch erweiterte Realität}
+ \acro{EKF}[EKF]{Erweiterter Kalman Filter}
+ \acro{ERM}[ERM]{Entity-Relationship-Modell}
+ \acro{Fraunhofer IOSB}[IOSB]{Fraunhofer Institut für Optronik, Systemtechnik und Bildauswertung IOSB}
+ \acro{GPS}[GPS]{Global Positioning System}
+ \acro{GUI}[GUI]{Graphical User Interface, dt. Benutzeroberfläche}
+ \acro{HMD}[HMD]{Head-Mounted Display}
+ \acro{ICP}[ICP]{Iterativ Closest Point}
+ \acro{IDE}[IDE]{Integrated Development Environment}
+ \acro{ID}[ID]{Identifikation}
+ \acro{IMU}[IMU]{Inertial Measurement Unit}
+ \acro{INS}[INS]{Inertial Navigation System}
+ \acro{IoT}[IoT]{Internet of Things, dt. Internet der Dinge}
+ \acro{KIT}[KIT]{Forschungszentrum Karlsruhe}
+ \acro{MEMS}[MEMS]{Micro-Electro-Mechanical Systems}
+ \acro{MR}[MR]{Mixed Reality}
+ \acro{MVC}[MVC]{Model View Controller}
+ \acro{MVVM}[MVVM]{Model View ViewModel}
+ \acro{SDK}[SDK]{Software Development Kit}
+ \acro{SLAM}[SLAM]{Simultanious Localization And Mapping}
+ \acro{SQL}[SQL]{Structured Query Language}
+ \acro{TOF}[TOF]{Time of flight}
+ \acro{UX}[UX]{User-Experience, dt. Nutzererfahrung und Nutzererlebnis}
+ \acro{UC}[UC]{Use Case}
+ \acro{UCs}[UCs]{Use Cases}
+ \acro{UI}[UI]{User Interface}
+ \acro{VR}[VR]{Virtual Reality}
+ \acro{WMR}[WMR]{Windows Mixed Reality}
+
+ % Folgendes benutzen, wenn der Plural einer Abk. benöigt wird
+ % \newacroplural{Name}{Darstellung der Abkürzung}{Langform der Abkürzung}
+ \newacroplural{Abk}[Abk-en]{Abkürzungen}
+
+
+ \acro{H2O}[\ensuremath{H_2O}]{Di-Hydrogen-Monoxid}
+
+ % Wenn nicht benutzt, erscheint diese Abk. nicht in der Liste
+ \acro{NUA}{Not Used Acronym}
+\end{acronym}

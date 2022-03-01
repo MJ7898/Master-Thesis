@@ -1,0 +1,117 @@
+\chapter{Evaluation}
+\label{chap:Evaluation}
+Nach Beendigung der Entwicklungsphase wurde eine Evaluation des Softwareprodukts durchgeführt. Diese dient zur Kategorisierung und Einstufung der Applikation in 
+die Gebrauchstauglichkeit. Dabei wurde auch ein Vergleich zu schon bestehenden, bzw. ähnlichen Produkten aufgestellt. Darunter befinden sich 
+ebenso Aspekte der Benutzerfreundlichkeit, der Weiterentwicklungsmöglichkeiten und eine Überprüfung auf gewünschte, bzw. vorab definierte Anforderungen 
+und Ziele. 
+\\ 
+\linebreak
+Im Bereich der Industrie gibt es derzeit einige Anwendungen, die auf \acl{AR} aufbauen, darunter sind allerdings wenige Apps, die sich mit vorliegenden Prozessen 
+auseinandersetzen. Es gibt vereinzelt Anwendungen, die mit Interaktionen in Prozessabläufen arbeiten. Diese basieren allerdings weniger auf 
+einer Smartphone-Applikation. Es wird vermehrt auf \acs{VR}- und \acs{AR}-Brillen gesetzt. Diese sind meist für die Begleitung der 
+Prozesse zuständig und projizieren zusätzliche Informationen oder Visualisierungen, um dem Nutzer erweiterte Einblicke zu verschaffen. Es gibt auch 
+Anwendungen die visualisierte Arbeitsprozesse vorgeben, und das Potenzial, den Effekt und die Effizienz des „learning by doing“-Ansatzes ausschöpfen oder auch 
+Vorstellungen und Planungen zum besseren Vorstellen visualisieren. Beispiele dazu sind zum einen der „augmented presenter“ \cite{tepcon.2020} 
+und der „augmented instructor“ \cite{tepcon.2020} der tepcon GmbH. Der „augmented presenter“ bietet die Möglichkeit, eine Inneneinrichtung einer Produktionshalle 
+zu visualisieren und damit Maschinen an verschiedenen Stellen zu platziert. Anhand dieser Projektion wird überprüft, ob sich die vorgesehene Position 
+für die Platzierung der zu planende Maschine eignet. Diese Anwendung dient zur optimierten Fabrikplanung, bevor die Produkte bestellt oder in Betrieb genommen 
+werden. Auch kann diese Anwendung für Vertrieb und Marketing, Schulungen und Messen zur Demonstration der Möglichkeiten der \acs{AR} verwendet werden. Der 
+„augmented instructor“ basiert auf dem Gebrauch der \acs{AR}-Brille und visualisiert und projiziert Arbeitsschritte zur Veranschaulichung. 
+\\ 
+\linebreak
+Das entwickelte, prototypische Assistenzsystem dient zur übersichtlichen Verdeutlichung der vorhandenen Maschinen in einer Produktionshalle. Dadurch kann die 
+Umgebung eingescannt und Maschinen als Objekte virtuell dargestellt werden. Mit den nötigen Daten ermöglicht dieses System die schnelle Abrufung von Informationen 
+zu einzelnen Maschinen. Auch die Option der Echtzeit-Statusüberprüfung kann in weiterer Entwicklung realisiert werden. 
+\\ 
+So kann das Assistenzsystem schnell Informationen zur Verfügung stellen, die immer verfügbar sind. Durch die einfache Erweiterbarkeit, die 
+durch die Architektur gewährleistet ist, können weitere nützliche Funktionen hinzugefügt werden und bestätigt dessen stetig erweiterbare Alltagstauglichkeit.
+\\ 
+Auch im Hinblick auf die Benutzerfreundlichkeit ist eine einfache \acs{UI} gegeben, die überschaubar und schnell zu verstehen ist. Die Norm ISO 9241-10 schreibt eine gute 
+Steuerbarkeit, Selbstbeschreibungsfähigkeit, Individualisierbarkeit und Aufgabenangemessenheit vor. In der Entwicklung der Anwendung wurde versucht, sich daran zu orientieren. 
+In Usability-Tests wurden die Anforderungen der Norm in kleinem Rahmen, aber noch nicht abschließend, überprüft. Auf diese Tests wird im Folgenden aus Relevanzgründen nicht 
+näher eingegangen. Im Rahmen der Testungen wurden 
+Verbesserungsvorschläge geäußert, die sich in diesem Bezug nur auf Erweiterungen bezogen haben. Ebenso wurde die Genauigkeit bemängelt, da 
+diese manchmal fehlerhaft Objekte erstellt und wiedergibt. Die Ursache ist der Handhabung durch den Nutzer zuzuschreiben, der je nach Lage und Ausrichtung des Smart-Device 
+die Berechnung beeinflusst. 
+\\ 
+In der Gesamtheit wurde das System als überaus hilfreich und entwicklungsfähig eingestuft. In dieser Arbeit stehen lediglich die Konzeption, 
+Grundlagenschaffung und prototypische Entwicklung im Fokus. Die Grundfunktion wurde implementiert und zur Verfügung gestellt.
+\\ 
+\linebreak
+Nun folgt abschließend, um die Dokumentation abzurunden, das allgemeine Fazit des Projekts und der Ausblick, der die Zukunftsaussichten des Projekts darlegt. 
+\chapter{Fazit}
+\label{chap:Fazit}
+Ziel dieser Arbeit war die Konzeption und prototypische Umsetzung eines Assistenzsystems zur Unterstützung industrieller Prozesse. Dabei wurde der Fokus auf die 
+übersichtliche und virtuelle Darstellung von Maschinen und Geräten gelegt. Zu der Übersicht kam auch dazu, dass zu einzelnen Objekten schnell Informationen eingesehen 
+werden können, um diese bei Bedarf zur Hand zu haben. Dafür wurden in den ersten Schritten Anforderungen zur Umsetzung des Systems festgelegt. Unter Berücksichtigung der 
+zu gewährleistenden Modularisierung musste ein geeignetes Entwurfsmuster gefunden werden, auf dem die Architektur aufbaut, um künftige Weiterentwicklungen an dem Projekt 
+zu ermöglichen und diese keine großen Herausforderungen darstellen. Durch die Android Architecture Components wurde sich an dem MVVM-Muster angelehnt, welches unter anderem 
+die Anforderungen der Modularisierung erfüllt. Bevor die konkrete Umsetzung stattfinden konnte, wurden anhand der Anforderungen und geplanten Funktionen Use Cases für die 
+Implementierung definiert. Nachdem diese modelliert waren, konnte das eigentliche System aufgestellt und entwickelt werden.
+\\ 
+\linebreak
+Die Positionsberechnung des Smart-Devices basiert auf Kalkulationen der hardwareinternen Sensoren und unterliegt somit einer sehr sensiblen Basis. Je nach Ausrichtung und 
+Lage des Geräts kann sich sowohl dessen Orientierung, als auch dessen Blickrichtung unterscheiden und so das eigentliche Ergebnis verfälschen, obwohl sich das Gerät an der physikalisch 
+identischen Position befindet. Dadurch ist die Benutzung der Applikation stark von den Aktionen und der garantierten Handhabung des Nutzers abhängig. 
+\\ 
+\linebreak
+Das verwendete Framework Google ARCore erweist einen effektiven Nutzen und ist eine gute Grundlage für die Implementierung einer \acl{AR} Applikation. Das 
+Framework stellt eine fundamentierte \acs{API} zur Verfügung, die eine gute Basis für die darauf aufbauenden Entwicklungen schafft. Bei der praktischen 
+Anwendung des Frameworks gibt es jedoch vereinzelt Probleme mit der Anzeige der virtuellen Objekte, da aus den Positionsberechnungen phasenweise Übereinstimmungen mit diesen 
+nicht erkannt und dadurch die Objekte nicht angezeigt werden. Daher ist es in diesem Fall notwendig, an den Ausgangspunkt zurückzukehren, damit die 
+Anzeige der Objekte aktualisiert werden kann und so die nicht angezeigten Visualisierungen wieder auftauchen.
+\\ 
+\linebreak
+Werden Objekte über die Scan-Phase an eine bestimmte Position gesetzt, wird die daraus resultierende Differenz zum Ursprungsmarker gespeichert. Bei der 
+Ausführung der Visualisierungs-Phase werden die gespeicherten Objekte und deren Positionsdifferenz abhängig von der Ursprungsmarkierung wieder virtuell im Raum platziert. 
+Dabei ist die Ausgangssituation der Markierungsverfolgung entscheidend. Dies bedeutet, dass das Smart-Device vom Nutzer richtig angewendet werden muss und es beispielsweise 
+nicht über Kopf gehalten werden darf. Dadurch würde die Berechnung und Darstellung der Objekte nicht exakt mit der vorgesehenen Position übereinstimmen. Dies hat eine 
+ungenauer Repräsentation der Objekte im Raum zufolge. 
+\\ 
+Es ist durch diese Sensibilität der Anwendung vorauszusetzen, dass der Nutzer das System verantwortungsvoll und gewissenhaft verwendet. Da dies von dem Assistenzsystem nicht überprüft 
+und auch nicht korrigiert werden kann, muss die fachgerechte Handhabung vorausgesetzt werden. 
+\\ 
+\linebreak
+Im Großen und Ganzen sind die Benutzeroberflächen überschaubar und bieten eine gute Grundlage für die Anwendung der \acl{AR} Applikation. 
+\\ 
+\linebreak
+In der Gesamtheit bietet das Ergebnis dieser Arbeit einen klaren und leicht verständlichen Aufbau des Systems, sowie eine Grundlage für Weiterentwicklungen. 
+Das Konzept wurde eigenständig erarbeitet und wie geplant umgesetzt. Somit ist der Grundbaustein für weitere, darauf aufbauende Funktionen gelegt.
+
+\chapter{Ausblick}
+\label{chap:Ausblick}
+Der in dieser Arbeit entstandene Prototyp ist ein eigenständiges System zur visualisierten Übersicht von Maschinen und Geräten, beispielsweise in Produktionshallen. 
+Bevor die Anwendung allerdings produktiv eingesetzt werden kann, sind noch einige Optimierungen vorzunehmen. Darunter die Verwendung von weiteren Objekten 
+zur visuellen Darstellung der Maschinen. Eventuell können auch detailgetreue Abbildungen in einem bestimmten Anwendungsumfeld oder die Verwendung universeller 
+ortsunabhängiger Objekte eingesetzt werden. Des Weiteren muss die Überarbeitung der Informationsanzeige der Objekte, die aktuell über ein vereinfachtes Informationsfenster 
+eingeblendet werden, erfolgen. Eine \acl{AR} basierte Anzeige der Informationen wäre dabei denkbar. In dieser Arbeit wurden lediglich die Grundsteine für ein Projekt 
+gelegt, welches in Zukunft stetig weiterentwickelt werden kann und viel Potential für weitere Funktionen, auf Basis der \acs{AR}-Anwendung, bietet. Die Ergebnisse 
+des Prototypen sind für erste Tests geeignet, allerdings für den derzeitigen Einsatz noch nicht vorgesehen. Da zum jetzigen Zeitpunk noch kein Zusatznutzen für Anwender 
+daraus resultiert und die maschinenbezogenen Daten im Hinblick auf die statusabhängigen Informationen keine Echtzeit-Auskünfte bietet, ist das Assistenzsystem für Firmen 
+noch uninteressant und unrentabel. Der Prototyp muss der Prototyp weiterentwickelt und verbessert werden. 
+\\ 
+\linebreak
+Um Informationen über einzelne Maschinen in Echtzeit aufrufen und visualisieren zu können, wäre ein weiterer Entwicklungsschritt die Benutzung von Echtzeitdaten der 
+Maschinen. Dafür wäre eine Datenaufbereitung und eine globale Verfügbarkeit der Informationen notwendig. Diese Idee könnte über eine \acl{IoT}-Lösung, umgesetzt werden. 
+Dabei könnten die Maschinendaten, die über eine Cloud ausgelagert sind, in Echtzeit abgegriffen und stets den aktuellen Zustand und Status der einzelnen Geräte 
+abgerufen werden. Auch könnten die Daten direkt von den jeweiligen Geräten verwendet, aufbereitet und in der Anwendung genutzt werden. Dadurch wäre die Möglichkeit 
+gegeben, genauere Informationen zu den Objekten zu erhalten.
+\\ 
+\linebreak
+Eine zusätzlicher Erweiterung der Anwendung wäre das automatische Lokalisieren von Anomalien sämtlicher Maschinen. Dabei würden auftretende Fehler registriert werden 
+und über eine Benachrichtigung den Nutzer darüber in Kenntnis setzen. Somit könnte bei Ausfällen der Maschinen schnell reagiert und agiert werden, um diese auftretenden 
+Fehler schnellstmöglich zu beheben. 
+\\ 
+Basierend auf dieser Erweiterung wäre es ebenso möglich, bei großen Umgebungen, bzw. Produktionshallen eine räumliche Navigation einzubauen. Der Mechaniker wird auf 
+direktem Wege zu der wartungsbedürftigen Maschine geleitet und muss sich nicht zusätzlich in der Räumlichkeit orientieren. 
+\\ 
+\linebreak
+Im Moment steht nur eine Laufzeitumgebung für ein natives Android System zur Verfügung. Ein weiterer Schritt zur Systemoptimierung wäre die Einbindung von \acs{AR}-Brillen, 
+da der Nutzer im Vergleich zum Smartphone in seinen Bewegungen nicht eingeschränkt wäre und sich mit den Händen frei bewegen könnte. 
+\\ 
+Aufbauend darauf könnten auch Schritte der Reparaturarbeiten optimiert werden, indem über die \acs{AR}-Brille Anweisungen und Anleitungen zur Wartung der 
+Maschine über die \acs{AR}-Brille zusätzlich bereitgestellt werden. 
+\\ 
+\linebreak
+Dies sind einige Ansätze für Einsatzmöglichkeiten des Projekts und wie sie in Zukunft erweitert werden könnten, um ein umfängliches Assistenzsystem zu erschaffen und zu einer 
+echten Unterstützung industrieller Prozesse zu werden.  

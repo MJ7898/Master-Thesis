@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
+%% Author:      Prof. Dr. Jürgen Vollmer, juergen.vollmer@dhbw-karlsruhe.de
+%% $Id: bericht.tex,v 1.24 2018/10/23 09:10:06 vollmer Exp $
+%%  -*- coding: utf-8 -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+  ngerman           % neue deutsche Rechtschreibung
+% ,a4paper          % Papiergrösse
+  ,twoside          % Zweiseitiger Druck (rechts/links)
+% ,10pt             % Schriftgrösse
+  ,11pt
+% ,12pt
+  ,pdftex
+%  ,disable         % Todo-Markierungen auschalten
+]{report}
+
+% Bitte die Codierung Ihrer Dateien auswählen:
+% \usepackage[latin1]{inputenc}    % Für UNIX mit ISO-LATIN-codierten Dateien
+% \usepackage[applemac]{inputenc}  % Für Apple Mac
+% \usepackage[ansinew]{inputenc}   % Für Microsoft Windows
+\usepackage[utf8]{inputenc}        % UTF-8 codierte Dateien
+                                   % Dieses Dokument ist unter Unix erstellt, daher
+                                   % wird diese Input-Codierung benutzt.
+\usepackage[english,ngerman]{babel}
+\usepackage{bericht}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{blindtext}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Angaben zur Arbeit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Autor}{Mikka Jenne}
+\newcommand{\MatrikelNummer}{800864}
+\newcommand{\Kursbezeichnung}{PSEJG20}
+
+\newcommand{\FirmenName}{Reutlingen}
+\newcommand{\FirmenStadt}{Karlsruhe}
+\newcommand{\cjtFirmenLogo}{\includegraphics[]{CGI_LOGO}}
+
+% Falls es kein Firmenlogo gibt:
+\newcommand{\FirmenLogoDeckblatt}{}
+
+\newcommand{\BetreuerFirma}{Dr. Robin Braun}
+\newcommand{\BetreuerDHBW}{Prof. Dr. Natividad Martinez Madrid}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Wird auf dem Deckblatt und in der Erklärung benutzt:
+%\newcommand{\Was}{Projekt-/Studien-/Bachleorarbeit}
+%\newcommand{\Was}{Projektrarbeit}
+%\newcommand{\Was}{Studienarbeit}
+\newcommand{\Was}{Master-Thesis }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\Titel}{Konzeption und prototypische Umsetzung einer Steuerzentrale eines smarten Büros mit dem Fokus einer einfachen Handhabung der formalisierten Interaktionen für Softwareenteickler}
+\newcommand{\AbgabeDatum}{31. August 2022}
+
+\newcommand{\Dauer}{24 Wochen}
+
+\newcommand{\Abschluss}{Master of Science}
+
+\newcommand{\Studiengang}{Professional Software Engineering}
+
+\hypersetup{%%
+  pdfauthor={\Autor},
+  pdftitle={\Titel},
+  pdfsubject={\Was}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Wenn \includeonly{..} benutzt wird, werden nur diese Kaptitel ausgegeben.
+%\includeonly{
+ % abk
+ %,kapitel1
+ %,kapitel2
+ %,kapitel3
+ %,systementwurf
+ %,changelog
+%}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Benutzt man das "biblatex"-Paket, dann muß das hier stehen:
+% siehe auch die mit BIBLATEX markierten Zeilen in bericht.sty
+\bibliography{bericht}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+\begin{center}
+\vspace*{-3cm}
+\cjtFirmenLogo
+\FirmenLogoDeckblatt\hfill\includegraphics[]{kfru}\\[2cm]
+{\Huge \Titel}\\[1.5cm]
+{\Huge\scshape \Was}\\[1cm]
+{\large für die Prüfung zum}\\[0.5cm]
+{\Large \Abschluss}\\[0.5cm]
+{\large des Studienganges \Studiengang}\\[0.5cm]
+{\large an der}\\[0.5cm]
+{\large Knowledge Foundation @ Reutlingen University}\\[0.5cm]
+{\large von}\\[0.5cm]
+{\large\bfseries \Autor}\\[1cm]
+{\large Abgabedatum \AbgabeDatum}
+\vfill
+\end{center}
+\begin{tabular}{l@{\hspace{4cm}}l}
+Bearbeitungszeitraum	         & \Dauer 			    \\
+Teilnehmernummer	             & \MatrikelNummer	\\
+Kurs			                     & \Kursbezeichnung	\\
+Standort der Universität	     & \FirmenName			\\
+Standort der Firma			       & \FirmenStadt			\\
+Betreuer der Ausbildungsfirma	 & \BetreuerFirma		\\
+Gutachter der Studienakademie	 & \BetreuerDHBW		\\
+\end{tabular}
+\end{titlepage}
+ 
+\selectlanguage{ngerman}
+\begin{abstract}
+  Augmented Reality ist eine Technologie, die dem Nutzer ein visuelles 
+  Erlebnis mit einer angereicherten Welt voller virtueller Objekte ermöglicht. Das Resultat, eine 
+  Kombination aus Realität und Virtualität, bietet dem Benutzer eine neue Art der Wahrnehmung der Gegenwart. %Realitätswahrnehmung.  
+  \\ 
+  \linebreak
+  Diese Bachelorarbeit befasst sich mit der Konzeption und Umsetzung eines industriellen Assistenzsystems unter Verwendung der Augmented Reality Technologie. Dabei soll die Umgebung 
+  mit Hilfe des SLAM Verfahrens analysiert werden, um auf dieser Basis dreidimensionale Objekte als Referenz zu realen Objekten im Raum virtuell platzieren zu können. 
+  Durch die entstehende Visualisierung können Informationen zu den jeweiligen Objekten in eine Datenbank eingetragen und angezeigt werden, dadurch kann das Überwachen von 
+  Industriemaschinen vereinfacht werden. 
+  \\ 
+  \linebreak
+  Zu dem Konzept gehört sowohl die Ausarbeitung der grundlegenden Softwarearchitektur, als auch ein allgemein-gültiges Datenmodell zur 
+  Persistierung der generierten Daten. Für die bestmögliche Umsetzung der Augmented Reality Experience werden hierzu bereits schon bestehende Frameworks und Software 
+  Development Kits, beispielsweise Google ARCore, verwendet. 
+  \\ 
+  Der entstandene Prototyp ist ein eigenständiges System. Die Architektur ist modular aufgebaut, um eine stetige Weiterentwicklung zu gewährleisten.  
+\end{abstract}
+\newpage
+\selectlanguage{english}
+\begin{abstract}
+  Augmented Reality is a technology that enables the user to have a visual 
+  experience with an enriched world full of virtual objects. The result offers the user a new 
+  way of perceiving surrounding as an Combination of reality and virtuality.
+  \\
+  \linebreak
+  This bachelor thesis deals with the conception and implementation of an industrial assistance system using augmented reality technology. The environment %should
+  can be analyzed with the help of the SLAM method in order to be able to place three-dimensional objects virtually as a reference to real objects in space.
+  The resulting visualization enables information on the respective objects to be entered in a database and displayed, which enables the simplified 
+  monitoring of Industrial machines.
+  \\
+  \linebreak
+  The concept includes the development of the basic software architecture as well as a generally applicable data model for
+  saving the generated data. Already existing frameworks and software development kits where used for the best possible implementation of the 
+  augmented reality experience as Google ARCore.
+  \\
+  The created prototype is an standalone system. The architecture is modular in order to ensure continuous further development.
+\end{abstract}
+\newpage
+\selectlanguage{ngerman}
+%\pagestyle{plain}
+\chead{\headmark}
+\cfoot{\pagemark}
+%\pagestyle{headings}
+\pagenumbering{Roman}
+\tableofcontents           % Inhaltsverzeichnis hier ausgeben
+
+\pagenumbering{arabic}
+\include{1Einleitung/kapitel1}
+\include{2Grundlagen/kapitel2}
+\include{2Grundlagen/kapitel2A}
+\include{2Grundlagen/kapitel2Aa}
+\include{2GrundlagenX/kapitel2X}
+\include{3Konzeption/kapitel3}
+\include{4Umsetzung/kapitel4}
+\include{4Umsetzung/kapitel4A}
+\include{4Umsetzung/kapitel4X}
+\include{5Fazit/fazit}
+
+
+
+% Ab hier beginnt der Anhang
+\appendix
+\addcontentsline{toc}{chapter}{Anhang}
+
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+%\newpage
+%\addcontentsline{toc}{chapter}{Liste der ToDo's}
+%\listoftodos[Liste der ToDo's]
+\pagenumbering{Roman}
+\listoffigures             % Liste der Abbildungen
+\listoftables              % Liste der Tabellen
+\lstlistoflistings         % Liste der Listings
+%\listofequations           % Liste der Formeln
+% Jetzt kommt der "eigentliche" Text
+\include{abk}              % Abkürzungsverzeichnis
+
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+
+% Haben Sie das "biblatex"-Paket nicht installiert, benutzen Sie folgendes:
+% Ohne das "biblatex"-Paket (s. bericht.sty) produziert folgendes
+% "deutsche" Zitate in Literaturverzeichnissen gemaß der Norm DIN 1505,
+% Teil 2 vom Jan. 1984.
+% Die Zitatmarken werden alphabetisch nach Verfassern
+% sortiert und sind durch abgekürzte Verfasserbuchstaben plus
+% Erscheinungsjahr in eckigen Klammern gekennzeichnet.
+
+% \bibliographystyle{alphadin}
+% \bibliography{bericht}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% BIBLATEX
+% Benutzt man das "biblatex"-Paket, muß man folgendes schreiben:
+\def\refname{Literaturverzeichnis}
+\printbibliography
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{erklaerung.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
