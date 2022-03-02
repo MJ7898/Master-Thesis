@@ -1,8 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe
-%% Author:      Prof. Dr. Jürgen Vollmer, juergen.vollmer@dhbw-karlsruhe.de
-%% $Id: bericht.tex,v 1.24 2018/10/23 09:10:06 vollmer Exp $
-%%  -*- coding: utf-8 -*-
+%% Descr:       Vorlage für die Master-Thesis an der KFRU 
+%% Author:      Mikka Jenne, mikka.jenne@cgi.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[
@@ -36,34 +34,23 @@
 \newcommand{\Autor}{Mikka Jenne}
 \newcommand{\MatrikelNummer}{800864}
 \newcommand{\Kursbezeichnung}{PSEJG20}
-
 \newcommand{\FirmenName}{Reutlingen}
 \newcommand{\FirmenStadt}{Karlsruhe}
-\newcommand{\cjtFirmenLogo}{\includegraphics[]{CGI_LOGO}}
-
-% Falls es kein Firmenlogo gibt:
+\newcommand{\cgiFirmenLogo}{\includegraphics[]{CGI_LOGO}}
 \newcommand{\FirmenLogoDeckblatt}{}
-
 \newcommand{\BetreuerFirma}{Dr. Robin Braun}
 \newcommand{\BetreuerDHBW}{Prof. Dr. Natividad Martinez Madrid}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Wird auf dem Deckblatt und in der Erklärung benutzt:
-%\newcommand{\Was}{Projekt-/Studien-/Bachleorarbeit}
-%\newcommand{\Was}{Projektrarbeit}
-%\newcommand{\Was}{Studienarbeit}
 \newcommand{\Was}{Master-Thesis }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\Titel}{Konzeption und prototypische Umsetzung einer Steuerzentrale eines smarten Büros mit dem Fokus einer einfachen Handhabung der formalisierten Interaktionen für Softwareenteickler}
+\newcommand{\Titel}{Konzeption und prototypische Umsetzung einer Steuerzentrale eines smarten Büros mit dem Fokus einer einfachen Handhabung der formalisierten Interaktionen für Softwareentwickler}
 \newcommand{\AbgabeDatum}{31. August 2022}
-
 \newcommand{\Dauer}{24 Wochen}
-
 \newcommand{\Abschluss}{Master of Science}
-
 \newcommand{\Studiengang}{Professional Software Engineering}
 
 \hypersetup{%%
@@ -74,20 +61,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Wenn \includeonly{..} benutzt wird, werden nur diese Kaptitel ausgegeben.
-%\includeonly{
- % abk
- %,kapitel1
- %,kapitel2
- %,kapitel3
- %,systementwurf
- %,changelog
-%}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Benutzt man das "biblatex"-Paket, dann muß das hier stehen:
-% siehe auch die mit BIBLATEX markierten Zeilen in bericht.sty
 \bibliography{bericht}
 
 \begin{document}
@@ -95,31 +68,35 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{titlepage}
-\begin{center}
-\vspace*{-3cm}
-\cjtFirmenLogo
-\FirmenLogoDeckblatt\hfill\includegraphics[]{kfru}\\[2cm]
-{\Huge \Titel}\\[1.5cm]
-{\Huge\scshape \Was}\\[1cm]
-{\large für die Prüfung zum}\\[0.5cm]
-{\Large \Abschluss}\\[0.5cm]
-{\large des Studienganges \Studiengang}\\[0.5cm]
-{\large an der}\\[0.5cm]
-{\large Knowledge Foundation @ Reutlingen University}\\[0.5cm]
-{\large von}\\[0.5cm]
-{\large\bfseries \Autor}\\[1cm]
-{\large Abgabedatum \AbgabeDatum}
-\vfill
-\end{center}
-\begin{tabular}{l@{\hspace{4cm}}l}
-Bearbeitungszeitraum	         & \Dauer 			    \\
-Teilnehmernummer	             & \MatrikelNummer	\\
-Kurs			                     & \Kursbezeichnung	\\
-Standort der Universität	     & \FirmenName			\\
-Standort der Firma			       & \FirmenStadt			\\
-Betreuer der Ausbildungsfirma	 & \BetreuerFirma		\\
-Gutachter der Studienakademie	 & \BetreuerDHBW		\\
-\end{tabular}
+  \begin{center}
+    \vspace*{-3cm}
+    
+    \cgiFirmenLogo
+    \FirmenLogoDeckblatt\hfill\includegraphics[]{kfru}\\[2cm]
+    
+    {\Huge \Titel}\\[1.5cm]
+    {\Huge\scshape \Was}\\[1cm]
+    {\large für die Prüfung zum}\\[0.5cm]
+    {\Large \Abschluss}\\[0.5cm]
+    {\large des Studienganges \Studiengang}\\[0.5cm]
+    {\large an der}\\[0.5cm]
+    {\large Knowledge Foundation @ Reutlingen University}\\[0.5cm]
+    {\large von}\\[0.5cm]
+    {\large\bfseries \Autor}\\[1cm]
+    {\large Abgabedatum \AbgabeDatum}
+    
+    \vfill
+  \end{center}
+  \begin{tabular}{l@{\hspace{4cm}}l}
+
+    Bearbeitungszeitraum	         & \Dauer 			    \\
+    Teilnehmernummer	             & \MatrikelNummer	\\
+    Kurs			                     & \Kursbezeichnung	\\
+    Standort der Universität	     & \FirmenName			\\
+    Standort der Firma			       & \FirmenStadt			\\
+    Betreuer der Ausbildungsfirma	 & \BetreuerFirma		\\
+    Gutachter der Studienakademie	 & \BetreuerDHBW		\\
+  \end{tabular}
 \end{titlepage}
  
 \selectlanguage{ngerman}
@@ -141,6 +118,7 @@ Gutachter der Studienakademie	 & \BetreuerDHBW		\\
   \\ 
   Der entstandene Prototyp ist ein eigenständiges System. Die Architektur ist modular aufgebaut, um eine stetige Weiterentwicklung zu gewährleisten.  
 \end{abstract}
+
 \newpage
 \selectlanguage{english}
 \begin{abstract}
@@ -161,6 +139,7 @@ Gutachter der Studienakademie	 & \BetreuerDHBW		\\
   \\
   The created prototype is an standalone system. The architecture is modular in order to ensure continuous further development.
 \end{abstract}
+
 \newpage
 \selectlanguage{ngerman}
 %\pagestyle{plain}
@@ -171,16 +150,30 @@ Gutachter der Studienakademie	 & \BetreuerDHBW		\\
 \tableofcontents           % Inhaltsverzeichnis hier ausgeben
 
 \pagenumbering{arabic}
-\include{1Einleitung/kapitel1}
-\include{2Grundlagen/kapitel2}
-\include{2Grundlagen/kapitel2A}
-\include{2Grundlagen/kapitel2Aa}
-\include{2GrundlagenX/kapitel2X}
-\include{3Konzeption/kapitel3}
-\include{4Umsetzung/kapitel4}
-\include{4Umsetzung/kapitel4A}
-\include{4Umsetzung/kapitel4X}
-\include{5Fazit/fazit}
+
+\include{chapter/1Einleitung/motivation}
+\include{chapter/1Einleitung/forschungsfragen}
+\include{chapter/1Einleitung/zielerreichung}
+\include{chapter/1Einleitung/aufbau}
+\include{chapter/1Einleitung/technikstand}
+% \include{chapter/2Theor-Grundlagen/}
+% \include{chapter/3Anforderungsanalyse/}
+% \include{chapter/4Konzeption/}
+% \include{chapter/5Umsetzung/}
+% \include{chapter/6Ergebnisse/}
+% \include{chapter/7Diskussion-Evaluation/}
+% \include{chapter/8Fazit/}
+
+% \include{1Einleitung/kapitel1}
+% \include{2Grundlagen/kapitel2}
+% \include{2Grundlagen/kapitel2A}
+% \include{2Grundlagen/kapitel2Aa}
+% \include{2GrundlagenX/kapitel2X}
+% \include{3Konzeption/kapitel3}
+% \include{4Umsetzung/kapitel4}
+% \include{4Umsetzung/kapitel4A}
+% \include{4Umsetzung/kapitel4X}
+% \include{5Fazit/fazit}
 
 
 
@@ -194,12 +187,13 @@ Gutachter der Studienakademie	 & \BetreuerDHBW		\\
 %\newpage
 %\addcontentsline{toc}{chapter}{Liste der ToDo's}
 %\listoftodos[Liste der ToDo's]
+
 \pagenumbering{Roman}
 \listoffigures             % Liste der Abbildungen
 \listoftables              % Liste der Tabellen
 \lstlistoflistings         % Liste der Listings
 %\listofequations           % Liste der Formeln
-% Jetzt kommt der "eigentliche" Text
+
 \include{abk}              % Abkürzungsverzeichnis
 
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
