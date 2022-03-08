@@ -98,7 +98,8 @@
     Gutachter der Studienakademie	 & \BetreuerDHBW		\\
   \end{tabular}
 \end{titlepage}
- 
+
+\newpage
 \selectlanguage{ngerman}
 \begin{abstract}
   Augmented Reality ist eine Technologie, die dem Nutzer ein visuelles 
@@ -146,11 +147,10 @@
 \chead{\headmark}
 \cfoot{\pagemark}
 %\pagestyle{headings}
-\pagenumbering{Roman}
+%\pagenumbering{roman}
 \tableofcontents           % Inhaltsverzeichnis hier ausgeben
 
 \pagenumbering{arabic}
-
 \include{chapter/1Einleitung/motivation}
 \include{chapter/1Einleitung/forschungsfragen}
 \include{chapter/1Einleitung/zielerreichung}
@@ -181,7 +181,7 @@
 % \include{5Fazit/fazit}
 
 
-
+\pagenumbering{roman}
 % Ab hier beginnt der Anhang
 \appendix
 \addcontentsline{toc}{chapter}{Anhang}
@@ -193,7 +193,7 @@
 %\addcontentsline{toc}{chapter}{Liste der ToDo's}
 %\listoftodos[Liste der ToDo's]
 
-\pagenumbering{Roman}
+%\pagenumbering{roman}
 \listoffigures             % Liste der Abbildungen
 \listoftables              % Liste der Tabellen
 \lstlistoflistings         % Liste der Listings
