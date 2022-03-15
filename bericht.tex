@@ -21,11 +21,13 @@
 \usepackage[utf8]{inputenc}        % UTF-8 codierte Dateien
                                    % Dieses Dokument ist unter Unix erstellt, daher
                                    % wird diese Input-Codierung benutzt.
-\usepackage[english,ngerman]{babel}
+\usepackage[english,german]{babel}
 \usepackage{bericht}
 \usepackage{subfigure}
 \usepackage{amsmath}
-\usepackage{blindtext}
+%\usepackage{blindtext}
+\usepackage{footnote}
+\usepackage{background}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Angaben zur Arbeit
@@ -92,11 +94,28 @@
     Bearbeitungszeitraum	         & \Dauer 			    \\
     Teilnehmernummer	             & \MatrikelNummer	\\
     Kurs			                     & \Kursbezeichnung	\\
-    Standort der Universität	     & \FirmenName			\\
-    Standort der Firma			       & \FirmenStadt			\\
-    Betreuer der Ausbildungsfirma	 & \BetreuerFirma		\\
-    Gutachter der Studienakademie	 & \BetreuerDHBW		\\
+    %Standort der Universität	     & \FirmenName			\\
+    %Standort der Firma			       & \FirmenStadt			\\
+    ErstprüferIn	                 & \BetreuerDHBW		\\
+    ZweitprüferIn	                 & \BetreuerFirma		\\
+    
   \end{tabular}
+
+  % Fußzeile enthält die Anschrift und das Logo der Reutlingen University
+  \backgroundsetup{
+    scale=1,
+    color=black,
+    opacity=1,
+    angle=0,
+    position=current page.south,
+    vshift=60pt,
+    hshift=-200pt,
+    contents={%
+      \begin{minipage}{.18\textwidth}
+      \includegraphics[width=1000pt,height=70pt,keepaspectratio]{images/FHRTFooter.png}
+      \end{minipage}%
+    }
+  }
 \end{titlepage}
 
 \newpage
@@ -147,9 +166,10 @@
 \chead{\headmark}
 \cfoot{\pagemark}
 %\pagestyle{headings}
-%\pagenumbering{roman}
+\pagenumbering{Roman}
 \tableofcontents           % Inhaltsverzeichnis hier ausgeben
 
+\newpage
 \pagenumbering{arabic}
 \include{chapter/1Einleitung/motivation}
 \include{chapter/1Einleitung/forschungsfragen}
@@ -181,7 +201,7 @@
 % \include{5Fazit/fazit}
 
 
-\pagenumbering{roman}
+\pagenumbering{Roman}
 % Ab hier beginnt der Anhang
 \appendix
 \addcontentsline{toc}{chapter}{Anhang}
@@ -217,8 +237,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 % BIBLATEX
 % Benutzt man das "biblatex"-Paket, muß man folgendes schreiben:
-\def\refname{Literaturverzeichnis}
-\printbibliography
+%\def\refname{Literaturverzeichnis}
+%\printbibliography
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
