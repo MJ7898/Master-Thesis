@@ -110,25 +110,68 @@
 \section{Aufbau der Arbeit}
 \label{sec:aufbau}
     Die vorliegende Master-Thesis gliedert sich nach den soeben genannten einleitenden Information im Aufbau in insgesamt 
-    zehn Kapitel. Das erste Kapitel \ref{chap:Einleitung} beschreibt die Motivation \ref{sec:Motivation}, welche die 
+    zehn Kapitel. Das erste Kapitel (\ref{chap:Einleitung}) beschreibt die Motivation (\ref{sec:Motivation}), welche die 
     Intension kundtut, diese Thematik rund um \acs{IoT} und Smart Home zu bearbeiten. Darauf folgend werden die 
-    Forschungsfragen \ref{sec:forschungsfragen}, die im Rahmen der Thesis behandelt werden, erläutert. Nach der 
-    Beschreibung der Forschungsfragen wird im anknüpfenden Abschnitt \ref{sec:zielsetzung} die Zielsetzung der 
+    Forschungsfragen (\ref{sec:forschungsfragen}), die im Rahmen der Thesis behandelt werden, erläutert. Nach der 
+    Beschreibung der Forschungsfragen wird im anknüpfenden Abschnitt (\ref{sec:zielsetzung}) die Zielsetzung der 
     Arbeit erläutert. Hierbei werden zusätzliche Schwerpunkte und Ziele aufgegriffen. Abschließend wird das Unternehmen, in der 
     die Thesis geschrieben wird, hervorgehoben und deren Absichten in Verbindung mit Innovationen beleuchtet. 
     \\
     \linebreak
-    Das Kapitel \ref{chap:grundlagen} widmet sich den essentiellen und wichtigen Grundlagen dieser Arbeit. 
+    Das Kapitel (\ref{chap:grundlagen}) widmet sich den essentiellen und wichtigen Grundlagen dieser Arbeit. Zu Anfang wird dem 
+    Leser der Terminus des \acl{IoT} (\ref{sec:iot}) offenbart, um zum Teil den Kontext im Bezug zu dieser Arbeit zu begreifen, 
+    gefolgt von einer Einführung in die Thematik des \acl{SM}s (\ref{sec:smartHome}), der Problematik der Begriffsdefinition, der 
+    historischen und kontinuierlichen Entwicklung und mit den Zielen, die mit der Verwendung einer Smart Home Lösung bewältigt 
+    werden sollen. Mit dem Verständnis der übergeordneten Begriffe, \acs{IoT} und \acs{SM}, werden Technologien 
+    (\ref{sec:technologien}) aufgegriffen, die im Rahmen dieser Arbeit erwähnenswert sind und verwendet werden. Um auf die Vielfältigkeit 
+    von der Umsetzung eines \acl{SM}s einzugehen und einen Teilaspekt der Anforderungen Abzudecken, wird ebenso auf Service-Roboter 
+    (\ref{sec:roboter}) eingegangen. Abschließend werden in Kapitel (\ref{chap:grundlagen}) die Softwarelösungen, Home Assistant 
+    und openHAB (\ref{sec:homeassistant} \& \ref{sec:openhab}), dargestellt. Diese dienen zur Grundlage für die Evaluation als 
+    auch zur Gegenüberstellung der Lösungen in Kapitel (\ref{chap:evaluation}) Diskussion und Evaluation. 
     \\
     \linebreak
-    Die theoretischen und methodischen Hintergründe sowie den Stand der Technik wird in Kapitel \ref{chap:technikStand} 
+    Die theoretischen und methodischen Hintergründe sowie den Stand der Technik wird in Kapitel (\ref{chap:technikStand} )
     angesprochen. Dieser Teil enthält Beschreibungen, Forschungen und aktuelle Erkenntnisse über Technologien, die im Umfeld der 
     Smart Home Anwendungen innerhalb des \acs{IoT}s verwendet werden. Zudem werden in Zusammenhang der Erkenntnisse und 
     Möglichkeiten der Technologie die Szenarien dargestellt. 
     \\
     \linebreak
-    Kapitel \ref{chap:anforderungsanalyse} befasst sich mit den Anforderungen, engl. Requirements, die für die 
-    eigentliche Konzeption relevant sind. 
+    Kapitel (\ref{chap:anforderungsanalyse}) befasst sich mit den Anforderungen, engl. Requirements, die für die 
+    eigentliche Konzeption relevant sind. Innerhalb dieses Kapitels wird anhand von Informationen und den umzusetzenden 
+    Szenarien die Anforderungen für die Konzeption erarbeitet. Hierbei werden aus der Praxis bekannte Verfahren verwenden, um 
+    die Anforderungen zu definieren. Mittels den zugrundeliegenden Anforderungen wird im nachfolgenden Schritt die eigentliche 
+    Konzeption dargelegt.
+    \\
+    \linebreak 
+    Nach Aufbereitung der Anforderungen durch das sogenannte Anforderungsmanagement, engl. \textit{Requirements Engineering},
+    wird in Kapitel (\ref{chap:konzept}) das Konzept erarbeitet, welches als Grundlage für die prototypische Implementierung und 
+    Umsetzung des Konzepts dient. Das Konzept befasst sich mit den Anforderungen und setzt diese ein, um die Organisation des 
+    Systems in Komponenten, deren Beziehungen zueinander und zur Umgebung sowie deren Prinzipien zu definieren. Zum Ende des 
+    Konzepts steht eine Architektur, die sich aus den Anforderungen und auch aus den Analysen der eigentlichen Forschungsfrage 
+    abzeichnet.
+    \\
+    \linebreak
+    In Kapitel (\ref{chap:umsetzung}) wird die Umsetzung des Konzepts skizziert. Darunter welche Problem während der Implementierung 
+    auftraten als auch deren Lösungsfindung. Ebenso wird hier aus praktischer Sicht auf die Architektur geschaut, welche Komponenten,  
+    Bibliotheken und zusätzliche Systeme, engl. \textit{Frameworks}, verwendet wurden. 
+    \\ 
+    \linebreak
+    Das Ergebnis wird aus objektiver Sicht in dem darauf folgenden Kapitel (\ref{chap:ergebnis}) erläutert. 
+    \\
+    \linebreak
+    Nach Abschluss der Umsetzung und dessen Ergebnisdokumentation befasst sich das Kapitel (\ref{chap:evaluation}) mit der Diskussion 
+    und Evaluation. Hier findet eine Analyse des Konzepts sowie deren Umsetzung und objektive Betrachtung statt. Anschließend werden 
+    Vergleiche zwischen der Eigenentwicklung und bereits bestehender Softwarelösungen, die im Grundlagenkapitel aufgefasst werden, 
+    aufgestellt und bewertet.
+    \\
+    \linebreak
+    Im vorletzten Teil, Kapitel (\ref{chap:fazit}), wird ein Fazit aus den Erkenntnissen und Ergebnissen gezogen. Dieses Schlussresümee 
+    führt nochmals die Höhepunkte sowie eine eigene Einschätzung auf. 
+    \\
+    \linebreak
+    Zum Abschluss der Thesis wird in Kapitel (\ref{chap:ausblick}) ein Ausblick gegeben. Dieser gibt Aufschluss darüber, welche 
+    Erweiterungsmöglichkeiten es für die in dieser Thesis erfolgten Arbeit gibt und wie innovativ sich dieser Grundbaustein in Zukunft 
+    erweisen könnte. 
 
 \section{CGI}
 \label{sec:cgi}
