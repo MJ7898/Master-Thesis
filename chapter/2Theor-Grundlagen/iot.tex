@@ -21,7 +21,8 @@
     In der einschlägigen Literatur gibt es für das \acl{IoT} keine allgemeingültige Definition die alle Anwendungsbereiche abdeckt. 
     Die Definitionen und Auslegungen der Interpretation unterscheiden sich je nach Anwendungsgebiet. Demnach gibt es viele verschiedene 
     Forschungsgruppen, darunter Forscher, Akademiker, Innovatoren, Entwickler und Geschäftsleute, die den Begriff oder die zugrundeliegende 
-    Problemstellung definiert haben. Die Ursprünge jedoch sind dem Experten für digitale Innovationen, Kevin Ashton\footnote{Britischer Technologie-Pionier, Mitgründer des Auto-ID Centers am Massachusetts Institute of Technology (MIT). \url{https://de.wikipedia.org/wiki/Kevin_Ashton} (Abgerufen am 22.03.2022)}, 
+    Problemstellung definiert haben. Die Ursprünge jedoch sind dem Experten für digitale Innovationen, 
+    Kevin Ashton\footnote{Britischer Technologie-Pionier, Mitgründer des Auto-ID Centers am Massachusetts Institute of Technology (MIT). \url{https://de.wikipedia.org/wiki/Kevin_Ashton} (Abgerufen am 22.03.2022)}, 
     zuzuschreiben. 
     \\ 
     Die in der Literatur auffindbaren Definitionen verfolgen zwei Sichtweisen, zum Einen aus Sicht des aktiven, dass die Daten von 
@@ -35,7 +36,7 @@
         “An open and comprehensive network of intelligent objects that have the capacity to auto-organize, share information, data 
         and resources, reacting and acting in face of situations and changes in the environment” \cite{Madakam2015}
     \end{quote}
-    Daraus kann abgeleitet werden, dass der Begriff des \acl{IdD} für die Vernetzung von Gegenständen im privaten Gebrauch oder 
+    Daraus kann die Ableitung erfolgen, dass der Begriff des \acl{IdD} für die Vernetzung von Gegenständen im privaten Gebrauch oder 
     von Geräten und Maschinen im industriellen Umfeld über das Internet steht. Damit Geräte individuell angesprochen werden können, werden diese 
     mit einer eindeutigen Identität, genauer einer \ac{IP}-Adresse, im Netzwerk belegt und mit elektronischer Intelligenz ausgestattet \cite{bigdatainsider2016}.
     Darüber sind die Netzwerkteilnehmer im Stande, über das Internet zu kommunizieren Prozesse automatisiert zu erledigen. Die sogenannten 
@@ -65,34 +66,67 @@
             \label{pic:mindmap_IoT}
         \end{figure}
         \\
-        \pagebreak
+        \linebreak
+        %\pagebreak
         Beispielsweise ist das \acs{IoT} eine wesentliche Grundlage für das Themengebiet \textit{Big Data}. Die durch Sensoren und Aktoren erzeugten Daten 
         können Grundlage für die Verwendung im Bereich \textit{Big Data} sein. Dabei werden die Datenmengen gespeichert und mithilfe von Mustern 
-        und Herangehensweisen des Big Data analysiert. 
+        und Herangehensweisen des Big Data\footnote{Definition und Funktionsweise von Big Data. \url{https://www.oracle.com/big-data/what-is-big-data/} Abgerufen am 25.03.2022} analysiert. 
+        Big Data ist kein Bestandteil dieser Arbeit und wird demnach nicht weiter ausgeführt. Das Beispiel dient lediglich zu Veranschaulichung 
+        und Interpretation der oben aufgeführten Abbildung (\ref{pic:mindmap_IoT}).
+        \\
+        \linebreak
+        Eine allgemeine exemplarische Skizzierung eines Systems, welches nach dem \acs{IoT}-Konzept aufgebaut ist, kann der folgenden 
+        Abbildung (\ref{pic:skizze_iot}) entnommen werden:
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=13cm,height=13cm,keepaspectratio]{images/IoT_Grundstruktur.png}
+            \caption{Exemplarische Darstellung eines \acs{IoT}-Systems \cite{iotskizze2022}}
+            \label{pic:skizze_iot}
+        \end{figure}
+        Hierbei werden die jeweiligen Komponenten verdeutlicht, die in einem System zu finden sind. Mit den \textit{IoT-Geräten}, darunter 
+        beispielsweise Sensoren und Aktoren, findet die Datenerzeugung statt. Mit dem dahinterstehenden \textit{Gateway} werden die aus den Geräten 
+        erzeugten Daten gesammelt und an zentraler Stelle an die Cloud gesendet, in der danach eine Analyse auf die erzeugten Daten 
+        durchgeführt werden kann.
 
     \subsubsection*{Anwendungsbereiche des \acs{IoT}}
         Grundlegend können im Bereich des \acl{IoT} zwischen zwei Anwendungsbereichen unterschieden werden, zum Einen im privaten Bereich und zum 
-        Anderen im industriellen Bereich. %Einsteuerung von IIoT% 
+        Anderen im industriellen Bereich. Der private Bereich deckt hauptsächlich die Thematik rund um den Gebrauch von Alltagsgegenständen ab und 
+        deren Vernetzung untereinander, um eine komfortablere und intelligentere Nutzung der Geräte zu ermöglichen. Darin inbegriffen sind 
+        Gebäudeautomatisierungen und die Ereignissteuerung über das Internet. Diese Funktionen sind Hauptbestandteil des \acl{SH}-Konzeptes, welches 
+        in Abschnitt (\ref{sec:aufbau}) genauer aufgegriffen wird. 
+        \\
+        \linebreak
+        Der industrielle Bereich beschäftigt sich damit, Maschinen und Anlagen so miteinander zu vernetzen, dass sich ganze industrielle Prozesse 
+        automatisiert lassen und so die Effizienz der Prozess- und Produktionsabläufe steigern. Die Nutzung des \acs{IoT} im industriellen Bezug 
+        ist ein elementarer Bestandteil der heutigen \textit{Industrie 4.0}\footnote{Definition und Beschreibung der Industrie 4.0 \url{https://www.plattform-i40.de/IP/Navigation/EN/Industrie40/WhatIsIndustrie40/what-is-industrie40.html} Abgerufen am 25.03.2022}.
+        Eine genauere Benennung dieser Sparte ist oft auch unter dem \textit{\ac{IIoT}} bekannt. An dieser Stelle wird zwischen den beiden Anwendungsbereichen 
+        stark differenziert, da im Rahmen dieser Arbeit lediglich der Fokus auf dem privaten Bereich des \acs{IoT} liegt. 
+        \\
+        \linebreak
+        Mit dem \acl{IdD}-Ansatz gibt es zwei Paradigmen, die in Kombination als auch separiert Anwendung finden. Diese werden in folgendem Abschnitt kurz erläutert.
 
-        %Grundsätzlich kann beim Internet der Dinge zwischen privaten und industriellen Anwendungen unterschieden werden. Im privaten Umfeld sind 
-        %hauptsächlich Gegenstände des alltäglichen Gebrauchs für eine komfortablere und intelligentere Nutzung untereinander vernetzt. Es lassen 
-        %sich beispielsweise intelligente Gebäudeautomatisierungen installieren oder Geräte realisieren, die bei bestimmten Ereignissen per Internet 
-        %mit dem Anwender in Kontakt treten.
+        \subsubsection*{Edge und Cloud Computing}
+            Bei den beiden Paradigmen handelt es sich zum Einen um Edge Computing und zum Anderen um Cloud Computing.
+            \\
+            Das Edge Computing verfolgt einen \textit{dezentralen Ansatz}, bei dem die Berechnung und Haltung der Daten näher bei der Datenerzeugung gehalten wird. 
+            Dies bedeutet, dass jedes Gerät über eine eigene Intelligenz verfügt, bei der Daten direkt nach der Erzeugung verarbeitet und gespeichert werden können. 
+            Zu späterem Zeitpunkt kann in From einer Datenbündelung oder einer Vorauswahl die Informationen an ein Rechenzentrum weitergegeben werden. 
+            \begin{quote}
+                “Edge computing is different from traditional cloud comput- ing. It is a new computing paradigm that performs computing at the edge 
+                of the network. Its core idea is to make computing closer to the source of the data [...]” \cite{Cao2020}
+            \end{quote}
+            %Definition Cloud Computing (write 2-3 sentence)
+            \begin{quote}
+                “Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable 
+                computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and 
+                released with minimal management effort or service provider interaction.” \cite{Mell2011}
+            \end{quote}
+            %Unterschiede der beiden Ansätze und in Zusammenhang mit IoT (kurz)
     
-        %Im industriellen Bereich geht es hauptsächlich darum, Maschinen und Anlagen so miteinander zu verbinden, dass sich ganze Industrieprozesse 
-        %automatisieren lassen. Produktionsabläufe werden dadurch effizienter und günstiger. Das Internet der Dinge ist eine elementare Komponente 
-        %der so genannten Industrie 4.0. Mit dem IoT und Industrie 4.0 wird die Selbstorganisation von industriellen Prozessen durch die direkte 
-        %Kommunikation von Maschinen, Anlagen, Waren und Menschen möglich. Es lassen sich nicht mehr nur einzelne Produktionsschritte, sondern 
-        %ganze Wertschöpfungsketten automatisieren und wesentlich effizienter gestalten.
+    \subsection{Kommunikationsmodelle und Architekturen}
+    % \cite{IEEE2015} http://www.informatik.uni-oldenburg.de/~iug18/iot/was_ist_IoT.html 
 
+    \subsection{Historische Entwicklung}
 
-
-
-    %\subsection{IIoT}
-
-\subsection{Edge und Cloud Computing}
-    %Definition Edge Computing
-    %Definition Cloud Computing
-    % Unterschiede der beiden Ansätze und in Zusammenhang mit IoT (kurz)
-
-\subsection{Ziele von \acs{IoT}}
+    \subsection{Ziele von \acs{IoT}}
+    \label{subsec:ziele-iot}
