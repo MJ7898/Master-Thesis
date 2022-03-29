@@ -20,9 +20,10 @@
     Kevin Ashton\footnote{Britischer Technologie-Pionier, Mitgründer des Auto-ID Centers am Massachusetts Institute of Technology (MIT). \url{https://de.wikipedia.org/wiki/Kevin_Ashton} (Abgerufen am 22.03.2022)}, 
     zuzuschreiben. 
     \\ 
-    Die in der Literatur auffindbaren Definitionen verfolgen zwei Sichtweisen, zum Einen aus Sicht des aktiven, dass die Daten von 
-    Menschen erstellt wurde, zum Andere, aus Sicht des passiven, dass die Daten von Dingen, darunter die Sensoren und Aktoren, 
-    erstellt wurde. \cite{Madakam2015} Eine aus dem Zusammenschluss hervorgehende Definition ist, dem wissenschaftlichen Artikel zufolge, folgende:
+    Die in der Literatur auffindbaren Definitionen verfolgen zwei Sichtweisen, zum Einen aus aktiver Sicht, dass die Daten von 
+    Menschen erstellt wurde, zum Andere, aus passiver Sicht, dass die Daten von Dingen, darunter die Sensoren und Aktoren, 
+    erstellt wurde. \cite{Madakam2015} Eine aus dem Zusammenschluss hervorgehende Definition, die auch dem 
+    wissenschaftlichen Artikel, welcher die Definition beinhaltet, entnommen werden kann, ist folgende:
     % „Ein offenes und umfassendes Netzwerk intelligenter Objekte, die in der Lage sind, sich automatisch zu organisieren, 
     % Informationen, Daten und Ressourcen auszutauschen und auf Situationen und Veränderungen in der Umgebung zu reagieren 
     % und zu handeln.“
@@ -51,18 +52,17 @@
     der physischen Welt vorangetrieben wird.\footnote{Das Internet der Dinge – der digitale Zwilling der Welt. Kompetenzzentrum Öffentliche IT in Kooperation mit dem Fraunhofer Institut. \url{https://www.oeffentliche-it.de/trendsonar-iot} Abgerufen am 23.03.2022.} 
     Die Vereinigung beider Welten ist die Verknüpfung physischer Objekte, die eindeutig identifizierbar sind, mit einer virtuellen 
     Repräsentation in einer vergleichbaren Internet-Struktur. 
-
     \subsection*{Gesamtbild des \acl{IoT}}
         Der folgenden Abbildung (\ref{pic:mindmap_IoT}) ist zu entnehmen, welche Technologien rund um das \acl{IdD} liegen und in Verbindung damit stehen. 
         \begin{figure}[hbt!]
             \centering
-            \includegraphics[width=13cm,height=13cm,keepaspectratio]{images/IoT-Mind_Map.png}
+            \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/IoT-Mind_Map.png}
             \caption{Technologische Einordnung von IoT \cite{iotmindmap2018}}
             \label{pic:mindmap_IoT}
         \end{figure}
         \\
+        \pagebreak
         \linebreak
-        %\pagebreak
         Beispielsweise ist das \acs{IoT} eine wesentliche Grundlage für das Themengebiet \textit{Big Data}. Die durch Sensoren und Aktoren erzeugten Daten 
         können Grundlage für die Verwendung im Bereich \textit{Big Data} sein. Dabei werden die Datenmengen gespeichert und mithilfe von Mustern 
         und Herangehensweisen des Big Data\footnote{Definition und Funktionsweise von Big Data. \url{https://www.oracle.com/big-data/what-is-big-data/} Abgerufen am 25.03.2022} analysiert. 
@@ -74,10 +74,13 @@
         Abbildung (\ref{pic:skizze_iot}) entnommen werden:
         \begin{figure}[hbt!]
             \centering
-            \includegraphics[width=13cm,height=13cm,keepaspectratio]{images/IoT_Grundstruktur.png}
+            \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/IoT_Grundstruktur.png}
             \caption{Exemplarische Darstellung eines \acs{IoT}-Systems \cite{iotskizze2022}}
             \label{pic:skizze_iot}
         \end{figure}
+        \\
+        \pagebreak
+        \linebreak
         Hierbei werden die jeweiligen Komponenten verdeutlicht, die in einem System zu finden sind. Mit den \textit{IoT-Geräten}, darunter 
         beispielsweise Sensoren und Aktoren, findet die Datenerzeugung statt. Mit dem dahinterstehenden \textit{Gateway} werden die aus den Geräten 
         erzeugten Daten gesammelt und an zentraler Stelle an die Cloud gesendet, in der danach eine Analyse auf die erzeugten Daten 
@@ -101,7 +104,8 @@
         Mit dem \acl{IdD}-Ansatz gibt es zwei Paradigmen, die in Kombination als auch separiert Anwendung finden. Diese werden in folgendem Abschnitt kurz erläutert.
 
         \subsubsection*{Edge und Cloud Computing}
-            Bei den beiden Paradigmen handelt es sich zum Einen um Edge Computing und zum Anderen um Cloud Computing.
+            Bei den beiden Paradigmen handelt es sich zum Einen um Edge Computing und zum Anderen um Cloud Computing. Ziel beider Ansätze ist das 
+            Verwalten von Daten, bzw. das Arbeiten mit erzeugten Daten
             \\
             Das Edge Computing verfolgt einen \textit{dezentralen Ansatz}, bei dem die Berechnung und Haltung der Daten näher bei der Datenerzeugung gehalten wird. 
             Dies bedeutet, dass jedes Gerät über eine eigene Intelligenz verfügt, bei der Daten direkt nach der Erzeugung verarbeitet und gespeichert werden können. 
@@ -110,18 +114,117 @@
                 “Edge computing is different from traditional cloud comput- ing. It is a new computing paradigm that performs computing at the edge 
                 of the network. Its core idea is to make computing closer to the source of the data [...]” \cite{Cao2020}
             \end{quote}
-            %Definition Cloud Computing (write 2-3 sentence)
+            Bei Cloud Computing handelt es sich grundlegend um die Bereitstellung von Computerdiensten, Rechenleistung, Ressourcen und Kapazitäten über 
+            das Internet, die nicht in einem eigenen Rechenzentrum 
+            verwaltet und betrieben werden müssen. Die Verwaltung wird der Anbieter des Cloud Computing überlassen. Hauptsächlich steht dabei die 
+            flexible Ressourcennutzung, Skalierung und Verteilung von Rechenleistung im Vordergrund. In Zusammenhang mit den Verfügbaren Ressourcen 
+            werden auch verschiedene Modelle, Cloud Typen und diverse Dienste angeboten\footnote{Einblick in die Cloud-Umgebung von dem Anbieter Microsoft. \url{https://azure.microsoft.com/en-us/overview/what-is-cloud-computing/} Abgerufen am 28.03.2022}. 
+            Diese werden ihm Rahmen der Arbeit nicht weiter ausgeführt.
             \begin{quote}
                 “Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable 
                 computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and 
                 released with minimal management effort or service provider interaction.” \cite{Mell2011}
             \end{quote}
-            %Unterschiede der beiden Ansätze und in Zusammenhang mit IoT (kurz)
+            Mit dem Cloud Computing wird im Vergleich zum Edge Computing ein zentraler Ansatz verfolgt, bei dem die erzeugten Daten von den Aktoren und 
+            Sensoren direkt an eine zentrale Stelle gelangen, an der auch die Verarbeitung und Analyse der Daten stattfindet. 
+            \\
+            Eine Kombination beider Ansätze verbindet die stärken und ist als \textit{Hybrid Cloud} bekannt. Diese Konstellation ist in den meisten 
+            Architekturen wiederzufinden. 
     
-    \subsection{Kommunikationsmodelle und Architekturen}
-    % \cite{IEEE2015} http://www.informatik.uni-oldenburg.de/~iug18/iot/was_ist_IoT.html 
+    \subsection{Paradigmen und Kommunikationsmodelle}
+        Damit eine umfassende Grundlage im Bereich \acs{IoT} geschaffen wird, behandelt folgender Abschnitt Paradigmen und Kommunikationsmodelle, die 
+        in dieser Umgebung verwendet werden. Für die Darstellung dieser Modelle wird eine Literaturquelle genutzt, mit der ein paar der gängigsten und 
+        prägnantesten Architekturen und Modelle in diesem Segment abgedeckt sind. Die Repräsentation der Interaktionsparadigmen sind den Schaubildern 
+        (\ref{pic:interactionparadigm}) zu entnehmen. 
+        \begin{figure}[hbt!]
+            \centering
+            \begin{subfigure}[b]{0.4\textwidth}
+                \centering
+                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/C-S.png}
+                \caption{Client-Server Paradigma}
+                \label{pic:cs}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.4\textwidth}
+                \centering
+                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/PtoP.png}
+                \caption{Peer to Peer Paradigma}
+                \label{pic:pp}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.4\textwidth}
+                \centering
+                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/messagepassing.png}
+                \caption{Message Passing Paradigma}
+                \label{pic:messagepassing}
+            \end{subfigure}
+            \caption{Client-Server, Peer-to-Peer und Message Passing Interaktionsparadigma \cite{IEEE2015}}
+            \label{pic:interactionparadigm}
+        \end{figure}
+        \\ 
+        \begin{table}[hbt!]
+            \begin{center}
+                \begin{tabular}{| p{3cm} | p{12.75cm} | }
+                    \hline
+                        \textbf{Name} & \textbf{Beschreibung} \\
+                    \hline
+                        Client-Server (\ref{pic:cs}) & Basierend auf einer sehr einfachen Interaktion zwischen Clients und dem Server. Ein Client sendet eine Anfrage an den Server und erwartet dementsprechend eine Antwort. \\ 
+                    \hline
+                        \ac{PP} (\ref{pic:pp}) & Gegensatz zu Client-Server Konzept. Hierbei können Geräte sowohl als Client Dienste abfragen, als auch als Server Dienste anbieten. \\ 
+                    \hline
+                        Message Passing (\ref{pic:messagepassing}) & Basierend auf einer einfachen Organisation in der ein Absender eine Nachricht mittels einer Warteschlange (Queue) an einen Empfänger weiterleitet. \\ 
+                    \hline
+                \end{tabular}
+            \end{center}
+            \caption{Interaktionsparadigmen nach \cite{IEEE2015}}
+            \label{table:kommunikationdmodelle}
+        \end{table}
+        \\
+        Eine Analyse und detailliertere Darstellung der jeweiligen Ansätze kann der Ausarbeitung, aus der die Paradigmen verwendet wurden, entnommen werden.
+        \\
+        \linebreak
+        In Zusammenhang mit Architekturen, die in dem Bereich \acs{IoT} Anwendung finden, und den Interaktionsparadigmen wird häufig zur Unterstützung 
+        verschiedener Interaktionsmodelle auf Protokolle gesetzt, die Daten und Primitiven transportieren. Diese Kommunikationsmodelle sind in zwei 
+        Bereiche, die ihre Anwendung in \ac{MtoM} finden, kategorisiert:
+        \\
+        \begin{itemize}
+            \item \ac{SOAP}\footnote{Detailliertere Definition des Begriffs SOAP. \url{https://www.redhat.com/en/topics/integration/whats-the-difference-between-soap-rest} Abgerufen am 29.03.2022}: 
+            Dabei handelt es sich um ein Standardprotokoll, dass dafür entwickelt wurde, 
+            um verschiedene Programmiersprachen auf verschiedenen Plattformen untereinander 
+            kommunizieren zu lassen.
+            \item \ac{REST}\footnote{Detailliertere Definition des Begriffs REST. \url{https://www.redhat.com/en/topics/integration/whats-the-difference-between-soap-rest} Abgerufen am 29.03.2022}: 
+            Dabei handelt es sich um eine Reihe von Architekturprinzipien, die auf 
+            die Anforderungen leichtgewichtiger Webdienste und mobiler Anwendungen abgestimmt sind. 
+            Anfragen, die über diese Form gesendet werden, können in mehreren Formaten beantwortet 
+            werden, darunter beispielsweise \ac{HTML}, \ac{XML} und \ac{JSON}.
+        \end{itemize}
+        Beide verfolgen das Ziel der Datenübermittlung zwischen Web-Anwendungen über eine Schnittstelle, das sogenannte \ac{API}.
+        \acs{REST} Architekturen werden bei einem \acs{IoT}-Szenario aufgrund ihrer Einfachheit und ihrer Bequemlichkeit in einer beschränkten Umgebung 
+        bevorzugt. \cite{IEEE2015} 
 
     \subsection{Historische Entwicklung}
 
     \subsection{Ziele von \acs{IoT}}
     \label{subsec:ziele-iot}
+        Mit dem \acl{IdD} 
+        %Ziel des Internets der Dinge ist es, automatisch relevante Informationen aus der realen Welt 
+        %zu erfassen, miteinander zu verknüpfen und im Netzwerk verfügbar zu machen. Dieser 
+        %Informationsbedarf besteht, weil in der realen Welt Dinge einen bestimmten Zustand haben 
+        %(z. B. „Luft ist kalt“, „Druckertoner ist voll“), dieser Zustand im Netzwerk jedoch nicht 
+        %verfügbar ist. Ziel ist also, dass viele reale Dinge die eigenen Zustandsinformationen 
+        %für die Weiterverarbeitung im Netzwerk zur Verfügung stellen. Das Netzwerk kann lokal, 
+        %als VPN in sich geschlossen oder auch mit dem Internet über Firewalls verbunden sein. 
+        %Solche Zustandsinformationen können Informationen über die aktuelle Nutzung, über Alterung, 
+        %aber auch über besondere Umweltbedingungen an dem Ort des Teilnehmers sein. Solche 
+        %Informationen können sowohl zur Verbesserung der Nutzbarkeit des Teilnehmers selbst 
+        %ausgewertet werden (Früherkennung von Wartung oder Austausch etc.), als auch zur 
+        %Verbesserung der Situation des umgebenden Bereiches (so kann z. B. die Reduktion 
+        %des Energieaufwandes zur Heizung oder Kühlung an eine Vielzahl von Informationen 
+        %im ganzen Raum gebunden werden, und so besser wirken als in der Regelinstallation, 
+        %die mit einem einzelnen Sensor [an häufig ungeeigneter Stelle montiert] auskommen muss). 
+        %In einem weiteren Schritt können digitale Services als Teil des IoT die Parametrierung von 
+        %Geräten so erleichtern und verbessern, dass sie auch dort geschieht, wo sie heute aus 
+        %Kostengründen nicht stattfindet. Wichtige Schritte zu diesem Ziel sind:
+
+        %die Standardisierung der Komponenten und Dienste im Internet der Dinge;
+        %die Einführung einer einfach zugänglichen, sicheren und allgemeinen Netzwerkanbindung, geeignet für alle Geräte mit eingebautem Mikrocontroller;
+        %die Reduktion der Kosten für in das IoT integrierte Teilnehmer (Gerätekosten, Inbetriebnahmekosten, Anschlusskosten etc.);
+        %die Entwicklung von kostenarmen, automatisierten (bis hin zu autonomen) digitalen Services im Netzwerk, die den zusätzlichen Nutzen der Vernetzung realisieren.
