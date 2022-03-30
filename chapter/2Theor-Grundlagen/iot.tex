@@ -140,19 +140,19 @@
             \centering
             \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/C-S.png}
+                \includegraphics[width=6cm,height=6cm,keepaspectratio]{images/C-S.png}
                 \caption{Client-Server Paradigma}
                 \label{pic:cs}
             \end{subfigure}
             \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/PtoP.png}
+                \includegraphics[width=6cm,height=6cm,keepaspectratio]{images/PtoP.png}
                 \caption{Peer to Peer Paradigma}
                 \label{pic:pp}
             \end{subfigure}
             \begin{subfigure}[b]{0.4\textwidth}
                 \centering
-                \includegraphics[width=5cm,height=5cm,keepaspectratio]{images/messagepassing.png}
+                \includegraphics[width=7.5cm,height=7.5cm,keepaspectratio]{images/messagepassing.png}
                 \caption{Message Passing Paradigma}
                 \label{pic:messagepassing}
             \end{subfigure}
@@ -178,6 +178,8 @@
             \label{table:kommunikationdmodelle}
         \end{table}
         \\
+        \pagebreak
+        \linebreak
         Eine Analyse und detailliertere Darstellung der jeweiligen Ansätze kann der Ausarbeitung, aus der die Paradigmen verwendet wurden, entnommen werden.
         \\
         \linebreak
@@ -201,25 +203,58 @@
         bevorzugt. \cite{IEEE2015} 
 
     \subsection{Historische Entwicklung}
+        Die ersten Konzepte zu dem heute bekannten \acs{IoT} liegen schon einige jahrzehnte zurück. 
+        Die historische Definition des \acl{IoT} wurde im Jahr 1999 von Kevin Ashton geprägt. Von der 
+        Definition bis hin zum erstmaligen Einsatz, bzw. zur Umsetzung eines Konzepts vergingen noch 
+        ein paar Jahre. Ein kurzer Einblick in die chronologische Entstehung des \acs{IoT} ist der 
+        folgende Tabelle zu entnehmen: 
+        \begin{table}[hbt!]
+            \begin{center}
+                \begin{tabular}{| p{3cm} | p{12.75cm} | }
+                    \hline
+                        \textbf{Jahr} & \textbf{Industrielle Beteiligung und Zuordnung} \\
+                    \hline
+                        1970 & Der erste Vorschlag zu miteinander verbundenen Geräten und Maschinen \\ 
+                    \hline
+                        1990 & John Romkey und Simon Hackett entwickelten den ersten Toaster, der über das Internet an- und ausgeschaltet werden konnte.\footnote{Geschichte to Romkey. \url{https://www.livinginternet.com/i/ia_myths_toast.htm} Abgerufen am 30.03.2022.} \\ 
+                    \hline
+                        1995 & Das Unternehmen Siemens leitete das erste Mobilfunkmodul ein, welches für die Kommunikation zwischen Maschinen zuständig ist (\acs{MtoM}-Technologie).\\ 
+                    \hline
+                        1999 & Die Definition des Begriffs \acs{IoT} von Kevin Ashton wurde veröffentlicht und von der Gesamtheit akzeptiert, als er bei \ac{PG} an den sogenannten \ac{RFID} Chips arbeitete. \acs{RFID}-Chips verwenden elektromagnetische Felder, die an Objekte angebracht sind, um diese identifizieren und verfolgen zu können. Ein solches System besteht aus einem Funktransponder, einem Funkempfänger und -sender. \\ 
+                    \hline
+                        2004 - 2005 & Der Begriff wurde in angesehenen Publikationen verwenden, darunter dessen von Boston Globe und The Guardian. \ac{ITU} veröffentlichte deren ersten Bericht über das Thema. \\ 
+                    \hline
+                        2008 - 2011 & Die Definitionen und Publikationen fanden erste Anwendungen in praktischen Umsetzungen. Gartner Inc. nahm den Begriff in ihre Recherche-Arbeiten mit auf. \\ 
+                    \hline
+                \end{tabular}
+            \end{center}
+            \caption{Historische Entwicklung vom \acl{IdD} \cite{Durga2020}}
+            \label{table:iothistory}
+        \end{table}
+        \\
+        \pagebreak
+        \linebreak
+        Mittlerweile ist das \acl{IdD} ein fester Bestandteil der Industrie und auch im privaten Umfeld. Viele 
+        Szenarien und Konzepte werden erarbeitet und umgesetzt. Die Kommunikation von Maschinen untereinander 
+        ist in der heutigen Zeit nicht mehr wegzudenken. Forschergruppen sind stark daran interessiert, mehrere 
+        Gebiete und Anwendungsbereiche innerhalb des \acs{IoT} zu erforschen. Stark vertreten ist dabei das \ac{FraunhoferIIS}
 
     \subsection{Ziele von \acs{IoT}}
     \label{subsec:ziele-iot}
-        Mit dem \acl{IdD} 
-        %Ziel des Internets der Dinge ist es, automatisch relevante Informationen aus der realen Welt 
-        %zu erfassen, miteinander zu verknüpfen und im Netzwerk verfügbar zu machen. Dieser 
-        %Informationsbedarf besteht, weil in der realen Welt Dinge einen bestimmten Zustand haben 
-        %(z. B. „Luft ist kalt“, „Druckertoner ist voll“), dieser Zustand im Netzwerk jedoch nicht 
-        %verfügbar ist. Ziel ist also, dass viele reale Dinge die eigenen Zustandsinformationen 
-        %für die Weiterverarbeitung im Netzwerk zur Verfügung stellen. Das Netzwerk kann lokal, 
-        %als VPN in sich geschlossen oder auch mit dem Internet über Firewalls verbunden sein. 
-        %Solche Zustandsinformationen können Informationen über die aktuelle Nutzung, über Alterung, 
-        %aber auch über besondere Umweltbedingungen an dem Ort des Teilnehmers sein. Solche 
-        %Informationen können sowohl zur Verbesserung der Nutzbarkeit des Teilnehmers selbst 
-        %ausgewertet werden (Früherkennung von Wartung oder Austausch etc.), als auch zur 
-        %Verbesserung der Situation des umgebenden Bereiches (so kann z. B. die Reduktion 
-        %des Energieaufwandes zur Heizung oder Kühlung an eine Vielzahl von Informationen 
-        %im ganzen Raum gebunden werden, und so besser wirken als in der Regelinstallation, 
-        %die mit einem einzelnen Sensor [an häufig ungeeigneter Stelle montiert] auskommen muss). 
+        Die Definition von dem \acl{IdD} gibt schon die Richtung an, in die sich die Zielsetzung von 
+        \acs{IoT} bewegt. Davon ist das Ziel abzuleiten, dass die Lücke zwischen der realen und der 
+        virtuellen Informationswelt so gering wie möglich gehalten, bzw. zunehmend minimiert wird. 
+        Dieser Informationsbedarf oder auch die Informationslücke besteht, da in der realen Welt Objekte, 
+        Dinge und Gegenstände einen bestimmten Zustand haben, z.B. „die Temperatur liegt bei 35 Grad Celsius“ 
+        oder „das Licht ist an und hat 75 \% Helligkeit“, die in der virtuellen Welt nicht verfügbar sind. 
+        Das verfolgte Ziel demnach, welches auch zum Großteil im Bereich \acl{SH} abgedeckt wird, ist, dass 
+        viele reale Gegenstände ihre Zustandsinformationen für die Weiterverarbeitung in der virtuellen 
+        Welt, beziehungsweise im Netzwerk zur Verfügung stellen. Diese Informationen können beispielsweise 
+        Aussagen zu der aktuellen Nutzung, der Bedingungen an einer bestimmten Stelle oder Uhrzeit und 
+        über Alterung geben. Diese Zustandsinformationen können dazu beitragen, dass die Nutzung des 
+        Gegenstandes vom Anwender ausgewertet und so optimiert werden kann, z.B. durch die Erkennung 
+        eines Defekts oder einer Automatisierung, damit die Ressource effizient genutzt wird. 
+
         %In einem weiteren Schritt können digitale Services als Teil des IoT die Parametrierung von 
         %Geräten so erleichtern und verbessern, dass sie auch dort geschieht, wo sie heute aus 
         %Kostengründen nicht stattfindet. Wichtige Schritte zu diesem Ziel sind:
