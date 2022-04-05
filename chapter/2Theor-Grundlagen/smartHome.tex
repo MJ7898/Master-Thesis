@@ -42,9 +42,9 @@
     \end{itemize}
     Eine elementare Information im Zusammenhang zu dieser Arbeit ist, dass die Verwendung des Begriffs \textit{intelligentes Büro} 
     ebenso in den Kontext des \acl{SH} gehört. Hierbei wird lediglich die Räumlichkeit im unternehmerischen Jargon verwendet, 
-    die ebenso Grundlage für die Verwendung von Komponenten des \acl{SH} bietet. 
+    die ebenso eine Grundlage für die Verwendung von Komponenten des \acl{SH} bietet. 
     \\
-    An dieser Stelle wird ebenso deutlich, dass die Verwendung des Begriffs als auch die zugrundeliegenden technisches Verfahren 
+    An dieser Stelle wird deutlich, dass die Verwendung des Begriffs als auch die zugrundeliegenden technischen Verfahren 
     weiträumig einsetzbar sind und deshalb die Begriffsdefinition nicht eindeutig festgehalten werden kann. 
     
     \subsubsection*{Teilsysteme des \acl{SH}}
@@ -84,12 +84,12 @@
         \end{table}
         \\
         Ein weiterer wichtiger Anhaltspunkt zum Verständnis der Definition von Smart Home ist die Ausstattung der Komponenten mit Intelligenz und die 
-        Vernetzung der Teilsysteme. Dadurch steht als Ziel im Vordergrund nicht die übergeordnete zentrale Steuerung, sondern vielmehr die verteilte 
+        Vernetzung der Teilsysteme. Dadurch steht als Ziel im Vordergrund weniger die übergeordnete zentrale Steuerung, sondern vielmehr die verteilte 
         Intelligenz, um Aufgaben möglichst autonom (eigenständig) abzuarbeiten. Die dabei erzeugten als auch erforderlichen Daten mit anderen 
         Komponenten des Gesamtsystems auszutauschen, ist ebenso ein vorangestelltes Ziel, welches eine intelligente Umgebung schafft. 
         \\
         Eine mögliche Vernetzung und auch Verwendung solcher Komponenten wird in folgender Abbildung (\ref{pic:szenarien-smarhome}) 
-        skizziert. Diese Grafik dient als grobe Übersicht potentieller Anwendungsszenarien, ist allerdings nicht als vollständig zu interpretieren. 
+        skizziert. Diese Grafik dient als grobe Übersicht potentieller Anwendungsszenarien, repräsentiert jedoch nicht alle Möglichkeiten der Anwendung. %ist allerdings nicht als vollständig zu interpretieren. 
         \begin{figure}[hbt!]
             \centering
             \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/Anwendungsszenarien_SH.png}
@@ -97,8 +97,11 @@
             \label{pic:szenarien-smarhome}
         \end{figure}
         \\
-        Es gibt weitaus mehr, beziehungsweise werden diese in einem Überbegriff untergeordnet. Ein essentielles Anwendungsszenario ist die Kopplung 
-        von Robotern jeglicher Art, darunter Staubsaugerroboter oder auch Service-Roboter, die immer mehr in die Thematik des \acl{SH} integriert werden. 
+        Darüber hinaus gibt es weitaus mehrere Anwendungsszenarien, beziehungsweise werden diese in der Abbildung 
+        (\ref{pic:szenarien-smarhome}) in einem Überbegriff zusammengefasst.
+        Ein Anwendungsszenario, welches immer mehr Zuwendung findet, ist die Kopplung 
+        von Robotern jeglicher Art, darunter Staubsaugerroboter, wobei diese schon weiter verbreitet sind, oder 
+        vor allem jedoch Service-Roboter, die immer mehr in die Thematik des \acl{SH} versucht zu integriert werden. 
         
     \subsubsection*{Einordnung von Smart Home in das Internet der Dinge}
         Im Konsumentenmarkt wird %die Technologie des \acs{IoT} in Produkten eingesetzt, die 
@@ -114,14 +117,43 @@
         \\
         \linebreak
         Die Abbildung (\ref{pic:mindmap_SH-IoT}) zeigt die Verbindungen als auch die Beziehungen von \acl{SH} zu anderen Technologien. Hier wird 
-        deutlich, dass im Bereich des \acl{SH} viele Fragestellungen thematisiert werden können. 
+        deutlich, dass im Bereich des \acl{SH} viele Fragestellungen thematisiert werden können, die andere Themenbereiche tangieren.  
         \\
         \linebreak
         Um die Bezugspunkte und die Einordnung zu verstehen, wird in folgendem Abschnitt auf die Funktionsweise von \acl{SH} eingegangen.
         \\ 
         Der Aufbau eines \acl{SH} ist architektonisch ähnlich zu dem Grundprinzip einer \acs{IoT}-Lösung. Die Veranschaulichung des 
-        grundlegenden Aufbaus ist der Abbildung (\ref{pic:skizze_iot}) zu entnehmen. 
-        %Funktionweise von Smart HOme
+        zugrundeliegenden Aufbaus ist der Abbildung (\ref{pic:skizze_iot}) zu entnehmen. 
+
+    \subsubsection*{Funktionsweise eines \acl{SH}}
+        Ein \acl{SH} System besteht aus mehreren Teilsystemen, die in der Regel aus verschiedenen Komponenten bestehen. 
+        Wichtige Elemente eines grundlegenden Aufbaus sind die Endgeräte, die sogenannten Aktoren, Eingabegeräte, 
+        Sensoren, Gateway und die Vernetzung über Funk, Kabel oder Stromnetz. Die Endgeräte sind die Ausgabegeräte, die 
+        über die intelligente Steuerung angesprochen werden können. Darunter zählen zum Beispiel 
+        LED-Lampen, Rolläden, Lüftungsanlagen, Lautsprecher, Fernseher, Waschmaschinen und jegliche Arten von 
+        Service-Robotern. Eingabegeräte sind die Schnittstelle zwischen der Interaktion des Nutzers und des 
+        Smart Home Systems. Das können Wandschalter, Touchdisplays, Fernbedienungen, Smartphones und Regler sein. 
+        Mithilfe dieser Schnittstelle können Zustände und Aktionen an den Endgeräten ausgelöst werden. Bei einer 
+        fehlenden Verbindung zwischen den Steuerelementen sind diese trotzdem noch über direkte Schaltbefehle möglich. 
+        Damit die Zustände ebenso digitalisiert werden können und dem System zur Verfügung stehen, werden Sensoren 
+        benötigt. Diese greifen die physikalischen oder elektronischen Eigenschaften des Endgerätes ab, um die 
+        Zustände zu ermitteln. Das Gateway repräsentiert die zentrale Steuereinheit, auf dem die Sensordaten 
+        eingehen und die Sendung von Befehlen an die Aktoren stattfindet. Ebenso ermöglicht das Gateway die 
+        Kommunikation der Endgeräte und Sensoren untereinander. Eine mögliche Internetverbindung zwischen 
+        dem Gateway und einer zentralen Plattform, die über die Cloud erreichbar ist, kann ebenso hergestellt werden. 
+        Je nach Gerät kann über das Gateway auch eine direkte Steuerung einzelner Elemente stattfinden. Das letzte 
+        Element, die Vernetzung, ist dafür zuständig, die Verbindung aller Elemente. Hierfür kommen verschiedene 
+        Protokolle, die unter anderem in Abschnitt (\ref{sec:technologien}) beschrieben werden, 
+        per Funk, Kabel oder Stromnetz zum Einsatz. % https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/wohnen/smart-home-das-intelligente-zuhause-6882#:~:text=Darunter%20fallen%20zum%20Beispiel%20Heizk%C3%B6rperregler,aus%20einem%20oder%20mehreren%20Eingabeger%C3%A4ten.
+        \\
+        Ein exemplarischer Aufbau der Komponenten ist der folgenden Abbildung zu entnehmen:
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
+            \caption{Aufbau und Funktionsweise einer Smart Home Infrastruktur}
+            \label{pic:aufbau_SH}
+        \end{figure}
+        
         %Fügung in ein IoT Grundprinzip - https://www.aimprosoft.com/blog/iot-smart-home/  
 
 
