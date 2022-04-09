@@ -6,23 +6,61 @@
     Um einen Vergleich herzustellen, wird ein vergleichbares Protokoll betrachtet. Diese werden dann zum 
     Abschluss gegenübergestellt. 
 
-    \subsection{Netzwerkprotokolle}
+    \subsection{Übertragungsmethoden}
     \label{subsec:netzwerkprotokolle}
-    Allgemein gibt es im Bereich des \acl{SH} mehrere Protokolle und Möglichkeiten, die Objekte miteinander vernetzt. 
+    Allgemein gibt es im Bereich des \acl{SH} mehrere Methoden und Möglichkeiten, die Objekte miteinander zu vernetzen. 
     Unter dessen gehören Protokolle über Bluetooth, Ethernet, WLAN, Bussysteme, Funk und Stromleitung. 
     Diese werden Abhängig von den Herstellern eingesetzt. Proprietäre Systeme funktionieren nur über eine 
     Übertragungsmethode. So erzwingen die Hersteller die Nutzung einer Produktlinie, bzw. den Kauf einer 
     einheitlichen Lösung. Geräte die die Möglichkeiten besitzen über mehrere Protokolle 
     zu kommunizieren sind flexibler einsetzbar und mit mehreren Plattformen und Geräten kompatibel.
-    Die populärsten werden in folgender Tabelle aufgelistet, jedoch in dieser Arbeit nicht weiter vertieft:
-    
+    Die populärsten werden in folgender Tabelle aufgelistet: 
+    \begin{table}[hbt!]
+        \begin{center}
+            \begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
+                \hline
+                    \textbf{Technologie} & \textbf{Übertragung} & \textbf{Frequenzbereich (Funk)} & \textbf{Proprietär} \\
+                \hline
+                    ZigBee & Funk & 2,4 GHz, 868 MHz & Nein \\ 
+                \hline
+                    Z-Wave & Funk & 868 MHz & Nein \\ 
+                \hline
+                    HomeMatic & Funk / Datenleitung & 868,3 MHz & Ja \\
+                \hline
+                    KNX & Funk / Strom- und Datenleitung & 868 MHz / - & Nein / Ja (Datenleitung als Gesamtsystem) \\
+                \hline
+                    Wi-Fi / WLAN & Funk & 2,4 - 5 GHz & Nein \\
+                \hline 
+                    Bluetooth & Funk & 2,4 GHz & Nein \\
+                \hline
+                    io-homecontrol & Funk & 868-870 MHz & Ja \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \caption{Übertragungsmethoden des Smart Home}
+        \label{tab:protocolsSH}
+    \end{table}
+    \\
+    Die Auflistung der zum aktuellen Zeitpunkt am meist verwendeten Übertragungsmethoden dient 
+    lediglich als Einblick, damit eine große Gesamtübersicht der Technologien und der Thematik \acl{SH} entsteht. 
+    Demnach wird im Rahmen dieser Arbeit das Thema oberflächlich erläutert und nicht ausführlich vertieft.
+    %ZigBee? Erläuterung etwas detaillierter?
+
+    % https://www.bigdata-insider.de/so-laeuft-der-datenaustausch-zwischen-edge-und-cloud-a-1097887/ 
 
     \subsection{MQTT}
     \label{subsec:mqtt}
+        % Grunlegende Erläuterung zu MQTT:
+        %\cite{Naik2017} und \cite{Hunkeler2008}
+        % Publish / Subscribe Kommunikationmodell 
+
 
 
     \subsection{AMQP}
     \label{subsec:amqp}
+        % Grunlegende Erläuterung zu AMQP:
+        %\cite{Naik2017}
+        % Vergleich zu MQTT
 
     
     %\subsection{DDS}
