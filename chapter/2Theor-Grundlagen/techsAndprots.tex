@@ -14,6 +14,7 @@
     Übertragungsmethode. So erzwingen die Hersteller die Nutzung einer Produktlinie, bzw. den Kauf einer 
     einheitlichen Lösung. Geräte die die Möglichkeiten besitzen über mehrere Protokolle 
     zu kommunizieren sind flexibler einsetzbar und mit mehreren Plattformen und Geräten kompatibel.
+    Grundlegend werden mit diesen Übertragungsmethoden Netzwerke erstellt, über das die Geräte in einem \acl{SH} kommunizieren können.
     Die populärsten werden in folgender Tabelle aufgelistet: 
     \begin{table}[hbt!]
         \begin{center}
@@ -50,6 +51,14 @@
 
     \subsection{MQTT}
     \label{subsec:mqtt}
+        Das \ac{MQTT}-Protokoll ist eines der ältesten offenen Netzwerk- und Nachrichtenprotokolle der 
+        \ac{MtoM}-Kommunikation. 
+        Dies wurde 1999 von IBM Mitarbeiter Andy Stanford-Clark\footnote{Informationen zu Herrn Stanford-Clark \url{https://stanford-clark.com} Abgerufen am 12.04.2022} 
+        und von Cirrus Link Solutions Mitarbeiter Arlen Nipper\footnote{Informationen zu Herrn Nipper \url{https://www.inductiveautomation.com/resources/podcast/the-coinventor-of-mqtt-arlen-nipper-from-cirrus-link-solutions} Abgerufen am 12.04.2022} 
+        entwickelt. Die Technologie ermöglicht die Übertragung von Messdaten, sogenannten Telemetriedaten, in Form von 
+        Nachrichten zwischen Maschinen und Geräten. Die erzeugten Messdaten durch beispielsweise Sensoren und Aktoren 
+        können durch ihre minimale Größe und die kompakte Form des Protokolls in einem kleinen Datenpaket auch bei 
+        hoher Verzögerung oder bei beschränktem Netzwerk übertragen werden. 
         % Grunlegende Erläuterung zu MQTT:
         %\cite{Naik2017} und \cite{Hunkeler2008}
         % Publish / Subscribe Kommunikationmodell 
