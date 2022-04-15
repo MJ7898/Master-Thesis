@@ -58,18 +58,106 @@
         entwickelt. Die Technologie ermöglicht die Übertragung von Messdaten, sogenannten Telemetriedaten, in Form von 
         Nachrichten zwischen Maschinen und Geräten. Die erzeugten Messdaten durch beispielsweise Sensoren und Aktoren 
         können durch ihre minimale Größe und die kompakte Form des Protokolls in einem kleinen Datenpaket auch bei 
-        hoher Verzögerung oder bei beschränktem Netzwerk übertragen werden. 
-        % Grunlegende Erläuterung zu MQTT:
-        %\cite{Naik2017} und \cite{Hunkeler2008}
-        % Publish / Subscribe Kommunikationmodell 
+        hoher Verzögerung oder bei beschränktem Netzwerk übertragen werden \cite{Naik2017}. \acs{MQTT} ist ein 
+        klassisches Client-Sever-Protokoll, welches nach dem \textit{Publish/Subscribe} Kommunikationsmodell 
+        entwickelt wurde. Ein \acs{MQTT}-Client veröffentlicht Nachrichten an einen \acs{MQTT}-Server, den sogenannten 
+        \acs{MQTT}-Broker. Diese können von anderen Clients abonniert oder auf dem Broker für zukünftige Abonnements 
+        aufbewahrt werden. Jede erzeugte Nachricht wird an eine Adresse veröffentlicht, die als Thema, im Englischen \textit{Topic}, 
+        bezeichnet wird \cite{Naik2017}. \acs{MQTT}-Clients können mehrere Topics abonnieren und erhalten jede Nachricht, die an das 
+        jeweilig abonnierte Topic gesendet wird. 
+        \\
+        Die Leichtgewichtigkeit des Protokolls ermöglicht es, die Nachrichten bei eingeschränkter Netzwerkverfügbarkeit zu 
+        übermitteln. Ausschlaggebend dafür ist das binär-basierte Protokoll, welches normalerweise einen festen Header von 
+        zwei Bytes mit kleinen Nachrichtennutzlasten von maximal bis zu einer Grüße von 256 MB \cite{Naik2017} enthält. Grundlegend 
+        ist \acs{MQTT} auf der Basis des Transportprotokoll \ac{TCP} aufgebaut und nutzt zur Verstärkung der Sicherheit die 
+        \ac{TLS}/\ac{SSL}-Verschlüsselung. Dadurch sind Client und Broker mit ihrer Kommunikation verbindungsorientiert.  
+        Die Anwendung von \acs{MQTT} im Bereich des \acl{SH} zeichnet sich durch die Möglichkeit aus, große Netzwerke mit 
+        vielen kleineren Geräten, die von einem Backend-Server, bzw. dem Backend-System überwacht und gesteuert werden müssen, zu 
+        betreiben. Dennoch ist es nicht für Mulitcast-Daten oder Übertragungen von Gerät zu Gerät ausgelegt. Die Nutzbarkeit 
+        von \acs{MQTT} ist aufgrund der wenigen Steueroptionen und der Einfachheit des Messaging-Protokolls sehr simplen und 
+        leichtgewichtig \cite{Naik2017}. 
+        \\
+        \linebreak
+        Ein interessanter Aspekt des \acs{MQTT}-Brokers ist, dass er die gesamte Datenlage seiner Kommunikationspartner aufbewahrt und 
+        so die Option bietet, zusätzlich als Zustand-Datenbank betrieben werden kann. Dadurch können weniger leistungsfähige Geräte 
+        mit einem \acs{MQTT}-Broker verbunden werden, bei denen die Geräte Befehle und Daten entgegennehmen können, zugleich aber ein 
+        komplexeres Lagebild auf dem Broker entsteht. So können Daten an einen leistungsfähigeren Kommunikationspartner 
+        weitergeleitet und dort ausgewertet werden.\footnote{\url{https://mqtt.org} Abgerufen am 13.04.2022}
+        \\
+        Mit diesem Aspekt können durch das \acl{MQTT} Protokoll Automatisierungslösungen geschaffen werden und findet dadurch im 
+        Segment \acs{IoT} und \acl{SH} einfache Verwendung und dementsprechend eine große und schnelle Verbreitung. 
+        \\
+        \linebreak
+        Zusammengefasst ist der \acs{MQTT}-Broker die Kommunikationsschnittstelle der \acl{SH}-Geräte und der \acl{SH}-Plattform. 
+        Alle Kommunikationspartner können so Informationen (Nachrichten / Messages) auf bestimmte Topics (Endpunkten) senden und 
+        diese abonnieren (publish / subscribe). 
 
+        \subsubsection*{Publish/Subscribe Kommunikationmodell}
+        \label{subsubsec:pubsub}
+            Das Prinzip des Publish/Subscribe Kommunikationsmodells besteht darin, dass Komponenten, die daran 
+            interessiert sind, bestimmte Informationen zu konsumieren, ihr Interesse anmelden \cite{Hunkeler2008}. Dieser Vorgang wird als 
+            Abonnement (subscription) bezeichnet. Geräte, die an dem Vorgang oder an bestimmten Informationen interessiert sind, 
+            werden als Abonnenten (subscriber) definiert. Im Gegenzug können Geräte und Komponenten bestimmte Informationen produzieren und 
+            diese veröffentlichen (publish) und an bestimmte Abonnenten weitergeben. Diese Vermittlung der Informationen zwischen 
+            Herausgeber (publisher) und Abonnent (subscriber) erfolgt über den Markler (broker), dieser koordiniert sämtlichen Abonnements. 
+            Alle Abonnent müssen sich explicit bei dem Broker anmelden, um die Informationen zu erhalten \cite{Hunkeler2008}. 
+            \begin{figure}[hbt!]
+                \centering
+                \includegraphics[width=12cm,height=12cm,keepaspectratio]{images/sub-model.drawio.png}
+                \caption{Themenbasiertes Pub/Sub Kommunikationsmodell \cite{Hunkeler2008}}
+                \label{pic:pub-sub-model}
+            \end{figure}
+            \\
+            Dieses Prinzip ist ein essentieller Bestandteil des \acs{MQTT}-Protokolls. Im Folgenden wird ein Beispiel aufgezeigt, welches 
+            die Kommunikation über das Publish/Subscribe Modell darstellt.
+            
+            \subsubsection*{Beispiel}
+            \label{subsubsec:pubsub-example}
+            IST NOCH AUSZUARBEITEN. BEISPIELBESCHREIBUNG FOLGT!!!! 
+            %TBD 
+            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Test test}]
+                subscribe -topic: test/test/
+            \end{lstlisting}
+            % Erläutern des Beispiels anhand des publishen und subscriben eines topics in bezug auf das checkin mit der authentifizierung und dem 
+            % Command an Temi, welcher dann die Begrüßung und das Checkin durchführt. 
 
 
     \subsection{AMQP}
     \label{subsec:amqp}
+        \ac{AMQP} ist ebenso ein leichtgewichtiges \acs{MtoM}-Protokoll, welches im Jahre 2003 von John O'Hara JPMorgan Chase in London, 
+        Großbritannien, entwickelt wurde \cite{Naik2017}. Der Fokus diesen Protokolls liegt auf der Unternehmens-Messaging Ebene und 
+        legt hohen Wert auf die Zuverlässigkeit, Sicherheit, Bereitstellung und Interoperabilität der Kommunikation. \acs{AMQP} 
+        unterstützt neben der Publish/Subscribe- auch die Request/Response Architektur. Es bietet eine breite Palette von 
+        Funktionen im Zusammenhang mit Messaging, wie z. B. zuverlässiges Queuing, themenbasiertes Publish-and-Subscribe-Messaging, 
+        flexibles Routing und Transaktionen \cite{Naik2017}. Das Kommunikationsmodell nach dem \acs{AMQP} Standard erfordert, dass der 
+        Herausgeber (publisher) oder der Empfänger (subscriber) einen \textit{Austausch (exchange)} mit einem bestimmten Namen generiert 
+        und diesen dann sendet \cite{Naik2017}. 
+
+        \\
+        \linebreak
+        Neben den beiden aufgeführten Kommunikationmodellen gibt es noch weitere, darunter das klassische \ac{HTTP} und das \ac{CoAP}, die 
+        allerdings nicht weiter ausgeführt werden. Der Fokus in dieser Arbeit liegt auf dem \acs{MQTT}-Protokoll. 
+        
+        
+        
+        %Dadurch wird die Konfiguration und Einsetzbarkeit der Technologie komplexer im Gegenzug zu MQTT
+
         % Grunlegende Erläuterung zu AMQP:
         %\cite{Naik2017}
         % Vergleich zu MQTT
+
+
+        %Publisher und Verbraucher nutzen den Namen dieser Börse, um sich 
+        %gegenseitig zu entdecken. Anschließend erstellt ein Verbraucher eine „Warteschlange“ und hängt sie 
+        %gleichzeitig an die Börse an. Nachrichten, die von der Börse empfangen werden, müssen über einen Prozess 
+        %namens „Binding“ mit der Warteschlange abgeglichen werden. AMQP tauscht Nachrichten auf verschiedene Weise 
+        %aus: direkt, in Fanout-Form, nach Thema oder basierend auf Headern. AMQP ist ein binäres Protokoll und 
+        %erfordert normalerweise einen festen Header von 8 Bytes mit kleinen Nachrichtennutzlasten bis zur maximalen 
+        %Größe, abhängig vom Broker/Server oder der Programmiertechnologie [14], [15]. AMQP verwendet TCP als 
+        %Standard-Transportprotokoll und TLS/SSL und SASL für die Sicherheit [13]. Somit ist die Kommunikation 
+        %zwischen Client und Broker verbindungsorientiert. Zuverlässigkeit ist eines der Kernmerkmale von AMQP und 
+        %bietet zwei vorläufige Quality of Service (QoS)-Stufen für die Zustellung von Nachrichten: Unsettle-Format 
+        %(nicht zuverlässig) und Settle-Format (zuverlässig) [3].
 
     
     %\subsection{DDS}
