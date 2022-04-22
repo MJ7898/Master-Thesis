@@ -56,13 +56,43 @@
               Helligkeitswert, der über den Sensor festgestellt wurde einen bestimmten Wert erreicht hat, soll das Licht ebenso 
               ausgeschaltet werden.
     \end{itemize}
-    
     Die Architektur der Home Assistant Anwendung ist grundlegend als eingebettetes System eines Betriebssystem aufgestellt, welches in 
     drei Schichten aufgeteilt ist. In unterster Ebene befindet sich das Betriebssystem, welches als minimales Linux System aufgestellt 
     ist, um die darauf liegenden Schichten, den Aufseher (supervisor) und den Kern (core), zu betreiben. Mit dem Supervisor wird das 
     Betriebssystem verwaltet und konfiguriert. Der eigentliche Kern interagiert mit dem Supervisor, den Geräten und den Services. 
     %Erläuterung supvervisor und core Architektur
+    \\
+    \linebreak
+    Der Supervisor ist die Schicht über dem Betriebssystem, die über einen D-Bus kommunizieren. Diese Zwischenschicht ermöglicht dem 
+    Benutzer die Verwaltung der Home Assistant Installation. Die Aufgaben des Supervisors sind wie folgt 
+    definiert\footnote{Architektur der Home Assistant Software. \url{https://developers.home-assistant.io/docs/supervisor} Abgerufen am 22.04.2022}: 
+    \begin{itemize}
+        \item Dieser führt den Home Assistant Kern (Core) aus.
+        \item Dieser führt die Updates des Home Assistant Core aus.
+        \item Dieser führt einen \textit{Rollback} bei Fehlgeschlagenem Update durch.
+        \item Dieser führt Sicherungen und Wiederherstellungen durch.
+        \item Dieser verwaltet die Add Ons der Core Instanz
+    \end{itemize}
+    \begin{figure}
+        \centering
+        \includegraphics[width=10cm,height=10cm,keepaspectratio]{images/ha_architecture_2020.png}
+        \caption{Architektur des Home Assistant Supervisors}
+        \label{fig:architectureHAOS}
+    \end{figure}
 
+    Die auf dem Supervisor aufbauende Architektur ist die Architektur der Anwendung, der sogenannte Core. 
+
+    %Die Übersicht über die HA-Architektur ist in Abb. 1 dargestellt. HA besteht aus vier Hauptteilen: Event Bus, State Machine, Service 
+    %Registry und Timer. Der Event Bus ist die zentrale Komponente des HA, der verwendet wird, um das Auslösen und Abhören von Ereignissen 
+    %zu erleichtern. Die Zustandsmaschine kann den Zustand von Dingen überwachen und löst ein Zustandsänderungsereignis an Event Bus aus, 
+    %sobald ein Zustand aktualisiert wurde. Die Dienstregistrierung ist dafür verantwortlich, den Ereignisbus auf Anrufdienstereignisse 
+    %abzuhören. Benutzer können einen Dienst über die Dienstregistrierung hinzufügen. Automatisierung und Dienst „Entwicklertools“ im 
+    %Frontend können Dienste aufrufen. Der Timer ist angepasst, um ein zeitverändertes Ereignis gemäß einer gegebenen Frequenz auf dem 
+    %Ereignisbus zu senden. Diese Komponente vereinfacht die Automatisierung basierend auf der Dauer. HA verwendet SQLite als Datenbank, 
+    %was bedeutet, dass keine Cloud Daten über das Leben des Benutzers sammelt. Nur der Benutzer kann auf den Zustand des Hauses zugreifen. 
+    %Außerdem wird die Kommunikation mit dem Gateway verschlüsselt. Der HA bietet jedoch eine Verlaufskomponente, die alles verfolgen kann, 
+    %was sich innerhalb der Plattform ereignet. Somit können Nutzer auf alle gespeicherten Informationen zu Hause zugreifen.
+    
     % Beschreibung der Konzepte und Architektur von Home Assistant.
     %Bild der Architektur
     % Beschreibung der Komponenten, Aufbau etc von Home Assistant
