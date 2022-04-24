@@ -84,18 +84,19 @@
     Die auf dem Supervisor aufbauende Architektur ist die Architektur der Anwendung, der sogenannte Core. Dieser besteht aus vier 
     Komponenten, welche den Hauptteil abbilden: Event Bus, State Machine, Service Registry und Timer\footnote{Entwickler Dokumentation der Home Assistant Plattform. \url{https://developers.home-assistant.io/docs/} Abgerufen am 24.04.2022}. 
     \\
-    Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponenten stellt eine zentrale Eigenschaft 
-    der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine Komponente, mit der die Zustände von Dingen, darunter 
+    Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponente stellt eine zentrale Eigenschaft 
+    der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine weitere Komponente, mit der die Zustände von Dingen, darunter 
     intelligente Geräte, Sensoren uvm., überwacht und Zustandsänderungsereignisse an den Event Bus ausgelöst werden. Dies erfolgt nach der 
     Änderung des Zustandes eines Objektes. Mit der Dienstregistrierung (Service Registry) wird der Event Bus auf eingehende Aufrufe von 
-    Diensten abgehört. Über die Service Registry kann der Benutzer Dienste hinzufügen und verwalten. Über die Entwicklertools, die über das 
+    Diensten abgehört. Über die Service Registry kann der Benutzer Dienste hinzufügen und verwalten. Mittels den Entwicklertools, die über das 
     \ac{UI} aufgerufen werden können, kann der Benutzer die Dienste und Automatisierungen aufrufen und konfigurieren. Das letzte 
     Element, der Timer, ist ebenso eine Komponente der Architektur, die zeitveränderte Ereignisse gemäß einer gegebenen Frequenz 
     an den Event Bus sendet. Somit können zeitbasierte Automatisierungen vereinfacht und ausgelöst werden. Als Datenbank wird eine 
-    nicht Cloud-basierte SQLite Datenbank verwendet. Diese ist nur auf dem Gerät enthalten und wird nicht über das Internet übertragen. 
+    nicht Cloud-basierte SQLite\footnote{Structured Query Language, eine Datenbanksprache zur Definition, Abfrage und Bearbeitung von Datenstrukturen in relationalen Datenbanken} 
+    Datenbank verwendet. Diese ist nur auf dem Gerät enthalten und wird nicht über das Internet übertragen. 
     Im lokalen Netzwerk hat der Nutzer die Möglichkeit, um auf die Datenbank zuzugreifen und eine Historie von Aktionen einzusehen. 
-    Eine Verlaufskomponente, die ebenso enthalten ist, speichert die Ereignisse innerhalb der Plattform. Somit können Nutzer auf 
-    alle gespeicherten Informationen zu Hause einsehen \cite{HAOSarchitecture2018}.
+    Eine Verlaufskomponente, die ebenso im Core enthalten ist, speichert die Ereignisse innerhalb der Plattform. Somit können Nutzer auf 
+    alle gespeicherten Informationen zu Hause zugreifen und diese einsehen \cite{HAOSarchitecture2018}.
     \\
     \linebreak
     \begin{figure}[hbt!]
@@ -106,38 +107,42 @@
     \end{figure}
 
 \subsection{Ziele und Schwerpunkte}
-    Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, damit die Zielerreichung (\ac{DOD}) messbar ist und terminiert. Die mit 
+    Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, damit die Zielerreichung (\ac{DOD}) messbar ist. Die mit 
     der Home Assistant Plattform verfolgten Ziele sind Privatsphäre und Sicherheit, die Wahlmöglichkeiten von Geräten und die Haltbarkeit 
-    der Plattform. 
+    der Plattform\footnote{Schwerpunkte der Home Assistant Plattform. \url{https://www.home-assistant.io/blog/2021/12/23/the-open-home/} Abgerufen am 24.04.2022}. 
     \\
     \linebreak
     Das Thema der Privatsphäre wird bei Home Assistant dadurch forciert, dass die Geräte nur optional über das Internet erreichbar sind, bzw. 
     nur über das lokale Netzwerk. So kann die Kategorisierung des Verhaltens durch Algorithmen vermieden werden. 
     \\
-    Die großflächige Auswahlmöglichkeit von Geräten und Verknüpfungen ist ein weiteres großes Ziel von Home Assistant, da es möglich sein soll 
-    herstellerunabhängig Geräte zu verwenden und zu integrieren. 
+    Die großflächige Auswahlmöglichkeit von Geräten und Verknüpfungen ist ein weiteres großes Ziel von Home Assistant, da es möglich ist  
+    herstellerunabhängig Geräte zu verwenden und zu integrieren. Dadurch können über eine zentrale mehrere Geräte von diversen Herstellern 
+    kombiniert werden.
     \\
     Haltbarkeit wird an der Stelle addressiert, an der die Plattform uneingeschränkt verfügbar ist und Geräte zur Anbindung verwendbar sind. 
     Damit ist auch zu erwarten, dass Geräte, die eingebunden werden können, so konzipiert und gebaut sind, damit sie eine lange Lebensdauer 
     besitzen.
     \\
     \linebreak
-    Schwerpunkte und Lösungen zu Problembehebung sind die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
-    Automationen, die Prozesse selbstständig auslöst. Die Kompatibilität der Plattform ist ein weiterer Schwerpunkt der Home Assistant 
-    Plattform.
-    Ein weiterer Schwerpunkt ist die Sichtbarkeit der Daten, die potentiell gesendet werden, um den Datenschutz und die Privatsphäre so 
-    hoch wie möglich zu halten.
-    
+    Schwerpunkte, bzw. Lösungen zur Problembehebung sind die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
+    Automationen, die Prozesse selbstständig auslöst. Durch die Möglichkeit der Automatisierung und Steuerung von Komponenten im Eigenheim, 
+    bzw. im Büro kann die Lebensqualität erhöht als auch die Energy- und Stromkosten gesenkt werden. Die Kompatibilität der Plattform 
+    ermöglicht die Verwendung von mehreren Geräten und Herstellern über eine zentrale Stelle, der Home Assistant Software. Dies ermöglicht 
+    dem Nutzer die uneingeschränkte Verwendung von Geräten und die Unabhängigkeit zu Herstellern, die ggf. den Preis der Geräte über dem 
+    Marktdurchschnitt verkaufen. Ein weiterer Schwerpunkt ist die Sichtbarkeit der Daten, die potentiell gesendet werden, um den Datenschutz 
+    und die Privatsphäre auf dem höchsten Standard zu halten. Ein Auswirkung dafür ist die zugrundeliegende lokale Datenhaltung über die 
+    Datenbank, die direkt auf dem Gerät der Plattform läuft.
+
     %https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/
     %Home Assistant is created to address these issues:
     %– Could we have a single home automation/control centre, compatible with almost all electronic devices?
     %– Could we make the sending of data to an external server visible? Could we even eliminate it completely?
 
 \subsection{Stärken und Schwächen}
+
     % - Konfiguration über yaml
     
     % Advantages of HA:
-
     % open source
     % cheap
     % big community
@@ -145,8 +150,8 @@
     % ability to create your own interface for browser and mobile app
     % ability to run on the hardware of your choosing (I run HA inside a Docker container on my Synology NAS, which makes updates a breeze)
     % much more (debugging) information available if you run into problems
+    
     % Disadvantages of HA:
-
     % (advanced) setup/configuration requires editing YAML files and restarting after each change
     % automations are more complicated (no nice web interface)
     % not an all-in-one solution: HA supports Z-Wave and Zigbee just fine, but it requires additional configuration that 
