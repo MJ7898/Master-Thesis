@@ -63,9 +63,11 @@
     %Erläuterung supvervisor und core Architektur
     \\
     \linebreak
-    Der Supervisor ist die Schicht über dem Betriebssystem, die über einen D-Bus kommunizieren. Diese Zwischenschicht ermöglicht dem 
-    Benutzer die Verwaltung der Home Assistant Installation. Die Aufgaben des Supervisors sind wie folgt 
-    definiert\footnote{Architektur der Home Assistant Software. \url{https://developers.home-assistant.io/docs/supervisor} Abgerufen am 22.04.2022}: 
+    Der Supervisor ist die Schicht über dem Betriebssystem. Die Kommunikation der beiden Komponenten findet die über einen D-Bus statt. Diese Zwischenschicht ermöglicht dem 
+    Benutzer die Verwaltung der Home Assistant Installation. 
+    \\
+    Die Aufgaben des Supervisors sind wie folgt 
+    definiert\footnote{Architektur des Home Assistant Supervisors. \url{https://developers.home-assistant.io/docs/supervisor} Abgerufen am 22.04.2022}: 
     \begin{itemize}
         \item Dieser führt den Home Assistant Kern (Core) aus.
         \item Dieser führt die Updates des Home Assistant Core aus.
@@ -73,35 +75,83 @@
         \item Dieser führt Sicherungen und Wiederherstellungen durch.
         \item Dieser verwaltet die Add Ons der Core Instanz
     \end{itemize}
-    \begin{figure}
+    \begin{figure}[hbt!]
         \centering
         \includegraphics[width=10cm,height=10cm,keepaspectratio]{images/ha_architecture_2020.png}
         \caption{Architektur des Home Assistant Supervisors}
         \label{fig:architectureHAOS}
     \end{figure}
-
-    Die auf dem Supervisor aufbauende Architektur ist die Architektur der Anwendung, der sogenannte Core. 
-
-    %Die Übersicht über die HA-Architektur ist in Abb. 1 dargestellt. HA besteht aus vier Hauptteilen: Event Bus, State Machine, Service 
-    %Registry und Timer. Der Event Bus ist die zentrale Komponente des HA, der verwendet wird, um das Auslösen und Abhören von Ereignissen 
-    %zu erleichtern. Die Zustandsmaschine kann den Zustand von Dingen überwachen und löst ein Zustandsänderungsereignis an Event Bus aus, 
-    %sobald ein Zustand aktualisiert wurde. Die Dienstregistrierung ist dafür verantwortlich, den Ereignisbus auf Anrufdienstereignisse 
-    %abzuhören. Benutzer können einen Dienst über die Dienstregistrierung hinzufügen. Automatisierung und Dienst „Entwicklertools“ im 
-    %Frontend können Dienste aufrufen. Der Timer ist angepasst, um ein zeitverändertes Ereignis gemäß einer gegebenen Frequenz auf dem 
-    %Ereignisbus zu senden. Diese Komponente vereinfacht die Automatisierung basierend auf der Dauer. HA verwendet SQLite als Datenbank, 
-    %was bedeutet, dass keine Cloud Daten über das Leben des Benutzers sammelt. Nur der Benutzer kann auf den Zustand des Hauses zugreifen. 
-    %Außerdem wird die Kommunikation mit dem Gateway verschlüsselt. Der HA bietet jedoch eine Verlaufskomponente, die alles verfolgen kann, 
-    %was sich innerhalb der Plattform ereignet. Somit können Nutzer auf alle gespeicherten Informationen zu Hause zugreifen.
-    
-    % Beschreibung der Konzepte und Architektur von Home Assistant.
-    %Bild der Architektur
-    % Beschreibung der Komponenten, Aufbau etc von Home Assistant
-%\subsection{Architektur}
+    Die auf dem Supervisor aufbauende Architektur ist die Architektur der Anwendung, der sogenannte Core. Dieser besteht aus vier 
+    Komponenten, welche den Hauptteil abbilden: Event Bus, State Machine, Service Registry und Timer\footnote{Entwickler Dokumentation der Home Assistant Plattform. \url{https://developers.home-assistant.io/docs/} Abgerufen am 24.04.2022}. 
+    \\
+    Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponenten stellt eine zentrale Eigenschaft 
+    der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine Komponente, mit der die Zustände von Dingen, darunter 
+    intelligente Geräte, Sensoren uvm., überwacht und Zustandsänderungsereignisse an den Event Bus ausgelöst werden. Dies erfolgt nach der 
+    Änderung des Zustandes eines Objektes. Mit der Dienstregistrierung (Service Registry) wird der Event Bus auf eingehende Aufrufe von 
+    Diensten abgehört. Über die Service Registry kann der Benutzer Dienste hinzufügen und verwalten. Über die Entwicklertools, die über das 
+    \ac{UI} aufgerufen werden können, kann der Benutzer die Dienste und Automatisierungen aufrufen und konfigurieren. Das letzte 
+    Element, der Timer, ist ebenso eine Komponente der Architektur, die zeitveränderte Ereignisse gemäß einer gegebenen Frequenz 
+    an den Event Bus sendet. Somit können zeitbasierte Automatisierungen vereinfacht und ausgelöst werden. Als Datenbank wird eine 
+    nicht Cloud-basierte SQLite Datenbank verwendet. Diese ist nur auf dem Gerät enthalten und wird nicht über das Internet übertragen. 
+    Im lokalen Netzwerk hat der Nutzer die Möglichkeit, um auf die Datenbank zuzugreifen und eine Historie von Aktionen einzusehen. 
+    Eine Verlaufskomponente, die ebenso enthalten ist, speichert die Ereignisse innerhalb der Plattform. Somit können Nutzer auf 
+    alle gespeicherten Informationen zu Hause einsehen \cite{HAOSarchitecture2018}.
+    \\
+    \linebreak
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/HAOS_Core_Architecture.png}
+        \caption{Architektur des Home Assistant Cores \cite{HAOSarchitecture2018}}
+        \label{fig:architectureHAOSCore}
+    \end{figure}
 
 \subsection{Ziele und Schwerpunkte}
+    Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, damit die Zielerreichung (\ac{DOD}) messbar ist und terminiert. Die mit 
+    der Home Assistant Plattform verfolgten Ziele sind Privatsphäre und Sicherheit, die Wahlmöglichkeiten von Geräten und die Haltbarkeit 
+    der Plattform. 
+    \\
+    \linebreak
+    Das Thema der Privatsphäre wird bei Home Assistant dadurch forciert, dass die Geräte nur optional über das Internet erreichbar sind, bzw. 
+    nur über das lokale Netzwerk. So kann die Kategorisierung des Verhaltens durch Algorithmen vermieden werden. 
+    \\
+    Die großflächige Auswahlmöglichkeit von Geräten und Verknüpfungen ist ein weiteres großes Ziel von Home Assistant, da es möglich sein soll 
+    herstellerunabhängig Geräte zu verwenden und zu integrieren. 
+    \\
+    Haltbarkeit wird an der Stelle addressiert, an der die Plattform uneingeschränkt verfügbar ist und Geräte zur Anbindung verwendbar sind. 
+    Damit ist auch zu erwarten, dass Geräte, die eingebunden werden können, so konzipiert und gebaut sind, damit sie eine lange Lebensdauer 
+    besitzen.
+    \\
+    \linebreak
+    Schwerpunkte und Lösungen zu Problembehebung sind die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
+    Automationen, die Prozesse selbstständig auslöst. Die Kompatibilität der Plattform ist ein weiterer Schwerpunkt der Home Assistant 
+    Plattform.
+    Ein weiterer Schwerpunkt ist die Sichtbarkeit der Daten, die potentiell gesendet werden, um den Datenschutz und die Privatsphäre so 
+    hoch wie möglich zu halten.
+    
     %https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/
     %Home Assistant is created to address these issues:
     %– Could we have a single home automation/control centre, compatible with almost all electronic devices?
     %– Could we make the sending of data to an external server visible? Could we even eliminate it completely?
 
 \subsection{Stärken und Schwächen}
+    % - Konfiguration über yaml
+    
+    % Advantages of HA:
+
+    % open source
+    % cheap
+    % big community
+    % lots of device support
+    % ability to create your own interface for browser and mobile app
+    % ability to run on the hardware of your choosing (I run HA inside a Docker container on my Synology NAS, which makes updates a breeze)
+    % much more (debugging) information available if you run into problems
+    % Disadvantages of HA:
+
+    % (advanced) setup/configuration requires editing YAML files and restarting after each change
+    % automations are more complicated (no nice web interface)
+    % not an all-in-one solution: HA supports Z-Wave and Zigbee just fine, but it requires additional configuration that 
+    % might be too complicated for the casual user
+    % device integrations are built in: this is both an advantage and a disadvantage. The advantage is that you don’t need to 
+    % install separate “apps” to get device support working (this is especially great for devices that support auto-discovery, 
+    % because those devices are available immediately after installing HA), but the disadvantage is that a lot of device support gets 
+    % loaded into memory even if your setup doesn’t need it.
