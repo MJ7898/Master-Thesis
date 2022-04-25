@@ -139,24 +139,39 @@
     %– Could we make the sending of data to an external server visible? Could we even eliminate it completely?
 
 \subsection{Stärken und Schwächen}
-
-    % - Konfiguration über yaml
-    
-    % Advantages of HA:
-    % open source
-    % cheap
-    % big community
-    % lots of device support
-    % ability to create your own interface for browser and mobile app
-    % ability to run on the hardware of your choosing (I run HA inside a Docker container on my Synology NAS, which makes updates a breeze)
-    % much more (debugging) information available if you run into problems
-    
-    % Disadvantages of HA:
-    % (advanced) setup/configuration requires editing YAML files and restarting after each change
-    % automations are more complicated (no nice web interface)
-    % not an all-in-one solution: HA supports Z-Wave and Zigbee just fine, but it requires additional configuration that 
-    % might be too complicated for the casual user
-    % device integrations are built in: this is both an advantage and a disadvantage. The advantage is that you don’t need to 
-    % install separate “apps” to get device support working (this is especially great for devices that support auto-discovery, 
-    % because those devices are available immediately after installing HA), but the disadvantage is that a lot of device support gets 
-    % loaded into memory even if your setup doesn’t need it.
+    Die Stärken und Schwächen der Plattform belaufen sich auf die folgenden Aspekte:
+    \begin{table}[hbt!]
+        \begin{center}
+            \begin{tabular}{| p{7.875cm} | p{7.785cm} | }
+                \hline
+                    \textbf{Stärken} & \textbf{Schwächen} \\
+                \hline
+                    Open-Source Software & Schwerer Einstieg für neue Nutzer im Hinblick auf die Konfiguration der Automationen, Funktionen etc. \\ 
+                \hline
+                    Privatsphäre \& Datenschutz & Automationen im YAML-Datenformat und benutzerdefinierte Komponenten können für neue Benutzer schwierig sein \\ 
+                \hline
+                    Große Community & Langwierige Installationen von Integrationen \\ 
+                \hline
+                    Automationen sind sehr mächtig & Die Erweiterung, Einrichtung und Konfiguration erfordert die Bearbeitung von YAML-Dateien und einen Neustart bei jeder Änderung \\ 
+                \hline
+                    Stetige Aktualisierung, Weiterentwicklung und Fehlerbehebung & Automationen können kompliziert aufgebaut sein (User Interface zur Erstellung von Automationen wäre für nicht IT-Affine Anwender angebracht.) \\ 
+                \hline 
+                    Unterstützung vieler Geräte (Herstellerunabhängigkeit) & Nutzung von ZigBee und Z-Wave erfordert jeweils eigene Konfigurationen, welche die All-in-One Lösung erschwert. \\
+                \hline
+                    Weitflächige Kompatibilität &  \\
+                \hline
+                    Individuelle Modifikation der UI &  \\ 
+                \hline
+                    Kann auf beliebiger Hardware ausgeführt werden &  \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \caption{Stärken und Schwächen der Home Assistant Plattform}
+        \label{tab:prosConsHAOS}
+    \end{table}
+    \\
+    %Die Auflistung der Punkte geht aus Beiträgen der Community und dokumentierten Erfahrungen der Anwendung. 
+    Die Konfiguration von Automationen, Funktionen und Integrationen über YAML-Dateien kann auf der einen Seite als Stärke gewertet werden, 
+    da die Syntax flexibel einsetzbar ist und Freiheiten bei der Implementierung bietet und auf der anderen Seite als Schwäche, da die 
+    Konfigurationen schnell unübersichtlich werden und anfangs schwer zu verstehen sind. Der Aufwand steigt je nach zu implementierende 
+    Funktion und deren Abhängigkeiten zu Geräten und gegebenenfalls zu anderen Prozessen und Automationen. 
