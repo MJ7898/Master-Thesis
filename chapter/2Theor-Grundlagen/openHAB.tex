@@ -25,6 +25,43 @@
 
 \subsection{Konzept und Architektur}
 %\subsection{Architektur}
+    Die Steuerungsplattform openHAB bietet vergleichbar zu Home Assistant die Möglichkeit der multifunktionalen Verknüpfung von 
+    Geräten und Protokollen. An dieser Stelle werden ebenso mehrere Konzepte verwendet, die die Vereinheitlichung der Plattform 
+    verstärkt. Die Konzepte der openHab Software sind in vier Rubriken aufgeteilt, die sich wie folgt zusammensetzen:
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=12cm,height=12cm,keepaspectratio]{images/openhab-architecture.png}
+        \caption{Architektur der openHAB Plattform \cite{openHAB-architecture2018}}
+        \label{fig:architectureopenHAB}
+    \end{figure}
+
+    %Describe the concepts 
+
+    %Dinge
+    %Dinge sind die Entitäten, die physisch zu einem System hinzugefügt werden können und die potenziell viele Funktionalitäten 
+    %in einem bereitstellen können. Es ist wichtig zu beachten, dass Dinge nicht Geräte sein müssen, sondern auch einen 
+    %Webdienst oder jede andere überschaubare Informationsquelle und Funktionalität darstellen können. Aus Benutzersicht 
+    %sind sie für den Einrichtungs- und Konfigurationsprozess relevant, nicht aber für den Betrieb.
+    %Dinge können Konfigurationseigenschaften haben, die optional oder obligatorisch sein können. Solche Eigenschaften können 
+    %grundlegende Informationen wie eine IP-Adresse, ein Zugriffstoken für einen Webdienst oder eine gerätespezifische 
+    %Konfiguration sein, die sein Verhalten ändert.
+    %1) Kanäle: Dinge stellen „Kanäle“ bereit, die die verschiedenen Funktionen darstellen, die das Ding bereitstellt. Wo das 
+    %Ding die physische Entität oder Informationsquelle ist, ist der Kanal eine konkrete Funktion von diesem Ding. Eine 
+    %physische Glühbirne kann einen Farbtemperaturkanal und einen Farbkanal haben, die beide die Funktionalität der einen 
+    %Glühbirne für das System bereitstellen. Als Informationsquellen könnte das lokale Wetter mit Informationen von einem 
+    %Webdienst mit verschiedenen Kanälen wie Temperatur, Druck und Luftfeuchtigkeit dienen.
+    %Kanäle sind mit Elementen verknüpft, wobei solche Verknüpfungen der Klebstoff zwischen der virtuellen und der physischen 
+    %Ebene sind. Sobald eine solche Verbindung hergestellt ist, reagiert ein Ding auf Ereignisse, die für ein Element gesendet 
+    %werden, das mit einem seiner Kanäle verknüpft ist. Ebenso sendet es aktiv Ereignisse für Artikel, die mit seinen Kanälen 
+    %verknüpft sind.
+    %2) Brücken: Eine besondere Art von Ding ist eine „Brücke“. Brücken sind Dinge, die dem System hinzugefügt werden müssen, 
+    %um Zugriff auf andere Dinge zu erhalten. Ein typisches Beispiel für eine Bridge ist ein IP-Gateway für ein nicht 
+    %IP-basiertes Hausautomationssystem oder eine Webdienstkonfiguration mit Authentifizierungsinformationen, die alles von 
+    %diesem Webdienst benötigen könnte.
+
+
+
+
 \subsection{Ziele und Schwerpunkte}
 \subsection{Stärken und Schwächen}
 
