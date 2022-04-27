@@ -53,9 +53,25 @@
     An zweiter Stelle stehen die Artikel (Items). Diese Elemente stellen Funktionen dar, die direkt von der Anwendung verwendet 
     werden. Darunter zählen hauptsächlich die Automatisierungslogik oder auch Benutzeroberflächen. Durch Ereignisse werden die 
     Elemente verwendet, da diese einen Zustand besitzen. 
+    \\
+    Elemente können auch in eine Gruppe zusammengefasst werden. Ein Gruppenelement kann auch Mitglied einer weiteren Gruppe sein. 
+    Diese zyklischen Mitgliedschaften sind war nicht verboten, davon wird jedoch abgeraten. Über Benutzeroberflächen können 
+    einzelne Gruppenelemente als alleinstehender Eintrag angezeigt werden und eine Navigation zu den jeweiligen Mitgliedern 
+    bereitstellen. 
+    \\
+    \linebreak
+    Die dritte große Rubrik sind die Bindungen und Links (Bindings and Links). Diese können als Softwareadapter betrachtet werden, 
+    die Dinge für ihr Hausautomationssystem zur Verfügung stellen \cite{openHAB-article}. Aufgabe der Komponente ist die Verknüpfung 
+    von Elementen mit physischen Geräten. Um dies zu ermöglichen werden die spezifischen Kommunikationsanforderungen eines Geräts 
+    abstrahiert. Dadurch ist eine allgemeinere Behandlung der Komponente durch das Framework möglich. Links stellen das Bindeglied 
+    zwischen Dingen und Gegenständen dar. Es ist die Verknüpfung von genau einem Element und einem Kanal. Elemente und 
+    Kanäle haben keine eins zu eins Beziehung zueinander. Eine Verknüpfung mit mehreren Komponenten ist auch hier möglich. 
+    \\
+    \linebreak
+    Die Architektur der openHAB Anwendung %TBD 
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=12cm,height=12cm,keepaspectratio]{images/openhab-architecture.png}
+        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-architecture.png}
         \caption{Architektur der openHAB Plattform \cite{openHAB-architecture2018}}
         \label{fig:architectureopenHAB}
     \end{figure}
