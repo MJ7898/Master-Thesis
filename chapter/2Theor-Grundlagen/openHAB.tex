@@ -21,7 +21,22 @@
 
     \subsection*{Historie}
     \label{sec:historyoHAB}
-    %TBD...
+    Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
+    Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
+    gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
+    vor kundtut.
+    \begin{quote}
+        „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
+        application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
+        software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
+        as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
+        project.\cite{kaikreutzer2012}“
+    \end{quote} 
+    Mit der stetig wachsenden Anwendung und deren Community nimmt die Entwicklung des Projekts immer mehr Fahrt auf. 2014 betitelt 
+    Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
+    großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
+    Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
+    implementiert ist. Die Software wird regelmäßig gepatched 
 
 \subsection{Konzept und Architektur}
 %\subsection{Architektur}
@@ -68,7 +83,28 @@
     Kanäle haben keine eins zu eins Beziehung zueinander. Eine Verknüpfung mit mehreren Komponenten ist auch hier möglich. 
     \\
     \linebreak
-    Die Architektur der openHAB Anwendung %TBD 
+    Neben den übergreifenden Konzepten gibt es weitere Konzepte\footnote{Historie und Konzepte von openHAB. \url{https://medium.com/smartsmarthome/openhab-41c30d50fc42} Abgerufen am 28.04.2022}. 
+    Diese werden in Folgendem aufgelistet:
+    \begin{itemize}
+        \item Seitenverzeichnis (Sitemaps): Dies beinhaltet die Konfiguration eines Seitenverzeichnisses, mit dem Schalter, 
+        Regler, Texte und vieles mehr hinzugefügt werden kann. Diese Ansichten repräsentieren den Status eines Elements und 
+        können darüber gesteuert und überprüft werden.
+        \item Regeln (Rules): Eine Regel ist die Verknüpfung eines Ereignisses und einer Aktion. Somit wird nach einem bestimmten 
+        Ereignis eine Aktion ausgeführt. Ein Beispiel: Wenn ein Fenster geöffnet wird, soll die Heizung abgeschaltet werden. 
+        So lange, bis das Fenster wieder geschlossen wird. 
+        \item Persistenz (Persistence): Mit der Persistenzschicht kann festgelegt werden, welche historischen Zustandsereignisse 
+        und Informationen gespeichert werden sollen. Dadurch kann nach Systemausfall der Status des Elementes wiederhergestellt werden. 
+        \item Modelle (Models): Modelle stellen baumbasierte Gruppierungen von Elementen dar. In der Baumstruktur können Elemente 
+        Orte, Punkte und Ausrüstungen sein. Ein Beispiel: Das Wohnzimmer als Standort besteht aus zwei Geräten Heizung und Licht. 
+        Die Heizung als Ausstattung hat zwei Punkte: \textit{Ist-Temperatur} und \textit{Soll-Temperatur}.
+        \item Seiten (Pages):Alle Seiten und Seitenverzeichnisse kontrollieren die Zustände von Elementen und greifen auf diese zu. 
+        Mit openHAB 3 würden weitere Möglichkeiten hinzugefügt, um benutzerdefinierte \acs{UI}, Diagramme, Grundrisse und oder 
+        Layouts zu definieren. 
+        \item Skripte (Scripts): Skripte sind ähnlich zu den Regeln. Diese spezifizieren eine Aktion und kein Ereignis. Die Skripte 
+        können manuell, aber auch über andere Skripte und Regeln ausgeführt werden. 
+    \end{itemize}
+    Die anfängliche Architektur der openHAB Anwendung teilt sich in drei Sektionen auf: Die Kernkomponenten (blau), das drunter 
+    liegende OSGi-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-architecture.png}
