@@ -111,6 +111,29 @@
         \caption{Architektur der openHAB Plattform \cite{openHAB-architecture2018}}
         \label{fig:architectureopenHAB}
     \end{figure}
+    Mit der wesentlichen Aktualisierung von openHAB zur aktuellen Version openHAB 2.0 gab es auch einige Änderungen an der 
+    grundlegenden Architektur. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
+    Eclipse Equinox, um eine \acs{OSGI} Laufzeitumgebung zu erstellen. Jetty wird als \acs{HTTP} Server verwendet. 
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-2-architecture.png}
+        \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
+        \label{fig:architectureopenHAB2}
+    \end{figure}
+    \textit{Eclipse SmartHome}\footnote{Eclipse SmartHome. \url{https://projects.eclipse.org/projects/iot.smarthome} Abgerufen am 29.04.2022} 
+    ist ein \acs{IoT} Projekt, welches sich aus der ersten Version der openHAB Plattform entwickelte. 
+    Diese wurde von der Eclipse Foundation übernommen und weiterentwickelt. Es stellt das Kern-Framework für Smart Home Systeme dar 
+    und ist essentieller Bestandteil der openHAB Plattform. Das Framework ist mittlerweile archiviert und erhält keine weiteren 
+    Aktualisierungen.
+    \\
+    \linebreak
+    \textit{Apache Karaf}\footnote{Apache Karaf. \url{https://karaf.apache.org/} Abgerufen am 29.04.2022} 
+    ist eine \acs{OSGI} basierte Laufzeitumgebung über die verschiedene Komponenten mittels Container 
+    bereitgestellt werden können. Dieses Framework zählt zu denen der Apache Software Foundation und unterliegt der Apache V2 Lizenz.
+    \\
+    \linebreak
+    \textit{Eclipse Equinox}\footnote{Eclipse Equinox. \url{https://www.eclipse.org/equinox/} Abgerufen am 29.04.2022} ist eine modulare 
+    Java basierte Laufzeitumgebung und eine Implementierung des \acs{OSGI} Framework. 
 
 
 
