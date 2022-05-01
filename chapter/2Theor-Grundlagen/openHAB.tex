@@ -36,7 +36,7 @@
     Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
     großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
     Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
-    implementiert ist. Die Software wird regelmäßig gepatched 
+    implementiert ist. Die Software wird regelmäßig gepatched und von der Community unterstützt.
 
 \subsection{Konzept und Architektur}
 %\subsection{Architektur}
@@ -117,12 +117,8 @@
     Mit der wesentlichen Aktualisierung von openHAB zur aktuellen Version openHAB 2.0 gab es auch einige Änderungen an der 
     grundlegenden Architektur. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
     Eclipse Equinox, um eine \acs{OSGI} Laufzeitumgebung zu erstellen. Jetty wird als \acs{HTTP} Server verwendet. 
-    \begin{figure}[hbt!]
-        \centering
-        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-2-architecture.png}
-        \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
-        \label{fig:architectureopenHAB2}
-    \end{figure}
+    \\
+    \linebreak
     \textit{Eclipse SmartHome}\footnote{Eclipse SmartHome. \url{https://projects.eclipse.org/projects/iot.smarthome} Abgerufen am 29.04.2022} 
     ist ein \acs{IoT} Projekt, welches sich aus der ersten Version der openHAB Plattform entwickelte. 
     Diese wurde von der Eclipse Foundation übernommen und weiterentwickelt. Es stellt das Kern-Framework für Smart Home Systeme dar 
@@ -136,13 +132,67 @@
     \\
     \linebreak
     \textit{Eclipse Equinox}\footnote{Eclipse Equinox. \url{https://www.eclipse.org/equinox/} Abgerufen am 29.04.2022} ist eine modulare 
-    Java basierte Laufzeitumgebung und eine Implementierung des \acs{OSGI} Framework. 
+    Java basierte Laufzeitumgebung und eine Implementierung des \acs{OSGI} Framework. Der Begriff der \textit{Bundles} ist das 
+    Herzstück der \acs{OSGI}-Spezifikation. Diese werden verwendet, damit die Modularität für Java erfasst wird. Ein Bundle ist 
+    ein Standard-Java-JAR-Datei, dessen Manifest zusätzliches Markup enthält, welches das Bundle identifiziert und seine Abhängigkeiten 
+    angibt. Als solches ist jedes Bundle vollständig selbstbeschreibend \cite{openHAB-article}. 
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-2-architecture.png}
+        \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
+        \label{fig:architectureopenHAB2}
+    \end{figure}
+    \textit{OSGi} fördert den modularen Aufbau von Software, die mit der Programmiersprache Java geschrieben ist. Der Open-Source 
+    Standard bietet einen Ansatz, der eine modulare Plattform beschreibt und eine \ac{JVM} voraussetzt. Die \acl{JVM}\footnote{Detaillierte Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Abgerufen am 01.05.2022} 
+    ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
+    \\
+    Die sogenannten \textit{Bundles} sind Module und bilden die kleinste Einheit der Modularisierung. Aus technischer Sicht ist 
+    dieses Konstrukt eine \ac{JAR}-Datei mit Metainformationen. Diese sind in einer Manifestdatei gespeichert. Bundles sind 
+    eindeutig zu identifizieren. Dadurch ist es in \acs{OSGI} möglich, \textit{Bundles} mit demselben Namen, jedoch unterschiedlicher 
+    Versionen gleichzeitig zu nutzen und auszuführen \cite{openHAB-article}. 
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=10cm,height=10cm,keepaspectratio]{images/osgi-architecture.png}
+        \caption{OSGi Schichtenarchitektur \cite{openhab-osgi}}
+        \label{fig:osgilayer}
+    \end{figure}
+    \\
+    \linebreak
+    Weitere Details der \acs{OSGI}-Architektur\footnote{Architektur und Erläuterung OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Abgerufen am 01.05.2022} 
+    sind der openHAB Dokumentation zu entnehmen.
 
-
-
-
-\subsection{Ziele und Schwerpunkte}
+\subsection{Ziele und Schwerpunkte} 
+    \begin{quote}
+        „openHAB empowering the smart home\footnote{Log und Label von openHAB \url{https://www.openhab.org/} Abgerufen am 01.05.2022}“
+    \end{quote}
+    Das große Ziel, dass mit der openHAB Anwendung verfolgt wird, ist allgemein die zentrale Steuerung von Geräten innerhalb eines 
+    Wohnraumes.
+    \begin{quote}
+        „... is an open source, technology agnostic home automation platform which runs as the center of your smart home!\footnote{Einleitung und Übersicht der openHAB Dokumentation. \url{https://www.openhab.org/docs/} Abgerufen am 01.05.2022}“
+    \end{quote}
+    
 \subsection{Stärken und Schwächen}
+    Die Stärken, die openHAB mit sich bringt, werden schon in den Dokumentationen aufgegriffen und bei der Nutzung schnell deutlich. 
+    Mit der Plattform können eine Vielzahl von Geräten und Systemen integriert werden, die miteinander kommunizieren. In der einzigen 
+    von openHab gegebenen Lösung können Heimautomatisierungssysteme, intelligente Geräte und andere Technologien, darunter 
+    beispielsweise Kommunikationsprotokolle, integriert werden \cite{openhab-strength}. Durch die in dem letzten großen Update 
+    der Plattform hinzukommende einheitliche Benutzeroberfläche, die die Bedienung von Geräten und Systemen vereinfacht, ist die 
+    Integration von neuen Geräten einfach und nicht herstellerspezifisch. Mit dem Ansatz von Automatisierungsregeln können alle 
+    Geräte bei Bedarf miteinander Kommunizieren. Das Aufstellen von solchen Regeln ist herstellerunabhängig und macht die 
+    Automatisierung flexibler. Der dritte und letzte Punkt der Stärken ist die allgemeine Vielfältigkeit und Flexibilität der 
+    Plattform. Hiermit ist im Allgemeinen die Umsetzung von Use Cases und Automatisierungen gemeint. Dem Nutzer sind keine Grenzen 
+    der Kompatibilität gesetzt.
+    \\
+    \linebreak
+    Im Gegenzug sind die Schwächen hauptsächlich Auswirkungen der komplexen und weitgestrickten Architektur. Das System an sich 
+    und der Umgang damit stellt sich als komplex dar. In das Aufsetzen und Verstehen der Plattform, deren Konzepte und 
+    Möglichkeiten muss ein hoher Aufwand gesteckt werden. Die Dokumentation der Software geht auf diese Aspekte ein und gibt dem 
+    Leser mit, dass die Software nicht innerhalb kürzester Zeit verstanden werden kann \cite{openhab-strength}. 
+    \\
+    Eine weitere größere Schwäche ist die Weiterentwicklung des Systems. Diese findet langsam und nicht konstant statt. Auslöser 
+    dafür ist die Architektur und deren Abhängigkeiten zu weiteren Frameworks und Bibliotheken. Auch nimmt der Prozess bis zur 
+    Genehmigung von Weiterentwicklungen viel Zeit in Anspruch. Dies ist möglicherweise mit ein Grund, weshalb neue Versionen und 
+    Updates nur unregelmäßig zu beobachten sind. 
 
 \section{Vergleich von Home Assistant und openHAB}
 \label{sec:comparison-HAOS-openHAB}
