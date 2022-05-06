@@ -1,42 +1,43 @@
-\section{openHAB}
-\label{sec:openhab} 
-    Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
-    in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
-    Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
-    der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
-    von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
-    Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
-    den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
-    \\
-    \linebreak
-    In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
-    Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
-    \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
-    Verständnis des Konzeptes notwendigen.
-    \\
-    \linebreak
-    Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
-    werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
-    großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
+% \section{openHAB}
+% \label{sec:openhab} 
+%     Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
+%     in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
+%     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
+%     der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
+%     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
+%     Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
+%     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
+%     \\
+%     \linebreak
+%     In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
+%     Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
+%     \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
+%     Verständnis des Konzeptes notwendigen.
+%     \\
+%     \linebreak
+%     Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
+%     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
+%     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
 
-    \subsection*{Historie}
-    \label{sec:historyoHAB}
-    Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-    Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
-    gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
-    vor kundtut.
-    \begin{quote}
-        „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
-        application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
-        software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
-        as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
-        project.\cite{kaikreutzer2012}“
-    \end{quote} 
-    Mit der stetig wachsenden Anwendung und deren Community nimmt die Entwicklung des Projekts immer mehr Fahrt auf. 2014 betitelt 
-    Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
-    großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
-    Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
-    implementiert ist. Die Software wird regelmäßig gepatched und von der Community unterstützt.
+%     \subsection*{Historie}
+%     \label{sec:historyoHAB}
+%     Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
+%     Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
+%     gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
+%     vor kundtut.
+%     \begin{quote}
+%         „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
+%         application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
+%         software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
+%         as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
+%         project.\cite{kaikreutzer2012}“
+%     \end{quote} 
+\subsubsection*{}
+Mit der stetig wachsenden Anwendung und deren Community nimmt die Entwicklung des Projekts immer mehr Fahrt auf. 2014 betitelt 
+Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
+großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
+Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
+implementiert ist. Die Software wird regelmäßig gepatched und von der Community unterstützt.
 
 \subsection{Konzept und Architektur}
     Die Steuerungsplattform openHAB bietet vergleichbar zu Home Assistant die Möglichkeit der multifunktionalen Verknüpfung von 
@@ -111,7 +112,7 @@
         \label{fig:architectureopenHAB}
     \end{figure}
     \\
-    \pagebreak
+    %\pagebreak
     \linebreak
     Mit der wesentlichen Aktualisierung von openHAB zur aktuellen Version openHAB 2.0 gab es auch einige Änderungen an der 
     grundlegenden Architektur. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
@@ -141,6 +142,7 @@
         \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
         \label{fig:architectureopenHAB2}
     \end{figure}
+    \\
     \textit{OSGi} fördert den modularen Aufbau von Software, die mit der Programmiersprache Java geschrieben ist. Der Open-Source 
     Standard bietet einen Ansatz, der eine modulare Plattform beschreibt und eine \ac{JVM} voraussetzt. Die \acl{JVM}\footnote{Detaillierte Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Abgerufen am 01.05.2022} 
     ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
@@ -156,7 +158,7 @@
         \label{fig:osgilayer}
     \end{figure}
     \\
-    \linebreak
+    %\linebreak
     Weitere Details der \acs{OSGI}-Architektur\footnote{Architektur und Erläuterung OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Abgerufen am 01.05.2022} 
     sind der openHAB Dokumentation zu entnehmen.
 
