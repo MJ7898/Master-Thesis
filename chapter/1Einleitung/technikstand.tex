@@ -125,7 +125,6 @@
     Literatur, welche den Gedanken aufgreift und behandelt. Die Literatur, die bei dem systematischen Literaturrecherche erarbeitet wurde, 
     deckt trotz dessen manche Aspekten ab, die interessante Anhaltspunkte und Ideen thematisieren. Diese geben Impulse und helfen bei den weiteren 
     Schritten in dieser Arbeit hinsichtlich der Konzeption. 
-    \\
     
     \subsection{Publikationen}
     \label{subsec:publications}
@@ -135,7 +134,7 @@
         \subsubsection*{Design and Realization of a Framework for Human-System Interaction in Smart Homes}
             In dem Artikel von \cite{Wu2012} wird zu Anfang die Beziehung zwischen Benutzern, Räumlichkeiten und 
             Diensten analysiert. Basierend auf den daraus gewonnenen Erkenntnissen wird ein Framework und ein 
-            entsprechender Algorithmus entwickelt, welcher die Interaktionsbeziehungen modelliert. Basierend auf den  
+            entsprechender Algorithmus vorgestellt, welcher die Interaktionsbeziehungen modelliert. Basierend auf den  
             Ergebnissen wird ein Framework entwickelt, welches die Interaktionsanforderungen abdeckt. Hauptmerkmale 
             waren dabei Komfort, Bequemlichkeit und Sicherheit. Zur abschließenden Überprüfung des Designkonzeptes und 
             der Implementierung wurden Probanden zum Testen der Anwendung ausgewählt und anschließend ein Interview 
@@ -152,12 +151,12 @@
             Szenarien integriert. Zur Beweisführung wird das Konzept anhand von semantischen Erkennungen von Heimgeräten zur 
             Laufzeit demonstriert. Dafür werden mehrere Protokolle, darunter X10, ZigBee und Insteon, in einen realen Test 
             integriert. Die Arbeit behandelt die folgenden Schwerpunkte \cite{Kim2012}:
-            \begin{enumerate}
+            \begin{itemize}
                 \item Analyse einer Reihe von Heimnetzprotokollen hinsichtlich ihrer Erkennungs- und Integrationsanforderungen.
                 \item Eine erweiterbare Home-Gateway-Architektur, die es ermöglicht, heterogene Geräte während der Laufzeit flexibel zu installieren, zu verwalten und darauf zuzugreifen.
                 \item Ein neuartiger Zugangskontrollmechanismus speziell für Smart-Home-Systeme.
                 \item Die Umsetzung des vorgeschlagenen Konzepts, indem gezeigt wird, wie verschiedene Geräte integriert und von Endbenutzern aufgerufen werden können.
-            \end{enumerate}
+            \end{itemize}
             Die Architektur und die damit eingesetzte semantische Abstraktionsschicht unterstützt laut den Ergebnisse 
             erheblich die Anwendungsentwicklung. 
             \\
@@ -166,58 +165,61 @@
             die Barriere für \acl{SH} Systeme gesenkt wird. 
 
         \subsubsection*{Wireless Architectures for Heterogeneous Sensing in Smart Home Applications: Concepts and Real Implementation}
-            %In diesem Beitrag wurden aktuelle Trends bei der Nutzung drahtloser Architekturen für Smart-Home-Anwendungen 
-            %diskutiert. Die in Smart Homes üblicherweise eingesetzten drahtlosen Technologien wurden berücksichtigt und WSNs 
-            %wurden als geeignetes architektonisches Werkzeug zur Implementierung der In-Home-Überwachung analysiert. Unter 
-            %den Smart-Home-Funktionalitäten wurden verteilte Smart Metering und Seniorenhilfe als zwei repräsentative 
-            %Beispiele angesehen, die die Einführung von Smart-Home-Drahtlossystemen vorantreiben können. Tatsächlich sind 
-            %sowohl Energieeinsparung als auch die Reduzierung von Gesundheitskosten von besonderem Interesse in einer Welt, in 
-            %der die Energieressourcen zur Neige gehen und die Bevölkerung schnell altert.
-            %Die Vorteile, die sich aus der Verwendung drahtloser Architekturen ergeben, wurden analysiert, wobei der 
-            %Schwerpunkt auf der Schätzung des Benutzerverhaltens lag. Spezielle Methoden zur Bewertung der täglichen 
-            %Aktivitäten wurden untersucht und in die vorgeschlagene drahtlose Architektur zur Benutzerüberwachung und 
-            %-lokalisierung integriert. Nichtinvasive drahtlose Lösungen, die die elektromagnetische Erfassung und die weit 
-            %verbreiteten mobilen Geräte wie Smartphones nutzen, wurden eingeführt. Die opportunistische Nutzung bereits 
-            %verfügbarer Informationen, die durch elektromagnetische Feldstörungen bereitgestellt werden, wurde 
-            %vorgeschlagen, um zwei wichtige Eckpunkte des zukünftigen Smart Home zu gewährleisten: Benutzerakzeptanz und 
-            %geringe Systemkomplexität. Einige repräsentative Ergebnisse der laufenden Aktivitäten am ELEDIA Research Center 
-            %am Department of Information Engineering and Computer Science (DISI), University of Trento, Trento, Italien, 
-            %wurden berichtet, um Beispiele für die Potenziale einer opportunistischen Nutzung drahtloser Technologien zu 
-            %liefern sind bereits Teil unseres eigentlichen Alltags.
+            Dieser Beitrag von \cite{Viani2013} diskutiert die aktuellen Trends von drahtlosen Architekturen für Anwendungen 
+            im \acl{SH} Bereich. Aus der Diskussion wurden Vorteile erarbeitet, die anschließend über die Verwendung der 
+            drahtlosen Architektur analysiert wurden. Schwerpunkt dabei lag jedoch auf der Schätzung des Benutzerverhaltens. 
+            \\
+            \linebreak
+            Allgemein behandelt der Artikel die Vorstellung einer drahtlosen Architektur für intelligentes Energiemanagement 
+            und die Überwachung von älteren Menschen, indem die Anwesenheit, die Bewegung und das Verhalten der Bewohner 
+            analysiert wird \cite{Viani2013}. 
+            \\
+            Interessant dabei ist das entstandene Konzept der konkreten Softwarearchitektur.
 
         \subsubsection*{My House, My Rules: A Private-by-Design Smart Home Platform}
-            %Die Smart-Home-Technologie ist weit verbreitet. Mehrere Fälle von massiver Unternehmensüberwachung und Episoden 
-            %von Verletzungen von Sensordaten haben jedoch viele Datenschutzbedenken bei potenziellen Verbrauchern geweckt. 
-            %Dieses Whitepaper stellt PatrIoT vor, eine Private-by-Design-IoT-Plattform für Smart-Home-Umgebungen. PatrIoT 
-            %überarbeitet die typische Architektur bestehender IoT-Plattformen und bietet ein alternatives Design, bei dem der 
-            %Hausbesitzer die volle Eigentümerschaft und Kontrolle über die von intelligenten Geräten generierten Daten behält. 
-            %Es nutzt Intel SGX, um den unbefugten Zugriff auf die Daten durch nicht vertrauenswürdige IoT-Cloud-Anbieter zu 
-            %verhindern, und bietet Hausbesitzern eine intuitive Sicherheitsabstraktion namens Flowwall, mit der sie 
-            %benutzerfreundliche Richtlinien zur Steuerung sensibler Sensordatenflüsse in ihren Smart Homes festlegen können. 
-            %Wir haben einen PatrIoT-Prototypen gebaut und evaluiert. Die meisten Teilnehmer einer Feldstudie hielten 
-            %PatrIoT für benutzerfreundlich und die unterstützten Richtlinien für nützlich, um ihre Privatsphäre zu schützen.
-
-            %Wir haben PatrIoT vorgestellt, eine Private-by-Design-IoT-Plattform, die eine sichere Datenverarbeitung durch die 
-            %Nutzung sicherer Enklaven von SGX gewährleistet. Der Flowwall-Sicherheitsmonitor von PatrIoT ermöglicht 
-            %Endbenutzern eine feinkörnige Kontrolle der von IoT-Geräten generierten Datenflüsse und verhindert potenzielle 
-            %Datenschutzverletzungen durch die Durchsetzung einer Datenschutzrichtlinie.
+            Dieses Whitepaper von \cite{Zavalyshyn2020} stellt eine \textit{Private-by-Design-IoT-Plattform} für \acl{SH} 
+            Umgebungen vor. Mit dem Konzept wird eine typische Architektur für bestehende \acs{IoT} Plattformen als Grundlage 
+            verwendet, die über ein alternatives Design mehr Sicherheit und Kontrolle für den Hauseigentümer bietet. 
+            Genutzt wird dabei die von Intel entwickelte \ac{SGX}\footnote{Eine hardwarebasierte Verschlüsselung von Speicherinhalten, die bestimmten Programmiercode und Daten im Speicher isoliert. \url{https://www.intel.de/content/www/de/de/architecture-and-technology/software-guard-extensions.html} Abgerufen am 15.05.2022.}. 
+            Diese Erweiterung ermöglicht es, eine intuitive Sicherheitsabstraktion einzuführen, die den unbefugten Zugriff auf Daten 
+            durch nicht vertrauenswürdige \acs{IoT} Cloud-Anbieter verhindert. Das Konzept wurde in einen Prototyp umgesetzt und 
+            evaluiert. Dabei wurden auch eine quantitative Forschung durchgeführt, die aus mehr als 40 Probanden bestand, welche 
+            den Prototypen verwendet und anschließend bewertet und beurteilt haben. Die Mehrzahl der Teilnehmer der Feldstudie 
+            hielten die Softwareplattform als benutzerfreundlich und die unterstützen Richtlinien durch die Sicherheitsabstraktion 
+            für nützlich \cite{Zavalyshyn2020}. Mit den Richtlinien kann verstärkt die Privatsphäre der Anwender in ihrem Wohnraum 
+            geschützt werden. Der Sicherheitsmonitor der Software ermöglicht Endbenutzern eine granulare Kontrolle und Überwachung 
+            der Datenflüsse, die durch die \acs{IoT} Geräte generiert werden, sowie die Verhinderung von potentiellen 
+            Datenschutzverletzungen der Hersteller durch die Verwendung einer Datenschutzrichlinie. 
 
         \subsubsection*{Fast-prototyping Approach to Design and Validate Architectures for Smart Home}  
-            %Aufgrund der kontinuierlichen Entwicklung und Kommerzialisierung neuer IoT-Geräte für den Smart-Home-Kontext 
-            %ändern sich die Anforderungen der Benutzer ständig und die Community benötigt schnelle Prototyping-Lösungen, um 
-            %auf solche schnellen Notwendigkeiten vorbereitet zu sein. Dieses Papier zeigte, wie es möglich ist, ein komplexes 
-            %Smart-Home-System zu entwickeln, das Funktionen implementiert, die aus einer soliden und aktuellen Studie über 
-            %Benutzeranforderungen in Smart Homes extrahiert wurden, und zwar durch einige bekannte 
-            %Fast-Prototyping-Plattformen und -Technologien wie Node-RED, IBM Watson, Telegram, Raspberry Pi 4 und das 
-            %gesicherte MQTT-Protokoll. Ein laufendes Szenario wurde sowohl beim Design als auch bei der Entwicklung einer 
-            %Referenzarchitektur verwendet und schließlich dazu genutzt, die Wirksamkeit der vorgeschlagenen Lösungen zu 
-            %demonstrieren. Durch die entwickelte Infrastruktur können Benutzer tatsächlich die Aktionen ausführen, die für 
-            %die betrachtete Literatur die wichtigsten für Menschen sind, wie z Beleuchtung steuern, c) Energie sparen dank 
-            %eines autonomen Lichtmanagementsystems, das auf der Überwachung der Benutzerbewegungen basiert, d) das Haus über 
-            %spezielle Webcams fernüberwachen, e) im Gefahrenfall Warnmeldungen generieren. Das durchgeführte Experiment kann 
-            %als Inspiration für zukünftige Arbeiten genutzt werden, die innovative schnelle Prototyping-Lösungen vorschlagen 
-            %würden. Aufgrund ihrer Ähnlichkeiten in Bezug auf die Notwendigkeiten und die Tendenz, praktische Arbeit für ihre 
-            %Zwecke zu nutzen, können sowohl der Forschungs- als auch der Bildungsbereich von einer solchen Arbeit profitieren.
+            Inhalt des Artikels von \cite{Montanaro2021} ist das Entwickeln eines komplexen \acl{SH} Systems. 
+            Hintergrund dafür ist die kontinuierliche Entwicklung und Kommerzialisierung sämtlicher \acs{IoT} Geräte und 
+            die damit einhergehende Änderung oder Anpassung der Nutzeranforderungen. Dadurch benötigt die Community eine 
+            schnelle Lösung, bzw. einen Prototypen, um die Anforderungen der Nutzer zu erfüllen und auf schnell 
+            entstehenden Notwendigkeit vorbereitet zu sein. 
+            \\
+            Grundlage für die Entwicklung der Plattform ist eine aktuelle und solide Studie, die ebenso im Rahmen des 
+            Artikels durchgeführt wurde. Die Benutzeranforderungen wurden aus der Studie extrahiert und sind bei der 
+            Planung des Konzeptes mit eingeflossen. Bestandteil dieser Arbeit ist unter anderem die Verwendung von Node-RED\footnote{Ein von IBM entwickeltes grafisches Entwicklungswerkzeug mit Baukastenprinzip. Funktionsbausteine können per Verbindungen miteinander verknüpft und als Prozess bearbeitet werden. \url{https://nodered.org/} Abgerufen am 15.05.2022.} und 
+            dem \acs{MQTT} Kommunikationsprotokoll. 
+            \\
+            \linebreak
+            Die in der Arbeit vereinfachten formalisierten Interaktionen werden speziell dem Anwender gegenüber durch 
+            Node-RED visualisiert und die komplexe Logik somit vereinfacht dargestellt. Die Idee mit dem Verwenden von Node-RED 
+            ist ein guter Gedanke der formalisierten Interaktionen und kann auch dem Entwickler programmatisch Schritte 
+            erleichtern. Da selbst das Framework verstanden werden muss, ist eine gewisse Komplexität nicht zu verhindern. 
+            Dennoch kann der Gedanke in weiteren Forschungsschritten weitergedacht oder optimiert werden. Ein guter Lerneffekt 
+            kann daraus erzielt werden, indem diese Technologie zu praktischen Arbeiten im Forschungs- und Bildungsbereich 
+            eingesetzt wird.
             
-
+    \subsection{Stand der Technik aus Nutzer- und Produktsicht}
+        Der aktuelle Markt bietet bereits viele Möglichkeiten und Alternativen der Umsetzung eines intelligenten Zuhause. 
+        Darunter z.B. kommerzielle in sich geschlossene Systeme, die ausschließlich dem Nutzer als Anwendung verkauft werden, 
+        einzelne Intelligente Geräte, die keine zentrale Plattform benötigen und Plattformen, wie bspw. Home Assistant 
+        und openHAB, die eine gewisse Technikaffinität erfordern und voraussetzen. Viele große Unternehmen, darunter Bosch, 
+        Telekom, Siemens und Samsung bieten Systeme, die der Nutzer als reine Anwendung benutzt. Diese geben auch keinen 
+        Einblick in ihre Software und deren Umsetzung, daher sind diese nicht weiter zu berücksichtigen. 
+        \\
+        \linebreak
+        Zu nutzende Referenzen sind Open-Source Plattformen, die von einer großen Community entwickelt und bereitgestellt werden. 
         % ggfs. auch kurz teasern, welche Plattformen aktuell auf dem Markt sind, bzw. kommerziell und nicht-kommerziell
