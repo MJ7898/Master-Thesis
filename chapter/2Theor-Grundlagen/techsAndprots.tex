@@ -1,21 +1,21 @@
-\section{Technologien}
-\label{sec:technologien}
-    Die bereits angesprochene Kommunikation und Vernetzung zwischen Geräten basiert im Allgemeinen auf 
-    diversen Protokollen. Um diese Datenbewegung und Kommunikation besser verstehen zu können, werden im 
-    Folgenden bekannte Protokolle erwähnt und aufgeführt und eines der meist verwendeten näher betrachtet. 
-    Um einen Vergleich herzustellen, wird ein vergleichbares Protokoll betrachtet. Diese werden dann zum 
-    Abschluss gegenübergestellt. 
+% \section{Technologien}
+% \label{sec:technologien}
+%     Die bereits angesprochene Kommunikation und Vernetzung zwischen Geräten basiert im Allgemeinen auf 
+%     diversen Protokollen. Um diese Datenbewegung und Kommunikation besser verstehen zu können, werden im 
+%     Folgenden bekannte Protokolle erwähnt und aufgeführt und eines der meist verwendeten näher betrachtet. 
+%     Um einen Vergleich herzustellen, wird ein vergleichbares Protokoll betrachtet. Diese werden dann zum 
+%     Abschluss gegenübergestellt. 
 
-    \subsection{Übertragungsmethoden}
-    \label{subsec:netzwerkprotokolle}
-    Allgemein gibt es im Bereich des \acl{SH} mehrere Methoden und Möglichkeiten, die Objekte miteinander zu vernetzen. 
-    Unter dessen gehören Protokolle über Bluetooth, Ethernet, WLAN, Bussysteme, Funk und Stromleitung. 
-    Diese werden Abhängig von den Herstellern eingesetzt. Proprietäre Systeme funktionieren nur über eine 
-    Übertragungsmethode. So erzwingen die Hersteller die Nutzung einer Produktlinie, bzw. den Kauf einer 
-    einheitlichen Lösung. Geräte die die Möglichkeiten besitzen über mehrere Protokolle 
-    zu kommunizieren sind flexibler einsetzbar und mit mehreren Plattformen und Geräten kompatibel.
-    Grundlegend werden mit diesen Übertragungsmethoden Netzwerke erstellt, über das die Geräte in einem \acl{SH} kommunizieren können.
-    Die populärsten werden in folgender Tabelle aufgelistet\footnote{Auswahl von derzeit verwendeten Übertragungsmethoden. \url{https://de.wikipedia.org/wiki/Smart_Home\#Übertragungsmethoden} Abgerufen am 02.04.2022}: 
+%     \subsection{Übertragungsmethoden}
+%     \label{subsec:netzwerkprotokolle}
+%     Allgemein gibt es im Bereich des \acl{SH} mehrere Methoden und Möglichkeiten, die Objekte miteinander zu vernetzen. 
+%     Unter dessen gehören Protokolle über Bluetooth, Ethernet, WLAN, Bussysteme, Funk und Stromleitung. 
+%     Diese werden Abhängig von den Herstellern eingesetzt. Proprietäre Systeme funktionieren nur über eine 
+%     Übertragungsmethode. So erzwingen die Hersteller die Nutzung einer Produktlinie, bzw. den Kauf einer 
+%     einheitlichen Lösung. Geräte die die Möglichkeiten besitzen über mehrere Protokolle 
+%     zu kommunizieren sind flexibler einsetzbar und mit mehreren Plattformen und Geräten kompatibel.
+%     Grundlegend werden mit diesen Übertragungsmethoden Netzwerke erstellt, über das die Geräte in einem \acl{SH} kommunizieren können.
+    % Die populärsten werden in folgender Tabelle aufgelistet\footnote{Auswahl von derzeit verwendeten Übertragungsmethoden. \url{https://de.wikipedia.org/wiki/Smart_Home\#Übertragungsmethoden} Abgerufen am 02.04.2022}: 
     \begin{table}[hbt!]
         \begin{center}
             \begin{tabular}{| p{3.25cm} | p{3.25cm} | p{3.25cm} | p{3.25cm} |}
@@ -41,7 +41,6 @@
         \caption{Übertragungsmethoden des Smart Home}
         \label{tab:protocolsSH}
     \end{table}
-    \\
     Die Auflistung der zum aktuellen Zeitpunkt am meist verwendeten Übertragungsmethoden dient 
     lediglich als Einblick, damit eine große Gesamtübersicht der Technologien und der Thematik \acl{SH} entsteht. 
     Demnach wird im Rahmen dieser Arbeit das Thema oberflächlich erläutert und nicht ausführlich vertieft.
@@ -63,8 +62,7 @@
         entwickelt wurde. Ein \acs{MQTT}-Client veröffentlicht Nachrichten an einen \acs{MQTT}-Server, den sogenannten 
         \acs{MQTT}-Broker. Diese können von anderen Clients abonniert oder auf dem Broker für zukünftige Abonnements 
         aufbewahrt werden. Jede erzeugte Nachricht wird an eine Adresse veröffentlicht, die als Thema, im Englischen \textit{Topic}, 
-        bezeichnet wird \cite{Naik2017}. \acs{MQTT}-Clients können mehrere Topics abonnieren und erhalten jede Nachricht, die an das 
-        jeweilig abonnierte Topic gesendet wird. 
+        bezeichnet wird \cite{Naik2017}. \acs{MQTT}-Clients können mehrere Topics abonnieren und erhalten jede Nachricht, die an das jeweilig abonnierte Topic gesendet wird. 
         \\
         Die Leichtgewichtigkeit des Protokolls ermöglicht es, die Nachrichten bei eingeschränkter Netzwerkverfügbarkeit zu 
         übermitteln. Ausschlaggebend dafür ist das binär-basierte Protokoll, welches normalerweise einen festen Header von 
@@ -73,7 +71,7 @@
         \ac{TLS}/\ac{SSL}-Verschlüsselung. Dadurch sind Client und Broker mit ihrer Kommunikation verbindungsorientiert.  
         Die Anwendung von \acs{MQTT} im Bereich des \acl{SH} zeichnet sich durch die Möglichkeit aus, große Netzwerke mit 
         vielen kleineren Geräten, die von einem Backend-Server, bzw. dem Backend-System überwacht und gesteuert werden müssen, zu 
-        betreiben. Dennoch ist es nicht für Mulitcast-Daten oder Übertragungen von Gerät zu Gerät ausgelegt. Die Nutzbarkeit 
+        betreiben. Dennoch ist es nicht für Multicast-Daten oder Übertragungen von Gerät zu Gerät ausgelegt. Die Nutzbarkeit 
         von \acs{MQTT} ist aufgrund der wenigen Steueroptionen und der Einfachheit des Messaging-Protokolls sehr simplen und 
         leichtgewichtig \cite{Naik2017}. 
         \\
@@ -137,13 +135,13 @@
         \cite{Naik2017}.
         \\ 
         Das binäre Protokoll \acs{AMQP} erfordert einen Header von acht Byte mit Nachrichtennutzlasten, die die Größe der Nachricht ist abhängig 
-        von dem Broker, bzw. dem Server. Die Verbindungsorientierte Kommunikation von \acs{AMQP} basiert auf dem Standard-Transportprotokoll 
+        von dem Broker, bzw. dem Server. Die verbindungsorientierte Kommunikation von \acs{AMQP} basiert auf dem Standard-Transportprotokoll 
         \acs{TCP} und zur Sicherheit auf dem \acs{TLS}/\acs{SSL}-Protokoll. Ein Kernmerkmal des \acs{AMQP} Kommunikationsmodells ist die 
         Zuverlässigkeit \cite{Naik2017}. 
         \\
         \linebreak
-        Neben den beiden aufgeführten Kommunikationsmodellen gibt es noch weitere, darunter das klassische \ac{HTTP} und das \ac{COAP}, die 
-        allerdings nicht weiter ausgeführt werden. Der Fokus in dieser Arbeit liegt auf dem \acs{MQTT}-Protokoll. 
+        Neben den beiden aufgeführten Kommunikationsmodellen gibt es noch weitere, darunter das klassische \ac{HTTP} und das \ac{COAP}, die allerdings im Rahmen dieser Arbeit nicht weiter ausgeführt werden. 
+        %Der Fokus in dieser Arbeit liegt auf dem \acs{MQTT}-Protokoll. 
         
         %Vergleich in den Anhang packen??
         %\subsubsection*{Vergleich von MQTT und AMQP}

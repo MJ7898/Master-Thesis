@@ -52,7 +52,7 @@
     physischen Welt.\footnote{Das Internet der Dinge – der digitale Zwilling der Welt. Kompetenzzentrum Öffentliche IT in Kooperation mit dem Fraunhofer Institut. \url{https://www.oeffentliche-it.de/trendsonar-iot} Abgerufen am 23.03.2022.} 
     Die Vereinigung beider Welten ist die Verknüpfung physischer Objekte, die eindeutig identifizierbar sind, mit einer virtuellen 
     Repräsentation in einer vergleichbaren Internet-Struktur. 
-    \pagebreak
+    %\pagebreak
     \subsection*{Gesamtbild des \acl{IoT}}
         Der folgenden Abbildung (\ref{pic:mindmap_IoT}) ist zu entnehmen, welche Technologien rund um das \acl{IdD} liegen und in Verbindung damit stehen. 
         \begin{figure}[hbt!]
@@ -62,8 +62,8 @@
             \label{pic:mindmap_IoT}
         \end{figure}
         \\
-        %\pagebreak
-        %\linebreak
+        \pagebreak
+        \linebreak
         Beispielsweise ist das \acs{IoT} eine wesentliche Grundlage für das Themengebiet \textit{Big Data}. Die durch Sensoren 
         und Aktoren erzeugten Daten 
         können eine Grundlage für die Verwendung im Bereich \textit{Big Data} sein. Dabei werden die Datenmengen gespeichert und mithilfe von Mustern 
@@ -316,7 +316,8 @@
     \end{itemize}
     Eine elementare Information im Zusammenhang zu dieser Arbeit ist, dass die Verwendung des Begriffs \textit{intelligentes Büro} 
     ebenso in den Kontext des \acl{SH} gehört. Hierbei wird lediglich die Räumlichkeit im unternehmerischen Jargon verwendet, 
-    die ebenso eine Grundlage für die Verwendung von Komponenten des \acl{SH} bietet. 
+    die ebenso eine Grundlage für die Verwendung von Komponenten des \acl{SH} bietet. Im Abschnitt (\ref{subsec:smartoffice}) wird 
+    nochmals konkret darauf eingegangen.
     \\
     An dieser Stelle wird deutlich, dass die Verwendung des Begriffs als auch die zugrundeliegenden technischen Verfahren 
     weiträumig einsetzbar sind und deshalb die Begriffsdefinition nicht eindeutig festgehalten werden kann. 
@@ -445,8 +446,28 @@
             \label{pic:aufbau_SH}
         \end{figure}
 
-    %\subsubsection{Eigendefinition Smart Home}
-    
+    \subsection{Smart Office - Intelligentes Büro}
+    \label{subsec:smartoffice}
+        Ein Smart Office, im Deutschen intelligentes Büro, ist ein konkreter Anwendungsbereich des Smart Home. 
+        Während das Smart Home konkret um die Verbesserung der Lebensqualität, die Einsparung von Energiekosten,  
+        die Optimierung des Wohlbefinden im privaten Wohnraum und die Erleichterung des Alltags des Nutzers handelt, 
+        zielt das Smart Office darauf ab, das Wohlbefinden und die Produktivität der Mitarbeiter zu steigern. Weitere 
+        wichtige Punkte sind neben den beiden aufgeführten auch die Erhöhung der Sicherheit und Nachhaltigkeit der 
+        Büroräume. Eine große Rolle spielen in einem intelligente Büro ebenso als im intelligenten Zuhause die Automation 
+        von Gebäudemanagement- und die damit einhergehenden Sicherheitssysteme. 
+        \\
+        \linebreak
+        Viele Funktionalitäten und Vorteile sind deckungsgleich zu denen des Smart Home. Durch intelligente Geräte, Aktoren und 
+        Sensoren ist die Steuerungen von Licht, Heizung, Klima etc. möglich. Hervorzuhebende Funktionalitäten sind in 
+        diesem Aspekt die Sicherheitsregelung durch die Zutrittskontrolle über beispielsweise Gesichtserkennungssysteme, die 
+        an zentraler Stelle mit weiteren Komponenten kommunizieren und weiter Schritte einleitet können. Ebenso der 
+        Sicherheitsaspekt in Richtung Gebäudesicherheit durch intelligente Feuer- und Wassermelder und weitere Maßnahmen, die 
+        die Sicherheit des Büros steigern und durch Automationen abgebildet werden können. 
+        \\
+        Nachhaltigkeit ist in gleichem Maße von großer Bedeutung. Somit können Ressourcen- und Energieeinsparungen umgesetzt 
+        werden, z.B. die automatische Abschaltung von Beleuchtungen, Kaffeemaschinen, Monitoren und weiteren Geräten durch 
+        Präsenz- und Bewegungsmelder oder die Steuerung der Geräte durch Remotesteuerungsoptionen.
+
     \subsection{Historische Entwicklung}
     \label{subsec:entwicklung_sh}
         Im Bereich des \acl{SH} wurde im Jahr 1975 die erste Netzwerktechnologie für Hausautomationen 
@@ -481,7 +502,7 @@
         Bis heute wird in dem Segment des \acl{SH} geforscht und immer weitere Funktionalitäten entwickelt. Der Trend 
         der Nutzung von intelligenten Geräten ist weiter zunehmend. Die Marktsituation und der aktuelle Ist-Stand 
         wird in dem Abschnitt Marktanalyse (\ref{sec:marktanalyse}) nochmals aufgegriffen und mit Statistiken und Umfragen belegt.
-    \pagebreak
+    %\pagebreak
 
     \subsection{Ziele von Smart Home} % https://www.bigdata-insider.de/was-ist-smart-home-a-809018/ 
     \label{subsec:ziele_sh}
@@ -521,3 +542,22 @@
         \linebreak
         Die Geräte im \acl{SH} erfüllen weitestgehend diese Ziele und werden stetig weiterentwickelt, verbessert und neue 
         Funktionalitäten entwickelt.
+
+\section{Technologien}
+\label{sec:technologien}
+    Die bereits angesprochene Kommunikation und Vernetzung zwischen Geräten basiert im Allgemeinen auf 
+    diversen Protokollen. Um diese Datenbewegung und Kommunikation besser verstehen zu können, werden im 
+    Folgenden bekannte Protokolle erwähnt und aufgeführt und eines der meist verwendeten näher betrachtet. 
+    Um einen Vergleich herzustellen, wird ein vergleichbares Protokoll betrachtet. Diese werden dann zum 
+    Abschluss gegenübergestellt. 
+
+    \subsection{Übertragungsmethoden}
+    \label{subsec:netzwerkprotokolle}
+    Allgemein gibt es im Bereich des \acl{SH} mehrere Methoden und Möglichkeiten, die Objekte miteinander zu vernetzen. 
+    Unter dessen gehören Protokolle über Bluetooth, Ethernet, WLAN, Bussysteme, Funk und Stromleitung. 
+    Diese werden Abhängig von den Herstellern eingesetzt. Proprietäre Systeme funktionieren nur über eine 
+    Übertragungsmethode. So erzwingen die Hersteller die Nutzung einer Produktlinie, bzw. den Kauf einer 
+    einheitlichen Lösung. Geräte die die Möglichkeiten besitzen über mehrere Protokolle 
+    zu kommunizieren sind flexibler einsetzbar und mit mehreren Plattformen und Geräten kompatibel.
+    Grundlegend werden mit diesen Übertragungsmethoden Netzwerke erstellt, über das die Geräte in einem \acl{SH} kommunizieren können.
+    Die populärsten werden in folgender Tabelle aufgelistet\footnote{Auswahl von derzeit verwendeten Übertragungsmethoden. \url{https://de.wikipedia.org/wiki/Smart_Home\#Übertragungsmethoden} Abgerufen am 02.04.2022}: 
