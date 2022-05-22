@@ -2,32 +2,72 @@
 \label{chap:anforderungsanalyse}
     Dieses Kapitel befasst sich im Allgemeinen mit der Anforderungsanalyse und -erhebung. Hierbei wird eine
     Marktanalyse repräsentiert, um das Potential rundum \acl{SH} aufzuzeigen und ein Gefühl 
-    dafür zu geben, welche Anforderungen dabei entstehen können, bzw. bereits bestehen. Die Analyse ist 
+    dafür zu vermitteln, welche Anforderungen dabei entstehen können, bzw. bereits bestehen. Die Analyse ist 
     mit repräsentativen Statistiken, Studien und Umfragen belegt. Hauptsächlich wird im Rahmen der Anforderungserhebung 
     auf die Methodiken und Techniken eingegangen, die verwendet werden, um 
-    Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Plattform. Bestandteile der 
-    Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design}, im Deutschen nutzerzentriertes Design, eine 
-    \textit{Target Group Analysis}, im Deutschen Zielgruppenanalyse, und die Durchführung von Experten Interviews.
+    Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerungs-Plattform. Bestandteile der 
+    Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design}, im Deutschen 
+    nutzerzentriertes Design, eine \textit{Target Group Analysis}, im Deutschen Zielgruppenanalyse, und die Durchführung von 
+    Experten Interviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
     \\
-    Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Entwickler als Nutzer im Vordergrund steht.
+    Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer im Vordergrund 
+    steht, da dieser die Plattform betreibt, bzw. für die Erweiterung der Software als auch für die 
+    Anpassungen auf die eigenen Anwendungsfälle zuständig ist.
+    \\
+    \linebreak
+    Damit ein Eindruck entsteht, welches Marktpotential \acl{SH} Anwendungen haben und damit einhergehende Anforderungen mit 
+    sich bringen, wird basierend auf gegebenen Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
 \section{Marktanalyse}
 \label{sec:marktanalyse}
     Der Markt rundum \acl{SH} nimmt immer weiter zu. Sei es die Entwicklung von neuen intelligenten Geräten, die 
-    Massentauglichkeit von Geräten, die nicht lange am Markt bestehen oder die stetig wachsende Abdeckung von 
-    Use Cases und Übernahme von Aufgaben und Prozessen.
+    Massentauglichkeit von Geräten %, die nicht lange am Markt bestehen 
+    oder die stetig wachsende Abdeckung von Anwendungsfällen und Übernahme von Aufgaben und Prozessen. Durch die Vielzahl an 
+    Produktanbietern und diversen Kommunikationsmöglichkeiten, ist es schwierig eine Lösung für alle Alternativen und 
+    Produktausprägungen anzubieten. Hersteller versuchen mit der angebotenen Produktpalette ihr eigenes Ökosystem im Bereich 
+    \acl{SH} zu erstellen, um die Nutzer abhängig zu machen. Der repräsentativen Studie von Deloitte zufolge ist jedoch eine 
+    Insellösung bei den Nutzern in Deutschland nicht gefragt \cite{deloitte2018}. Befragt wurden 2000 Konsumenten zwischen 
+    19 und 75 Jahren. Einem geringen Anteil von 22 Prozent der 
+    Befragten ist die Erweiterbarkeit des Systems mit Produkten anderer Hersteller weniger, bzw. nicht wichtig. Im Gegensatz dazu 
+    empfinden 43 Prozent der Befragten die Erweiterbarkeit als wichtig und 28 Prozent als sehr wichtig \cite{deloitte2018}. 
+    Demnach müssen die Hersteller eine flexiblere Einsetzbarkeit gewährleisten, damit solche Systeme den Marktdurchbruch 
+    erlangen. Dadurch wird die Entwicklung von Plattformen komplexer und umfangreicher. Beispielsweise sind die am weit 
+    verbreitetsten Open Source Plattformen, openHAB und Home Assistant, sehr komplex und bilden ein großes Ökosystem ab, da 
+    stetig der Zuwachs an integrierbaren Geräten zunimmt und damit der Funktionsumfang steigt.  
 
     \subsection{Allgemeine Marktsituation und Marktprognose}
     %Anbieter, Plattformen, Geräte
-
-    \subsection{Zielgruppenanalyse}
-
+        Derzeit gibt es viele Anbieter für intelligente Produkte. Diese bieten zum einen einzelne Geräte an, die in 
+        beliebige Plattformen integriert werden können und zum anderen ein eigenes Ökosystem, sofern der Anwender 
+        mehrere Produkte des Anbieters nutzen möchte. Dennoch ist in den meisten Fällen die Konfiguration der Geräte nur auf 
+        den hauseigenen Plattformen möglich. Somit kann der Nutzer nicht alle Komponenten nur über eine Plattform 
+        konfigurieren und steuern. 
+        \\
+        \linebreak
+        Eine repräsentative Umfrage der \ac{SGCS} mit 1384 Teilnehmern, welche im April 2022 veröffentlicht wurde, zeigt, welche 
+        Anbieter in Deutschland am meist verbreitetsten sind, bzw. welche die Nutzer am häufigsten kaufen. An oberster Stelle 
+        steht Philips und Samsung mit jeweils 25 Prozent und an dritter Stelle Bosch mit 23 Prozent. Weitere Anbieter können dem 
+        Diagramm im Anhang (siehe \ref{appendix:brandings}) entnommen werden. Dabei sind jedoch weitaus nicht alle Hersteller und 
+        Anbieter aufgelistet. Detaillierter wird an dieser Stelle jedoch nicht eingegangen. 
+        %alle anbieter ein eigene ökosystem 
+        %forecast und revenue allgemeiner smart home consum statista 
+        %
+ 
+\section{Zielgruppenanalyse}
+\label{sec:zielgruppenanalyse}
+    \subsection{Ziel der Zielgruppenanalyse}
+        %Softwareentwickler, die das System betreiben und für ihre Bedürfnisse anpassen.
 
 \section{Use Cases}
+\label{sec:usecases}
     Für die Erhebung und Ausarbeitung aller Anforderungen an das System, werden Anwendungsfälle, sogenannte Use Cases, 
     definiert, bewertet und auf ihre Funktionalität geprüft und dokumentiert. Zum besseren Verständnis wird auf diese in den 
     folgenden Kapiteln eingegangen. 
 \subsection{Check in mit Temi}
 \subsection{Notfallevakuierung mit Temi}
 \section{Experten Interview}
+\label{sec:experteninterviewReqirements}
+    %Die Experten Interviews sind eine Möglichkeit, die Anforderungen zu erfassen, die durch die Entwicklung des Systems 
+    %nicht durch eine einfache Marktanalyse erfasst werden konnten. Diese Interviews sind nicht repräsentativ und dienen lediglich 
+    %der weiträumigeren Informationsgewinnung.
 \subsection{Ziele des Experten Interviews}
 \section{Anforderungen}

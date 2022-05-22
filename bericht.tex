@@ -188,9 +188,9 @@
 %\include{chapter/2Theor-Grundlagen/requirementsengineering}
 \include{chapter/1Einleitung/technikstand}
 \include{chapter/3Anforderungsanalyse/anforderungen}
-\include{chapter/4Konzeption/konzeptanforderungen}
+\include{chapter/4Konzeption/konzept}
 \include{chapter/5Umsetzung/umsetzung}
-\include{chapter/6Ergebnisse/ergebnis}
+%\include{chapter/6Ergebnisse/ergebnis}
 \include{chapter/7Diskussion-Evaluation/evaluation}
 \include{chapter/8Fazit/fazit}
 \include{chapter/8Fazit/xausblick}
@@ -210,7 +210,6 @@
 \pagenumbering{Roman}
 % Ab hier beginnt der Anhang
 \appendix
-\addcontentsline{toc}{chapter}{Anhang}
 
 \addcontentsline{toc}{chapter}{Index}
 \printindex
@@ -245,6 +244,16 @@
 % Benutzt man das "biblatex"-Paket, muß man folgendes schreiben:
 \def\refname{Literaturverzeichnis}
 \printbibliography
+
+\addcontentsline{toc}{chapter}{Anhang}
+\chapter{A1. Anhang 1}
+\label{appendix:brandings}
+\begin{figure}[hbt!]
+  %\centering
+  \includepdf[scale=0.65, page=1, pagecommand={}]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
+  %\caption{Umfrage \url{https://de.statista.com/prognosen/999896/deutschland-beliebteste-smart-home-marken} Abgerufen am 22.05.2022}
+  %\label{appendix:brandings}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

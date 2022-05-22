@@ -111,15 +111,21 @@
             
             \subsubsection*{Beispiel}
             \label{subsubsec:pubsub-example}
-            IST NOCH AUSZUARBEITEN. BEISPIELBESCHREIBUNG FOLGT!!!! 
-            %TBD 
-            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Test test}]
-                subscribe -topic: test/test/
+            Damit am Beispiel der Steuerzentrale, die im Rahmen dieser Arbeit konzipiert und prototypisch implementiert wird, 
+            ein Prozess gestartet werden kann, müssen bestimmte Ereignisse durch \acs{MQTT} Nachrichten eintreten. Das hier 
+            verwendete Beispiel ist das Öffnen einer Büroeingangstür. Hierbei wird von einem Relais an der Tür, welches das Türschloss steuert, eine Nachricht and den \textit{Broker} herausgegeben:
+            \\
+            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Erzeugung und Veröffentlichung einer Nachricht}]
+                publish -topic: Buero/Tuer/Zustand -message: "offen"
             \end{lstlisting}
-            % Erläutern des Beispiels anhand des publishen und subscriben eines topics in bezug auf das checkin mit der authentifizierung und dem 
-            % Command an Temi, welcher dann die Begrüßung und das Checkin durchführt. 
-
-
+            Diese Nachricht wird von der Steuerzentrale konsumiert und weiterverarbeitet. Damit der Informationskanal (topic) 
+            über die Steuerzentrale verfügbar ist, muss dieser Kanal konsumiert werden: 
+            \\
+            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Empfang und Konsum einer Nachricht}]
+                subscribe -topic: Buero/Tuer/Zustand
+            \end{lstlisting}
+            Mit der empfangenen Nachricht kann dann über die Steuerzentrale ein Prozess, welcher vorab als Regel implementiert wurde, ausgelöst werden. Beispielsweise eine Durchsage im Büro, dass die Tür offen steht, bzw. eine Person eintritt.
+    \pagebreak
     \subsection{AMQP}
     \label{subsec:amqp}
         Das \ac{AMQP}-Protokoll ist ebenso ein leichtgewichtiges \acs{MtoM}-Protokoll, welches im Jahre 2003 von John O\'Hara JPMorgan Chase 
