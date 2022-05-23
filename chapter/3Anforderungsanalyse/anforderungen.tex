@@ -5,18 +5,18 @@
     dafür zu vermitteln, welche Anforderungen dabei entstehen können, bzw. bereits bestehen. Die Analyse ist 
     mit repräsentativen Statistiken, Studien und Umfragen belegt. Hauptsächlich wird im Rahmen der Anforderungserhebung 
     auf die Methodiken und Techniken eingegangen, die verwendet werden, um 
-    Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerungs-Plattform. Bestandteile der 
+    Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerzentrale. Bestandteile der 
     Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design}, im Deutschen 
     nutzerzentriertes Design, eine \textit{Target Group Analysis}, im Deutschen Zielgruppenanalyse, und die Durchführung von 
     Experten Interviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
     \\
-    Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer im Vordergrund 
-    steht, da dieser die Plattform betreibt, bzw. für die Erweiterung der Software als auch für die 
+    Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer und Anwender im 
+    Vordergrund steht, da dieser die Plattform betreibt, bzw. für die Erweiterung der Software als auch für die 
     Anpassungen auf die eigenen Anwendungsfälle zuständig ist.
     \\
     \linebreak
-    Damit ein Eindruck entsteht, welches Marktpotential \acl{SH} Anwendungen haben und damit einhergehende Anforderungen mit 
-    sich bringen, wird basierend auf gegebenen Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
+    Damit ein Eindruck entsteht, welches Marktpotential \acl{SH} Anwendungen haben und welche Anforderungen somit 
+    verbunden sind, wird basierend auf gegebenen Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
 \section{Marktanalyse}
 \label{sec:marktanalyse}
     Der Markt rundum \acl{SH} nimmt immer weiter zu. Sei es die Entwicklung von neuen intelligenten Geräten, die 
@@ -39,7 +39,7 @@
         Derzeit gibt es viele Anbieter für intelligente Produkte. Diese bieten zum einen einzelne Geräte an, die in 
         beliebige Plattformen integriert werden können und zum anderen ein eigenes Ökosystem, sofern der Anwender 
         mehrere Produkte des Anbieters nutzen möchte. Dennoch ist in den meisten Fällen die Konfiguration der Geräte nur auf 
-        den hauseigenen Plattformen möglich. Somit kann der Nutzer nicht alle Komponenten nur über eine Plattform 
+        den hauseigenen Plattformen möglich. Somit kann der Nutzer nicht alle Komponenten ausschließlich über eine Plattform 
         konfigurieren und steuern. 
         \\
         \linebreak
@@ -48,13 +48,99 @@
         steht Philips und Samsung mit jeweils 25 Prozent und an dritter Stelle Bosch mit 23 Prozent. Weitere Anbieter können dem 
         Diagramm im Anhang (siehe \ref{appendix:brandings}) entnommen werden. Dabei sind jedoch weitaus nicht alle Hersteller und 
         Anbieter aufgelistet. Detaillierter wird an dieser Stelle jedoch nicht eingegangen. 
-        %alle anbieter ein eigene ökosystem 
-        %forecast und revenue allgemeiner smart home consum statista 
-        %
- 
+        \\
+        \linebreak
+        Der aktuelle Markt für intelligente Produkte ist in sechs primäre Segmente aufgeteilt, die jeweils andere Anwendungsfälle 
+        abdecken \cite{statista2021}:
+        \begin{itemize}
+            \item Kontrolle und Konnektivität: Gateways die alle Geräte jeglicher Segmente kontrollieren, intelligente Lautsprecher 
+            mit dem Fokus zur Kontrolle und der digitalen Unterstützung und bspw. intelligente Steckdosen
+            \item Intelligente Geräte (Smart Appliances): Kühlschrank, Waschmaschine und Geschirrspüler, Kaffeemaschine, Mikrowelle 
+            und Staubsaugerroboter
+            \item Sicherheit: Bewegungs-, Wasser- und Rauchmelder, Kameras und Türschlösser
+            \item Heimunterhaltung (Home Entertainment): Fernseher, Entertainment-Systeme 
+            \item Komfort und Licht: Intelligente LEDs, Fenster- und Tür-Sensoren etc.
+            \item Energiemanagement: Thermostate und Regler, Luftqualitätsmesser etc. 
+        \end{itemize}
+        \pagebreak
+        Die aufgelisteten Segmente werden von vielen Herstellern bedient. Darunter sind der folgenden Abbildung die 
+        repräsentativen Schlüsselanbieter zu entnehmen:
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/keyplayers.png}
+            \caption{Übersicht der repräsentativen Schlüsselanbieter \cite{statista2021}} 
+            \label{pic:landscape}
+        \end{figure}
+        \\
+        Die Übersicht deckt jedoch nicht alle Anbieter ab und spezialisiert sich in diesem Fall auf die bekanntesten und die am 
+        Markt etablierten. 
+        \\
+        \linebreak
+        Laut den von Statista veröffentlichten Daten war die USA mit einem Umsatz von 28,86 Milliarden US-Dollar der größte 
+        \acl{SH} Markt im Jahr 2021, wogegen Deutschland eine Umsatz von 6,59 Milliarden US-Dollar erzielte. Zu berücksichtigen sind 
+        dabei jedoch die Demographische Lage als auch die Bevölkerungsdichte. Diese Aufstellung steht in keinem direkten Vergleich und 
+        dient lediglich zur Veranschaulichung und zur Unterscheidung der Marktanteile. Deutlich wird dabei jedoch, dass das 
+        Marktwachstum prozentual ähnlich ansteigt. 
+        \\
+        \linebreak
+        Der Markt-Prognose in Abbildung (\ref{pic:revenue}) ist zu entnehmen, dass bis 2026 sich der Umsatz nahezu verdoppeln 
+        wird. Der Darstellung (\ref{pic:globalmarket}) der einzelnen Segmente kann entnommen werden, dass der Weltmarkt von 
+        2021 bis 2026 um ca. 100 Prozent zunimmt. Die Zeitspanne von 2019 bis 2026 stellt einen durchschnittlichen Zuwachs von 
+        17,4 Prozent dar. Anhand der Prognose und des Berichts von Statista ist deutlich zu sehen, dass der \acl{SH} Markt in 
+        den nächsten Jahren erheblich wachsen wird. Prognostiziert ist ein globaler Marktwert bei ca. 207,8 Milliarden 
+        US-Dollar bis 2026.
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=9.25cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Revenue-Total-United-States---Germany-billion-USD-US.png}
+            \caption{Umsatz-Prognose von Deutschland und den USA} 
+            \label{pic:revenue}
+        \end{figure}
+        \\
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/global_Worth_smart-home.png}
+            \caption{Globaler Smart Home Marktwert \cite{statista2021}} 
+            \label{pic:globalmarket}
+        \end{figure}
+        \pagebreak 
+        \subsection*{Schlüsseltechnologien und Barrieren}
+            Unter den Schlüsseltechnologien im \acl{SH} sind Komponenten zu verstehen, die den Gedanken eines intelligenten 
+            Wohnraumes und Gebäudes forcieren. Dazu zählen unter anderem die Spracherkennung, die bei Sprachassistenten, 
+            darunter bspw. Amazon Alexa, Apple HomePod (Siri) und dem Google Nest, eingesetzt wird, sowie \ac{AI} und \ac{KI} 
+            zur Analyse, Auswertung und Optimierung von Verhaltensmustern und weiteren Analysezwecken \cite{statista2021}. 
+            Obwohl die Spracherkennung das Wachstum des Marktes ankurbelt, werden die herkömmlichen Interaktionsmöglichkeiten, 
+            z.B. die Kontrolle über Berührung durch Touch-Displays,
+            weiter bestehen und weiterhin eine wichtige Art des Gerätezugriffs darstellen \cite{all-electronics2022}. 
+            Mit dem Einsatz von \acs{KI} und \acs{AI} werden Prozesse noch autonomer und können den Komfort aus den Analysen je 
+            nach Bedürfnis individuell gestalten. Zu berücksichtigen ist dabei jedoch die dafür geeigneten Anwendungsfälle und 
+            die Bereitschaft der Nutzer, in wie fern diese das Analysieren von Verhaltensmustern akzeptieren und zulassen. 
+            
+            \subsubsection*{Fehlender Interoperabilität}
+                Die Kommunikation von \acl{SH} Geräten findet über drahtlose Netzwerke auf Brandbreiten statt, die oft nicht 
+                miteinander kompatibel sind. Der hauptsächliche Grund dafür ist, dass Unternehmen ein Protokoll für einen 
+                bestimmten Zweck entwickeln und dieses darauf abgestimmt ist den Anwendungsfall abzudecken und um eine 
+                Markteintrittsbarriere zu schaffen, sodass der Wechsel zwischen Anbietern erschwert wird \cite{statista2021}. 
+                Die damit einhergehende Schwachstelle eines \acl{SH} ist, dass die Geräte mit den bereits entwickelten 
+                Protokollen genutzt werden. So ist die Kommunikation über verschiedene Protokollen nicht vorgesehen. Dadurch 
+                entsteht die fehlende Interoperabilität, die der Anwender jedoch für eine \acl{SH} Lösung ansieht und auch 
+                als äußerst sinnvoll betrachtet. Die Einführung von Bluetooth LE Mesh ist eine aktuelle Entwicklung, um der 
+                Herausforderung der Bewältigung der Interoperabilität einen Schritt näher zu kommen. Dennoch muss der 
+                Anwender prüfen, welche Geräte miteinander kompatibel sind \cite{statista2021}. Bei cloudbasierten 
+                Sprachdiensten muss ebenso die Kompatibilität geprüft werden. 
+                Dadurch wird dem Nutzer neben der Ungewissheit der Datensicherheit und der Privatsphäre ein weiterer Aspekt 
+                geliefert, der die Nutzung von \acl{SH} Lösungen für bestimmte Anwendergruppen immer noch in Frage stellt.
+                \\ 
+                \linebreak
+                Derzeit häufig verwendete Protokolle sind unter anderem Bluetooth, \ac{WLAN} (WiFi), KNX, ZigBee, Z-Wave, 
+                MQTT und weitere (siehe \ref{tab:protocolsSH}). Um Beispielsweise mit ZigBee über \acs{MQTT} kommunizieren zu 
+                können, gibt es ein Framework, welches die Interoperabilität der beiden Protokolle ermöglicht. Dies ist das 
+                sogenannte \textit{ZigBee2MQTT} Framework\footnote{Erschafft eine Brücke zwischen ZigBEE und MQTT. \url{https://www.zigbee2mqtt.io/} Abgerufen am 23.05.2022}.
+
 \section{Zielgruppenanalyse}
 \label{sec:zielgruppenanalyse}
     \subsection{Ziel der Zielgruppenanalyse}
+        %was soll damit erzielt werden?
+    \subsection{Zielgruppe}
         %Softwareentwickler, die das System betreiben und für ihre Bedürfnisse anpassen.
 
 \section{Use Cases}
