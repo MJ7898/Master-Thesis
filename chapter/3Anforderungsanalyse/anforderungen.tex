@@ -8,7 +8,7 @@
     Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerzentrale. Bestandteile der 
     Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design}, im Deutschen 
     nutzerzentriertes Design, eine \textit{Target Group Analysis}, im Deutschen Zielgruppenanalyse, und die Durchführung von 
-    Experten Interviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
+    Experteninterviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
     \\
     Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer und Anwender im 
     Vordergrund steht, da dieser die Plattform betreibt, bzw. für die Erweiterung der Software als auch für die 
@@ -135,7 +135,7 @@
             Derzeit häufig verwendete Protokolle sind unter anderem Bluetooth, \ac{WLAN} (WiFi), KNX, ZigBee, Z-Wave, 
             MQTT und weitere (siehe \ref{tab:protocolsSH}). Um Beispielsweise mit ZigBee über \acs{MQTT} kommunizieren zu 
             können, gibt es ein Framework, welches die Interoperabilität der beiden Protokolle ermöglicht. Dies ist das 
-            sogenannte \textit{ZigBee2MQTT} Framework\footnote{Erschafft eine Brücke zwischen ZigBEE und MQTT. \url{https://www.zigbee2mqtt.io/} Abgerufen am 23.05.2022}.
+            sogenannte \textit{ZigBee2MQTT} Framework\footnote{Erschafft eine Brücke zwischen ZigBee und MQTT. \url{https://www.zigbee2mqtt.io/} Abgerufen am 23.05.2022}.
 \pagebreak
 \section{Zielgruppenanalyse}
 \label{sec:zielgruppenanalyse}
@@ -156,7 +156,7 @@
         Ein Weiteres Ziel ist das bessere Kennenlernen der Zielgruppe, um dadurch deren Bedürfnisse und Interessen 
         genauer zu identifizieren und zu betrachten. 
     
-        \subsection{Benutzer-Zielgruppe}
+        \subsection{Zielgruppe Benutzer}
         % Smart Home - Deutschland. Zugriff: 11. Mai 2022. https://de.statista.com/outlook/dmo/smart-home/deutschland
             Die in der Marktanalyse (\ref{sec:marktanalyse}) identifizierten Segmente werden in der Abbildung 
             (\ref{pic:segments}) nochmals aufgegriffen. Hierbei wird in der repräsentativen Statistik und Prognose der 
@@ -194,12 +194,14 @@
             \linebreak
             Demzufolge ist eine große Masse adressiert, die jedoch nach den Segmenten (siehe Abbildung \ref{pic:segments}) 
             wiederum eingeschränkt werden kann.
+            \pagebreak
             \begin{figure}[hbt!]
                 \centering
                 \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Nutzer-nach-Alter-Deutschland-Prozent.png}
                 \caption{Smart Home Nutzer nach Alter \cite{statista2021}} 
                 \label{pic:ageSH}
             \end{figure}
+            \\
             Die aufgeführten Statistiken und Prognosen zeigen den Markt rundum \acl{SH} auf und welches Potential für die 
             nächsten Jahre prognostiziert wird. Im Hinblick auf die Zielgruppe lässt sich sagen, dass eine breite Masse 
             fokussiert werden kann, die jeweils unterschiedliche Voraussetzungen und Bedürfnisse haben. Diese Analyse zeigt 
@@ -208,42 +210,66 @@
             zu gelangen, wird in nachfolgendem Abschnitt auf die Zielgruppe der Anwender, die in dieser Arbeit fokussiert werden, 
             eingegangen. 
 
-        \subsection{Anwender-Zielgruppe}
+        \subsection{Zielgruppe Anwender}
+            %Die eigentliche Zielgruppe, die Softwareentwickler, die das System betreiben und für ihre Bedürfnisse anpassen.
             Der Benutzergruppe wird die Anwenderzielgruppe gegenübergestellt, diese können jedoch ebenso Benutzer der Anwendung 
-            werden. Im Umkehrschluss ist ein gewisses Maß an \acs{IT}-Affinität vorausgesetzt, sodass Benutzer nicht gleich Anwender 
-            sind. Es wird eine grundlegende Kenntnis der Programmierung erfordert, im Rahmen dieser Arbeit der Umgang mit der 
-            Programmiersprache Java. 
+            werden. Im Umkehrschluss ist ein gewisses Maß an \acs{IT}-Affinität vorausgesetzt, sodass Benutzer nicht gleich 
+            Anwender sein können. Es wird eine grundlegende Kenntnis der Programmierung erfordert, im Rahmen dieser Arbeit 
+            der Umgang mit der Programmiersprache Java. Einer Umfrage der Developer Nation\footnote{Umfragen, Statistiken und Berichte rundum Softwareentwickler\url{https://www.developernation.net/developer-reports/dn21} Abgerufen am 27.05.2022} 
+            zufolge, benutzen von ca. 12.5 Tausend Befragten im Jahr 2021 35.8 Prozent die Programmiersprache Java. Somit kann 
+            ein Rückschluss erfolgen, dass Java eine der am häufigsten verwendete Programmiersprache ist.
             \\
-            Im Fokus steht der Softwareentwickler als Anwender, welcher das System betreibt und auf die individuellen Bedürfnisse 
-            anpasst. 
-            %Die eigentliche Zielgruppe, die
-        %Softwareentwickler, die das System betreiben und für ihre Bedürfnisse anpassen.
+            \linebreak
+            Im Fokus der Arbeit steht der Softwareentwickler als Anwender, welcher das System betreibt und auf die 
+            individuellen Bedürfnisse anpasst. 
+            \\
+            Laut des Berichts der Developer Nation\footnote{Umfragen, Statistiken und Berichte rundum Softwareentwickler\url{https://www.developernation.net/developer-reports/dn21} Abgerufen am 27.05.2022}
+            des dritten Quartals 2021 gibt es zu diesem Zeitpunkt 26.8 Millionen Softwareentwickler weltweit. Davon sind dem 
+            Bericht von Daxx\footnote{Zusammenfassung mehrerer Berichte. \url{https://www.daxx.com/de/blog/entwicklungstrends/anzahl-an-softwareentwicklern-deutschland-weltweit-usa} Abgerufen am 27.05.2022}
+            zufolge 0.9 Millionen in Deutschland angesiedelt. 
+            \\
+            \linebreak
+            Eine vergleichbare Anwendergruppe ist die der Softwarelösung openHAB. Diese ist weltweit bekannt und zählt unter die 
+            beliebtesten und am meist genutzt open source Lösungen. Anhand den eigenen Statistiken kann die Community\footnote{Website Statistik der openHAB Community. \url{https://community.openhab.org/about} Abgerufen am 27.05.2022} 
+            der openHAB Foundation ca. 42 Tausend Benutzer und Anwender vorweisen. Dem GitHub Repository der \textit{openhab-core} 
+            Software sind 73 Mitwirkende zugeschrieben, die dazu beitragen die Software weiterzuentwickeln, bzw. zu verbessern und zu 
+            stabilisieren.
 
-\section{Use Cases}
+\section{Anwendungsfälle - Use Cases}
 \label{sec:usecases}
     Für die Erhebung und Ausarbeitung aller Anforderungen an das System, werden Anwendungsfälle, sogenannte Use Cases, 
     definiert, bewertet und auf ihre Funktionalität geprüft und dokumentiert. Zum besseren Verständnis wird auf diese in den 
     folgenden Abschnitten eingegangen. 
 \subsection{Check in mit Temi}
 \subsection{Notfallevakuierung mit Temi}
-\section{Experten Interview}
+\section{Experteninterview}
 \label{sec:experteninterviewReqirements}
-    Zur Analyse und Erhebung von Anforderungen, die sich an das System richten, werden Experten Interviews durchgeführt. 
+    Zur Analyse und Erhebung von Anforderungen, die sich an das System richten, werden Experteninterviews durchgeführt. 
     Dabei wird sich, wie in dem Abschnitt (\ref{subsec:experteninterview}) beschrieben, an dem unstrukturierten Ansatz der 
     Führung eines solchen Interviews orientiert \cite{robson2002real}. Infolgedessen werden keine konkreten offenen oder 
-    geschlossenen Fragen gestellt. Auf den Aufbau des Interviews wird in weiteren Schritten eingegangen. 
+    geschlossenen Fragen gestellt. Der Aufbau des Interviews wird in weiteren Schritten aufgegriffen. 
     \\
-    Diese Interviews sind nicht repräsentativ, da sie im Rahmen dieser Arbeit keine große Masse abdecken. Diese dienen 
-    lediglich der weiträumigeren Informationsgewinnung und dem Sammeln mehrerer Meinungsbilder, um aus allen Ideen, 
-    Gedankenanstößen und Meinungen ein objektives Ergebnis und viele Anforderungen zu erhalten. 
+    Die Ergebnisse der Interviews sind nicht repräsentativ, da sie im Rahmen dieser Arbeit keine große Masse abdecken. Diese 
+    dienen lediglich der weiträumigeren Informationsgewinnung und dem Sammeln mehrerer Meinungsbilder, um aus allen 
+    Ideen, Gedankenanstößen und Meinungen ein objektives Gesamtbild zu erzeugen und daraus viele Anforderungen zu gewinnen 
+    und abzuleiten. 
     %Die Experten Interviews sind eine Möglichkeit, die Anforderungen zu erfassen, die durch die Entwicklung des Systems 
     %nicht durch eine einfache Marktanalyse erfasst werden konnten. Diese Interviews sind nicht repräsentativ und dienen lediglich 
     %der weiträumigeren Informationsgewinnung.
-\subsection{Ziele des Experten Interviews}
+\subsection{Ziel des Experteninterviews}
     % Diese helfen dabei, mehrere Sichten, Meinungen und Erfahrungen einzuholen, um ein 
+    Ziel des Experteninterview ist die Informationsgewinnung aus bestimmten Sachverhalten, die nicht leicht auf anderem Wege 
+    zu beschaffen sind. Der Experte dient als Informationsträger und kann dabei helfen seine Sicht auf den Sachverhalt 
+    wiederzugeben. Dadurch können Meinungen eingeholt und Erfahrungen ausgetauscht werden. Diese sind oft wichtige 
+    Informationen zur Erhebung von Anforderungen einem bestimmten Sachverhalt gegenüber.
 
-\subsection{Aufbau des Experten Interviews}
-\subsection{Zusammenfassung der Experten Interviews}
+\subsection{Aufbau des Experteninterviews}
+    % Zum Einstieg des Interviews wird der Kontext erläutert (Welche Software entwickelt werden soll) UND 
+    % dass der Fokus auf der einfachen Handhabung der formalisierten Interaktionen für SOFTWAREENTWICKLER liegt. 
+    % Welche Anforderungen der Experte in der Funktionalität als auch Anforderungen dem System gegenüber sieht. 
+
+    % 
+\subsection{Zusammenfassung der Experteninterviews}
     % Aus den Interviews ergaben sich Anforderungen, die in die Konzeption mit einfließen. Diese werden im folgenden 
     % Abschnitt thematisiert.
 \section{Anforderungen}
