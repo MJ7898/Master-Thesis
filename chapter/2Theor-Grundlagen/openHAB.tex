@@ -18,21 +18,20 @@
 %     Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
 %     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
 %     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
-
-%     \subsection*{Historie}
-%     \label{sec:historyoHAB}
-%     Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-%     Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
-%     gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
-%     vor kundtut.
-%     \begin{quote}
-%         „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
-%         application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
-%         software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
-%         as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
-%         project.\cite{kaikreutzer2012}“
-%     \end{quote} 
-\subsubsection*{}
+\subsection*{Historie}
+\label{sec:historyoHAB}
+    Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
+    Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
+    gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
+    vor kundtut.
+    \begin{quote}
+        „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
+        application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
+        software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
+        as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
+        project.\cite{kaikreutzer2012}“
+    \end{quote} 
+%\subsubsection*{}
 Mit der stetig wachsenden Anwendung und deren Community nimmt die Entwicklung des Projekts immer mehr Fahrt auf. 2014 betitelt 
 Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
 großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
@@ -68,7 +67,6 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     An zweiter Stelle stehen die Artikel (Items). Diese Elemente stellen Funktionen dar, die direkt von der Anwendung verwendet 
     werden. Darunter zählen hauptsächlich die Automatisierungslogik oder auch Benutzeroberflächen. Durch Ereignisse werden die 
     Elemente verwendet, da diese einen Zustand besitzen. 
-    \\
     Elemente können auch in eine Gruppe zusammengefasst werden. Ein Gruppenelement kann auch Mitglied einer weiteren Gruppe sein. 
     Diese zyklischen Mitgliedschaften sind war nicht verboten, davon wird jedoch abgeraten. Über Benutzeroberflächen können 
     einzelne Gruppenelemente als alleinstehender Eintrag angezeigt werden und eine Navigation zu den jeweiligen Mitgliedern 
@@ -82,7 +80,7 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     zwischen Dingen und Gegenständen dar. Es ist die Verknüpfung von genau einem Element und einem Kanal. Elemente und 
     Kanäle haben keine eins zu eins Beziehung zueinander. Eine Verknüpfung mit mehreren Komponenten ist auch hier möglich. 
     \\
-    \linebreak
+    %\linebreak
     Neben den übergreifenden Konzepten gibt es weitere Konzepte\footnote{Historie und Konzepte von openHAB. \url{https://medium.com/smartsmarthome/openhab-41c30d50fc42} Abgerufen am 28.04.2022}. 
     Diese werden in Folgendem aufgelistet:
     \begin{itemize}
@@ -107,7 +105,7 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     liegende OSGi-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-architecture.png}
+        \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/openhab-architecture.png}
         \caption{Architektur der openHAB Plattform \cite{openHAB-architecture2013}}
         \label{fig:architectureopenHAB}
     \end{figure}
@@ -138,11 +136,13 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     angibt. Als solches ist jedes Bundle vollständig selbstbeschreibend \cite{openHAB-article}. 
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/openhab-2-architecture.png}
+        \includegraphics[width=15cm,height=9cm,keepaspectratio]{images/openhab-2-architecture.png}
         \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
         \label{fig:architectureopenHAB2}
     \end{figure}
     \\
+    \pagebreak
+    \linebreak
     \textit{OSGi} fördert den modularen Aufbau von Software, die mit der Programmiersprache Java geschrieben ist. Der Open-Source 
     Standard bietet einen Ansatz, der eine modulare Plattform beschreibt und eine \ac{JVM} voraussetzt. Die \acl{JVM}\footnote{Detaillierte Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Abgerufen am 01.05.2022} 
     ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
@@ -153,12 +153,13 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     Versionen gleichzeitig zu nutzen und auszuführen \cite{openHAB-article}. 
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=10cm,height=10cm,keepaspectratio]{images/osgi-architecture.png}
+        \includegraphics[width=10cm,height=9cm,keepaspectratio]{images/osgi-architecture.png}
         \caption{OSGi Schichtenarchitektur \cite{openhab-osgi}}
         \label{fig:osgilayer}
     \end{figure}
     \\
-    %\linebreak
+    \pagebreak
+    \linebreak
     Weitere Details der \acs{OSGI}-Architektur\footnote{Architektur und Erläuterung OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Abgerufen am 01.05.2022} 
     sind der openHAB Dokumentation zu entnehmen.
 

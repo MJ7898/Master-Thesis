@@ -174,8 +174,17 @@
     Funktion und deren Abhängigkeiten zu Geräten und gegebenenfalls zu anderen Prozessen und Automationen. 
 
     \subsection{Optionen der Regel- und Automatisierungserstellung}
-     %Skizzierung der Möglichkeiten des Tools
-     
+    %Skizzierung der Möglichkeiten des Tools
+        Home Assistant bietet zum Umsetzen von Regeln und Automationen\footnote{Erstellen von Regeln und Automationen über Home Assistant. \url{https://www.home-assistant.io/docs/automation/} Abgerufen am 28.05.2022} 
+        eine Option an. Dabei werden die Informationen über 
+        YAML-Dateien dargestellt. Hierbei gilt ein klares Konstrukt, welches eingehalten werden muss, um lauffähige Regeln 
+        und Automationen ausführen zu können. Für den Nutzer wird lediglich die Option geboten, die Automationen über eine 
+        Oberfläche zu erstellen. In dieser Form gibt ein Template die einzustellenden Möglichkeiten vor. Hierbei kann 
+        der Name und der Modus der Automation festgelegt werden. Anschließend wird ein Auslöser, beispielsweise ein Gerät 
+        oder eine Zeitangabe, definiert und entsprechend eine Bedingung zur Ausführung der Automation hinzugefügt. Nach den 
+        Schritten wird die eigentliche Aktion hinzugefügt, die ausgeführt werden soll, wenn die Bedingung erfüllt ist. Die 
+        generierte Automation wird als YAML-Datei gespeichert und kann ebenso über einen Editor in Rohformat editiert werden.
+
 \section{openHAB}
 \label{sec:openhab} 
     Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
@@ -197,16 +206,16 @@
     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
 
-    \subsection*{Historie}
-    \label{sec:historyoHAB}
-    Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-    Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
-    gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
-    vor kundtut.
-    \begin{quote}
-        „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
-        application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
-        software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
-        as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
-        project.\cite{kaikreutzer2012}“
-    \end{quote} 
+    %\subsection*{Historie}
+    %\label{sec:historyoHAB}
+    %Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
+    %Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
+    %gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
+    %vor kundtut.
+    %\begin{quote}
+    %    „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
+    %    application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
+    %    software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
+    %    as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
+    %    project.\cite{kaikreutzer2012}“
+    %\end{quote} 
