@@ -1,23 +1,23 @@
-% \section{openHAB}
-% \label{sec:openhab} 
-%     Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
-%     in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
-%     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
-%     der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
-%     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
-%     Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
-%     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
-%     \\
-%     \linebreak
-%     In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
-%     Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
-%     \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
-%     Verständnis des Konzeptes notwendigen.
-%     \\
-%     \linebreak
-%     Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
-%     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
-%     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
+\section{openHAB}
+\label{sec:openhab} 
+    Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
+    in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
+    Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
+    der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
+    von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
+    Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
+    den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
+    \\
+    \linebreak
+    In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
+    Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
+    \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
+    Verständnis des Konzeptes notwendigen.
+    \\
+    \linebreak
+    Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
+    werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
+    großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
 \subsection*{Historie}
 \label{sec:historyoHAB}
     Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
@@ -140,9 +140,9 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
         \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
         \label{fig:architectureopenHAB2}
     \end{figure}
-    \\
-    \pagebreak
-    \linebreak
+    %\\
+    %\pagebreak
+    %\linebreak
     \textit{OSGi} fördert den modularen Aufbau von Software, die mit der Programmiersprache Java geschrieben ist. Der Open-Source 
     Standard bietet einen Ansatz, der eine modulare Plattform beschreibt und eine \ac{JVM} voraussetzt. Die \acl{JVM}\footnote{Detaillierte Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Abgerufen am 01.05.2022} 
     ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
@@ -198,6 +198,24 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
 
     \subsection{Optionen der Regel- und Automatisierungserstellung}
         %Skizzierung der Möglichkeiten des Tools
+        Im Vergleich zu Home Assistant bietet openHAB zur Definition und Erstellung von Regeln mehrere Möglichkeiten an. 
+        Zur nutzerfreundlichen Bedienung unterbreitet die openHAB Lösung ebenso eine Oberfläche, über die Regeln definiert 
+        werden können. Die Konfiguration solcher Regeln kann jedoch mit unterschiedlichen Methoden umgesetzt werden. Zum 
+        einen mit einem visualisierten Baukasten Werkzeug Namens \textit{Blockly}\footnote{Ein visueller Code Editor von Google. \url{https://developers.google.com/blockly} Abgerufen am 29.05.2022} 
+        und zum anderen über eine \ac{DSL}, im Deutschen eine domänenspezifische Sprache\footnote{Erklärung der domänenspezifischen Sprache. \url{https://martinfowler.com/dsl.html} Abgerufen am 29.05.2022}. 
+        openHAB verwendet für die Syntax der Regeldefinition Xbase\footnote{Erklärung des Xtext, bzw. Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Abgerufen am 29.05.2022} 
+        und darauf aufbauend Xtend\footnote{Javadialekt, welcher durch das Framework in lesbaren Java 8 kompatiblen Quellcode kompiliert wird. \url{https://www.eclipse.org/xtend/index.html} Abgerufen am 29.05.2022}. 
+        Diese \acs{DSL} gibt ein Konstrukt vor, welches eine Regel definiert. Das vorgegebene Konstrukt sieht wie folgt aus:
+        \\
+        \linebreak 
+        \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:Xbase}, captionpos=b, caption={Konstrukt zur Regeldefinition über Xbase}]
+        rule "<RULE_NAME>"
+        when
+            <TRIGGER_CONDITION> [or <TRIGGER_CONDITION2> [or ...]]            
+        then
+            <SCRIPT_BLOCK>
+        end
+        \end{lstlisting}
 
 \section{Vergleich von Home Assistant und openHAB}
 \label{sec:comparison-HAOS-openHAB}
