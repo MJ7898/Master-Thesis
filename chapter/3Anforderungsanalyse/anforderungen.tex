@@ -253,9 +253,47 @@
     Aufgaben, die Systemfunktionen und die Interaktionen deutlich. Zum besseren Verständnis des Kontextes und der daraus 
     resultierenden Anforderungen werden die jeweils selektierten Anwendungsfälle in den folgenden Abschnitten 
     erläutert.
+    \pagebreak
     %Zum besseren Verständnis wird auf diese in den folgenden Abschnitten eingegangen. 
-\subsection{Check In mit einem Serviceroboter (Temi)}
-\subsection{Notfallevakuierung mit einem Serviceroboter (Temi)}
+\subsection{Check In mit einem Service-Roboter}
+    Der Anwendungsfall des Check Ins mit einem Service-Roboter skizziert das Szenario und den Kontext des Sachverhaltes, als 
+    auch die Komponenten, die benötigt werden, um den grundlegenden Aufbau der Regeldefinition darzustellen. Daran sind die 
+    Bausteine und Anforderungen zu entnehmen, die für das Konzept notwendig sind. Anhand dessen können die Schritte des 
+    Anwenders identifiziert werden, die benötigt werden, um die Interaktionen für den Softwareentwickler zu identifizieren 
+    und so zu verallgemeinern, sodass die formalisierten Interaktionen einfach zu handhaben sind. 
+    \\
+    \linebreak
+    Der Check In erfordert drei Teilnehmer und eine vorausgesetzte Bedingung, die bereits implementiert ist. Als Teilnehmer 
+    zählt eine Person, die den Check In erfährt, ein Service-Roboter, der die Begrüßung und das Check In als Anweisung 
+    durchführt und die Steuerzentrale, die den Vorgang koordiniert. Als bereits implementierter Vorgang wird die 
+    Authentifizierung der Person über eine Kamera an der Eingangstür vorausgesetzt. Diese veröffentlicht nach erfolgreicher 
+    Authentifizierung eine Nachricht an den \acs{MQTT}-Broker. An dieser Stelle hört die Steuerzentrale auf die 
+    veröffentlichte Nachricht und konsumiert diese. Mit dem Ereignis ist der Auslöser für die weiteren Schritte gegeben. Nach 
+    dem Erhalt der Nachricht wird diese zugeordnet und die dafür vorgesehene Regel angestoßen. Mit Beginn der Anweisung wird 
+    der Service-Roboter an die Tür geschickt, um die Person zu begrüßen. Parallel dazu wird über eine Schnittstelle zu einer 
+    internen Software zur Büroplatzbuchung abgefragt, ob die authentifizierte Person bereits einen Büroplatz gebucht hat. 
+    Die Information wird in weiterem Schritt für den Check In benötigt. Sobald der Service-Roboter an der Tür angelangt ist, 
+    öffnet sich diese und die Person kann eintreten. Wenn die zu begrüßende Person vor dem Service-Roboter steht, kann dieser 
+    mithilfe einer integrierten Kamera erkennen, dass eine Person gegenübersteht. Zu diesem Zeitpunkt wird zur Einfachheit 
+    damit gerechnet, dass die Person, die vor dem Service-Roboter steht auch diejenige ist, die an der Tür authentifiziert 
+    wurde. In zukünftiger Arbeit könnte die Person auch über die Kamera des Roboters erneut authentifiziert werden, damit die 
+    Korrektheit gegeben ist. Dies ist zu diesem Anwendungsfall jedoch nicht erforderlich und wird deshalb an dieser Stelle 
+    nicht weiter verfolgt. 
+    \\
+    Nachdem der Roboter die Person erkannt hat, startet die formale Begrüßung. Anschließend wird die Information der 
+    vorherigen Büroplatzbuchung verwendet, um das Einchecken der Person zu starten. Wurde bei der Abfrage eine Buchung für 
+    die Person gefunden, so kann diese sich als anwesend einchecken und an den Arbeitsplatz gehen. Ist jedoch keine 
+    Buchung gefunden worden, so kann ein freier Platz über den Roboter reserviert, bzw. gebucht werden. Nachdem dieser 
+    Schritt abgearbeitet ist, endet der Anwendungsfall und der Service-Roboter wird an seine Ausgangsposition, bzw. an dessen 
+    Ladestation geschickt. Somit ist das Szenario abgearbeitet und der Roboter steht für weitere Aufgaben zur Verfügung. 
+    \\
+    \linebreak
+    Zur besseren Veranschaulichung des Anwendungsfalls sind im Anhang (%\ref{}%
+    SIEHE REFERENZ TBD) eine weitere Aufgabenbeschreibung, sowie die User Story als auch ein Use Case Diagramm, 
+    Sequenzdiagramm und Ablaufdiagramm zu finden.
+
+\subsection{Notfall-Evakuierung mit einem Service-Roboter}
+    
 
 \section{Experteninterview}
 \label{sec:experteninterviewReqirements}
