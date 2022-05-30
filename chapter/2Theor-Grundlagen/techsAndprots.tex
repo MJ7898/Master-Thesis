@@ -115,13 +115,13 @@
             ein Prozess gestartet werden kann, müssen bestimmte Ereignisse durch \acs{MQTT} Nachrichten eintreten. Das hier 
             verwendete Beispiel ist das Öffnen einer Büroeingangstür. Hierbei wird von einem Relais an der Tür, welches das Türschloss steuert, eine Nachricht and den \textit{Broker} herausgegeben:
             \\
-            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Erzeugung und Veröffentlichung einer Nachricht}]
+            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:pubmqtt}, captionpos=b, caption={Erzeugung und Veröffentlichung einer Nachricht}]
                 publish -topic: Buero/Tuer/Zustand -message: "offen"
             \end{lstlisting}
             Diese Nachricht wird von der Steuerzentrale konsumiert und weiterverarbeitet. Damit der Informationskanal (topic) 
             über die Steuerzentrale verfügbar ist, muss dieser Kanal konsumiert werden: 
             \\
-            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:entity}, captionpos=b, caption={Empfang und Konsum einer Nachricht}]
+            \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:submqtt}, captionpos=b, caption={Empfang und Konsum einer Nachricht}]
                 subscribe -topic: Buero/Tuer/Zustand
             \end{lstlisting}
             Mit der empfangenen Nachricht kann dann über die Steuerzentrale ein Prozess, welcher vorab als Regel implementiert wurde, ausgelöst werden. Beispielsweise eine Durchsage im Büro, dass die Tür offen steht, bzw. eine Person eintritt.
