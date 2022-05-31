@@ -253,7 +253,8 @@
     Aufgaben, die Systemfunktionen und die Interaktionen deutlich. Zum besseren Verständnis des Kontextes und der daraus 
     resultierenden Anforderungen werden die jeweils selektierten Anwendungsfälle in den folgenden Abschnitten 
     erläutert.
-    \pagebreak
+    \\
+    \linebreak
     %Zum besseren Verständnis wird auf diese in den folgenden Abschnitten eingegangen. 
 \subsection{Check In mit einem Service-Roboter}
     Der Anwendungsfall des Check Ins mit einem Service-Roboter skizziert das Szenario und den Kontext des Sachverhaltes, als 
@@ -293,7 +294,31 @@
     Sequenzdiagramm und Ablaufdiagramm zu finden.
 
 \subsection{Notfall-Evakuierung mit einem Service-Roboter}
-    
+    Mit dem Szenario der Notfall-Evakuierung wird ein weiterer Anwendungsfall definiert, welcher dabei helfen soll, die 
+    Anforderungen zu identifizieren, die für die Bereitstellung des Frameworks der Steuerzentrale benötigt werden.
+    Objektiv betrachtet gibt es bei diesem Fall ebenso einen Auslöser, als Beispiel einen Sensor, bspw. einen Rauch- 
+    oder Gasmelder, der eine Nachricht veröffentlicht, die über die Steuerzentrale konsumiert, verarbeitet und dadurch die 
+    weiteren notwendigen Schritte eingeleitet werden. Nachdem die Nachricht von der Steuerzentrale erhalten wurde, wird 
+    darauf basierend die Regel und die darauffolgende Aktion angestoßen. Die Steuerzentrale muss über die \acs{API} 
+    Schnittstelle des internen Büroplatzbuchungssystems alle eingecheckten Personen und Platzbuchungen abfragen und 
+    zwischenspeichern. Die Informationen werden genutzt, um den Service-Roboter an die Arbeitsplätze der jeweilig 
+    eingecheckten Personen zu schicken, sodass dadurch diese über den Notfall informiert, bzw. gebeten werden, das 
+    Gebäude zu verlassen. Wird eine Person an einem Arbeitsplatz erkannt, so kann diese über den Sachverhalt informiert 
+    werden. Ist jedoch der Arbeitsplatz leer, soll der Service-Roboter den nächsten Arbeitsplatz ansteuern. Nachdem alle 
+    Plätze von dem Service-Roboter abgefahren wurden, soll dieser über die restliche Bürofläche fahren und nach Personen 
+    suchen. Die Erkennung der Person wird durch die Kamera des Roboters durchgeführt. Abschließend, wenn alle Plätze und die 
+    Bürofläche abgefahren wurden, soll der Roboter an eine zentrale Stelle im Büro fahren und ohne Unterbrechung eine 
+    Durchsage starten und diese solange wiederholen, bis eine Person den Vorgang beendet. Mit der Beendung der Dauerschleife 
+    ist das Szenario abgeschlossen und der Roboter kann an seine Ausgangsposition zurückgeführt werden, sofern dies 
+    umgebungsbedingt möglich ist.
+    \\
+    Somit ist der zweite Anwendungsfall definiert. Die textuelle Schilderung des Szenarios wird mit im Rahmen des \acs{RE} 
+    vorgesehenen Diagrammen und Visualisierungen gestützt. Diese sind dem Anhang (%\ref{}%
+    SIEHE REFERENZ TBD) zu entnehmen.
+    \\
+    \linebreak
+    Aus dem Kontext beider Anwendungsfälle, der vorangestellten Zielgruppenanalyse und den Experteninterviews werden in Abschnitt 
+    (\ref{sec:requirementsFinal}) die daraus identifizierten Anforderungen für die Steuerzentrale aufgeführt.
 
 \section{Experteninterview}
 \label{sec:experteninterviewReqirements}
