@@ -363,14 +363,52 @@
     In Summe wurden insgesamt vier Experteninterviews durchgeführt. Jedes Gespräch war individuell und hatte dementsprechend 
     einen anderen Verlauf, bzw. ein anderes Ergebnis. Dennoch konnte der inhaltliche Fokus gewahrt und verschiedene 
     Meinungsbilder eingeholt werden. Jeder befragte Experte konnte zu dem anliegenden Sachverhalt seine Meinung äußern und 
-    wichtige Informationen und Sichtweisen mitteilen. Die zugrundeliegenden Informationen wurden analysiert, aufbereitet und 
-    als Anforderungen formalisiert dokumentiert. Die dabei entstandenen Informationen werden in folgendem Abschnitt 
-    aufgezeigt. 
+    wichtige Informationen und Sichtweisen mitteilen. Die erhobenen Informationen wurden analysiert, aufbereitet und 
+    als Anforderungen dokumentiert. Die dabei entstandenen Informationen und Anforderungen werden in 
+    folgendem Abschnitt aufgezeigt. 
     % Interessante Gespräche wurden geführt. Bereits die Schilderung des Kontextes und der Idee gab es Diskussionsbedarf und 
     % Anforderungen, die sehr interessant waren und als Anforderungen so mit aufgenommen worden sind. 
     % Aus den Interviews ergaben sich Anforderungen, die in die Konzeption mit einfließen. Diese werden im folgenden 
     % Abschnitt thematisiert.
 \section{Anforderungen}
 \label{sec:requirementsFinal}
+    In Folge der vorangestellten Literaturrecherche, der Markt- und, Zielgruppenanalyse, der entwickelten Anwendungsfälle und 
+    der durchgeführten Experteninterviews ergaben sich Anforderungen an das System als auch Bausteine, die in der 
+    Konzeption und der anschließenden Implementierung einer solchen Software essentiell sind. Da der Fokus dieser 
+    Arbeit auf der einfachen Handhabung der formalisierten Interaktionen für den Softwareentwickler liegt, werden 
+    Anforderungen, die in diese Richtung adressiert sind, höher priorisiert, als allgemeingültige Anforderungen, die mehr das 
+    Verhalten einer solchen Software beschreiben. 
+    \\
+    Der folgenden Tabelle sind die Anforderungen zu entnehmen:
+    \begin{table}[hbt!]
+        \begin{center}
+            \begin{tabular}{| p{10.4cm} | p{2.0cm} | p{3.0cm} | }
+                \hline
+                   \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+                \hline
+                    Es soll eine Struktur vorgegeben werden, mit der einfach und formell Regeln und Prozesse implementiert werden können & Essentiell & Experteninterview \\ 
+                \hline
+                    Das Konstrukt von Regeln soll allgemeingültig sein, dass der Entwickler nur die Logik (Bedingung \& Aktion) implementieren muss. & Essentiell & Experteninterview \\
+                \hline
+                    Als Programmiersprache soll Java verwendet werden & Mittel & Experteninterview, Zielgruppenanalyse \\ 
+                \hline
+                    Damit Komponenten abgebildet werden können, muss ein Zustandsraum definiert sein & Essentiell & Experteninterview, Anwendungsfall \\ 
+                \hline
+                    Komponenten, die ihren Zustand ändern können, müssen abgebildet werden. & Hoch & Experteninterview, Anwendungsfall \\ 
+                \hline
+                    Aktionen und Regeln sollen nach einem bestimmten Auslöser (Trigger) ausgeführt werden & Hoch & Experteninterview, Anwendungsfall \\
+                \hline
+                    Aktionen sollen parallel ausgeführt werden können & Mittel & Experteninterview \\ 
+                \hline
+                    Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können & Mittel & Experteninterview \\
+                \hline
+%                    Vergleich von Xtend \& YAML &  &  \\ 
+%                \hline 
+            \end{tabular}
+        \end{center}
+        \caption{Funktionale Anforderungen}
+        \label{tab:functionalRequirements}
+    \end{table} 
+
     % Alle aufgeführten Anforderungen fließen mit in die Konzeption ein und bilden die Grundlage für die Ausarbeitung des 
     % Konzeptes. Das folgende Kapitel (\ref{chap:konzept}) widmet sich dem Konzept.
