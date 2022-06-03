@@ -232,37 +232,9 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     Nach der Erläuterung der beiden Softwarelösungen im Bereich der Smart Home Plattformen, werden diese abschließend 
     gegenübergestellt, um weitere Aspekte miteinander zu vergleichen. Grundlage dafür sind persönliche Erfahrungen als auch 
     Eindrücke von Nutzern und Experten. Die Tabelle (\ref{tab:comparisonTableHAOS-openHAB}) zum Vergleich 
-    der Plattformen ist dem Anhang (%\ref{}
-    SIEHE REFERENZ) zu entnehmen.
-    
-    \begin{table}[hbt!]
-        \begin{center}
-            \begin{tabular}{| p{3.0cm} | p{6.2cm} | p{6.2cm} | }
-                \hline
-                   \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
-                \hline
-                    Architektur & Robustheit und Starrheit, sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
-                \hline
-%                    Installation und Wartung & Installation ist genauestens dokumentiert. Initiale Konfiguration muss über die Kommandozeile durchgeführt werden, Updates ebenso. & Ein-Klick-Installationsprozess. Initiale Konfiguration benötigt das Verständnis von YAML-Dateien. Updates können über die UI verwaltet werden \cite{sh-uni-comparison}. \\ 
-%                \hline
-%                    Unterstützte Geräte und Verknüpfungen & Durch die gängigen Smart Home Protokolle werden über 1000 Komponenten unterstützt. & Home Assistant unterstützt ebenso über 1000 Komponenten, wobei die Benutzerfreundlichkeit beim Anlegen und Verwalten bei Home Assistant deutlich angenehmer und leichter erscheint \cite{msuttner-comparison}. \\ 
-%                \hline
-%                    Automatisierungsregeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ mit Node-RED. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
-%                \hline
-%                    User Interface & openHAb hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
-%                \hline
-%                    Mobile Anwendungen & openHAB bietet eine dedizierte App für iOS und Android. Diese ist mit innovativen Optionen ausgestattet.  & Home Assistant bietet ebenso eine App für iOS und Android, jedoch bei weitem nicht so stark entwickelt als die von openHAB. Die Benachrichtigungsdienste sind jedoch mit Home Assistant besser genutzt. \\ 
-%                \hline
-%                    Community und Dokumentation & openHAB bietet eine sehr starke und repräsentative Community. Die Dokumentation ist ausführlich und beschreibt die Prozesse, Konzept und Architektur ausführlich. & Home Assistant unterscheidet sich in diesen Punkten nicht von openHAB. Eine starke Community und eine solide Dokumentation der Plattform.  \\
-%                \hline
-%                    Vergleich von Xtend \& YAML &  &  \\ 
-%                \hline 
-            \end{tabular}
-        \end{center}
-        \caption{Vergleich der Plattformen \cite{sh-uni-comparison} \cite{msuttner-comparison} \cite{barclay-comparison}}
-        \label{tab:comparisonTableHAOS-openHAB}
-    \end{table}
-    %\\
+    der Plattformen ist dem Anhang (\ref{appendix:comparison}) zu entnehmen.
+    \\
+    \linebreak
     Zusammenfassend zu dieser tabellarischen Gegenüberstellung ist zu sagen, dass beide Plattformen ihre markanten Stärken vorweisen. 
     Beide Ansätze bieten eine gute Grundlage, die Automatisierungen in dem eigenen Gebäude voranzutreiben. Die Entscheidung, welches 
     Tool verwendet werden soll, liegt in der Verantwortung des Nutzers. Übergreifend sind die beiden Open-Source Lösungen eine gute 
@@ -270,14 +242,17 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     bedeutet es für Nutzer und Entwickler einen hohen Aufwand zu leisten, um Automationen und Regeln zu definieren, da 
     Werkzeuge eingesetzt werden, die nicht dem Standard der verwendeten Programmiersprache, beispielsweise von Java, 
     entsprechen. Dadurch muss zu erst die Funktionsweise des Frameworks verstanden werden, um anschließend Automationen und 
-    Regeln definieren und anwenden zu können. 
+    Regeln definieren und anwenden zu können. Beide Lösungen versuchen diese Herausforderung zu lösen, indem über eine Weboberfläche 
+    die Regeln konfiguriert und erstellt werden können. Home Assistant vereinfacht dies durch die Nutzung des YAML-Dateiformates, im 
+    Gegenzug nutzt openHAB ein weiteres Framework, dass das Konstrukt der Regeldefinition vereinfacht, dennoch in seiner Interpretation 
+    und Anwendung eingeschränkt ist.
+    % Vergleich in Richtung der Regeldefinition und Implementierung von Automationen. IST ERFOLGT! 
     \\
     Beide Softwarelösungen bieten einen unterschiedlichen Ansatz zur Regeldefinition, die Flexibilität 
     jedoch ist auf integrierte Komponenten beschränkt. Das bedeutet, dass nur vom System abbildbare Komponenten, 
     Integrationen und Verknüpfungen verwendet werden können. Gibt es beispielsweise für eine Komponenten oder ein Gerät keine 
     Integration oder kein Add-on, so muss dieses erst im Quellcode als Packet implementiert und angeboten werden, bevor der 
     Anwender dieses verwenden kann. 
-    % Vergleich in Richtung der Regeldefinition und Implementierung von Automationen
     \\
     \linebreak
     Die aufgeführten Grundlagen bilden ein grundlegendes Verständnis des Kontextes dieser Arbeit. Die Erläuterung von 

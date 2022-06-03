@@ -16,6 +16,20 @@
     % Welche Funktionen müssen gegeben sein, um die Struktur vorzugeben? 
     % Reicht ein Hinweis weöche Stellen angepackt werden müssen, um eine Regel hinzuzufügen? 
 
+\section{Überlegungen, Anstöße und Herausforderungen}
+% Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
+%werden können. -> Lediglich den Zustand der Komponenten locken.
+% KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
+% doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
+% Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
+
+% Zustandsraum -> Abbildung aller notwendigen Komponenten 
+% Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
+% und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
+
+%Was brauche ich für Funktionen und Werte in einer Regel?
+
+% Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
 \section{Architekturkonzept}
     % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
     % Der Zustandsraum wird verändert, wenn eine Aktion durchgeführt wird, bzw. durch eine Trigger angestoßen. 

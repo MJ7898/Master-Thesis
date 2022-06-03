@@ -258,10 +258,12 @@
     %Zum besseren Verständnis wird auf diese in den folgenden Abschnitten eingegangen. 
 \subsection{Check In mit einem Service-Roboter}
     Der Anwendungsfall des Check Ins mit einem Service-Roboter skizziert das Szenario und den Kontext des Sachverhaltes, als 
-    auch die Komponenten, die benötigt werden, um den grundlegenden Aufbau der Regeldefinition darzustellen. Daran sind die 
-    Bausteine und Anforderungen zu entnehmen, die für das Konzept notwendig sind. Anhand dessen können die Schritte des 
-    Anwenders identifiziert werden, die benötigt werden, um die Interaktionen für den Softwareentwickler zu identifizieren 
-    und so zu verallgemeinern, sodass die formalisierten Interaktionen einfach zu handhaben sind. 
+    auch die Komponenten, die benötigt werden, um den grundlegenden Aufbau der Regeldefinition und der Steuerzentrale 
+    darzustellen. Daran sind die Bausteine und Anforderungen zu entnehmen, die für das Konzept notwendig sind. Anhand 
+    dessen können die Schritte des Anwenders identifiziert werden, die benötigt werden, um die Interaktionen für den 
+    Softwareentwickler zu identifizieren und so zu verallgemeinern, sodass die formalisierten Interaktionen einfach zu 
+    handhaben sind. Des weiteren soll durch die Komplexität der Anwendungsfälle auch ersichtlich werden, welche fundamentalen 
+    Komponenten und Konzeptentscheidungen notwendig sind, damit darüber solche Anwendungsfälle abgebildet werden können.
     \\
     \linebreak
     Der Check In erfordert drei Teilnehmer und eine vorausgesetzte Bedingung, die bereits implementiert ist. Als Teilnehmer 
@@ -317,6 +319,9 @@
     SIEHE REFERENZ TBD) zu entnehmen.
     \\
     \linebreak
+    Die Anwendungsfälle wurden so gewählt, da diese eine gewisse Komplexität mit sich bringen, die mit der Steuerzentrale 
+    abgedeckt werden kann.
+    \\
     Aus dem Kontext beider Anwendungsfälle, der vorangestellten Zielgruppenanalyse und den Experteninterviews werden in Abschnitt 
     (\ref{sec:requirementsFinal}) die daraus identifizierten Anforderungen für die Steuerzentrale aufgeführt.
 
@@ -342,10 +347,15 @@
     Informationen zur Erhebung von Anforderungen einem bestimmten Sachverhalt gegenüber.
 
 \subsection{Aufbau des Experteninterviews}
-    Die Experteninterviews wurden im Gesamten als unstrukturierte Interviews durchgeführt. Lediglich die Rahmenbedingungen und 
-    der Einstieg in das Interview waren vorgegeben und bei jeder interviewten Person gleich. Zu Anfang des Gesprächs wurde 
-    der Kontext und die Absichten erläutert, damit der Experte die Situation und die Absichten kennen lernt und die 
-    eigentliche Problemstellung erkennt. Nach der Schilderung des Kontextes wurde das Gesprächs in Richtung Anforderungen 
+    Die Experteninterviews wurden im Gesamten als unstrukturierte Interviews durchgeführt. Lediglich die Rahmenbedingungen sowie 
+    der Einstieg in das Interview waren vorgegeben und bei jeder interviewten Person ähnlich. Zu Anfang des Gesprächs wurde 
+    der Kontext und die Intension erläutert, damit der Experte die Situation und die Absichten kennen lernt und die 
+    eigentliche Herausforderung %Problemstellung%
+    erkennt. Grundlage dafür war die Erläuterung der Zielsetzung (\ref{sec:zielsetzung}) der Arbeit, 
+    um so die Intension zu verdeutlichen. Mit den identifizierten Anwendungsfällen (\ref{sec:usecases}), die als Basis 
+    zur Extraktion von Anforderungen und als potentiell umsetzbare Funktionalitäten gelten, wurden Szenarien veranschaulicht, 
+    die dabei halfen, das Anwendungsumfeld zu konkretisieren.  
+    Nach der Schilderung des Kontextes und der zugrundeliegenden Ausgangspunkten wurde das Gespräch in Richtung Anforderungen 
     gelenkt. Hierbei lag der Fokus auf der Erhebung der Ideen, Sichtweisen und Meinungen, die als Grundlage für Anforderungen 
     dienten oder gar direkte Anforderungen an das System ergaben. Dabei war der Ausgang des Gesprächs offen. Falls während 
     eines Gespräches der Fokus verloren ging, bzw. Exkurse ein zu großes Ausmaß annahmen, wurde wieder auf die 
@@ -353,13 +363,15 @@
     Schwerpunkte bei den Interviews waren zum einen, welche Anforderungen gelten, um eine einfache Handhabung der 
     formalisierten Interaktionen für den Softwareentwickler zu gewährleisten und zum anderen die Funktionalitäten, die der 
     Experte dem System gegenüber sieht, um ein Regelwerk für ein intelligentes Büro zu erstellen. 
-    Ebenso wurden nichtfunktionalen Anforderungen, die ein solches System mit sich bringen soll, adressiert. 
-    Die Anforderungen und daraus abgeleiteten Bedingungen sind dem Abschnitt (\ref{sec:requirementsFinal}) zu entnehmen.
+    Ebenso wurden nichtfunktionale Anforderungen, die ein solches System mit sich bringen soll, adressiert. 
+    Die zusammengefassten Anforderungen und daraus abgeleiteten Bedingungen sind dem Abschnitt (\ref{sec:requirementsFinal}) 
+    zu entnehmen.
     % Zum Einstieg des Interviews wird der Kontext erläutert (Welche Software entwickelt werden soll) UND 
     % dass der Fokus auf der einfachen Handhabung der formalisierten Interaktionen für SOFTWAREENTWICKLER liegt. 
     % Welche Anforderungen der Experte in der Funktionalität als auch Anforderungen dem System gegenüber sieht. 
-    % 
+     
 \subsection{Zusammenfassung der Experteninterviews}
+    %TODO: Anzahl der Interviews ggf. anpassen (mehrere angeben)
     In Summe wurden insgesamt vier Experteninterviews durchgeführt. Jedes Gespräch war individuell und hatte dementsprechend 
     einen anderen Verlauf, bzw. ein anderes Ergebnis. Dennoch konnte der inhaltliche Fokus gewahrt und verschiedene 
     Meinungsbilder eingeholt werden. Jeder befragte Experte konnte zu dem anliegenden Sachverhalt seine Meinung äußern und 
@@ -398,7 +410,7 @@
                 \hline
                     Komponenten müssen digital abgebildet werden & Mittel & Experteninterview, Anwendungsfall \\ 
                 \hline
-                    Komponenten, die ihren Zustand ändern können, müssen abgebildet werden. & Hoch & Experteninterview, Anwendungsfall \\ 
+                    Komponenten und dessen Zustände müssen abgebildet werden. & Hoch & Experteninterview, Anwendungsfall \\ 
                 \hline
                     Aktionen und Regeln sollen nach einem bestimmten Auslöser (Trigger) ausgeführt werden & Hoch & Experteninterview, Anwendungsfall \\
                 \hline
@@ -406,8 +418,8 @@
                 \hline
                     Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
                 \hline
-%                    Vergleich von Xtend \& YAML &  &  \\ 
-%                \hline 
+                    Die Zustände der Komponenten sollten persistiert werden, damit bei einem Systemausfall oder -fehler diese nicht verloren gehen  & Mittel & Experteninterview \\ 
+                \hline 
             \end{tabular}
         \end{center}
         \caption{Abstrakte Anforderungen}
