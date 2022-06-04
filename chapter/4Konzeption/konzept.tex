@@ -1,4 +1,4 @@
-\chapter{Konzept}
+\chapter{Konzeption}
 \label{chap:konzept}
     In diesem Kapitel wird das erarbeitete Konzept dieser Arbeit dargelegt. Basierend auf den 
     Anforderungen, die aus den Anwendungsfällen, Experteninterviews und der Zielgruppenanalyse 
@@ -8,9 +8,13 @@
     \\
     Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes erläutert. Anschließend 
     wird auf die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
-    aus den Anforderungen ermittelt wurden, eingegangen. 
+    aus den Anforderungen ermittelt wurden, eingegangen. Darauf folgend wird anhand den 
+    zugrundeliegenden Informationen das Architekturkonzept (\ref{sec:architekturkonzept}), sowie das 
+    Softwarekonzept (\ref{sec:softwarekonzept}) erläutert. Des Weiteren werden die Hintergründe der 
+    Wahl des Frameworks (\ref{sec:frameworkauswahl}) aufgezeigt. %Abschließend wird das konzipierte 
+    % und prototypische Datenmodell \ref{sec:...} dargelegt. 
 
-\section{Ziel des Konzeptes}
+\section{Ziel der Konzeption}
 \label{sec:konzeptziele}
     % Das Ziel des Konzeptes ist es, dem Entwickler den Aufwand zur Erweiterung des Systems zu minimieren durch weitere 
     % Regeln und Abdeckung von Anwendungsfällen (Use Cases) und eine Struktur vorgeben. (ToDo's, Flexibilität in der 
@@ -23,20 +27,6 @@
     % Welche Funktionen müssen gegeben sein, um die Struktur vorzugeben? 
     % Reicht ein Hinweis weöche Stellen angepackt werden müssen, um eine Regel hinzuzufügen? 
 
-\section{Überlegungen, Anstöße und Herausforderungen}
-% Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
-%werden können. -> Lediglich den Zustand der Komponenten locken.
-% KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
-% doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
-% Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
-
-% Zustandsraum -> Abbildung aller notwendigen Komponenten 
-% Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
-% und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
-
-%Was brauche ich für Funktionen und Werte in einer Regel?
-
-% Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
 \section{Architekturkonzept}
 \label{sec:architekturkonzept}
     % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
@@ -47,6 +37,21 @@
     % Zustandsraum muss von dem Entwickler definiert werden. 
     % MQTT Broker über Home Assistant, bzw. losgelöster Broker
     % Anbindung von APIs auch Entwickler-Sache. Kann ich das vereinfachen, sodass die Integration einfacher wird?
+
+    \subsection{Überlegungen, Anstöße und Herausforderungen}
+    % Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
+    %werden können. -> Lediglich den Zustand der Komponenten locken.
+    % KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
+    %  doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
+    % Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
+
+    % Zustandsraum -> Abbildung aller notwendigen Komponenten 
+    % Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
+    % und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
+
+    %Was brauche ich für Funktionen und Werte in einer Regel?
+
+    % Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
     
     \subsection{Schnittstellen}
         % Kommunikation mit API's je nach Use Case und Gebrauch zur Datenabfrage
@@ -56,6 +61,15 @@
 
 \section{Softwarekonzept}
 \label{sec:softwarekonzept}
+
+\section{Auswahl des Frameworks}
+\label{sec:frameworkauswahl}
+
+    \subsection{OSGi}
+    \label{subsec:osgiFramework}
+
+    \subsection{Spring Boot}
+    \label{subsec:springBootFramework}
 
 
 
