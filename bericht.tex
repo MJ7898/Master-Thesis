@@ -246,37 +246,80 @@
 \printbibliography
 
 \addcontentsline{toc}{chapter}{Anhang}
-\chapter{A1. Anhang 1}
+
+\chapter{}
+\label{appendix:mqtt-amqp}
+  \begin{table}[hbt!]
+    \begin{center}
+      \begin{tabular}{| p{3.25cm} | p{6cm} | p{6cm} | }
+        \hline
+          \textbf{Kriterium} & \textbf{MQTT} & \textbf{AMWP}\\
+        \hline
+          Jahr & 1999 & 2003 \\ 
+        \hline
+          Architektur & Client/Broker, & Client/Broker Client/Server \\ 
+        \hline
+          Abstraktion & Publish/Subscribe & Publish/Subscribe Request/response \\ 
+        \hline
+          Header Größe & 2 Byte,  & 8 Byte \\ 
+        \hline
+          Nachrichtengröße & max. 265 MB & Abhängig von Broker/Server \\ 
+        \hline 
+          Semantik / Methoden & Connect, Disconnect, Publish, Subscribne, Unsubscribe, Close & Consume, Deliver, Publish, Get, Select, Ack, Delete, Nack, Recover, Reject, Open, Close \\
+        \hline
+          Zwischenspeicher (Cache) und Proxy & Teilweise & Ja \\
+        \hline
+          Standards & OASIS, Eclipse Foundation  & OASIS, ISO/IEC \\ 
+        \hline
+          Transport-Protokoll & TCP, & TCP, SCTP \\
+        \hline
+          Sicherheit & TLS/SSL & TLS/SSL \\ 
+        \hline
+          Standard-Port & 1883/8883 (TLS/SSL) & 5671 (TLS/SSL), 5672 \\
+        \hline
+          Format & binär  & Binär \\ 
+        \hline
+          Lizenzmodell & Open Source & Open Source \\
+        \hline
+          Support & IBM, Facebook, Eurotech, Cisco, Red Hat Amazon (AWS) etc. & Microsoft, JP Morgan, Bank of America, Barclays, Goldman Sachs Credit Suisse \\ 
+        \hline
+      \end{tabular}
+    \end{center}
+    \caption{Vergleich von MQTT und AMQP \cite{Naik2017}}
+    \label{tab:mqtt-vs-amqp}
+  \end{table}
+
+\chapter{}
 \label{appendix:comparison}
 \begin{table}[hbt!]
   \begin{center}
       \begin{tabular}{| p{3.0cm} | p{6.2cm} | p{6.2cm} | }
           \hline
-             \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
+            \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
           \hline
-              Architektur & Robustheit und Starrheit, sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
+            Architektur & Robustheit und Starrheit, sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
           \hline
-%                    Installation und Wartung & Installation ist genauestens dokumentiert. Initiale Konfiguration muss über die Kommandozeile durchgeführt werden, Updates ebenso. & Ein-Klick-Installationsprozess. Initiale Konfiguration benötigt das Verständnis von YAML-Dateien. Updates können über die UI verwaltet werden \cite{sh-uni-comparison}. \\ 
-%                \hline
-%                    Unterstützte Geräte und Verknüpfungen & Durch die gängigen Smart Home Protokolle werden über 1000 Komponenten unterstützt. & Home Assistant unterstützt ebenso über 1000 Komponenten, wobei die Benutzerfreundlichkeit beim Anlegen und Verwalten bei Home Assistant deutlich angenehmer und leichter erscheint \cite{msuttner-comparison}. \\ 
-%                \hline
-%                    Automatisierungsregeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ mit Node-RED. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
-%                \hline
-%                    User Interface & openHAb hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
-%                \hline
-%                    Mobile Anwendungen & openHAB bietet eine dedizierte App für iOS und Android. Diese ist mit innovativen Optionen ausgestattet.  & Home Assistant bietet ebenso eine App für iOS und Android, jedoch bei weitem nicht so stark entwickelt als die von openHAB. Die Benachrichtigungsdienste sind jedoch mit Home Assistant besser genutzt. \\ 
-%                \hline
-%                    Community und Dokumentation & openHAB bietet eine sehr starke und repräsentative Community. Die Dokumentation ist ausführlich und beschreibt die Prozesse, Konzept und Architektur ausführlich. & Home Assistant unterscheidet sich in diesen Punkten nicht von openHAB. Eine starke Community und eine solide Dokumentation der Plattform.  \\
-%                \hline
-%                    Vergleich von Xtend \& YAML &  &  \\ 
-%                \hline 
+            Installation und Wartung & Installation ist genauestens dokumentiert. Initiale Konfiguration muss über die Kommandozeile durchgeführt werden, Updates ebenso. & Ein-Klick-Installationsprozess. Initiale Konfiguration benötigt das Verständnis von YAML-Dateien. Updates können über die UI verwaltet werden \cite{sh-uni-comparison}. \\ 
+          \hline
+            Unterstützte Geräte und Verknüpfungen & Durch die gängigen Smart Home Protokolle werden über 1000 Komponenten unterstützt. & Home Assistant unterstützt ebenso über 1000 Komponenten, wobei die Benutzerfreundlichkeit beim Anlegen und Verwalten bei Home Assistant deutlich angenehmer und leichter erscheint \cite{msuttner-comparison}. \\ 
+          \hline
+            Automatisierungsregeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ mit Node-RED. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
+          \hline
+            User Interface & openHAb hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
+          \hline
+            Mobile Anwendungen & openHAB bietet eine dedizierte App für iOS und Android. Diese ist mit innovativen Optionen ausgestattet.  & Home Assistant bietet ebenso eine App für iOS und Android, jedoch bei weitem nicht so stark entwickelt als die von openHAB. Die Benachrichtigungsdienste sind jedoch mit Home Assistant besser genutzt. \\ 
+          \hline
+            Community und Dokumentation & openHAB bietet eine sehr starke und repräsentative Community. Die Dokumentation ist ausführlich und beschreibt die Prozesse, Konzept und Architektur ausführlich. & Home Assistant unterscheidet sich in diesen Punkten nicht von openHAB. Eine starke Community und eine solide Dokumentation der Plattform.  \\
+          \hline
+            Vergleich von Xtend \& YAML &  &  \\ 
+          \hline 
       \end{tabular}
   \end{center}
   \caption{Vergleich der Plattformen \cite{sh-uni-comparison} \cite{msuttner-comparison} \cite{barclay-comparison}}
   \label{tab:comparisonTableHAOS-openHAB}
 \end{table}
 
-\chapter{A2. Anhang 2}
+\chapter{}
 \label{appendix:brandings}
 \begin{figure}[hbt!]
   %\centering
