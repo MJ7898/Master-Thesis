@@ -7,8 +7,10 @@
     sind erste Aufgaben der Konzeption abgeschlossen. 
     \\
     Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes erläutert. Anschließend 
-    wird auf die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
-    aus den Anforderungen ermittelt wurden, eingegangen. Darauf folgend wird anhand den 
+    wird auf das Anwendungsumfeld des Systems, engl. Framework, (\ref{sec:anwendungsumfeld}) eingegangen. 
+    % die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
+    %aus den Anforderungen ermittelt wurden, eingegangen. 
+    Darauf folgend wird anhand den 
     zugrundeliegenden Informationen das Architekturkonzept (\ref{sec:architekturkonzept}), sowie das 
     Softwarekonzept (\ref{sec:softwarekonzept}) erläutert. Des Weiteren werden die Hintergründe der 
     Wahl des Frameworks (\ref{sec:frameworkauswahl}) aufgezeigt. %Abschließend wird das konzipierte 
@@ -23,18 +25,21 @@
     Domäne und das zu lösende Problem, bzw. die Lösung dargestellt. 
     \\
     \linebreak
-    Im Rahmen dieser Arbeit ist das Ziel des Konzeptes die Veranschaulichung der Entscheidungsfindung. Das Konzept 
-    erarbeitet eine Lösung zur Implementierung einer Anwendung zur Koordination von Prozessen innerhalb eines 
-    Firmenbüros. Hierbei wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen könnte. 
-    Unter Berücksichtigung der Forschungsfrage (\ref{sec:forschungsfragen}) wird eine Möglichkeit offengelegt, mit der 
-    ein Softwareentwickler neue Regeln entwickeln und dem System hinzufügen kann, ohne ein weiteres Framework zu verwenden. 
-    Dabei sollen die notwendigen Schritte und Interaktionen formalisiert und für den Entwickler vereinfacht werden. 
+    Im Rahmen dieser Arbeit ist das Ziel des Konzeptes die Veranschaulichung der Entscheidungsfindung zur Lösung des vorliegenden 
+    Sachverhaltes. Das Konzept 
+    erarbeitet eine Lösung zur Implementierung einer Anwendung zur Koordination von Regeln und Prozessen innerhalb eines 
+    Firmenbüros. Hierbei wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen kann. 
+    Unter Berücksichtigung der Forschungsfrage (siehe Abschnitt \ref{sec:forschungsfragen}) wird eine Möglichkeit offengelegt, mit der 
+    ein Softwareentwickler neue Regeln entwickeln und dem System hinzufügen kann, ohne ein weiteres zu erlernendes Framework zu verwenden. 
+    Dabei sollen die notwendigen Schritte und Interaktionen formalisiert und für den Entwickler vereinfacht werden. Mit der 
+    Definition der Zielsetzung der Arbeit (siehe Abschnitt\ref{sec:zielsetzung}) wird die Abgrenzung deutlich. In folgender 
+    Darlegung des Konzeptes wird nochmals konkreter auf den Kontext als auch auf die Intension eingegangen. 
     % Das Ziel des Konzeptes ist es, dem Entwickler den Aufwand zur Erweiterung des Systems zu minimieren durch weitere 
     % Regeln und Abdeckung von Anwendungsfällen (Use Cases) und eine Struktur vorgeben. (ToDo's, Flexibilität in der 
     % Umsetzung (nicht wie Home Assistant und openHAB eher eingeschränkt)) 
 
-\section{Abzudeckende Funktionalitäten}
-\label{sec:konzeptfunktionalitaet}
+%\section{Abzudeckende Funktionalitäten}
+%\label{sec:konzeptfunktionalitaet}
     % Was soll der Entwickler machen können? 
     % Welche Grundlagen braucht er, um eine Regel implementieren zu können?
     % Welche Funktionen müssen gegeben sein, um die Struktur vorzugeben? 
@@ -48,8 +53,14 @@
     % Organisation und die Ausführung der Regeln. Die Richtigkeit der Regeln und des Zustandsraumes muss der Entwickler sicherstellen. 
     % Die Kommunikation über MQTT ist nur eine Möglichkeit. Des Setup wird wegabstrahiert 
 
-
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Anwendungsumfeld}
+\label{sec:anwendungsumfeld}
+    Grundsätzlich ist der Einsatzort des Frameworks variabel, da die eigentliche Implementierung und Nutzung der Regeln und Prozesse stark 
+    abhängig von den Anwendern ist. Dadurch kann sowohl in privatem \acl{SH} Umfeld als auch in Büroräumen eine solche Instanz mittels dem 
+    Framework erstellt werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
+    Einsatz im Smart Office, liegt der Schwerpunkt auf dem Einsatz in einem smarten Büro. 
 
 \section{Architekturkonzept}
 \label{sec:architekturkonzept}
@@ -88,9 +99,42 @@
 
 \section{Auswahl des Frameworks}
 \label{sec:frameworkauswahl}
+    Im Bereich der Java-Entwicklung gibt es mittlerweile viele Möglichkeiten, um Applikationen, Anwendungen und Frameworks 
+    zu entwickeln, die unterschiedliche Präferenzen und Einsatzmöglichkeiten bieten. Dadurch sind, auf den Einsatzbereich bezogen, 
+    Vor- und Nachteile im Vergleich ähnlicher Systeme nicht auszuschließen. Eine kleine Auswahl an Systemen wurde getestet und auf deren 
+    Brauchbarkeit analysiert und evaluiert. Für diese Evaluation wurden Kriterien ausgearbeitet, mit der die Auswahl des Frameworks 
+    eingeschränkt und nach Möglichkeit das passende ergeben soll. Diese sind nach ihrer Relevanz aufgelistet: 
+    \begin{enumerate}
+        \item Freiheiten bei der Nutzung (Anwendung und Gewährleistung von Entwurfsmustern).
+        \item Nutzung und Bereitstellung von Bibliotheken (Libraries).
+        \item Bereitstellung einer Plattform (Full Stack).
+        \item Aktive Community und stetige Weiterentwicklung des Systems.
+        \item Nutzung des Frameworks in bereits bestehenden Projekten im Bereich Smart Home.
+        \item Open Source-Projekt, um Flexibilität und weitestgehende Unabhängigkeit zu gewährleisten.
+        \item Ausschluss von Frameworks, die ausschließlich für die Web-Entwicklung gedacht sind.
+    \end{enumerate}  
+    Aufgrund der Vielzahl an Frameworks war es im Rahmen dieser Arbeit nicht möglich, alle vorhandenen und in Betracht 
+    gezogenen Systeme detailliert aufzuführen. Lediglich die engere Auswahl wird aufgegriffen. 
+    Nach ausführlicher Recherche und unter Berücksichtigung von Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, wurden 
+    schließlich genau zwei Systeme gegenübergestellt, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Betracht gezogenen Frameworks 
+    finden überwiegend in der Web-Entwicklung Anwendung, bzw. basieren auf dem Spring Framework. Durch diese Erkenntnis wurden 
+    viele Systeme nicht weiter berücksichtigt und betrachtet. Die beiden Kernsysteme, die ihren Einsatz und ihre Möglichkeiten rechtfertigen
+    werden in den folgenden Abschnitten kurz erläutert.
 
     \subsection{OSGi}
     \label{subsec:osgiFramework}
+        Das \ac{OSGI} Framework, welches in der openHAB Software eingesetzt wird, der \acs{OSGI}\footnote{Ursprung der OSGi Plattform. \url{https://www.osgi.org/about/} Abgerufen am 19.06.2022} 
+        Alliance klassifiziert eine dynamische Softwareplattform, mit der die Modularisierung und Verwaltung von Applikationen und 
+        den dazugehörigen Diensten mittels Komponentenmodell realisiert werden kann \cite{funke2009}. Bekannte Produkte, die auf der 
+        \acs{OSGI} Plattform laufen, sind neben openHAB unter anderem die Entwicklungsumgebung Eclipse der Eclipse Foundation, Produkte 
+        und Softwarelösungen von IBM, Oracle, Adobe und weitere. 
+        \\
+        Nennenswerte Eigenschaften und Vorteile der Software sind die Modularisierung und Versionierung, das zur Laufzeit organisierte 
+        Abhängigkeitsmanagement, das Fermanagement des laufenden Systems über sogenannte Management Agents und die Nutzung des 
+        Serviceorientiert Programmiermodell. An dieser Stelle wird das Framework nicht technisch vertieft. Die Funktionsweise und technisch 
+        tiefergehende Erläuterungen können dem Buch \cite{osgibuch}, sowie der Dokumentation \cite{osgipraesentation} eines ausgearbeiteten Workshops entnommen werden. 
+        Nachteile der Plattform ist zum einen der weniger breite Einsatz des Frameworks und die kleine Community. 
+        Ebenso findet eine Weiterentwicklung der Plattform nur mäßig statt. 
 
     \subsection{Spring Boot}
     \label{subsec:springBootFramework}
