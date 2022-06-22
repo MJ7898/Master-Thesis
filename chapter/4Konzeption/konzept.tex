@@ -97,49 +97,5 @@
 \section{Softwarekonzept}
 \label{sec:softwarekonzept}
 
-\section{Auswahl des Frameworks}
-\label{sec:frameworkauswahl}
-    Im Bereich der Java-Entwicklung gibt es mittlerweile viele Möglichkeiten, um Applikationen, Anwendungen und Frameworks 
-    zu entwickeln, die unterschiedliche Präferenzen und Einsatzmöglichkeiten bieten. Dadurch sind, auf den Einsatzbereich bezogen, 
-    Vor- und Nachteile im Vergleich ähnlicher Systeme nicht auszuschließen. Eine kleine Auswahl an Systemen wurde getestet und auf deren 
-    Brauchbarkeit analysiert und evaluiert. Für diese Evaluation wurden Kriterien ausgearbeitet, mit der die Auswahl des Frameworks 
-    eingeschränkt und nach Möglichkeit das passende ergeben soll. Diese sind nach ihrer Relevanz aufgelistet: 
-    \begin{enumerate}
-        \item Freiheiten bei der Nutzung (Anwendung und Gewährleistung von Entwurfsmustern).
-        \item Nutzung und Bereitstellung von Bibliotheken (Libraries).
-        \item Bereitstellung einer Plattform (Full Stack).
-        \item Aktive Community und stetige Weiterentwicklung des Systems.
-        \item Nutzung des Frameworks in bereits bestehenden Projekten im Bereich Smart Home.
-        \item Open Source-Projekt, um Flexibilität und weitestgehende Unabhängigkeit zu gewährleisten.
-        \item Ausschluss von Frameworks, die ausschließlich für die Web-Entwicklung gedacht sind.
-    \end{enumerate}  
-    Aufgrund der Vielzahl an Frameworks war es im Rahmen dieser Arbeit nicht möglich, alle vorhandenen und in Betracht 
-    gezogenen Systeme detailliert aufzuführen. Lediglich die engere Auswahl wird aufgegriffen. 
-    Nach ausführlicher Recherche und unter Berücksichtigung von Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, wurden 
-    schließlich genau zwei Systeme gegenübergestellt, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Betracht gezogenen Frameworks 
-    finden überwiegend in der Web-Entwicklung Anwendung, bzw. basieren auf dem Spring Framework. Durch diese Erkenntnis wurden 
-    viele Systeme nicht weiter berücksichtigt und betrachtet. Die beiden Kernsysteme, die ihren Einsatz und ihre Möglichkeiten rechtfertigen
-    werden in den folgenden Abschnitten kurz erläutert.
-
-    \subsection{OSGi}
-    \label{subsec:osgiFramework}
-        Das \ac{OSGI} Framework der \acs{OSGI}\footnote{Ursprung der OSGi Plattform. \url{https://www.osgi.org/about/} Abgerufen am 19.06.2022} 
-        Alliance, welches in der openHAB Software eingesetzt wird, klassifiziert eine dynamische Softwareplattform, mit der die Modularisierung 
-        und Verwaltung von Applikationen und den dazugehörigen Diensten mittels Komponentenmodell realisiert werden kann \cite{funke2009}. Bekannte 
-        Produkte, die auf der \acs{OSGI} Plattform laufen, sind neben openHAB unter anderem die Entwicklungsumgebung Eclipse der Eclipse 
-        Foundation, Produkte und Softwarelösungen von IBM, Oracle, Adobe und weitere. 
-        \\
-        Nennenswerte Eigenschaften und Vorteile der Software sind die Modularisierung und Versionierung, das zur Laufzeit organisierte 
-        Abhängigkeitsmanagement, das Fernmanagement des laufenden Systems über sogenannte Management Agents und die Nutzung des 
-        Serviceorientierten Programmiermodells, \ac{SOA}\footnote{Erläuterung des SOA Modells. \url{https://www.ibm.com/cloud/learn/soa} Abgerufen am 20.06.2022}. 
-        An dieser Stelle wird das Framework nicht technisch vertieft. Die Funktionsweise und die technisch 
-        fundierte Erläuterung kann dem Buch \cite{osgibuch}, sowie der Dokumentation \cite{osgipraesentation} eines ausgearbeiteten Workshops entnommen werden. 
-        Nachteile der Plattform sind zum einen der weniger breite Einsatz des Frameworks und zum anderen die kleine Community. 
-        Ebenso findet eine Weiterentwicklung der Plattform nur mäßig statt. Dies hat zur Folge, dass die Erweiterung, bzw. die Entwicklung des darauf 
-        aufbauenden Systems träge vonstattengeht. 
-
-    \subsection{Spring Boot}
-    \label{subsec:springBootFramework}
-
 
 

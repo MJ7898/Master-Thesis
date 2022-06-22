@@ -373,8 +373,7 @@
     % Welche Anforderungen der Experte in der Funktionalität als auch Anforderungen dem System gegenüber sieht. 
      
 \subsection{Zusammenfassung der Experteninterviews}
-    %TODO: Anzahl der Interviews ggf. anpassen (mehrere angeben)
-    In Summe wurden insgesamt vier Experteninterviews durchgeführt. Jedes Gespräch war individuell und hatte dementsprechend 
+    In Summe wurden insgesamt fünf Experteninterviews durchgeführt. Jedes Gespräch war individuell und hatte dementsprechend 
     einen anderen Verlauf, bzw. ein anderes Ergebnis. Dennoch konnte der inhaltliche Fokus gewahrt und verschiedene 
     Meinungsbilder eingeholt werden. Jeder befragte Experte konnte zu dem anliegenden Sachverhalt seine Meinung äußern und 
     wichtige Informationen und Sichtweisen mitteilen. Die erhobenen Informationen wurden analysiert, aufbereitet und 
@@ -390,93 +389,163 @@
 \label{sec:requirementsFinal}
     In Folge der vorangestellten Literaturrecherche, der Markt- und, Zielgruppenanalyse, der entwickelten Anwendungsfälle und 
     der durchgeführten Experteninterviews ergaben sich Anforderungen an das System als auch Bausteine, die in der 
-    Konzeption und der anschließenden prototypischen Implementierung einer solchen Software essentiell sind. Da der Fokus dieser 
+    Konzeption und der anschließenden prototypischen Implementierung der Software essentiell sind. Da der Fokus dieser 
     Arbeit auf der einfachen Handhabung der formalisierten Interaktionen für den Softwareentwickler liegt, werden 
-    spezifische Anforderungen, die in diese Richtung adressiert sind, höher priorisiert als allgemeingültige Anforderungen, die mehr das 
-    Verhalten einer solchen Software beschreiben. 
+    spezifische Anforderungen, die diese Richtung konkret adressieren, höher priorisiert als allgemeingültige Anforderungen, die mehr das 
+    Verhalten einer Software beschreiben. 
     \\
-    Den folgenden Tabellen sind die Anforderungen zu entnehmen:
+    \linebreak
+    Der folgenden Tabelle (\ref{tab:functionalRequirements}) sind die funktionalen Anforderungen (FA) zu entnehmen: 
     \begin{table}[hbt!]
         \begin{center}
-            \begin{tabular}{| p{10.4cm} | p{1.8cm} | p{3.2cm} | }
+            \begin{tabular}{ | p{0.6cm} | p{9.5cm} | p{1.6cm} | p{3.1cm} | }
                 \hline
-                   \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+                    \textbf{} & \textbf{Anforderung (User Story)} & \textbf{Priorität} & \textbf{Quelle} \\
                 \hline
-                    Es soll eine Struktur vorgegeben werden, mit der einfach und formell Regeln und Prozesse implementiert werden können. & Essentiell & Experteninterview \\ 
+                    FA1 & Als Softwareentwickler möchte ich mit einer vorgegebenen Struktur Regeln definieren, die zur Laufzeit ausgeführt werden können, wenn das zutreffende Ereignis eintrifft. & Essentiell & Zielsetzung der Arbeit \\
                 \hline
-                    Das Konstrukt von Regeln soll allgemeingültig sein, dass der Entwickler die Logik (Bedingung, Aktion \& Zusätze) implementieren muss. & Essentiell & Experteninterview \\
+                    FA2 & Als Softwareentwickler möchte ich Auslöser aktivieren, bzw. definieren können, nach denen die Regeln ausgelöst werden. & Essentiell & Experteninterview \\
                 \hline
-                    Nachrichten und Auslöser über Nachrichten sollen empfangen und verarbeitet werden können. & Essentiell & Experteninterview, Anwendungsfall \\
+                    FA3 & Als Softwareentwickler möchte ich einen Zustandsraum erstellen, der nach meinen Bedürfnissen und Anwendungsfällen variabel implementiert werden kann. & Essentiell & Experteninterview \\ 
                 \hline
-                    Es soll eine allgemeingültige Programmiersprache verwendet werden. & Mittel & Experteninterview, Zielgruppenanalyse \\ 
+                    FA4 & Als Softwareentwickler möchte ich Bedingungen definieren und abfragen können, die basierend auf dem Ereignis die dazugehörige Regel starten und ausführen lassen. & Essentiell & Experteninterview \\ 
                 \hline
-                    Komponenten müssen digital abgebildet werden. & Mittel & Experteninterview, Anwendungsfall \\ 
+                    FA5 & Als Softwareentwickler möchte ich Komponenten anlegen können, die reelle Gegenstände und dessen Zustände abbilden. & Hoch & Experteninterview \\
                 \hline
-                    Komponenten und dessen Zustände müssen abgebildet werden. & Hoch & Experteninterview, Anwendungsfall \\ 
+                    FA6 & Als Softwareentwickler möchte ich das vorgegebene Framework individuell nutzen können, indem ich bei der Definition der Regeln und der Informationsbeschaffung nicht eingeschränkt bin. & Essentiell & Zielsetzung der Arbeit, Experteninterview \\
                 \hline
-                    Aktionen und Regeln sollen nach einem bestimmten Auslöser (Trigger) ausgeführt werden. & Hoch & Experteninterview, Anwendungsfall \\
-                \hline
-                    Es sollen Auslöser gegeben sein, bzw. implementiert werden, die definierte Aktionen anstoßen & Essentiell & Experteninterview \\
-                \hline
-                    Aktionen sollen parallel ausgeführt werden können. & Mittel & Experteninterview \\ 
-                \hline
-                    Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
-                \hline
-                    Die Zustände der Komponenten sollten persistiert werden, damit bei einem Systemausfall oder -fehler diese nicht verloren gehen. & Mittel & Experteninterview \\ 
-                \hline 
-            \end{tabular}
-        \end{center}
-        \caption{Abstrakte Anforderungen}
-        \label{tab:abstractRequirements}
-    \end{table} 
-    \\
-    \begin{table}[hbt!]
-        \begin{center}
-            \begin{tabular}{| p{10.4cm} | p{1.8cm} | p{3.2cm} | }
-                \hline
-                   \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
-                \hline
-                    Als Programmiersprache soll Java verwendet werden. & Mittel & Experteninterview, Zielgruppenanalyse \\ 
-                \hline
-                    Damit Komponenten abgebildet werden können, muss ein Zustandsraum definiert sein. & Essentiell & Experteninterview, Anwendungsfall \\ 
-                \hline
-                    Der Zustandsraum muss zur Laufzeit immer zur Verfügung stehen. & Hoch & Experteninterview, Anwendungsfall \\ 
-                \hline
-                    Regeln und darauf ausgelöste Aktionen sollen zeitbasiert oder bspw. über MQTT ausgelöst werden. Diese dienen als Auslöser & Hoch & Experteninterview, Anwendungsfall \\
-                \hline
-                    Nutzung eines Thread Pools zur parallelen Ausführung von Regeln. & Mittel & Experteninterview \\ 
-                \hline
-                    Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
+                    FA7 & Als Softwareentwickler möchte ich, dass alle Regeln, die ich definiert habe, zu bestimmtem Auslöser gestartet werden. & Essentiell & Experteninterview \\ 
                 \hline
             \end{tabular}
         \end{center}
-        \caption{Konkretere Anforderungen}
-        \label{tab:concretRequirements}
+        \caption{Funktionale Anforderungen (FAs)}
+        \label{tab:functionalRequirements}
     \end{table}
     \\
+    Nach der Aufstellung der funktionalen Anforderungen folgt die der nicht funktionalen Anforderungen (NFA):
+    \\
+    \pagebreak
     \begin{table}[hbt!]
         \begin{center}
-            \begin{tabular}{| p{7.0cm} | p{7.0cm} | p{1.4cm} | }
+            \begin{tabular}{ | p{1.0cm} | p{9.2cm} | p{1.6cm} | p{3.1cm} | }
                 \hline
-                   \textbf{Funktionale Anforderung} & \textbf{Nichtfunktionale Anforderungen} & \textbf{Quelle} \\
+                    \textbf{} & \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
                 \hline
-                    Bereitstellung eines Konstruktes zur Implementierung eines Regelsets. & Zuverlässigkeit: Durch einen Auslöser gestartete Aktionen sollen bei gleichem Auslöser immer die gleiche Aktion anstoßen. & Ex.-Interv. \\ 
+                    NFA1 & Der Anwender soll nach Implementierung, bzw. Definition einer Regel, diese mit weniger als 3 Schritten in das Regelwerk einfügen können. & Hoch & Experteninterview \\
                 \hline
-                    MQTT Nachrichten werden verarbeitet und an einen Auslöser weitergeleitet. & Die Steuerzentrale muss eine Verfügbarkeit von 99,9\% vorweisen. & Ex.-Interv. \\ 
+                    NFA2 & Mehr als 90\% der Anwender sollten bei erster Verwendung des Frameworks in der Lage sein, Regeln anzulegen und diese dem Regelwerk hinzuzufügen. & Essentiell & Zielsetzung der Arbeit, Experteninterview \\ 
                 \hline
-                    Implementierung eines MQTT Subscriber and Producer. & Die Kommunikation erfolgt ausschließlich über MQTT. & AW-Fall \\ 
+                    NFA3 & Der Anwender soll die Möglichkeit haben, zu dem Zeitpunkt der Verwendung des Frameworks alle verfügbaren Funktionen nutzen und anwenden zu können. & Mittel & Experteninterview \\ 
                 \hline
-                    Speicherung des Zustandsraumes in eine Datenbanken. & Single Point of Contact (Implementierung, Anpassung und Erweiterung der Regel und der Logik). & Zielgr.-Analyse \\
+                    NFA4 & Der Anwender braucht sich zu keinem Zeitpunkt um das Management, bzw. um den Ablauf und Durchführung von Regeln kümmern. Er muss nur sicherstellen, dass die Regeln valide sind und dem Kontext passende Bedingungen und Regelausführungen festlegt. & Essentiell & Experteninterview \\ 
                 \hline
-                    Erweiterungen zu API Anbindungen per MQTT. & Sicherheit: Es werden nur Schnittstellen zur Datenabfrage erlaubt. & Ex.-Interv. \\ 
+                    NFA5 & Als Anwender möchte ich, dass zu 100\% die Regeln ausgeführt wird, die der Auslöser ansteuert. (Bei sequenzieller Ausführung soll immer die Regel gestartet werden, die durch den Auslöser ausgelöst wurde.) & Essentiell & Experteninterview \\
                 \hline
-                    Abbildung von Zustandsinformationen. & Die Steuerzentrale ist nur im eigenen Netz erreichbar. & Ex.-Interv. \\
+                    NFA6 & Zeitlich gebundene Regeln sollen immer zu der vorgegebenen Uhrzeit ausgelöst werden. & Hoch & Experteninterview \\
+                \hline
+                    NFA7 & Ausgelöste Regeln, die nicht beide eine Ressource, bzw. einen Wert im Zustandsraum belegen, sollen parallel ausgeführt werden. & Hoch & Experteninterview, Anwendungsfall \\ 
+                \hline
+                    NFA8 & Regeln, die über Kommunikationsprotokolle ausgelöst werden, sollen unter einer Sekunde starten. Die Zeit der Durchführung ist abhängig von der Regel selbst. & Mittel & Anwendungsfall, Experteninterview \\ 
+                \hline
+                    NFA9 & Die Steuerzentrale muss eine Verfügbarkeit von 99,9\% vorweisen. (Zum aktuellen Zeitpunk ist diese Anforderung zu vernachlässigen.) & Niedrig & Experteninterview \\ 
+                \hline
+                    NFA10 & Die Steuerzentrale muss während der Arbeitszeiten zwischen 7-18 Uhr ohne Ausfälle verfügbar sein. (Zum aktuellen Zeitpunk ist diese Anforderung zu vernachlässigen.) & Niedrig & Experteninterview \\ 
+                \hline
+                    NFA11 & Syntaktisch oder inhaltlich fehlerhafte Regeln sollen nicht zum Absturz der Steuerzentrale führen. & Mittel & Experteninterview \\ 
+                \hline  
+                    NFA12 & Prozesse und Zustände der Steuerzentrale müssen eingesehen werden können, bspw. durch Monitoring oder über Oberflächen. (Zum aktuellen Zeitpunkt zu vernachlässigen.) & Niedrig & Experteninterview \\
                 \hline
             \end{tabular}
         \end{center}
-        \caption{Funktionale und Nichtfunktionale Anforderungen}
-        \label{tab:FAandNFA}
+        \caption{Nicht funktionale Anforderungen (NFAs)}
+        \label{tab:notfunctionalRequirements}
     \end{table}
+
+    %Ein Ausschnitt an Anforderungen, die ergänzend aus der Zielgruppenanalyse und den Anwendungsfällen entstanden, die sowohl die funktionalen 
+    %(\ref{tab:functionalRequirements}) als auch die nicht funktionalen Anforderungen (\ref{tab:notfunctionalRequirements}) erweitern, ist der folgenden 
+    %Tabelle zu entnehmen:
+    \begin{table}[hbt!]
+         \begin{center}
+             \begin{tabular}{ | p{0.9cm} | p{9.2cm} | p{1.6cm} | p{3.1cm} | }
+                 \hline
+                    \textbf{} & \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+                 \hline
+    %                 Es soll eine Struktur vorgegeben werden, mit der einfach und formell Regeln und Prozesse implementiert werden können. & Essentiell & Experteninterview \\ 
+    %             \hline
+    %                 Das Konstrukt von Regeln soll allgemeingültig sein, dass der Entwickler die Logik (Bedingung, Aktion \& Zusätze) implementieren muss. & Essentiell & Experteninterview \\
+    %             \hline
+    %                 Nachrichten und Auslöser über Nachrichten sollen empfangen und verarbeitet werden können. & Essentiell & Experteninterview, Anwendungsfall \\
+    %             \hline
+    %                 Es soll eine allgemeingültige Programmiersprache verwendet werden. & Mittel & Experteninterview, Zielgruppenanalyse \\ 
+    %             \hline
+    %                 Komponenten müssen digital abgebildet werden. & Mittel & Experteninterview, Anwendungsfall \\ 
+    %             \hline
+    %                 Komponenten und dessen Zustände müssen abgebildet werden. & Hoch & Experteninterview, Anwendungsfall \\ 
+    %             \hline
+    %                 Aktionen und Regeln sollen nach einem bestimmten Auslöser (Trigger) ausgeführt werden. & Hoch & Experteninterview, Anwendungsfall \\
+    %             \hline
+    %                 Es sollen Auslöser gegeben sein, bzw. implementiert werden, die definierte Aktionen anstoßen & Essentiell & Experteninterview \\
+    %             \hline
+    %                 Aktionen sollen parallel ausgeführt werden können. & Mittel & Experteninterview \\ 
+    %             \hline
+    %                 Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
+    %             \hline
+    %                 Die Zustände der Komponenten sollten persistiert werden, damit bei einem Systemausfall oder -fehler diese nicht verloren gehen. & Mittel & Experteninterview \\ 
+    %             \hline 
+             \end{tabular}
+         \end{center}
+         \caption{Zusätzliche Anforderungen}
+         \label{tab:abstractRequirements}
+     \end{table} 
+    
+     % \\
+    % \begin{table}[hbt!]
+    %     \begin{center}
+    %         \begin{tabular}{| p{10.4cm} | p{1.8cm} | p{3.2cm} | }
+    %             \hline
+    %                \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+    %             \hline
+    %                 Als Programmiersprache soll Java verwendet werden. & Mittel & Experteninterview, Zielgruppenanalyse \\ 
+    %             \hline
+    %                 Damit Komponenten abgebildet werden können, muss ein Zustandsraum definiert sein. & Essentiell & Experteninterview, Anwendungsfall \\ 
+    %             \hline
+    %                 Der Zustandsraum muss zur Laufzeit immer zur Verfügung stehen. & Hoch & Experteninterview, Anwendungsfall \\ 
+    %             \hline
+    %                 Regeln und darauf ausgelöste Aktionen sollen zeitbasiert oder bspw. über MQTT ausgelöst werden. Diese dienen als Auslöser & Hoch & Experteninterview, Anwendungsfall \\
+    %             \hline
+    %                 Nutzung eines Thread Pools zur parallelen Ausführung von Regeln. & Mittel & Experteninterview \\ 
+    %             \hline
+    %                 Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
+    %             \hline
+    %         \end{tabular}
+    %     \end{center}
+    %     \caption{Konkretere Anforderungen}
+    %     \label{tab:concretRequirements}
+    % \end{table}
+    % \\
+    % \begin{table}[hbt!]
+    %     \begin{center}
+    %         \begin{tabular}{| p{7.0cm} | p{7.0cm} | p{1.4cm} | }
+    %             \hline
+    %                \textbf{Funktionale Anforderung} & \textbf{Nichtfunktionale Anforderungen} & \textbf{Quelle} \\
+    %             \hline
+    %                 Bereitstellung eines Konstruktes zur Implementierung eines Regelsets. & Zuverlässigkeit: Durch einen Auslöser gestartete Aktionen sollen bei gleichem Auslöser immer die gleiche Aktion anstoßen. & Ex.-Interv. \\ 
+    %             \hline
+    %                 MQTT Nachrichten werden verarbeitet und an einen Auslöser weitergeleitet. & Die Steuerzentrale muss eine Verfügbarkeit von 99,9\% vorweisen. & Ex.-Interv. \\ 
+    %             \hline
+    %                 Implementierung eines MQTT Subscriber and Producer. & Die Kommunikation erfolgt ausschließlich über MQTT. & AW-Fall \\ 
+    %             \hline
+    %                 Speicherung des Zustandsraumes in eine Datenbanken. & Single Point of Contact (Implementierung, Anpassung und Erweiterung der Regel und der Logik). & Zielgr.-Analyse \\
+    %             \hline
+    %                 Erweiterungen zu API Anbindungen per MQTT. & Sicherheit: Es werden nur Schnittstellen zur Datenabfrage erlaubt. & Ex.-Interv. \\ 
+    %             \hline
+    %                 Abbildung von Zustandsinformationen. & Die Steuerzentrale ist nur im eigenen Netz erreichbar. & Ex.-Interv. \\
+    %             \hline
+    %         \end{tabular}
+    %     \end{center}
+    %     \caption{Funktionale und Nichtfunktionale Anforderungen}
+    %     \label{tab:FAandNFA}
+    % \end{table}
 
     % Alle aufgeführten Anforderungen fließen mit in die Konzeption ein und bilden die Grundlage für die Ausarbeitung des 
     % Konzeptes. Das folgende Kapitel (\ref{chap:konzept}) widmet sich dem Konzept.
