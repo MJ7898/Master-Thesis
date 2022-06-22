@@ -460,16 +460,32 @@
         \caption{Nicht funktionale Anforderungen (NFAs)}
         \label{tab:notfunctionalRequirements}
     \end{table}
-
     %Ein Ausschnitt an Anforderungen, die ergänzend aus der Zielgruppenanalyse und den Anwendungsfällen entstanden, die sowohl die funktionalen 
     %(\ref{tab:functionalRequirements}) als auch die nicht funktionalen Anforderungen (\ref{tab:notfunctionalRequirements}) erweitern, ist der folgenden 
-    %Tabelle zu entnehmen:
+    %Tabelle zu entnehmen. Diese sind als Zusätzliche Anforderungen (ZAF) gekennzeichnet: 
     \begin{table}[hbt!]
-         \begin{center}
-             \begin{tabular}{ | p{0.9cm} | p{9.2cm} | p{1.6cm} | p{3.1cm} | }
-                 \hline
-                    \textbf{} & \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
-                 \hline
+        \begin{center}
+            \begin{tabular}{ | p{1.0cm} | p{9.2cm} | p{1.6cm} | p{3.1cm} | }
+                \hline
+                   \textbf{} & \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+                \hline
+                   ZAF1 & Zur Entwicklung des Frameworks soll Java als Programmiersprache verwendet werden. & Hoch & Experteninterview, Zielgruppenanalyse \\ 
+                \hline
+                   ZAF2 & Die Abbildung von Komponenten soll über einen Zustandsraum dargestellt werden. & Essentiell & Anwendungsfall, Experteninterview \\ 
+                \hline
+                   ZAF3 & Zur parallelen Ausführung von Regeln soll ein Thread Pool eingesetzt werden, der die Regeln jeweils als eigenen Thread laufen lässt. & Hoch & Anwendungsfall, Experteninterview \\ 
+                \hline
+                    ZAF4 & Regeln sollen über zeitbasierte oder MQTT basierte Auslöser gestartet werden, nachdem die dafür vorgesehene Bedingung zutrifft. (Im Rahmen der Anwendungsfälle wird MQTT als Kommunikationsprotokoll und Auslöser gewählt.) & Hoch & Anwendungsfall \\
+                \hline
+                %    ZAF5 & Regeln und damit einhergehende Aktionen dürfen erst nach aktivieren eines bestimmten Auslösers (Triggers) ausgeführt werden. & Essentiell & Experteninterview \\
+                %\hline
+                %   ZAF6 & Die Zustände der Komponenten sollten persistiert werden, damit bei einem Systemausfall die letzten Transaktionen und Änderungen nachvollzogen werden können. & Mittel & Experteninterview \\ 
+                %\hline 
+            \end{tabular}
+        \end{center}
+        \caption{Zusätzliche Anforderungen}
+        \label{tab:furtherRequirements}
+    \end{table} 
     %                 Es soll eine Struktur vorgegeben werden, mit der einfach und formell Regeln und Prozesse implementiert werden können. & Essentiell & Experteninterview \\ 
     %             \hline
     %                 Das Konstrukt von Regeln soll allgemeingültig sein, dass der Entwickler die Logik (Bedingung, Aktion \& Zusätze) implementieren muss. & Essentiell & Experteninterview \\
@@ -491,12 +507,7 @@
     %                 Aktionen, welche die gleiche Komponente beanspruchen, sollen nacheinander ausgeführt werden können. & Mittel & Experteninterview \\
     %             \hline
     %                 Die Zustände der Komponenten sollten persistiert werden, damit bei einem Systemausfall oder -fehler diese nicht verloren gehen. & Mittel & Experteninterview \\ 
-    %             \hline 
-             \end{tabular}
-         \end{center}
-         \caption{Zusätzliche Anforderungen}
-         \label{tab:abstractRequirements}
-     \end{table} 
+    %
     
      % \\
     % \begin{table}[hbt!]
