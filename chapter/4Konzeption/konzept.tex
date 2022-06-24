@@ -6,14 +6,17 @@
     dargestellt. Durch die bereits erfolgten Schritte der Anforderungsanalyse (\ref{chap:anforderungsanalyse})
     sind erste Aufgaben der Konzeption abgeschlossen. 
     \\
-    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes erläutert. Anschließend 
-    wird auf das Anwendungsumfeld des Systems, engl. Framework, (\ref{sec:anwendungsumfeld}) eingegangen. 
+    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes, sowie das konkrete Ziel dieser Arbeit 
+    erläutert. Anschließend 
+    wird auf das Anwendungsumfeld des Systems, bzw. des Frameworks, (\ref{sec:anwendungsumfeld}) eingegangen. 
     % die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
     %aus den Anforderungen ermittelt wurden, eingegangen. 
     Darauf folgend wird anhand den 
     zugrundeliegenden Informationen das Architekturkonzept (\ref{sec:architekturkonzept}), sowie das 
-    Softwarekonzept (\ref{sec:softwarekonzept}) erläutert. Des Weiteren werden die Hintergründe der 
-    Wahl des Frameworks (\ref{sec:frameworkauswahl}) aufgezeigt. %Abschließend wird das konzipierte 
+    Softwarekonzept (\ref{subsec:softwarekonzept}) erläutert. Die Darstellung des Konzeptes stützt sich 
+    mit Diagrammen und Veranschaulichungen.
+    %Des Weiteren werden die Hintergründe der 
+    %Wahl des Frameworks (\ref{sec:frameworkauswahl}) aufgezeigt. %Abschließend wird das konzipierte 
     % und prototypische Datenmodell \ref{sec:...} dargelegt. 
 
 \section{Ziel der Konzeption}
@@ -28,12 +31,14 @@
     Im Rahmen dieser Arbeit ist das Ziel des Konzeptes die Veranschaulichung der Entscheidungsfindung zur Lösung des vorliegenden 
     Sachverhaltes. Das Konzept 
     erarbeitet eine Lösung zur Implementierung einer Anwendung zur Koordination von Regeln und Prozessen innerhalb eines 
-    Firmenbüros. Hierbei wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen kann. 
+    Firmenbüros, mit dem Fokus der einfachen Nutzung des Frameworks durch den Anwender und die uneingeschränkte Ausprägungsvielfalt von Regelprozessen. 
+    Hierbei wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen kann. 
     Unter Berücksichtigung der Forschungsfrage (siehe Abschnitt \ref{sec:forschungsfragen}) wird eine Möglichkeit offengelegt, mit der 
     ein Softwareentwickler neue Regeln entwickeln und dem System hinzufügen kann, ohne ein weiteres zu erlernendes Framework zu verwenden. 
     Dabei sollen die notwendigen Schritte und Interaktionen formalisiert und für den Entwickler vereinfacht werden. Mit der 
     Definition der Zielsetzung der Arbeit (siehe Abschnitt\ref{sec:zielsetzung}) wird die Abgrenzung deutlich. In folgender 
-    Darlegung des Konzeptes wird nochmals konkreter auf den Kontext als auch auf die Intension eingegangen. 
+    Darlegung %des Konzeptes 
+    wird nochmals konkreter auf den Kontext als auch auf die Intension der Arbeit eingegangen. 
     % Das Ziel des Konzeptes ist es, dem Entwickler den Aufwand zur Erweiterung des Systems zu minimieren durch weitere 
     % Regeln und Abdeckung von Anwendungsfällen (Use Cases) und eine Struktur vorgeben. (ToDo's, Flexibilität in der 
     % Umsetzung (nicht wie Home Assistant und openHAB eher eingeschränkt)) 
@@ -61,6 +66,27 @@
     abhängig von den Anwendern ist. Dadurch kann sowohl in privatem \acl{SH} Umfeld als auch in Büroräumen eine solche Instanz mittels dem 
     Framework erstellt werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
     Einsatz im Smart Office, liegt der Schwerpunkt auf dem Einsatz in einem smarten Büro. 
+
+\section{Konzept}
+\label{sec:concept}
+    Die Intension, die hinter der Ausarbeitung dieses Konzeptes steht, ist zum einen die einfache Handhabung der 
+    formalisierten Interaktionen für Softwareentwickler während der Verwendung des Frameworks und zum anderen die 
+    offene Gestaltung von Regelprozessen. In vergleichbaren Softwareprodukten, die im Rahmen dieser Arbeit erläutert 
+    wurden (siehe Kapitel \ref{sec:homeassistant} und \ref{sec:openhab}), ist die Vielfalt der Regelausprägung auf 
+    den Kontext des Systems eingeschränkt. Dies bedeutet, dass 
+    Regeln und Prozesse nur mit Komponenten und Informationen innerhalb des Systems arbeiten können, bzw. benötigte 
+    Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind. Diese Auswirkung ist der 
+    Tatsache geschuldet, dass mit den bestehenden Lösungen versucht wird, die Regeldefinition für Endnutzer so 
+    einfach wie möglich zu gestalten.
+    \\
+    Um dennoch dem Anwender eine Struktur vorzugeben, mit der Regeln definiert und zur Laufzeit der Anwendung ausgeführt 
+    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderung löst. Hierfür soll dem 
+    Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich in der 
+    Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. Dadurch soll der 
+    Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System mit individuellen 
+    Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren.
+
+
 
 \section{Architekturkonzept}
 \label{sec:architekturkonzept}
@@ -94,8 +120,8 @@
     \subsection{Datenbanken}
         % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
 
-\section{Softwarekonzept}
-\label{sec:softwarekonzept}
+\subsection{Softwarekonzept}
+\label{subsec:softwarekonzept}
 
 
 
