@@ -5,23 +5,23 @@
     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
     der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
-    Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
+    Ähnlich zu der vorgestellten Home Assistant Software, bietet \acs{OPENHAB} ebenso User Interfaces die durch 
     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
     \\
     \linebreak
-    In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
+    In Kombination mit Java wird bei \acs{OPENHAB} das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
     Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
     \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
     Verständnis des Konzeptes notwendigen.
     \\
     \linebreak
-    Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
+    Mit \acs{OPENHAB} wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
 \subsection*{Historie}
 \label{sec:historyoHAB}
     Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-    Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
+    Im Februar 2010 wurde das Projekt unter dem Name \acs{OPENHAB} bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
     gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
     vor kundtut.
     \begin{quote}
@@ -39,9 +39,9 @@ Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwen
 implementiert ist. Die Software wird regelmäßig gepatched und von der Community unterstützt.
 
 \subsection{Konzept und Architektur}
-    Die Steuerungsplattform openHAB bietet vergleichbar zu Home Assistant die Möglichkeit der multifunktionalen Verknüpfung von 
+    Die Steuerungsplattform \acs{OPENHAB} bietet vergleichbar zu Home Assistant die Möglichkeit der multifunktionalen Verknüpfung von 
     Geräten und Protokollen. An dieser Stelle werden ebenso mehrere Konzepte verwendet, die die Vereinheitlichung der Plattform 
-    verstärkt. Die Konzepte der openHab Software sind in drei größere Rubriken aufgeteilt, die sich wie folgt zusammensetzen:
+    verstärkt. Die Konzepte der \acs{OPENHAB} Software sind in drei größere Rubriken aufgeteilt, die sich wie folgt zusammensetzen:
     \\
     \linebreak
     Die erste Rubrik sind die Dinge (Things), diese sind die Entitäten, die als physische Komponente zu einem System hinzugefügt 
@@ -96,12 +96,12 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
         Orte, Punkte und Ausrüstungen sein. Ein Beispiel: Das Wohnzimmer als Standort besteht aus zwei Geräten Heizung und Licht. 
         Die Heizung als Ausstattung hat zwei Punkte: \textit{Ist-Temperatur} und \textit{Soll-Temperatur}.
         \item Seiten (Pages):Alle Seiten und Seitenverzeichnisse kontrollieren die Zustände von Elementen und greifen auf diese zu. 
-        Mit openHAB 3 würden weitere Möglichkeiten hinzugefügt, um benutzerdefinierte \acs{UI}, Diagramme, Grundrisse und oder 
+        Mit \acs{OPENHAB} 3 würden weitere Möglichkeiten hinzugefügt, um benutzerdefinierte \acs{UI}, Diagramme, Grundrisse und oder 
         Layouts zu definieren. 
         \item Skripte (Scripts): Skripte sind ähnlich zu den Regeln. Diese spezifizieren eine Aktion und kein Ereignis. Die Skripte 
         können manuell, aber auch über andere Skripte und Regeln ausgeführt werden. 
     \end{itemize}
-    Die anfängliche Architektur der openHAB Anwendung teilt sich in drei Sektionen auf: Die Kernkomponenten (blau), das drunter 
+    Die anfängliche Architektur der \acs{OPENHAB} Anwendung teilt sich in drei Sektionen auf: Die Kernkomponenten (blau), das drunter 
     liegende OSGi-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
     \begin{figure}[hbt!]
         \centering
@@ -112,15 +112,15 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     \\
     %\pagebreak
     \linebreak
-    Mit der wesentlichen Aktualisierung von openHAB zur aktuellen Version openHAB 2.0 gab es auch einige Änderungen an der 
+    Mit der wesentlichen Aktualisierung von \acs{OPENHAB} zur aktuellen Version \acs{OPENHAB} 2.0 gab es auch einige Änderungen an der 
     grundlegenden Architektur. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
     Eclipse Equinox, um eine \acs{OSGI} Laufzeitumgebung zu erstellen. Jetty wird als \acs{HTTP} Server verwendet. 
     \\
     \linebreak
     \textit{Eclipse SmartHome}\footnote{Eclipse SmartHome. \url{https://projects.eclipse.org/projects/iot.smarthome} Abgerufen am 29.04.2022} 
-    ist ein \acs{IoT} Projekt, welches sich aus der ersten Version der openHAB Plattform entwickelte. 
+    ist ein \acs{IoT} Projekt, welches sich aus der ersten Version der \acs{OPENHAB} Plattform entwickelte. 
     Diese wurde von der Eclipse Foundation übernommen und weiterentwickelt. Es stellt das Kern-Framework für Smart Home Systeme dar 
-    und ist essentieller Bestandteil der openHAB Plattform. Das Framework ist mittlerweile archiviert und erhält keine weiteren 
+    und ist essentieller Bestandteil der \acs{OPENHAB} Plattform. Das Framework ist mittlerweile archiviert und erhält keine weiteren 
     Aktualisierungen.
     \\
     \linebreak
@@ -161,7 +161,7 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     \pagebreak
     \linebreak
     Weitere Details der \acs{OSGI}-Architektur\footnote{Architektur und Erläuterung OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Abgerufen am 01.05.2022} 
-    sind der openHAB Dokumentation zu entnehmen.
+    sind der \acs{OPENHAB} Dokumentation zu entnehmen.
 
 \subsection{Ziele und Schwerpunkte} 
     \begin{quote}
@@ -174,9 +174,9 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     \end{quote}
     
 \subsection{Stärken und Schwächen}
-    Die Stärken, die openHAB mit sich bringt, werden schon in den Dokumentationen aufgegriffen und bei der Nutzung der Anwendung 
+    Die Stärken, die \acs{OPENHAB} mit sich bringt, werden schon in den Dokumentationen aufgegriffen und bei der Nutzung der Anwendung 
     schnell deutlich. Mit der Plattform können eine Vielzahl von Geräten und Systemen integriert werden, die miteinander 
-    kommunizieren. In der einzigen von openHab gegebenen Lösung können Heimautomatisierungssysteme, intelligente Geräte und 
+    kommunizieren. In der einzigen von \acs{OPENHAB} gegebenen Lösung können Heimautomatisierungssysteme, intelligente Geräte und 
     andere Technologien, darunter beispielsweise Kommunikationsprotokolle, integriert werden \cite{openhab-strength}. Durch die in 
     dem letzten großen Update der Plattform hinzukommende einheitliche Benutzeroberfläche, die die Bedienung von Geräten und 
     Systemen vereinfacht, ist die Integration von neuen Geräten einfacher. Mit dem Ansatz von 
@@ -198,12 +198,12 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
 
     \subsection{Optionen der Regel- und Automatisierungserstellung}
         %Skizzierung der Möglichkeiten des Tools
-        Im Vergleich zu Home Assistant bietet openHAB zur Definition und Erstellung von Regeln mehrere Möglichkeiten an. 
-        Zur nutzerfreundlichen Bedienung unterbreitet die openHAB Lösung ebenso eine Oberfläche, über die Regeln definiert 
+        Im Vergleich zu Home Assistant bietet \acs{OPENHAB} zur Definition und Erstellung von Regeln mehrere Möglichkeiten an. 
+        Zur nutzerfreundlichen Bedienung unterbreitet die \acs{OPENHAB} Lösung ebenso eine Oberfläche, über die Regeln definiert 
         werden können. Die Konfiguration solcher Regeln kann jedoch mit unterschiedlichen Methoden umgesetzt werden. Zum 
         einen mit einem visualisierten Baukasten Werkzeug Namens \textit{Blockly}\footnote{Ein visueller Code Editor von Google. \url{https://developers.google.com/blockly} Abgerufen am 29.05.2022} 
         und zum anderen über eine \ac{DSL}, im Deutschen eine domänenspezifische Sprache\footnote{Erklärung der domänenspezifischen Sprache. \url{https://martinfowler.com/dsl.html} Abgerufen am 29.05.2022}. 
-        openHAB verwendet für die Syntax der Regeldefinition Xbase\footnote{Erklärung des Xtext, bzw. Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Abgerufen am 29.05.2022} 
+        \acs{OPENHAB} verwendet für die Syntax der Regeldefinition Xbase\footnote{Erklärung des Xtext, bzw. Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Abgerufen am 29.05.2022} 
         und darauf aufbauend Xtend\footnote{Javadialekt, welcher durch das Framework in lesbaren Java 8 kompatiblen Quellcode kompiliert wird. \url{https://www.eclipse.org/xtend/index.html} Abgerufen am 29.05.2022}. 
         Diese \acs{DSL} gibt ein Konstrukt vor, welches eine Regel definiert. Das vorgegebene Konstrukt sieht wie folgt aus:
         \\
@@ -244,7 +244,7 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     entsprechen. Dadurch muss zu erst die Funktionsweise des Frameworks verstanden werden, um anschließend Automationen und 
     Regeln definieren und anwenden zu können. Beide Lösungen versuchen diese Herausforderung zu lösen, indem über eine Weboberfläche 
     die Regeln konfiguriert und erstellt werden können. Home Assistant vereinfacht dies durch die Nutzung des YAML-Dateiformates, im 
-    Gegenzug nutzt openHAB ein weiteres Framework, dass das Konstrukt der Regeldefinition vereinfacht, dennoch in seiner Interpretation 
+    Gegenzug nutzt \acs{OPENHAB} ein weiteres Framework, dass das Konstrukt der Regeldefinition vereinfacht, dennoch in seiner Interpretation 
     und Anwendung eingeschränkt ist.
     % Vergleich in Richtung der Regeldefinition und Implementierung von Automationen. IST ERFOLGT! 
     \\
