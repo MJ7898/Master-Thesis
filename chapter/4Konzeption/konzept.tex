@@ -105,23 +105,59 @@
     \\
     \linebreak
     Um dennoch dem Anwender eine Struktur vorzugeben, mit der Regeln definiert und zur Laufzeit der Anwendung ausgeführt 
-    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderung löst. Hierfür soll dem 
-    Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich in der 
-    Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. Dadurch soll der 
-    Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System mit individuellen 
-    Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren.
+    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderung löst. Hierfür soll 
+    dem Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich 
+    in der Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. 
+    Dadurch soll der Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System 
+    mit individuellen Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren.
 
     \subsection{Sichtweisen}
     \label{subsec:sichtweisen}
-    Wie bereits aus dem Kontext hervorgeht, werden die Aktoren auf zwei Sichtweisen aufgeteilt. Zum einen auf die Anwendersicht, die 
-    der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und in Betrieb nehmen des Systems, sowie 
-    das Definieren und Implementieren von Regeln übernimmt. Zum anderen die Bereitstellungssicht, die das Framework als ausführende 
-    Kraft besetzt. Dieses sorgt dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
-    ausgeführt werden. 
+        Wie bereits aus dem Kontext hervorgeht, werden die Aktoren auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
+        Anwendersicht, die der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und in 
+        Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln übernimmt. Zum anderen die 
+        Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Ausführung der vom 
+        Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events und das starten 
+        von Regeln ermöglicht. % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
+        %ausgeführt werden. 
 
     \subsection{Konzeptkomponenten}
     \label{subsec:conceptcomps}
-    
+        Für die Erläuterung des Konzeptes werden vorab die einzelnen Konzeptkomponenten erläutert, da diese die Anhaltspunkte 
+        für den weiteren Verlauf darstellen. Das Framework baut auf folgenden Bausteinen auf:
+        \begin{itemize} 
+            \item Regel (Rule): Eine Regel ist ein Konstrukt, welches bei bestimmten Events die darin enthaltenen Aktionen ausführen soll. 
+            Der grobe Aufbau einer Regel ist immer gleich. Diese beinhaltet einen Auslöser, eine Bedingung, einen Prozess und einen eindeutigen 
+            Namen. Die Inhalte der Regel kann der Anwender ja nach bedarf beliebig ausprägen und ergänzen. 
+            \item Komponente (Component): Eine Komponente bildet einen reellen Gegenstand ab, der bei Benutzung durch eine Regel für weitere Regeln 
+            gesperrt und freigegeben werden kann. 
+            \item Zustandsraum (State): Der Zustandsraum, das sog. Zustandsobjekt, bildet alle Zustände von Komponenten und weiteren Geräten ab. 
+            \item Auslöser (Trigger): Der Auslöser ist ein von außen einwirkendes Objekt, das Zustandsänderungen hervorruft.
+            \item Transformation (Transformer): Mit der Transformation werden eingehenden Events, die durch einen Auslöser hervorgerufen 
+            werden und eine Zustandsänderung bewirken, auf das eigentliche Zustandsobjekt übertragen. 
+        \end{itemize}
+        In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
+        Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
+        \\
+        \linebreak
+        Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
+        Darin sollten alle notwendigen Attribute und Zustände abgebildet sein. Nachdem das Zustandsobjekt definiert wurde, geht 
+        es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach Anforderungen des Anwenders zu erstellen. 
+        Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die Kommunikationswege 
+        zu aktivieren. 
+        Da \acs{MQTT} zum aktuellen Zeitpunkt die einzige Möglichkeit der Kommunikation ist, ist die Konfiguration für die 
+        Kommunikation per \acs{MQTT} einzustellen. Hierfür muss der Entwickler 
+        dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzername des Clients und dessen Passwort übergeben. Über das 
+        Framework wird dann das Setup durchgeführt, sodass Topics, die über den Broker veröffentlicht werden, konsumiert werden können. 
+        In Zuge dessen muss der Anwender alle Topics definieren und dem Framework übergeben. Dadurch wird gewährleistet, dass die 
+        Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. 
+        \\
+        Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
+        Hierfür wird der Ablauf innerhalb des Frameworks erläutert.
+        \\
+        \linebreak
+        
+
 
 
 
