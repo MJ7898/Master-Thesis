@@ -6,7 +6,7 @@
     Benutzeroberfläche (Web-App) erfolgen. In dem lokalen System können auch Geräte per Sprachbefehl gesteuert werden. Kompatible 
     Plattformen sind unter anderem Google Assistant, Amazon Alexa und Apple HomeKit. %Dies sind weitaus nur eine Selektion von bekannten 
     %Herstellern. 
-    Home Assistant bietet eine weitaus vielfältigere Verknüpfung von Geräten, Services und Plattformen. Die zentrale Steuerung 
+    Home Assistant bietet eine vielfältigere Verknüpfung von Geräten, Services und Plattformen. Die zentrale Steuerung 
     unterstützt durch modulare Integrationskomponenten die einzelnen Geräte, Anwendungen und Services. Für die drahtlose Kommunikation 
     werden native Integrationskomponenten verwendet, darunter Bluetooth, ZigBee und Z-Wave. Diese werden verwendet, um lokale \ac{PAN} mit 
     Geräten mit geringem Stromverbrauch aufzubauen. Die Steuerung kann auch mit proprietären Ökosystemen stattfinden, sofern diese eine offene 
@@ -46,11 +46,11 @@
     aufgeteilt, mit der die Vereinheitlichung vorangetrieben werden kann: 
     \begin{itemize}
         \item Integration (Integration): Integrationen repräsentieren die Geräte und Dienste innerhalb der Home Assistant Anwendung. 
-              Ebenso können mittels den Integrationen auch Daten von Datenpunkten abgerufen werden.
+              Ebenso können mittels Integrationen auch Daten von Datenpunkten abgerufen werden.
         \item Gerät (Device): Nach der Konfiguration der Integration werden die Geräte in Home Assistant angelegt. 
               Diese werden dann als erkannte Geräte der Integration dargestellt, z.B. als Temperatur-, Licht- oder Feuchtigkeitssensor.
         \item Entität (Entity): Die Datenpunkte sind die Geräte, die sogenannten Entitäten, die durch die Integrationen standardisiert werden. 
-              Dies sind Objekte, die Funktionalitäten oder Daten des Geräts darstellen, z.B. die Temperatur, Helligkeit oder die Feuchtigkeit.
+              Dies sind Objekte, die Funktionalitäten oder Daten des Gerätes darstellen, z.B. die Temperatur, Helligkeit oder die Feuchtigkeit.
         \item Automatisierung (Automation): Automatisierungen sind Prozesse, die bei einem bestimmten ausgelösten Event ausgeführt werden 
               sollen. Dieses Auslöser (trigger) können Zeitpunkte, Ereignisse oder manuell gesteuerte Aktionen des Nutzers sein, z.B. das 
               Ausschalten des Bürolichts, wenn durch einen Bewegungssensor fünf Minuten keine Bewegung festgestellt wurde oder wenn der 
@@ -58,12 +58,12 @@
               ausgeschaltet werden.
     \end{itemize}
     Die Architektur der Home Assistant Anwendung ist grundlegend als eingebettetes System eines Betriebssystem aufgestellt, welches in 
-    drei Schichten aufgeteilt ist. In unterster Ebene befindet sich das Betriebssystem, welches als minimales Linux System aufgestellt 
+    drei Schichten aufgeteilt ist. In unterster Ebene befindet sich das Betriebssystem, welches als minimales Linux System postiert 
     ist, um die darauf liegenden Schichten, den Aufseher (supervisor) und den Kern (core), zu betreiben. Mit dem Supervisor wird das 
     Betriebssystem verwaltet und konfiguriert. Der eigentliche Kern interagiert mit dem Supervisor, den Geräten und den Services. 
     \\
     \linebreak
-    Der Supervisor ist die Schicht über dem Betriebssystem. Die Kommunikation der beiden Komponenten findet die über einen D-Bus statt. Diese Zwischenschicht ermöglicht dem 
+    Der Supervisor ist die Schicht über dem Betriebssystem. Die Kommunikation der beiden Komponenten findet über einen D-Bus statt. Diese Zwischenschicht ermöglicht dem 
     Benutzer die Verwaltung der Home Assistant Installation. 
     \\
     Die Aufgaben des Supervisors sind wie folgt 
@@ -71,9 +71,9 @@
     \begin{itemize}
         \item Dieser führt den Home Assistant Kern (Core) aus.
         \item Dieser führt die Updates des Home Assistant Core aus.
-        \item Dieser führt einen \textit{Rollback} bei Fehlgeschlagenem Update durch.
+        \item Dieser führt einen \textit{Rollback} bei fehlgeschlagenem Update durch.
         \item Dieser führt Sicherungen und Wiederherstellungen durch.
-        \item Dieser verwaltet die Add Ons der Core Instanz
+        \item Dieser verwaltet die Add Ons der Core Instanz.
     \end{itemize}
     \begin{figure}[hbt!]
         \centering
@@ -81,20 +81,20 @@
         \caption{Architektur des Home Assistant Supervisors \cite{haos-supervisor}}
         \label{fig:architectureHAOS}
     \end{figure}
-    Die auf dem Supervisor aufbauende Architektur ist die Architektur der Anwendung, der sogenannte Core. Dieser besteht aus vier 
+    Die auf dem Supervisor aufbauende Architektur ist die der Anwendung, der sogenannte Core. Dieser besteht aus vier 
     Komponenten, welche den Hauptteil abbilden: Event Bus, State Machine, Service Registry und Timer\footnote{Entwickler Dokumentation der Home Assistant Plattform. \url{https://developers.home-assistant.io/docs/} Abgerufen am 24.04.2022}. 
     \\
-    Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponente stellt eine zentrale Eigenschaft 
-    der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine weitere Komponente, mit der die Zustände von Dingen, darunter 
-    intelligente Geräte, Sensoren uvm., überwacht und Zustandsänderungsereignisse an den Event Bus ausgelöst werden. Dies erfolgt nach der 
-    Änderung des Zustandes eines Objektes. Mit der Dienstregistrierung (Service Registry) wird der Event Bus auf eingehende Aufrufe von 
-    Diensten abgehört. Über die Service Registry kann der Benutzer Dienste hinzufügen und verwalten. Mittels den Entwicklertools, die über das 
-    \ac{UI} aufgerufen werden können, kann der Benutzer die Dienste und Automatisierungen aufrufen und konfigurieren. Das letzte 
+    Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponente stellt eine Eigenschaft 
+    der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine weitere Komponente, mit der die Zustände der Gegenstände, wie  
+    Sensoren, Service- oder Saugroboter uvm., überwacht und deren Änderungsereignisse an den Event Bus ausgelöst werden. 
+    Mit der Dienstregistrierung (Service Registry) wird der Event Bus auf eingehende Aufrufe von 
+    Diensten abgehört. Über die Service Registry kann der Benutzer Dienste hinzufügen und verwalten. Mittels der Entwicklertools, die über das 
+    \ac{UI} aufgerufen werden können, kann der Benutzer die Dienste und Automatisierungen anwählen und konfigurieren. Das letzte 
     Element, der Timer, ist ebenso eine Komponente der Architektur, die zeitveränderte Ereignisse gemäß einer gegebenen Frequenz 
     an den Event Bus sendet. Somit können zeitbasierte Automatisierungen vereinfacht und ausgelöst werden. Als Datenbank wird eine 
-    nicht Cloud-basierte SQLite\footnote{Structured Query Language, eine Datenbanksprache zur Definition, Abfrage und Bearbeitung von Datenstrukturen in relationalen Datenbanken} 
+    nicht cloudbasierte SQLite\footnote{Structured Query Language, eine Datenbanksprache zur Definition, Abfrage und Bearbeitung von Datenstrukturen in relationalen Datenbanken} 
     Datenbank verwendet. Diese ist nur auf dem Gerät enthalten und wird nicht über das Internet übertragen. 
-    Im lokalen Netzwerk hat der Nutzer die Möglichkeit, um auf die Datenbank zuzugreifen und eine Historie von Aktionen einzusehen. 
+    Im lokalen Netzwerk hat der Nutzer die Möglichkeit, auf die Datenbank zuzugreifen und eine Historie von Aktionen einzusehen. 
     Eine Verlaufskomponente, die ebenso im Core enthalten ist, speichert die Ereignisse innerhalb der Plattform. Somit können Nutzer auf 
     alle gespeicherten Informationen zu Hause zugreifen und diese einsehen \cite{HAOSarchitecture2018}.
     \\
