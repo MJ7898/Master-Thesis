@@ -157,21 +157,34 @@
         \\
         \linebreak
         Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
-        Darin sollten alle notwendigen Attribute und Zustände abgebildet sein. Nachdem das Zustandsobjekt definiert wurde, geht 
-        es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach Anforderungen des Anwenders zu erstellen. 
+        Darin sollten alle notwendigen Zustände als Attribute und Objekte abgebildet sein. Nachdem das Zustandsobjekt 
+        definiert wurde, geht es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach 
+        Anforderungen des Anwenders zu erstellen. Jedoch sind bestimmte Funktionen und Vorgaben bezüglich Bedingungsprüfung 
+        und Prozessdurchlauf einzuhalten. Anforderungen dabei sind das Implementieren der beiden Funktionen, zum einen die 
+        Bedingungen gegen Werte im Zustandsobjekt zu prüfen und zum anderen das Nutzen der Prozessfunktion, damit der Inhalt 
+        der Regel durchlaufen wird.
+        \\
         Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die Kommunikationswege 
         zu aktivieren. 
-        Da \acs{MQTT} zum aktuellen Zeitpunkt die einzige Möglichkeit der Kommunikation ist, ist die Konfiguration für die 
-        Kommunikation per \acs{MQTT} einzustellen. Hierfür muss der Entwickler 
+        Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle abbildet, ist die 
+        Konfiguration des \acs{MQTT} Clients einzustellen. Hierfür muss der Entwickler 
         dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzername des Clients und dessen Passwort übergeben. Über das 
         Framework wird dann das Setup durchgeführt, sodass Topics, die über den Broker veröffentlicht werden, konsumiert werden können. 
         In Zuge dessen muss der Anwender alle Topics definieren und dem Framework übergeben. Dadurch wird gewährleistet, dass die 
         Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. 
         \\
         Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
-        Hierfür wird der Ablauf innerhalb des Frameworks erläutert.
+        \\
+        Hierfür wird der Durchlauf von dem Eingang einer \acs{MQTT} Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks erläutert.
         \\
         \linebreak
+        textextextextextext.
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=14cm,height=11cm,keepaspectratio]{images/Programmablauf_Framework.png}
+            \caption{Grober Programmablauf des Frameworks}
+            \label{fig:programmablauf_framework}
+        \end{figure}
 
 
 
