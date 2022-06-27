@@ -69,14 +69,14 @@
 \section{Anwendungsumfeld}
 \label{sec:anwendungsumfeld}
     Grundsätzlich ist der Einsatzort des Frameworks variabel, da die eigentliche Implementierung und Nutzung der Regeln und Prozesse stark 
-    abhängig von den Anwendern ist. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen eine solche Instanz mittels dem 
+    abhängig von den Anwendern ist. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen ein System mittels dem 
     Framework erstellt werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
     Einsatz im Smart Office, liegt der Schwerpunkt der Arbeit auf dem Einsatz in einem smarten Büro. 
     \\
     \linebreak
-    Basierend auf den vorab ermittelten Anwendungsfällen (siehe Abschnitt \ref{subsec:checkin} und \ref{subsec:evacuation}) sind unabhängige 
+    Stützend auf den vorab ermittelten Anwendungsfällen (siehe Abschnitt \ref{subsec:checkin} und \ref{subsec:evacuation}) sind unabhängige 
     Komponenten, darunter bspw. ein Service-Roboter und weitere einsatzfähige Geräte, sowie ein \acs{MQTT}-Broker notwendig. Ein \acs{MQTT}-Broker 
-    wird im Zuge der Konzeption nicht von dem Framework bereitgestellt, lediglich die Anbindung als Client ist gegeben, und muss daher als eigenständige 
+    wird im Zuge der Konzeption nicht von dem Framework bereitgestellt, lediglich die Anbindung als Client wird gegeben, und muss daher als eigenständige 
     Instanz bereitgestellt werden. Dadurch kann die Anforderung, die Kommunikation mittels \acs{MQTT}, ermöglicht werden. Eine mögliche infrastrukturelle 
     Architektur kann wie folgt aussehen: 
     \begin{figure}[hbt!]
@@ -89,9 +89,11 @@
 \section{Konzept}
 \label{sec:concept}
     Die Intension, die hinter der Ausarbeitung dieses Konzeptes steht, ist zum einen die einfache Handhabung der 
-    formalisierten Interaktionen für Softwareentwickler während der Verwendung des Frameworks und zum anderen die 
+    formalisierten Interaktionen für Softwareentwickler %während
+    unter der Verwendung des Frameworks und zum anderen die 
     offene Gestaltung von Regelprozessen, um so dem Anwender die Implementierung von Regeln und Aufgaben nicht 
-    einzugrenzen, lediglich ein Muster vorzugeben, damit Regeln einheitlich als solche von dem Framework 
+    %einzugrenzen
+    zu beschränken. Es soll lediglich ein Muster vorgegeben werden, damit Regeln einheitlich als solche von dem Framework 
     verarbeitet und genutzt werden können. 
     \\ 
     \linebreak
@@ -99,7 +101,8 @@
     wurden (siehe Kapitel \ref{sec:homeassistant} und \ref{sec:openhab}), ist die Vielfalt der Regelausprägung auf 
     den Kontext des Systems eingeschränkt. Dies bedeutet, dass 
     Regeln und Prozesse nur mit Komponenten und Informationen innerhalb des Systems arbeiten können, bzw. benötigte 
-    Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind. Diese Auswirkung ist der 
+    Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind, auf die der Nutzer keinen direkten 
+    Einfluss darauf nehmen kann. Diese Auswirkung ist unter anderem der 
     Tatsache geschuldet, dass mit den bestehenden Lösungen versucht wird, die Regeldefinition für Endnutzer so 
     einfach wie möglich zu gestalten. 
     \\
@@ -109,16 +112,29 @@
     dem Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich 
     in der Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. 
     Dadurch soll der Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System 
-    mit individuellen Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren.
+    mit individuellen Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren. Beispielsweise 
+    können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP} Abfragen bezogen werden, bzw. Ressourcen 
+    und Inhalte individuell nachgezogen werden.
+    \\ 
+    Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
+    Konzepterläuterung notwendig sind.
 
     \subsection{Sichtweisen}
     \label{subsec:sichtweisen}
-        Wie bereits aus dem Kontext hervorgeht, werden die Aktoren auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
+        Wie bereits aus dem Kontext hervorgeht, wird das Konzept auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
         Anwendersicht, die der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und in 
         Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln übernimmt. Zum anderen die 
         Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Ausführung der vom 
         Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events und das starten 
-        von Regeln ermöglicht. % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
+        von Regeln ermöglicht. Das Management zum Starten von Regeln und Prozessen wird in Gänze vom Framework übernommen. 
+        Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. Zum besseren Verwalten und Starten von 
+        Prozessen können weitere Konzepte und Managementroutinen ergänzt werden. Diese sind nicht Teil dieses Konzeptes und 
+        werden im Ausblick zu möglichen Erweiterungsschritten nochmals aufgegriffen.
+        \\
+        \linebreak
+        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Bestandteil des Konzeptes 
+        aufzeigt. 
+         % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
         %ausgeführt werden. 
 
     \subsection{Konzeptkomponenten}
@@ -156,7 +172,7 @@
         Hierfür wird der Ablauf innerhalb des Frameworks erläutert.
         \\
         \linebreak
-        
+
 
 
 
