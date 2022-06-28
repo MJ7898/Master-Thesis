@@ -1,0 +1,37 @@
+\section{Architekturkonzept}
+\label{sec:architekturkonzept}
+    % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
+    % Der Zustandsraum wird verändert, wenn eine Aktion durchgeführt wird, bzw. durch eine Trigger angestoßen. 
+    % Bzw. speichert den aktuellen Zustand des Gegenstandes 
+    % (lightBulb = true/false, personOnDoor = null/Mikka, booking = stringBooking, temiAktive = true/false, 
+    % temiPosition = stringKoordinates)
+    % Zustandsraum muss von dem Entwickler definiert werden. 
+    % MQTT Broker über Home Assistant, bzw. losgelöster Broker
+    % Anbindung von APIs auch Entwickler-Sache. Kann ich das vereinfachen, sodass die Integration einfacher wird?
+
+    \subsection{Überlegungen, Anstöße und Herausforderungen}
+    % Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
+    %werden können. -> Lediglich den Zustand der Komponenten locken.
+    % KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
+    %  doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
+    % Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
+
+    % Zustandsraum -> Abbildung aller notwendigen Komponenten 
+    % Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
+    % und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
+
+    %Was brauche ich für Funktionen und Werte in einer Regel?
+
+    % Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
+    
+    \subsection{Schnittstellen}
+        % Kommunikation mit API's je nach Use Case und Gebrauch zur Datenabfrage
+    
+    \subsection{Datenbanken}
+        % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
+
+\subsection{Softwarekonzept}
+\label{subsec:softwarekonzept}
+
+
+

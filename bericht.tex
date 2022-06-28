@@ -33,6 +33,9 @@
 \usepackage{background}
 % This removes the watermark 
 %\backgroundsetup{contents={}}
+%Is used to get Pages at landscape format
+\usepackage{pdflscape}
+%\usepackage{lscape}% works
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Angaben zur Arbeit
@@ -50,7 +53,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\Was}{Master-Thesis }
+\newcommand{\Was}{Master-Thesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -191,23 +194,24 @@
 \include{chapter/3Anforderungsanalyse/nichtfunktionaleAnf}
 \include{chapter/3Anforderungsanalyse/mehrAnforderungen}
 \include{chapter/4Konzeption/konzept}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}{\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/konzept_MA.pdf}
+\end{landscape}
+\include{chapter/4Konzeption/architekturkonzept}
 \include{chapter/5Umsetzung/umsetzung}
 %\include{chapter/6Ergebnisse/ergebnis}
 \include{chapter/7Diskussion-Evaluation/evaluation}
 \include{chapter/8Fazit/fazit}
 \include{chapter/8Fazit/xausblick}
-
-% \include{1Einleitung/kapitel1}
-% \include{2Grundlagen/kapitel2}
-% \include{2Grundlagen/kapitel2A}
-% \include{2Grundlagen/kapitel2Aa}
-% \include{2GrundlagenX/kapitel2X}
-% \include{3Konzeption/kapitel3}
-% \include{4Umsetzung/kapitel4}
-% \include{4Umsetzung/kapitel4A}
-% \include{4Umsetzung/kapitel4X}
-% \include{5Fazit/fazit}
-
 
 \pagenumbering{Roman}
 % Ab hier beginnt der Anhang

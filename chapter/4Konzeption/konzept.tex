@@ -116,26 +116,8 @@
     können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP} Abfragen bezogen werden, bzw. Ressourcen 
     und Inhalte individuell nachgezogen werden.
     \\ 
-    Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
-    Konzepterläuterung notwendig sind.
-
-    \subsection{Sichtweisen}
-    \label{subsec:sichtweisen}
-        Wie bereits aus dem Kontext hervorgeht, wird das Konzept auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
-        Anwendersicht, die der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und in 
-        Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln übernimmt. Zum anderen die 
-        Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Ausführung der vom 
-        Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events und das starten 
-        von Regeln ermöglicht. Das Management zum Starten von Regeln und Prozessen wird in Gänze vom Framework übernommen. 
-        Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. Zum besseren Verwalten und Starten von 
-        Prozessen können weitere Konzepte und Managementroutinen ergänzt werden. Diese sind nicht Teil dieses Konzeptes und 
-        werden im Ausblick zu möglichen Erweiterungsschritten nochmals aufgegriffen.
-        \\
-        \linebreak
-        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Bestandteil des Konzeptes 
-        aufzeigt. 
-         % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
-        %ausgeführt werden. 
+    Das Konzept beinhaltet die in folgendem Abschnitt dargelegten Komponenten. Aus denen bildet sich der grundlegende Aufbau 
+    des Frameworks.
 
     \subsection{Konzeptkomponenten}
     \label{subsec:conceptcomps}
@@ -152,78 +134,100 @@
             \item Transformation (Transformer): Mit der Transformation werden eingehenden Events, die durch einen Auslöser hervorgerufen 
             werden und eine Zustandsänderung bewirken, auf das eigentliche Zustandsobjekt übertragen. 
         \end{itemize}
-        In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
-        Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
+        %In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
+        %Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
+        %\\
+        %\linebreak
+        Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
+        Konzepterläuterung notwendig sind.
+    
+    \subsection{Sichtweisen}
+    \label{subsec:sichtweisen}
+        Wie bereits aus dem Kontext hervorgeht, wird das Konzept auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
+        Anwendersicht, die der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und in 
+        Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln übernimmt. Zum anderen die 
+        Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Ausführung der vom 
+        Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events und das starten 
+        von Regeln ermöglicht. Das Management zum Starten von Regeln und Prozessen wird in Gänze vom Framework übernommen. 
+        Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. Zum besseren Verwalten und Starten von 
+        Prozessen können weitere Konzepte und Managementroutinen ergänzt werden. Diese sind nicht Teil dieses Konzeptes und 
+        werden im Ausblick zu möglichen Erweiterungsschritten nochmals aufgegriffen.
+        \\
+        \linebreak
+        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Bestandteil des Konzeptes 
+        aufzeigt. Die Sichten werden konkretisiert, indem die Aufgaben des Anwenders als auch der Ablauf innerhalb des Frameworks 
+        erläutert wird.
+        % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
+        %ausgeführt werden. 
         \\
         \linebreak
         Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
-        Darin sollten alle notwendigen Zustände als Attribute und Objekte abgebildet sein. Nachdem das Zustandsobjekt 
+        Darin sollten alle notwendigen Zustände als Attribute abgebildet sein. Nachdem das Zustandsobjekt 
         definiert wurde, geht es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach 
         Anforderungen des Anwenders zu erstellen. Jedoch sind bestimmte Funktionen und Vorgaben bezüglich Bedingungsprüfung 
         und Prozessdurchlauf einzuhalten. Anforderungen dabei sind das Implementieren der beiden Funktionen, zum einen die 
         Bedingungen gegen Werte im Zustandsobjekt zu prüfen und zum anderen das Nutzen der Prozessfunktion, damit der Inhalt 
         der Regel durchlaufen wird.
         \\
-        Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die Kommunikationswege 
-        zu aktivieren. 
-        Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle abbildet, ist die 
-        Konfiguration des \acs{MQTT} Clients einzustellen. Hierfür muss der Entwickler 
+        Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die 
+        Kommunikationswege zu aktivieren. 
+        Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle 
+        abbildet, ist die Konfiguration des \acs{MQTT} Clients einzustellen. Hierfür muss der Entwickler 
         dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzername des Clients und dessen Passwort übergeben. Über das 
-        Framework wird dann das Setup durchgeführt, sodass Topics, die über den Broker veröffentlicht werden, konsumiert werden können. 
-        In Zuge dessen muss der Anwender alle Topics definieren und dem Framework übergeben. Dadurch wird gewährleistet, dass die 
-        Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. 
+        Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumiert 
+        werden können. In Zuge dessen muss der Anwender alle Topics definieren und dem Framework übergeben. Dadurch wird gewährleistet, dass 
+        die Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. Abschließend muss der Softwareentwickler 
+        noch die Zuordnung der Topics implementieren. Hierbei muss fest vorgegeben werden, mit welcher \acs{MQTT} Nachricht ein 
+        bestimmter Wert, bzw. ein bestimmtes Attribut im Zustandsraum geändert werden soll. Hierfür ein Beispiel: 
         \\
-        Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
-        \\
-        Hierfür wird der Durchlauf von dem Eingang einer \acs{MQTT} Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks erläutert.
+        Sobald eine Person an der Tür authentifiziert wurde, wird ein Thema mit dem Namen derjenigen Person übergeben. Basierend auf 
+        dem eingehenden Topic wird dann für dieses Ereignis der Wert im Zustandsraum auf den Namen der Person geändert. Somit kann 
+        die Steuerzentrale mit dem neuen Wert und der Änderung des Zustandsraumes arbeiten.  
         \\
         \linebreak
-        textextextextextext.
+        Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
+        \\
+        Hierfür wird der Durchlauf von dem Eingang einer \acs{MQTT} Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks 
+        erläutert.
+        \\
+        \linebreak
+        Nach erfolgreichem Einstellen und Starten des Systems soll der \acs{MQTT} Client hochgefahren werden. Dieser baut darauf hin eine 
+        Verbindung zu dem \acs{MQTT} Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits auf die Topics,  
+        die der Nutzer über die Einstellungen als Liste aller Topic-Zeichenketten übergibt, gefiltert werden. Sobald eine der bekannten 
+        \acs{MQTT} Nachrichten konsumiert wird, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
+        auf die in dem Topic enthaltenen Informationen abgeändert werden. Der Transformer ist der Ausgangspunkt für die Transformation 
+        des Inhaltes der \acs{MQTT} Nachricht zur Änderung des Zustandsobjektes. Innerhalb dieser Komponente findet die Zuordnung 
+        des Topics zu den darauf adressierten Instanzvariablen des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
+        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen werden. Die Änderung des Zustandsraumes löst darauf hin 
+        den weiteren Ablauf aus.
+        %Hierbei werden konkrete Werteänderungen der Attribute, die der Softwareentwickler 
+        %im Voraus den Topics zugeordnet hat, adressiert und deren Werte überschrieben. 
+        Für die Zeitspanne der Zustandsänderung und der 
+        nachfolgenden Kopie soll das Zustandsobjekt kurzzeitig für weitere Transaktionen und Änderungen, genauer gesagt für Lese- und 
+        Schreiboperationen durch einen Lock-Mechanismus gesperrt werden. Dadurch kann anschließend das Zustandsobjekt mit der vorher 
+        getätigten Änderung kopiert werden, um die anschließende Regel-Iteration durchzuführen. Wichtig an dieser Stelle zu 
+        erwähnen ist, dass die Prüfung der Regel-Bedingungen mit der Kopie durchgeführt werden soll. 
+        Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und darauf hin eine Regel mit der 
+        Kopie des Zustandsobjektes ausgelöst werden kann. Hierdurch ist sichergestellt, dass jeweils eine Zustandsänderung zu einem 
+        Zeitpunkt stattfindet und zu dieser die dafür definierte Regel ausgeführt wird, sofern die Bedingung im Vorfeld auch zutrifft. 
+        \\
+        Wird kurz darauf eine weitere Nachricht konsumiert, so kann das aktuelle Zustandsobjekt dahingehend überschrieben und erneut 
+        kopiert werden. Die Kopie wird wiederum für die Regel-Iteration verwendet und tangiert die vorherige Kopie nicht. 
+        \\
+        \linebreak
+        Dem folgenden Diagramm ist der abstrakte Programmablauf des Frameworks, welcher soeben skizziert wurde, zu entnehmen:
         \begin{figure}[hbt!]
             \centering
             \includegraphics[width=14cm,height=11cm,keepaspectratio]{images/Programmablauf_Framework.png}
             \caption{Grober Programmablauf des Frameworks}
             \label{fig:programmablauf_framework}
         \end{figure}
-
-
-
-
-
-\section{Architekturkonzept}
-\label{sec:architekturkonzept}
-    % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
-    % Der Zustandsraum wird verändert, wenn eine Aktion durchgeführt wird, bzw. durch eine Trigger angestoßen. 
-    % Bzw. speichert den aktuellen Zustand des Gegenstandes 
-    % (lightBulb = true/false, personOnDoor = null/Mikka, booking = stringBooking, temiAktive = true/false, 
-    % temiPosition = stringKoordinates)
-    % Zustandsraum muss von dem Entwickler definiert werden. 
-    % MQTT Broker über Home Assistant, bzw. losgelöster Broker
-    % Anbindung von APIs auch Entwickler-Sache. Kann ich das vereinfachen, sodass die Integration einfacher wird?
-
-    \subsection{Überlegungen, Anstöße und Herausforderungen}
-    % Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
-    %werden können. -> Lediglich den Zustand der Komponenten locken.
-    % KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
-    %  doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
-    % Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
-
-    % Zustandsraum -> Abbildung aller notwendigen Komponenten 
-    % Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
-    % und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
-
-    %Was brauche ich für Funktionen und Werte in einer Regel?
-
-    % Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
-    
-    \subsection{Schnittstellen}
-        % Kommunikation mit API's je nach Use Case und Gebrauch zur Datenabfrage
-    
-    \subsection{Datenbanken}
-        % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
-
-\subsection{Softwarekonzept}
-\label{subsec:softwarekonzept}
-
-
-
+        Aspekte, die nicht aus dem Ablaufdiagramm hervorgehen, sind zum einen die parallele Ausführung von zwei voneinander unabhängigen 
+        Zustandsänderungen und zum anderen die erneute Änderung des Zustandes durch eine Regel selbst. Sofern die Änderungen unabhängig 
+        sind, sollen Prozesse auch asynchron ablaufen, bzw. Regeln auch neue Zustandsänderungen hervorrufen können.  Die genauere Ausprägung des 
+        Konzeptes wird im Rahmen des Architekturkonzeptes (\ref{sec:architekturkonzept}), sowie dem Kapitel der Umsetzung 
+        (\ref{chap:umsetzung}) aufgegriffen. 
+        \\
+        \linebreak
+        Zur Veranschaulichung der abgeschlossenen textuellen Erläuterung des Konzeptes hilft die nachfolgenden Abbildung: 
+        
