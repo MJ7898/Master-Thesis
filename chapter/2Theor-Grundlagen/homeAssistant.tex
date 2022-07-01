@@ -106,31 +106,34 @@
         \label{fig:architectureHAOSCore}
     \end{figure}
 \subsection{Ziele und Schwerpunkte}
-    Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, damit die Zielerreichung (\ac{DOD}) messbar ist. Die mit 
-    der Home Assistant Plattform verfolgten Ziele sind Privatsphäre und Sicherheit, die Wahlmöglichkeiten von Geräten und die Haltbarkeit 
-    der Plattform\footnote{Schwerpunkte der Home Assistant Plattform. \url{https://www.home-assistant.io/blog/2021/12/23/the-open-home/} Abgerufen am 24.04.2022}. 
+    Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, um die Zielerreichung, die sog. \ac{DOD}, messbar zu machen. Die mit 
+    der Home Assistant Plattform verfolgten Ziele sind unter anderem der Schutz der Privatsphäre und die Datensicherheit, die Wahlmöglichkeit zur Anbindung von 
+    Geräten und die Haltbarkeit der Plattform\footnote{Schwerpunkte der Home Assistant Plattform. \url{https://www.home-assistant.io/blog/2021/12/23/the-open-home/} Abgerufen am 24.04.2022}. 
     \\
     \linebreak
-    Das Thema der Privatsphäre wird bei Home Assistant dadurch forciert, dass die Geräte nur optional über das Internet erreichbar sind, bzw. 
-    nur über das lokale Netzwerk. So kann die Kategorisierung des Verhaltens durch Algorithmen vermieden werden. 
+    Der Schutz der Privatsphäre wird durch Home Assistant gewährleistet, indem das System selbst nur im eigenen Netzwerk betrieben wird und es 
+    Geräteanbietern somit nicht ermöglicht wird, Daten abzugreifen und daraus Verhaltensmuster zu analysieren. Home Assistant setzt voraus, dass die 
+    Möglichkeit der Datenschnittstelle über das Internet optional eingestellt werden kann. 
+    % So kann die Kategorisierung des Verhaltens durch Algorithmen vermieden werden. 
     \\
-    Die großflächige Auswahlmöglichkeit von Geräten und Verknüpfungen ist ein weiteres großes Ziel von Home Assistant, da es möglich ist  
-    herstellerunabhängig Geräte zu verwenden und zu integrieren. Dadurch können über eine Zentrale mehrere Geräte von diversen Herstellern 
-    kombiniert werden.
+    Home Assistant bietet den Vorteil einer breitgefächerten Auswahlmöglichkeit von Geräten und Verknüpfungen, sodass der Endnutzer zwischen verschiedenen 
+    Geräteherstellern wählen kann, z.B. Bewegungssensoren von Ikea, LED-Leuchten von Philips und Thermostate von Netatmo und diese wahllos über 
+    Automatisierungen kombinieren kann. 
     \\
-    Haltbarkeit wird an der Stelle adressiert, an der die Plattform uneingeschränkt verfügbar ist und Geräte zur Anbindung verwendbar sind. 
-    Damit ist auch zu erwarten, dass Geräte, die eingebunden werden können, so konzipiert und gebaut sind, damit sie eine lange Lebensdauer 
-    besitzen.
+    %Haltbarkeit wird an der Stelle adressiert, an der die Plattform uneingeschränkt verfügbar ist und Geräte zur Anbindung verwendbar sind. 
+    %Damit ist auch zu erwarten, dass Geräte, die eingebunden werden können, so konzipiert und gebaut sind, damit sie eine lange Lebensdauer 
+    %besitzen.
+    Mit den von Home Assistant verfolgten Zielen gehen folgende Schwerpunkte einher:
     \\
     \linebreak
-    Schwerpunkte, bzw. Lösungen zur Problembehebung sind die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
+    Dazu gehört die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
     Automationen, die Prozesse selbstständig auslöst. Durch die Möglichkeit der Automatisierung und Steuerung von Komponenten im Eigenheim, 
-    bzw. im Büro kann die Lebensqualität erhöht als auch die Energy- und Stromkosten gesenkt werden. Die Kompatibilität der Plattform 
+    bzw. im Büro kann der Komfort erhöht als auch die Energie- und Stromkosten gesenkt werden. Die Kompatibilität der Plattform 
     ermöglicht die Verwendung von mehreren Geräten und Herstellern über eine zentrale Stelle, der Home Assistant Software. Dies ermöglicht 
-    dem Nutzer die uneingeschränkte Verwendung von Geräten und die Unabhängigkeit zu Herstellern, die ggf. den Preis der Geräte über dem 
-    Marktdurchschnitt verkaufen. Ein weiterer Schwerpunkt ist die Sichtbarkeit der Daten, die potentiell gesendet werden, um den Datenschutz 
-    und die Privatsphäre auf dem höchsten Standard zu halten. Ein Auswirkung dafür ist die zugrundeliegende lokale Datenhaltung über die 
-    Datenbank, die direkt auf dem Gerät der Plattform läuft.
+    dem Nutzer die uneingeschränkte Verwendung von Geräten und die Unabhängigkeit zu Herstellern, die ggf. die Geräte preislich über dem 
+    Marktdurchschnitt anbieten. Ein weiterer Schwerpunkt ist die Reduzierung des Datenkommunikationsflusses über das Internet, die durch das 
+    geschlossenen System mit wenig Kommunikationsschnittstellen nach außen erreicht werden kann. Ein Indiz dafür ist die zugrundeliegende 
+    lokale Datenhaltung über eine Datenbank, die direkt auf der Hardware läuft, auf der ebenso die Plattform betrieben wird. 
 
     %https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/
     %Home Assistant is created to address these issues:
@@ -168,10 +171,13 @@
     \end{table}
     \\
     %Die Auflistung der Punkte geht aus Beiträgen der Community und dokumentierten Erfahrungen der Anwendung. 
-    Die Konfiguration von Automationen, Funktionen und Integrationen über YAML-Dateien kann auf der einen Seite als Stärke gewertet werden, 
-    da die Syntax flexibel einsetzbar ist und Freiheiten bei der Implementierung bietet und auf der anderen Seite als Schwäche, da die 
-    Konfigurationen schnell unübersichtlich werden und anfangs schwer zu verstehen sind. Der Aufwand steigt je nach zu implementierende 
-    Funktion und deren Abhängigkeiten zu Geräten und gegebenenfalls zu anderen Prozessen und Automationen. 
+    Die Konfiguration von Automationen, Funktionen und Integrationen über YAML-Dateien kann einerseits als Stärke gewertet werden, 
+    da die Syntax flexibel einsetzbar ist, und 
+    %und Freiheiten bei der Implementierung bietet und auf der 
+    andererseits als Schwäche, da die 
+    Konfigurationen schnell unübersichtlich werden und anfangs schwer zu verstehen sein kann. Der Aufwand steigt je nach 
+    Anforderungen der zu implementierenden Funktion und deren Abhängigkeiten zu Geräten und gegebenenfalls zu anderen 
+    Prozessen und Automationen. 
 
     \subsection{Optionen der Regel- und Automatisierungserstellung}
     %Skizzierung der Möglichkeiten des Tools
@@ -181,7 +187,7 @@
         und Automationen ausführen zu können. Für den Nutzer wird lediglich die Option geboten, die Automationen über eine 
         Oberfläche zu erstellen. In dieser Form gibt ein Template die einzustellenden Möglichkeiten vor. Hierbei kann 
         der Name und der Modus der Automation festgelegt werden. Anschließend wird ein Auslöser, beispielsweise ein Gerät 
-        oder eine Zeitangabe, definiert und entsprechend eine Bedingung zur Ausführung der Automation hinzugefügt. Nach den 
+        oder eine Zeitangabe, definiert und entsprechend eine Bedingung zur Ausführung der Automation festgelegt. Nach den 
         Schritten wird die eigentliche Aktion hinzugefügt, die ausgeführt werden soll, wenn die Bedingung erfüllt ist. Die 
         generierte Automation wird als YAML-Datei gespeichert und kann ebenso über einen Editor in Rohformat editiert werden. 
         Eine Automation über eine YAML-Datei in der Home Assistant Software gibt ein Konstrukt vor, welches mit den oben 

@@ -60,9 +60,9 @@
 
     % ZIEL DES KONZEPTES: Ein Framework für Entwickler bereitzustellen, welches die Mächtigkeit für den Entwickler offen lässt, nicht einschränkt 
     % und dennoch Konfiguration und Ausführung umsetzt. Der Entwickler muss lediglich den Zustandsraum, die MQTT-Topics und die Regeln definieren.
-    % Der Entwickler bekommt ein Framework in die Hand, welches die Umsetzung von Prozessen in einem smarten Büro ermöglicht. Das Framework kümmert sich um die 
+    % Der Entwickler bekommt ein Framework an die Hand, welches die Umsetzung von Prozessen in einem smarten Büro ermöglicht. Das Framework kümmert sich um die 
     % Organisation und die Ausführung der Regeln. Die Richtigkeit der Regeln und des Zustandsraumes muss der Entwickler sicherstellen. 
-    % Die Kommunikation über MQTT ist nur eine Möglichkeit. Des Setup wird wegabstrahiert 
+    % Die Kommunikation über MQTT ist nur eine Möglichkeit. Das Setup wird wegabstrahiert 
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -91,9 +91,10 @@
     Die Intension, die hinter der Ausarbeitung dieses Konzeptes steht, ist zum einen die einfache Handhabung der 
     formalisierten Interaktionen für Softwareentwickler %während
     unter der Verwendung des Frameworks und zum anderen die 
-    offene Gestaltung von Regelprozessen, um so dem Anwender die Implementierung von Regeln und Aufgaben nicht 
-    %einzugrenzen
-    zu beschränken. Es soll lediglich ein Muster vorgegeben werden, damit Regeln einheitlich als solche von dem Framework 
+    offene Gestaltung von Regelprozessen. Dadurch ist der Anwender bei der Implementierung von Regeln, Aufgaben und Automatisierungen 
+    für ein intelligentes Büro nicht eingeschränkt und kann mit der Regeldefinition flexibel variieren.
+    %einzugrenzen zu beschränken. 
+    Es soll lediglich ein Muster vorgegeben werden, damit Regeln einheitlich als solche von dem Framework 
     verarbeitet und genutzt werden können. 
     \\ 
     \linebreak
@@ -102,13 +103,13 @@
     den Kontext des Systems eingeschränkt. Dies bedeutet, dass 
     Regeln und Prozesse nur mit Komponenten und Informationen innerhalb des Systems arbeiten können, bzw. benötigte 
     Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind, auf die der Nutzer keinen direkten 
-    Einfluss darauf nehmen kann. Diese Auswirkung ist unter anderem der 
+    Einfluss nehmen kann. Diese Auswirkung ist unter anderem der 
     Tatsache geschuldet, dass mit den bestehenden Lösungen versucht wird, die Regeldefinition für Endnutzer so 
     einfach wie möglich zu gestalten. 
     \\
     \linebreak
     Um dennoch dem Anwender eine Struktur vorzugeben, mit der Regeln definiert und zur Laufzeit der Anwendung ausgeführt 
-    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderung löst. Hierfür soll 
+    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderungen löst. Hierfür soll 
     dem Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich 
     in der Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. 
     Dadurch soll der Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System 
@@ -122,7 +123,7 @@
     \subsection{Konzeptkomponenten}
     \label{subsec:conceptcomps}
         Für die Erläuterung des Konzeptes werden vorab die einzelnen Konzeptkomponenten erläutert, da diese die Anhaltspunkte 
-        für den weiteren Verlauf darstellen. Das Framework baut auf folgenden Bausteinen auf:
+        für den weiteren Verlauf darstellen: % . Das Framework baut auf folgenden Bausteinen auf:
         \begin{itemize} 
             \item Regel (Rule): Eine Regel ist ein Konstrukt, welches bei bestimmten Events die darin enthaltenen Aktionen ausführen soll. 
             Der grobe Aufbau einer Regel ist immer gleich. Diese beinhaltet einen Auslöser, eine Bedingung, einen Prozess und einen eindeutigen 
@@ -130,14 +131,18 @@
             \item Komponente (Component): Eine Komponente bildet einen reellen Gegenstand ab, der bei Benutzung durch eine Regel für weitere Regeln 
             gesperrt und freigegeben werden kann. 
             \item Zustandsraum (State): Der Zustandsraum, das sog. Zustandsobjekt, bildet alle Zustände von Komponenten und weiteren Geräten ab. 
-            \item Auslöser (Trigger): Der Auslöser ist ein von außen einwirkendes Objekt, das Zustandsänderungen hervorruft.
-            \item Transformation (Transformer): Mit der Transformation werden eingehenden Events, die durch einen Auslöser hervorgerufen 
-            werden und eine Zustandsänderung bewirken, auf das eigentliche Zustandsobjekt übertragen. 
+            \item Auslöser (Trigger): Der Auslöser ist ein von außen einwirkendes Objekt, das Zustandsänderungen hervorruft. Beispielsweise ist ein 
+            Auslöser das eintreffen eines Events über eine Kommunikationsschnittstelle.
+            \item Transformation (Transformer): Mit der Transformation werden eingehenden Zustandsänderungen, die durch ein Event ausgelöst werden, 
+            auf das eigentliche Zustandsobjekt übertragen. 
+            %, die eine Zustandsänderung bewirken, die durch einen Auslöser hervorgerufen 
+            %werden und eine Zustandsänderung bewirken
         \end{itemize}
+        Diese Komponenten bilden den Kern des Frameworks.
         %In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
         %Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
-        %\\
-        %\linebreak
+        \\
+        \linebreak
         Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
         Konzepterläuterung notwendig sind.
     
@@ -154,7 +159,7 @@
         werden im Ausblick zu möglichen Erweiterungsschritten nochmals aufgegriffen.
         \\
         \linebreak
-        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Bestandteil des Konzeptes 
+        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Schnitt des Konzeptes 
         aufzeigt. Die Sichten werden konkretisiert, indem die Aufgaben des Anwenders als auch der Ablauf innerhalb des Frameworks 
         erläutert wird.
         % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
@@ -162,12 +167,21 @@
         \\
         \linebreak
         Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
-        Darin sollten alle notwendigen Zustände als Attribute abgebildet sein. Nachdem das Zustandsobjekt 
+        Darin sind alle notwendigen Zustände als Attribute abzubilden. Diese können konkret Geräte sein, die im Rahmen des 
+        intelligenten Büros verwendet werden können, bspw. ein Service-Roboter, ein Türöffner und weitere steuerbare Geräte, die 
+        ihren Zustand ändern können. Nachdem das Zustandsobjekt 
         definiert wurde, geht es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach 
         Anforderungen des Anwenders zu erstellen. Jedoch sind bestimmte Funktionen und Vorgaben bezüglich Bedingungsprüfung 
-        und Prozessdurchlauf einzuhalten. Anforderungen dabei sind das Implementieren der beiden Funktionen, zum einen die 
-        Bedingungen gegen Werte im Zustandsobjekt zu prüfen und zum anderen das Nutzen der Prozessfunktion, damit der Inhalt 
-        der Regel durchlaufen wird.
+        und Prozessdurchlauf einzuhalten. Anforderungen dabei sind das Implementieren von drei unabdingbaren Funktionen. 
+        Die erste Funktion ist die Zuordnung des Auslösers, damit klar wird, durch welches Event eine Regel ausgelöst werden kann. 
+        Die zweite zu implementierende Funktion ist die Prüfung von Werten im Zustandsraum, sodass beim eintreffen spezifischer 
+        Bedingungen und Zuständen bestimmte Regelprozesse ausgeführt werden können und die dritte vorgegebene Funktion ist die 
+        des tatsächlichen Regeldurchlaufes. Die darin enthaltenen Aufgaben werden nach eintreffender Anforderungen, durch Prüfung der 
+        vorangestellten Bedingungen, abgearbeitet.
+        %Zum einen die Prüfung einer Bedingung, die zutreffen muss, damit ein bestimmter Prozess ausgelöst wird
+        %, die zum einen die 
+        %Bedingungen gegen Werte im Zustandsobjekt zu prüfen und zum anderen das Nutzen der Prozessfunktion, damit der Inhalt 
+        %der Regel durchlaufen wird.
         \\
         Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die 
         Kommunikationswege zu aktivieren. 
@@ -182,7 +196,9 @@
         \\
         Sobald eine Person an der Tür authentifiziert wurde, wird ein Thema mit dem Namen derjenigen Person übergeben. Basierend auf 
         dem eingehenden Topic wird dann für dieses Ereignis der Wert im Zustandsraum auf den Namen der Person geändert. Somit kann 
-        die Steuerzentrale mit dem neuen Wert und der Änderung des Zustandsraumes arbeiten.  
+        die Steuerzentrale mit dem neuen Wert und der Änderung des Zustandsraumes arbeiten. Durch die Zustandsänderung wird dann 
+        geprüft, ob eine Regel für diese bestimmte Änderung definiert wurde. Trifft diese Bedingung zu, so wird der dazugehörige Regelprozess 
+        durchlaufen.  
         \\
         \linebreak
         Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
@@ -195,24 +211,26 @@
         Verbindung zu dem \acs{MQTT} Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits auf die Topics,  
         die der Nutzer über die Einstellungen als Liste aller Topic-Zeichenketten übergibt, gefiltert werden. Sobald eine der bekannten 
         \acs{MQTT} Nachrichten konsumiert wird, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
-        auf die in dem Topic enthaltenen Informationen abgeändert werden. Der Transformer ist der Ausgangspunkt für die Transformation 
-        des Inhaltes der \acs{MQTT} Nachricht zur Änderung des Zustandsobjektes. Innerhalb dieser Komponente findet die Zuordnung 
+        auf die in dem Topic enthaltenen Informationen abgeändert werden. Der Transformer stellt den Ausgangspunkt für die Transformation 
+        des Inhaltes der Nachricht zur Änderung des Zustandsobjektes dar. Innerhalb dieser Komponente findet die Zuordnung 
         des Topics zu den darauf adressierten Instanzvariablen des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
-        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen werden. Die Änderung des Zustandsraumes löst darauf hin 
-        den weiteren Ablauf aus.
-        %Hierbei werden konkrete Werteänderungen der Attribute, die der Softwareentwickler 
-        %im Voraus den Topics zugeordnet hat, adressiert und deren Werte überschrieben. 
-        Für die Zeitspanne der Zustandsänderung und der 
+        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen, bzw. überschrieben werden. Die Änderung des 
+        Zustandsraumes löst darauf hin den weiteren Ablauf aus. 
+        \\
+        Das aktuelle Zustandsobjekt wird zum Zeitpunkt der Überschreibung für Lese- und Schreiboperationen gesperrt, sodass 
+        die Gültigkeit des Zustandsraumes nicht erlischt. Anschließend erfolgt die Erstellung einer Kopie des Zustandsobjektes, mit der 
+        darauf folgend weiter verfahren wird. Für die Zeitspanne der Zustandsänderung und der 
         nachfolgenden Kopie soll das Zustandsobjekt kurzzeitig für weitere Transaktionen und Änderungen, genauer gesagt für Lese- und 
         Schreiboperationen durch einen Lock-Mechanismus gesperrt werden. Dadurch kann anschließend das Zustandsobjekt mit der vorher 
         getätigten Änderung kopiert werden, um die anschließende Regel-Iteration durchzuführen. Wichtig an dieser Stelle zu 
-        erwähnen ist, dass die Prüfung der Regel-Bedingungen mit der Kopie durchgeführt werden soll. 
+        erwähnen ist, dass die Prüfung der Regel-Bedingungen mit der Kopie durchgeführt werden soll.
         Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und darauf hin eine Regel mit der 
         Kopie des Zustandsobjektes ausgelöst werden kann. Hierdurch ist sichergestellt, dass jeweils eine Zustandsänderung zu einem 
-        Zeitpunkt stattfindet und zu dieser die dafür definierte Regel ausgeführt wird, sofern die Bedingung im Vorfeld auch zutrifft. 
+        Zeitpunkt stattfindet und zu dieser die dafür definierte Regel ausgeführt wird, sofern die Bedingung im Vorfeld ebenso zutrifft. 
         \\
         Wird kurz darauf eine weitere Nachricht konsumiert, so kann das aktuelle Zustandsobjekt dahingehend überschrieben und erneut 
-        kopiert werden. Die Kopie wird wiederum für die Regel-Iteration verwendet und tangiert die vorherige Kopie nicht. 
+        kopiert werden. Die Kopie wird wiederum für die Regel-Iteration verwendet und tangiert die vorherige Kopie nicht. Somit soll 
+        zu jedem Zeitpunkt der aktuelle Zustandsraum repräsentiert werden. Davon ausgehend entspricht dieser immer der Wahrheit.
         \\
         \linebreak
         Dem folgenden Diagramm ist der abstrakte Programmablauf des Frameworks, welcher soeben skizziert wurde, zu entnehmen:
@@ -225,7 +243,7 @@
         \\
         Aspekte, die nicht aus dem Ablaufdiagramm hervorgehen, sind zum einen die parallele Ausführung von zwei voneinander unabhängigen 
         Zustandsänderungen und zum anderen die erneute Änderung des Zustandes durch eine Regel selbst. Sofern die Änderungen unabhängig 
-        sind, sollen Prozesse auch asynchron ablaufen, bzw. Regeln auch neue Zustandsänderungen hervorrufen können.  Die genauere Ausprägung des 
+        sind, sollen Prozesse auch asynchron ablaufen, bzw. Regeln auch neue Zustandsänderungen hervorrufen können. Die genauere Ausprägung des 
         Konzeptes wird im Rahmen des Architekturkonzeptes (\ref{sec:architekturkonzept}), sowie dem Kapitel der Umsetzung 
         (\ref{chap:umsetzung}) aufgegriffen. 
         \\
