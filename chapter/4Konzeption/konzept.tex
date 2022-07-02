@@ -142,7 +142,7 @@
         %In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
         %Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
         \\
-        \linebreak
+        %\linebreak
         Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
         Konzepterläuterung notwendig sind.
     
@@ -202,7 +202,7 @@
         \\
         \linebreak
         Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
-        \\
+        %\\
         Hierfür wird der Durchlauf von dem Eingang einer \acs{MQTT} Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks 
         erläutert.
         \\
@@ -227,7 +227,7 @@
         Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und darauf hin eine Regel mit der 
         Kopie des Zustandsobjektes ausgelöst werden kann. Hierdurch ist sichergestellt, dass jeweils eine Zustandsänderung zu einem 
         Zeitpunkt stattfindet und zu dieser die dafür definierte Regel ausgeführt wird, sofern die Bedingung im Vorfeld ebenso zutrifft. 
-        \\
+        %\\
         Wird kurz darauf eine weitere Nachricht konsumiert, so kann das aktuelle Zustandsobjekt dahingehend überschrieben und erneut 
         kopiert werden. Die Kopie wird wiederum für die Regel-Iteration verwendet und tangiert die vorherige Kopie nicht. Somit soll 
         zu jedem Zeitpunkt der aktuelle Zustandsraum repräsentiert werden. Davon ausgehend entspricht dieser immer der Wahrheit.
@@ -247,6 +247,6 @@
         Konzeptes wird im Rahmen des Architekturkonzeptes (\ref{sec:architekturkonzept}), sowie dem Kapitel der Umsetzung 
         (\ref{chap:umsetzung}) aufgegriffen. 
         \\
-        \linebreak
+        %\linebreak
         Zur Veranschaulichung der abgeschlossenen textuellen Erläuterung des Konzeptes hilft die nachfolgenden Abbildung: 
         

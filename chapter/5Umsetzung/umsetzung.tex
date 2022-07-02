@@ -8,7 +8,7 @@
     zu entwickeln, die unterschiedliche Präferenzen und Einsatzmöglichkeiten bieten. Dadurch sind, auf den Einsatzbereich bezogen, 
     Vor- und Nachteile im Vergleich ähnlicher Systeme nicht auszuschließen. Eine kleine Auswahl an Systemen wurde getestet und auf deren 
     Brauchbarkeit analysiert und evaluiert. Für diese Evaluation wurden Kriterien ausgearbeitet, mit der die Auswahl des Frameworks 
-    eingeschränkt und nach Möglichkeit das passende ergeben soll. Diese sind nach ihrer Relevanz aufgelistet: 
+    eingeschränkt und nach Möglichkeit das passende ergeben soll. Die Kriterien sind nach ihrer Relevanz aufgelistet: 
     \begin{enumerate}
         \item Freiheiten bei der Nutzung (Anwendung und Gewährleistung von Entwurfsmustern).
         \item Nutzung und Bereitstellung von Bibliotheken (Libraries).
@@ -21,9 +21,9 @@
     Aufgrund der Vielzahl an Frameworks war es im Rahmen dieser Arbeit nicht möglich, alle vorhandenen und in Betracht 
     gezogenen Systeme detailliert aufzuführen. Lediglich die engere Auswahl wird aufgegriffen. 
     Nach ausführlicher Recherche und unter Berücksichtigung von Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, wurden 
-    schließlich genau zwei Systeme gegenübergestellt, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Betracht gezogenen Frameworks 
+    schließlich genau zwei Systeme genauer betrachtet, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Betracht gezogenen Frameworks 
     finden überwiegend in der Web-Entwicklung Anwendung, bzw. basieren auf dem Spring Framework. Durch diese Erkenntnis wurden 
-    viele Systeme nicht weiter berücksichtigt und betrachtet. Die beiden Kernsysteme, die ihren Einsatz und ihre Möglichkeiten rechtfertigen
+    viele Systeme nicht weiter berücksichtigt. Die beiden Kernsysteme, die ihren Einsatz und ihre Möglichkeiten rechtfertigen
     werden in den folgenden Abschnitten kurz erläutert.
 
     \subsection{OSGi}
@@ -45,12 +45,57 @@
         %Wieso Spring Boot und nicht OSGi?
         %Wieso Java und nicht Python oder andere?
 
-    \subsection{Spring Boot}
+    \subsection{Spring}
     \label{subsec:springBootFramework}
+    Spring\footnote{Open-Source Framework Spring. \url{https://spring.io} Abgerufen am 02.07.2022} ist ein Open-Source Framework, welches auf der Java-Plattform aufbaut. 
+    Das Ziel von Spring selbst ist die Vereinfachung und Förderung von Programmierpraktiken in der Java- und Java EE Entwicklung. Mit einem breiten Spektrum an 
+    Funktionalitäten bietet das Framework eine ganzheitliche Lösung zur Entwicklung von Applikationen, Anwendungen und Frameworks. Im Vordergrund dabei steht immer die 
+    Entkopplung von Applikationskomponenten. Das Spring Framework wurde im März 2004 offiziell Freigegeben und wird seitdem stetig weiterentwickelt. 
+    Initiator des Frameworks ist der Author und Softwareentwickler Rod Johnson. Das Framework, welches in dem Buch des Experten Rod Johnson erläutert wird, basiert auf 
+    den folgenden Prinzipien \cite{johnson2004expert}: 
+    \\
+    \linebreak
+    Dependency Injection ist ein sehr bekanntes Entwurfsmuster. Dabei werden die Abhängigkeiten eines Objektes zur Laufzeit reglementiert. Unter 
+    Verwendung des Frameworks werden den Objekten die benötigten Objekte und Ressourcen zugewiesen. Dadurch müssen diese nicht selbst gesucht werden. 
+    \\
+    \linebreak
+    Ein weiterer Punkt ist die aspektorientierte Programmierung, durch die der Entwickler technische Aspekte voneinander isolieren und den eigentlichen Programmcode 
+    von Transaktionen oder anderen Faktoren freizuhalten. 
+    \\
+    \linebreak
+    Das dritte Prinzip ist das Bereitstellen von Vorlagen zur Vereinfachung der Nutzung von Schnittstellen, sog. \acs{API}s. Dadurch wird ein POJO-basiertes Modell 
+    möglich. Unter POJO, \textit{Plain Old Java Object}, ist ein ganz normales Objekt in Java zu verstehen. 
+    \\
+    \linebreak
+    Zusammenfassend sind beide Frameworks dazu geeignet, um das Konzept der Steuerzentrale unterstützend zu realisieren. 
+    Ein direkter Vergleich zwischen den Frameworks kann nicht gezogen werden, da die Funktionalitäten, bzw. die aus der Nutzung 
+    profitablen Eigenschaften nicht vergleichbar sind. Während sich Spring auf die Unterstützung zur Erstellung von Applikationen konzentriert, 
+    legt \acs{OSGI} den Mehrwert auf die Modularisierung durch Kontainerisierung. Durchaus ist eine Kombination aus beiden 
+    Frameworks möglich, um Vorteile beider zu vereinen. Fundamental bietet Spring jedoch weitaus mehr Möglichkeiten und Unterstützungen 
+    zur Entwicklung von Applikationen und Frameworks, weshalb es im Rahmen dieser Arbeit eingesetzt wird. Mit Spring Boot, welches auf Spring 
+    aufbaut können auch Model-View-Controller\footnote{Architekturmuster für Webapplikationen. \url{https://de.wikipedia.org/wiki/Model_View_Controller} Abgerufen am 02.07.2022} 
+    Web-Architekturen und \acs{REST} \acs{API}s implementiert werden. So kann mit dieser Entscheidung 
+    ein Vollumfängliches System erstellt werden. Unter zusätzlicher Verwendung von \acs{OSGI} wäre eine weiter Modularisierung und Kontainerisierung möglich. Dies 
+    ist auch durch Spring mit Hilfe von Microservices in einer anderen Form realisierbar. 
+    \\
+    An der Stelle wird im Rahmen dieser Arbeit das Thema von Microservices und Kontainerisierung nicht weiter konkretisiert.
+    \\
+    \linebreak
+    Die Entscheidung viel auf Spring, da dieses ein modernes und etabliertes Framework darstellt und die 
+    Community erheblich größer ist, als die des \acs{OSGI} Frameworks. Hinzukommt, die Schaffung eines alternativen Ansatzes zu openHAB, da dieses System bereits 
+    auf \acs{OSGI} aufbaut. 
+    Dennoch unterscheidet sich die Steuerzentrale in den Funktionalitäten und Angeboten immens im Vergleich zu openHAB. Das System bietet weitaus mehr 
+    Funktionalitäten, Erweiterungen und Ausprägungen. Lediglich kann zum Vergleich die Definition von Regeln herangezogen werden. 
 
 \section{Implementierung}
 \label{sec:implementation}
 
-\subsection{Aufbau der Architektur}
-\subsection{Einbindung der Funktionen abgeleitet von der Konzeption}
+\subsection{Prototypische Implementierung des Anwendungsfalls}
+%Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
+%-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
+% feingranulare Regeln, die immer wieder auf Rückmeldung über MQTT Topics warten und danach die Aktion auslösen
+
+
+%\subsection{Aufbau der Architektur}
+%\subsection{Einbindung der Funktionen abgeleitet von der Konzeption}
 \section{Fazit der prototypischen Implementierung}
