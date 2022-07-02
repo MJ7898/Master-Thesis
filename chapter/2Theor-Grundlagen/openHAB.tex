@@ -1,11 +1,11 @@
 \section{openHAB}
 \label{sec:openhab} 
-    Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
-    in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
+    Neben der erläuterten Home Assistant Plattform zählt openHAB zu den bekanntesten Open-Source Systemen im 
+    Bereich des \acs{SH}. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
-    der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
+    der Eclipse Public License und zählt zu der Rubrik der Open-Source Software. Durch die Verwendung 
     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
-    Ähnlich zu der vorgestellten Home Assistant Software, bietet \acs{OPENHAB} ebenso User Interfaces die durch 
+    Ähnlich zu der vorgestellten Home Assistant Software bietet \acs{OPENHAB} ebenso Benutzeroberflächen, sog. User Interfaces, die durch 
     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
     \\
     \linebreak
@@ -21,9 +21,9 @@
 \subsection*{Historie}
 \label{sec:historyoHAB}
     Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-    Im Februar 2010 wurde das Projekt unter dem Name \acs{OPENHAB} bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
-    gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
-    vor kundtut.
+    Im Februar 2010 wurde das Projekt unter dem Name \acs{OPENHAB} bekannt. Nach zweieinhalbjähriger Entwicklung, im Dezember 2012, 
+    gab Herr Kreutzer ein Statement zu der Verwendung von \acs{OSGI} ab, in der er seine Entscheidung, das Framework einzusetzen, mit Begeisterung 
+    als richtig hervorgehoben hat.
     \begin{quote}
         „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
         application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
@@ -32,11 +32,11 @@
         project.\cite{kaikreutzer2012}“
     \end{quote} 
 %\subsubsection*{}
-Mit der stetig wachsenden Anwendung und deren Community nimmt die Entwicklung des Projekts immer mehr Fahrt auf. 2014 betitelt 
-Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung enorm zunahm und die Community immer 
-großer wurde \cite{kaikreutzer2014}. Seitdem kamen weitere Unterstützungen zu anderen Geräten und 
-Kommunikationsprotokollen dazu. Im Laufe der Entwicklung wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
-implementiert ist. Die Software wird regelmäßig gepatched und von der Community unterstützt.
+Mit der stetig an Funktionen wachsenden Anwendung wuchs auch das Interesse der Community, an diesem Projekt mitzuwirken. 2014 betitelte 
+Kreutzer das Jahr als Jahr des Smart Home, da die Beteiligung, das Interesse und die Entwicklung ausgesprochen zunahm und die Community immer 
+größer wurde \cite{kaikreutzer2014}. Seither gab es unter anderem weitere architektonische Veränderungen und Verbesserungen des Systems, sowie Ergänzungen um 
+zusätzliche Protokolle zur Kommunikation und Anbindung verschiedenster Geräte. Im Laufe des Ausbaus wurde eine mobile Anwendung entwickelt, mit der die Remotesteuerung 
+implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von der Community unterstützt.
 
 \subsection{Konzept und Architektur}
     Die Steuerungsplattform \acs{OPENHAB} bietet vergleichbar zu Home Assistant die Möglichkeit der multifunktionalen Verknüpfung von 
@@ -44,14 +44,15 @@ implementiert ist. Die Software wird regelmäßig gepatched und von der Communit
     verstärkt. Die Konzepte der \acs{OPENHAB} Software sind in drei größere Rubriken aufgeteilt, die sich wie folgt zusammensetzen:
     \\
     \linebreak
-    Die erste Rubrik sind die Dinge (Things), diese sind die Entitäten, die als physische Komponente zu einem System hinzugefügt 
-    und viele Funktionalitäten als eines bereitstellen kann. Hierbei ist zu berücksichtigen, dass die sogenannten Dinge nicht 
-    immer Geräte sein müssen, diese können auch andere überschaubare Informationsquellen, andere Webdienste und Funktionalitäten 
-    darstellen. Aus Sicht des Benutzers sind sie für den Einrichtungs- und Konfigurationsprozess relevant, für den Betrieb 
-    jedoch potentiell zu vernachlässigen. Dinge können Konfigurationseigenschaften haben, die optional oder obligatorisch sein 
+    Die erste Rubrik sind die Dinge (Things), sogenannte Entitäten, die als physische Komponente zu einem System hinzugefügt werden können. 
+    Diese können soweit vom Hersteller ermöglicht mehrere Funktionen erfüllen, so kann zum Beispiel ein Sensor Bewegung und Temperatur erfassen. 
+    Hierbei ist zu berücksichtigen, dass die Dinge nicht 
+    immer Geräte sein müssen, sondern auch andere Informationsquellen oder Webdienste sein können. 
+    Aus Sicht des Benutzers sind sie für den Einrichtungs- und Konfigurationsprozess relevant, für den Betrieb 
+    jedoch potentiell zu vernachlässigen. Dinge können Konfigurationseigenschaften haben, die optional sein 
     können. Solche Eigenschaften können grundlegende Informationen wie eine IP-Adresse, ein Zugriffstoken für einen Webdienst 
-    oder eine gerätespezifische Konfiguration sein, die sein Verhalten ändert \cite{openHAB-article}. Mit dem Konzept der Dinge 
-    kommen zwei Unterkategorien einher:
+    oder eine gerätespezifische Konfiguration sein, die veränderbar sind \cite{openHAB-article}. Mit dem Konzept der Dinge 
+    gehen zwei Unterkategorien einher:
     \begin{itemize}
         \item Kanäle (Channels): Jedes Gerät, bzw. Ding stellt Kanäle bereit, mit denen die jeweiligen Funktionen abgebildet werden. 
         An der Stelle an der das physische Gerät angebunden ist, ist der Kanal eine konkrete Funktion dieser Entität. Beispielsweise 
