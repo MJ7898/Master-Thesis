@@ -55,55 +55,57 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     gehen zwei Unterkategorien einher:
     \begin{itemize}
         \item Kanäle (Channels): Jedes Gerät, bzw. Ding stellt Kanäle bereit, mit denen die jeweiligen Funktionen abgebildet werden. 
-        An der Stelle an der das physische Gerät angebunden ist, ist der Kanal eine konkrete Funktion dieser Entität. Beispielsweise 
+        An der Anbindung des physischen Gerätes an die Plattform ist der Kanal eine konkrete Funktion dieser Entität. Beispielsweise 
         kann eine Glühbirne einen Kanal für die Farbtemperatur und einen für den Farbwert besitzen. Diese stellen beide die 
-        Funktionalität der einen physischen Glühbirne für das System bereit. Grundlegend sind Kanäle mit Elementen verknüpft, mit denen 
-        die virtuelle und physische Ebene verbunden wird. Ab dem Zeitpunkt, sobald eine Verbindung hergestellt wird, reagiert ein Ding 
-        auf Ereignisse, die für ein Element transferiert werden. Bedingung dafür ist die Verknüpfung zu einem Kanal. Auf der anderen 
-        Seite werden aktiv Ereignisse für Objekte gesendet, die mit Kanälen des Dings verknüpft sind \cite{openHAB-article}.
-        \item Brücken (Bridges): Die Brücke ist eine besondere Art von Ding. Diese müssen dem System hinzugefügt werden, damit der 
+        Funktionalität der physischen Glühbirne für das System bereit. Grundlegend sind Kanäle mit Elementen verknüpft, mit denen 
+        die virtuelle und physische Ebene verbunden wird. Sobald eine Verbindung hergestellt wird, reagiert ein Ding 
+        auf Ereignisse, die für ein Element transferiert werden. Einerseits ist die Verknüpfung zu einem Kanal die Vorbedingung zur vorgesehenen 
+        Kommunikation zwischen Gerät und Plattform. Andererseits werden Ereignisse für Objekte nur dann gesendet, wenn diese 
+        mit mindestens einem Kanälen des Dinges verknüpft sind \cite{openHAB-article}.
+        \item Brücken (Bridges): Die Brücke ist eine besondere Art eines Gerätes. Diese müssen dem System hinzugefügt werden, damit der 
         Zugriff auf andere Dinge ermöglicht wird, bzw. erhalten bleibt. Ein IP-Gateway für Hausautomationssysteme, welches nicht 
         IP-basiert funktioniert, ist eine typisches Beispiel für so eine Brücke.
     \end{itemize}
-    An zweiter Stelle stehen die Artikel (Items). Diese Elemente stellen Funktionen dar, die direkt von der Anwendung verwendet 
-    werden. Darunter zählen hauptsächlich die Automatisierungslogik oder auch Benutzeroberflächen. Durch Ereignisse werden die 
-    Elemente verwendet, da diese einen Zustand besitzen. 
-    Elemente können auch in eine Gruppe zusammengefasst werden. Ein Gruppenelement kann auch Mitglied einer weiteren Gruppe sein. 
-    Diese zyklischen Mitgliedschaften sind war nicht verboten, davon wird jedoch abgeraten. Über Benutzeroberflächen können 
+    An zweiter Stelle stehen die Artikel (Items). Diese Elemente stellen Funktionen dar, die von der Anwendung selbst verwendet 
+    werden. Darunter zählen hauptsächlich die Automatisierungslogik oder auch die Benutzeroberflächen. Durch Ereignisse werden 
+    Elemente verwendet, die einen veränderbaren Zustand besitzen. %da diese einen Zustand besitzen. 
+    Elemente können in Gruppen zusammengefasst werden. Ein Gruppenelement kann auch Mitglied einer weiteren Gruppe sein. 
+    Diese zyklischen Mitgliedschaften sind nicht verboten, werden jedoch von den Entwicklern der \acs{OPENHAB} als nicht 
+    praktikabel dargestellt. Deshalb raten diese von der Erzeugung zyklischer Verbindungen ab. Über Benutzeroberflächen können 
     einzelne Gruppenelemente als alleinstehender Eintrag angezeigt werden und eine Navigation zu den jeweiligen Mitgliedern 
     bereitstellen. 
     \\
     \linebreak
-    Die dritte große Rubrik sind die Bindungen und Links (Bindings and Links). Diese können als Softwareadapter betrachtet werden, 
-    die Dinge für ihr Hausautomationssystem zur Verfügung stellen \cite{openHAB-article}. Aufgabe der Komponente ist die Verknüpfung 
+    Die dritte große Rubrik ist die der Bindungen und Links (Bindings and Links). Diese können als Softwareadapter betrachtet werden, 
+    die Dinge für Hausautomationssystem zur Verfügung stellen \cite{openHAB-article}. Aufgabe der Komponente ist die Verknüpfung 
     von Elementen mit physischen Geräten. Um dies zu ermöglichen werden die spezifischen Kommunikationsanforderungen eines Geräts 
-    abstrahiert. Dadurch ist eine allgemeinere Behandlung der Komponente durch das Framework möglich. Links stellen das Bindeglied 
+    abstrahiert. Dadurch ist eine abstrakte Behandlung der Komponente durch das System möglich. Links stellen das Bindeglied 
     zwischen Dingen und Gegenständen dar. Es ist die Verknüpfung von genau einem Element und einem Kanal. Elemente und 
     Kanäle haben keine eins zu eins Beziehung zueinander. Eine Verknüpfung mit mehreren Komponenten ist auch hier möglich. 
     \\
     %\linebreak
-    Neben den übergreifenden Konzepten gibt es weitere Konzepte\footnote{Historie und Konzepte von openHAB. \url{https://medium.com/smartsmarthome/openhab-41c30d50fc42} Abgerufen am 28.04.2022}. 
+    Neben den drei übergreifenden Konzepten gibt es weitere Konzepte\footnote{Historie und Konzepte von openHAB. \url{https://www.openhab.org/docs/concepts/} Besucht am 28.04.2022}. %https://medium.com/smartsmarthome/openhab-41c30d50fc42
     Diese werden in Folgendem aufgelistet:
     \begin{itemize}
         \item Seitenverzeichnis (Sitemaps): Dies beinhaltet die Konfiguration eines Seitenverzeichnisses, mit dem Schalter, 
-        Regler, Texte und vieles mehr hinzugefügt werden kann. Diese Ansichten repräsentieren den Status eines Elements und 
-        können darüber gesteuert und überprüft werden.
+        Regler, Texte und vieles mehr hinzugefügt werden kann. Diese Ansichten repräsentieren den Status eines Elements. Darüber hinaus ist 
+        durch das Seitenverzeichnis die Steuerung und Überprüfung der Elemente möglich.
         \item Regeln (Rules): Eine Regel ist die Verknüpfung eines Ereignisses und einer Aktion. Somit wird nach einem bestimmten 
         Ereignis eine Aktion ausgeführt. Ein Beispiel: Wenn ein Fenster geöffnet wird, soll die Heizung abgeschaltet werden. 
         So lange, bis das Fenster wieder geschlossen wird. 
         \item Persistenz (Persistence): Mit der Persistenzschicht kann festgelegt werden, welche historischen Zustandsereignisse 
         und Informationen gespeichert werden sollen. Dadurch kann nach Systemausfall der Status des Elementes wiederhergestellt werden. 
         \item Modelle (Models): Modelle stellen baumbasierte Gruppierungen von Elementen dar. In der Baumstruktur können Elemente 
-        Orte, Punkte und Ausrüstungen sein. Ein Beispiel: Das Wohnzimmer als Standort besteht aus zwei Geräten Heizung und Licht. 
+        Orte, Punkte und Ausrüstungen sein. Ein Beispiel: Das Wohnzimmer als Standort besteht aus zwei Geräten, Heizung und LED-Leuchte. 
         Die Heizung als Ausstattung hat zwei Punkte: \textit{Ist-Temperatur} und \textit{Soll-Temperatur}.
         \item Seiten (Pages):Alle Seiten und Seitenverzeichnisse kontrollieren die Zustände von Elementen und greifen auf diese zu. 
-        Mit \acs{OPENHAB} 3 würden weitere Möglichkeiten hinzugefügt, um benutzerdefinierte \acs{UI}, Diagramme, Grundrisse und oder 
+        Mit \acs{OPENHAB} 3 wurden weitere Möglichkeiten hinzugefügt, um benutzerdefinierte \acs{UI}s, Diagramme, Grundrisse und oder 
         Layouts zu definieren. 
         \item Skripte (Scripts): Skripte sind ähnlich zu den Regeln. Diese spezifizieren eine Aktion und kein Ereignis. Die Skripte 
         können manuell, aber auch über andere Skripte und Regeln ausgeführt werden. 
     \end{itemize}
     Die anfängliche Architektur der \acs{OPENHAB} Anwendung teilt sich in drei Sektionen auf: Die Kernkomponenten (blau), das drunter 
-    liegende OSGi-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
+    liegende \acs{OSGI}-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/openhab-architecture.png}
@@ -113,8 +115,8 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     \\
     %\pagebreak
     \linebreak
-    Mit der wesentlichen Aktualisierung von \acs{OPENHAB} zur aktuellen Version \acs{OPENHAB} 2.0 gab es auch einige Änderungen an der 
-    grundlegenden Architektur. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
+    Mit der wesentlichen Aktualisierung von \acs{OPENHAB} zur architektonisch aktuellen Version \acs{OPENHAB} 2.0 gab es auch einige Änderungen an dem 
+    grundlegenden Aufbau des Systems. Es basiert hauptsächlich auf dem Eclipse SmartHome Framework und nutzt Apache Karaf zusammen mit 
     Eclipse Equinox, um eine \acs{OSGI} Laufzeitumgebung zu erstellen. Jetty wird als \acs{HTTP} Server verwendet. 
     \\
     \linebreak
@@ -133,7 +135,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     \textit{Eclipse Equinox}\footnote{Eclipse Equinox. \url{https://www.eclipse.org/equinox/} Abgerufen am 29.04.2022} ist eine modulare 
     Java basierte Laufzeitumgebung und eine Implementierung des \acs{OSGI} Framework. Der Begriff der \textit{Bundles} ist das 
     Herzstück der \acs{OSGI}-Spezifikation. Diese werden verwendet, damit die Modularität für Java erfasst wird. Ein Bundle ist 
-    ein Standard-Java-JAR-Datei, dessen Manifest zusätzliches Markup enthält, welches das Bundle identifiziert und seine Abhängigkeiten 
+    eine Standard-Java-JAR-Datei, dessen Manifest zusätzliches Markup enthält, welches das Bundle identifiziert und seine Abhängigkeiten 
     angibt. Als solches ist jedes Bundle vollständig selbstbeschreibend \cite{openHAB-article}. 
     \begin{figure}[hbt!]
         \centering
@@ -141,16 +143,24 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         \caption{Architektur der openHAB 2.0 Plattform \cite{kaikreutzer2016}}
         \label{fig:architectureopenHAB2}
     \end{figure}
-    %\\
+    \\
     %\pagebreak
     %\linebreak
-    \textit{OSGi} fördert den modularen Aufbau von Software, die mit der Programmiersprache Java geschrieben ist. Der Open-Source 
-    Standard bietet einen Ansatz, der eine modulare Plattform beschreibt und eine \ac{JVM} voraussetzt. Die \acl{JVM}\footnote{Detaillierte Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Abgerufen am 01.05.2022} 
+    Die Plattform befindet sich aktuell in der Version 3. Grundlegende Änderungen der Architektur gab es jedoch bei der Aktualisierung 
+    der Systemversion von zwei auf drei nicht, weshalb obiges Architekturschaubild (\ref{fig:architectureopenHAB2}) als aktuelles gilt. 
+    Die Änderungen galten dabei größtenteils für den Benutzern und als Maßnahme, um veraltete Funktionen und Konzepte abzuschalten sowie Refactorings 
+    durchzuführen und die grundlegende Architektur zu vereinfachen, jedoch nicht zu ändern. Die Dokumentation\footnote{Aktualsisierung von openHAB 2 zu 3. \url{https://github.com/openhab/openhab-distro/wiki/Breaking-Changes-in-openHAB-3/139901f0ef7ee8b5b7dd480204ddf5069f030f50} Abgerufen am 03.07.2022} 
+    zu Änderungen und Versionsupdates ist der Organisation auf GitHub zu entnehmen.
+    \\
+    \linebreak
+    Der Open-Source Standard \textit{OSGi} beschreibt einen Ansatz zur Modularisierung von Software. Die Verwendung des 
+    Frameworks setzt ebenso eine \ac{JVM} voraus. 
+    Die \acl{JVM}\footnote{Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Besucht am 01.05.2022} 
     ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
     \\
-    Die sogenannten \textit{Bundles} sind Module und bilden die kleinste Einheit der Modularisierung. Aus technischer Sicht ist 
-    dieses Konstrukt eine \ac{JAR}-Datei mit Metainformationen. Diese sind in einer Manifestdatei gespeichert. Bundles sind 
-    eindeutig zu identifizieren. Dadurch ist es in \acs{OSGI} möglich, \textit{Bundles} mit demselben Namen, jedoch unterschiedlicher 
+    Die im Kontext des \acs{OSGI} betitelten \textit{Bundles} sind einzelne Module und bilden die kleinste Einheit der Modularisierung. Aus technischer Sicht ist 
+    dieses Konstrukt eine \ac{JAR}-Datei mit Metainformationen. Diese sind in einer Manifestdatei gespeichert. Durch die eindeutige 
+    Identifizierung von \textit{Bundles} ist es in \acs{OSGI} möglich, diese mit demselben Namen, jedoch unterschiedlicher 
     Versionen gleichzeitig zu nutzen und auszuführen \cite{openHAB-article}. 
     \begin{figure}[hbt!]
         \centering
@@ -159,19 +169,19 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         \label{fig:osgilayer}
     \end{figure}
     \\
-    \pagebreak
-    \linebreak
-    Weitere Details der \acs{OSGI}-Architektur\footnote{Architektur und Erläuterung OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Abgerufen am 01.05.2022} 
+    %\pagebreak
+    %\linebreak
+    Weitere Details der \acs{OSGI}-Architektur\footnote{Erläuterung von OSGi. \url{https://www.openhab.org/docs/developer/osgi/osgi.html} Besucht am 01.05.2022} 
     sind der \acs{OPENHAB} Dokumentation zu entnehmen.
 
 \subsection{Ziele und Schwerpunkte} 
     \begin{quote}
-        „openHAB empowering the smart home\footnote{Log und Label von openHAB \url{https://www.openhab.org/} Abgerufen am 01.05.2022}“
+        „openHAB empowering the smart home\footnote{Log und Label von openHAB \url{https://www.openhab.org/} Besucht am 01.05.2022}“
     \end{quote}
     Das große Ziel, dass mit der openHAB Anwendung verfolgt wird, ist allgemein die zentrale Steuerung von Geräten innerhalb eines 
     Wohnraumes.
     \begin{quote}
-        „... is an open source, technology agnostic home automation platform which runs as the center of your smart home!\footnote{Einleitung und Übersicht der openHAB Dokumentation. \url{https://www.openhab.org/docs/} Abgerufen am 01.05.2022}“
+        „... is an open source, technology agnostic home automation platform which runs as the center of your smart home!\footnote{Übersicht der openHAB Dokumentation. \url{https://www.openhab.org/docs/} Besucht am 01.05.2022}“
     \end{quote}
     
 \subsection{Stärken und Schwächen}
@@ -202,10 +212,10 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         Im Vergleich zu Home Assistant bietet \acs{OPENHAB} zur Definition und Erstellung von Regeln mehrere Möglichkeiten an. 
         Zur nutzerfreundlichen Bedienung unterbreitet die \acs{OPENHAB} Lösung ebenso eine Oberfläche, über die Regeln definiert 
         werden können. Die Konfiguration solcher Regeln kann jedoch mit unterschiedlichen Methoden umgesetzt werden. Zum 
-        einen mit einem visualisierten Baukasten Werkzeug Namens \textit{Blockly}\footnote{Ein visueller Code Editor von Google. \url{https://developers.google.com/blockly} Abgerufen am 29.05.2022} 
-        und zum anderen über eine \ac{DSL}, im Deutschen eine domänenspezifische Sprache\footnote{Erklärung der domänenspezifischen Sprache. \url{https://martinfowler.com/dsl.html} Abgerufen am 29.05.2022}. 
-        \acs{OPENHAB} verwendet für die Syntax der Regeldefinition Xbase\footnote{Erklärung des Xtext, bzw. Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Abgerufen am 29.05.2022} 
-        und darauf aufbauend Xtend\footnote{Javadialekt, welcher durch das Framework in lesbaren Java 8 kompatiblen Quellcode kompiliert wird. \url{https://www.eclipse.org/xtend/index.html} Abgerufen am 29.05.2022}. 
+        einen mit einem visualisierten Baukasten Werkzeug Namens \textit{Blockly}\footnote{Ein visueller Code Editor von Google. \url{https://developers.google.com/blockly} Besucht am 29.05.2022} 
+        und zum anderen über eine \ac{DSL}, im Deutschen eine domänenspezifische Sprache\footnote{Erklärung der domänenspezifischen Sprache. \url{https://martinfowler.com/dsl.html} Besucht am 29.05.2022}. 
+        \acs{OPENHAB} verwendet für die Syntax der Regeldefinition Xbase\footnote{Erläuterung des Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Besucht am 29.05.2022} 
+        und darauf aufbauend Xtend\footnote{Spezieller Javadialekt. \url{https://www.eclipse.org/xtend/index.html} Besucht am 29.05.2022}. 
         Diese \acs{DSL} gibt ein Konstrukt vor, welches eine Regel definiert. Das vorgegebene Konstrukt sieht wie folgt aus:
         \\
         %\linebreak 
@@ -247,7 +257,6 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     die Regeln konfiguriert und erstellt werden können. Home Assistant vereinfacht dies durch die Nutzung des YAML-Dateiformates, im 
     Gegenzug nutzt \acs{OPENHAB} ein weiteres Framework, dass das Konstrukt der Regeldefinition vereinfacht, dennoch in seiner Interpretation 
     und Anwendung eingeschränkt ist.
-    % Vergleich in Richtung der Regeldefinition und Implementierung von Automationen. IST ERFOLGT! 
     \\
     Beide Softwarelösungen bieten einen unterschiedlichen Ansatz zur Regeldefinition, die Flexibilität 
     jedoch ist auf integrierte Komponenten beschränkt. Das bedeutet, dass nur vom System abbildbare Komponenten, 

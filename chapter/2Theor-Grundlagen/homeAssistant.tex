@@ -1,6 +1,6 @@
 \section{Home Assistant}
 \label{sec:homeassistant}
-    Eine der populärsten \acl{SH} Plattformen ist das sogenannte Home Assistant System. Die Open-Source-Software ist ein zentrales 
+    Eine der etablierten \acl{SH} Plattformen ist das sogenannte Home Assistant System. Die Open-Source-Software ist ein zentrales 
     Steuerungssystem von Heimautomationen, ebenso ist eine Verwaltung von intelligenten Geräten mit dem Fokus der lokalen Steuerung und Sicherung der 
     Privatsphäre möglich. Der Zugriff kann über die Smartphone-App, jeweils verfügbar für iOS und Android, oder auch über die webbasierte 
     Benutzeroberfläche (Web-App) erfolgen. In dem lokalen System können auch Geräte per Sprachbefehl gesteuert werden. Kompatible 
@@ -10,7 +10,7 @@
     unterstützt durch modulare Integrationskomponenten die einzelnen Geräte, Anwendungen und Services. Für die drahtlose Kommunikation 
     werden native Integrationskomponenten verwendet, darunter Bluetooth, ZigBee und Z-Wave. Diese werden verwendet, um lokale \ac{PAN} mit 
     Geräten mit geringem Stromverbrauch aufzubauen. Die Steuerung kann auch mit proprietären Ökosystemen stattfinden, sofern diese eine offene 
-    \acs{API} oder Anbindungen über \acs{MQTT} anbieten.\footnote{Grundlegende Ableitung der Definition von Home Assistant siehe \url{https://en.wikipedia.org/wiki/Home_Assistant} Abgerufen am 16.04.2022}
+    \acs{API} oder Anbindungen über \acs{MQTT} anbieten.\footnote{Definition von Home Assistant. \url{https://en.wikipedia.org/wiki/Home_Assistant} Besucht am 16.04.2022}
     \\
     Die Platform ist in Python geschrieben, wird aktiv instand gehalten und durch eine große Community unterstützt. Die Software ist allgemein unter 
     der Apache 2.0, veröffentlicht. Der folgende Abschnitt befasst sich in Kürze mit der Historie des Systems. 
@@ -18,16 +18,16 @@
     \subsection*{Historie}
     \label{sec:historyHOAS}
         Anfang des vierten Quartals im Jahr 2013 startete das Python-Projekt von Paulus Schoutsen und wurde im November 2013 erstmals auf GitHub 
-        veröffentlicht.\footnote{Anfänge von Home Assistant. \url{https://www.linux.com/topic/embedded-iot/home-assistant-python-approach-home-automation/} Abgerufen am 18.04.2022}
+        veröffentlicht.\footnote{Anfänge von Home Assistant. \url{https://www.linux.com/topic/embedded-iot/home-assistant-python-approach-home-automation/} Besucht am 18.04.2022}
         \\
         \linebreak
         Vier Jahre nach den ersten Entwicklungen der \acl{SH} Plattform wurde im Juli 2017 ein verwaltetes Betriebssystem mit dem Namen 
-        \textit{Hass.io} implementiert.\footnote{Verkündungen von Home Assistant. \url{https://www.home-assistant.io/blog/categories/announcements/} Abgerufen am 18.04.2022} 
+        \textit{Hass.io} implementiert.\footnote{Verkündungen von Home Assistant. \url{https://www.home-assistant.io/blog/categories/announcements/} Besucht am 18.04.2022} 
         Dadurch gelang der Durchbruch der vereinfachten Verwendung der Home Assistant Plattform auf kleineren Computern, sogenannten 
         Einplatinencomputern, wie beispielsweise ein Gerät der Raspberry Pi Serie. In Zusammenhang mit dem Betriebssystem kam ein 
         \textit{Supervisor}-Verwaltungssystem hinzu, das den Benutzern die Verwaltung, Sicherung und Aktualisierung der lokalen Installation 
         erleichtert. Ein weiteres Feature des Supervisors ist die Möglichkeit, der Plattform über Add Ons weitere Funktionalitäten zur Verfügung zu 
-        stellen.\footnote{Einstieg in das Hass.io Betriebssystem. \url{https://www.home-assistant.io/blog/2017/07/25/introducing-hassio/} Abgerufen am 18.04.2022}
+        stellen.\footnote{Einstieg in das Hass.io Betriebssystem. \url{https://www.home-assistant.io/blog/2017/07/25/introducing-hassio/} Besucht am 18.04.2022}
         \\
         \linebreak
         Die Software wird stetig weiterentwickelt und verbessert. Mittlerweile gehört sie zu den am meisten genutzten Open-Source-Plattformen 
@@ -37,12 +37,12 @@
 \label{sec:conceptArchitectureHAOS}
     Home Assistant bietet eine Plattform für die zentrale Haussteuerung und die damit einhergehende Steuerung von Heimautomationen. Die 
     Software ist nicht nur eine einfache Steuerungs- und Konfigurations-Software, sondern ein eingebettetes Betriebssystem, das 
-    verbraucher- und nutzerorientiert das Verwenden und Konfigurieren von Haussteuerungen erleichtert. \footnote{Konzept und Architektur von Home Assistant. \url{https://developers.home-assistant.io/docs/architecture_index} Abgerufen am 19.04.2022}
+    verbraucher- und nutzerorientiert das Verwenden und Konfigurieren von Haussteuerungen erleichtert. \footnote{Konzept und Architektur von Home Assistant. \url{https://developers.home-assistant.io/docs/architecture_index} Besucht am 19.04.2022}
     \\
     \linebreak
     Damit der offene Ansatz von Home Assistant gegenüber Anbietern von intelligenten Geräten nicht eingeschränkt ist, bietet die Software Möglichkeiten, um viele 
     Geräte zu integrieren und über die Plattform zu nutzen. Somit begegnet Home Assistant der Heterogenität des offenen Marktes, in sofern, dass diese Geräte auf  
-    gemeinsame Konzepte gebracht werden. Diese sind in vier Konzepte\footnote{Erläuterung der Konzepte von Home Assistant. \url{https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/} Abgerufen am 21.04.2022} 
+    gemeinsame Konzepte gebracht werden. Diese sind in vier Konzepte %\footnote{Erläuterung der Konzepte von Home Assistant. \url{https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/} Abgerufen am 21.04.2022} 
     aufgeteilt, mit der die Vereinheitlichung vorangetrieben werden kann: 
     \begin{itemize}
         \item Integration (Integration): Integrationen repräsentieren die Geräte und Dienste innerhalb der Home Assistant Anwendung. 
@@ -67,7 +67,7 @@
     Benutzer die Verwaltung der Home Assistant Installation. 
     \\
     Die Aufgaben des Supervisors sind wie folgt 
-    definiert\footnote{Architektur des Home Assistant Supervisors. \url{https://developers.home-assistant.io/docs/supervisor} Abgerufen am 22.04.2022}: 
+    definiert\footnote{Architektur des Supervisors. \url{https://developers.home-assistant.io/docs/supervisor} Besucht am 22.04.2022}: 
     \begin{itemize}
         \item Dieser führt den Home Assistant Kern (Core) aus.
         \item Dieser führt die Updates des Home Assistant Core aus.
@@ -82,7 +82,7 @@
         \label{fig:architectureHAOS}
     \end{figure}
     Die auf dem Supervisor aufbauende Architektur ist die der Anwendung, der sogenannte Core. Dieser besteht aus vier 
-    Komponenten, welche den Hauptteil abbilden: Event Bus, State Machine, Service Registry und Timer\footnote{Entwickler Dokumentation der Home Assistant Plattform. \url{https://developers.home-assistant.io/docs/} Abgerufen am 24.04.2022}. 
+    Komponenten, welche den Hauptteil abbilden: Event Bus, State Machine, Service Registry und Timer\footnote{Entwickler Dokumentation der Plattform. \url{https://developers.home-assistant.io/docs/} Besucht am 24.04.2022}. 
     \\
     Mit dem Event Bus wird das Abhören und Auslösen von Events und Ereignisse erleichtert. Die Komponente stellt eine Eigenschaft 
     der Home Assistant Anwendung dar. Die Zustandsmaschine (State Machine) ist eine weitere Komponente, mit der die Zustände der Gegenstände, wie  
@@ -108,7 +108,7 @@
 \subsection{Ziele und Schwerpunkte}
     Jede Softwarelösung verfolgt bestimmte Ziele und Schwerpunkte, um die Zielerreichung, die sog. \ac{DOD}, messbar zu machen. Die mit 
     der Home Assistant Plattform verfolgten Ziele sind unter anderem der Schutz der Privatsphäre und die Datensicherheit, die Wahlmöglichkeit zur Anbindung von 
-    Geräten und die Haltbarkeit der Plattform\footnote{Schwerpunkte der Home Assistant Plattform. \url{https://www.home-assistant.io/blog/2021/12/23/the-open-home/} Abgerufen am 24.04.2022}. 
+    Geräten und die Haltbarkeit der Plattform\footnote{Schwerpunkte der Home Assistant Plattform. \url{https://www.home-assistant.io/blog/2021/12/23/the-open-home/} Besucht am 24.04.2022}. 
     \\
     \linebreak
     Der Schutz der Privatsphäre wird durch Home Assistant gewährleistet, indem das System selbst nur im eigenen Netzwerk betrieben wird und es 
@@ -206,38 +206,3 @@
                 - <ACTION>
         \end{lstlisting}
         %short description?
-
-% \section{openHAB}
-% \label{sec:openhab} 
-%    Neben der so eben erläuterten Home Assistant Plattform zählt ebenso die openHAB Plattform als bekannt und 
-%     in der Anwendung populär. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
-%     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
-%     der Eclipse Public License und fällt daher unter die Rubrik der Open-Source Software. Durch die Verwendung 
-%     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
-%     Ähnlich zu der vorgestellten Home Assistant Software, bietet openHAB ebenso User Interfaces die durch 
-%     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
-%     \\
-%     \linebreak
-%     In Kombination mit Java wird bei openHAB das \ac{OSGI}-Framework für die Modularität der Software verwendet. Mit Apache 
-%     Karaf wird ein Container bereitgestellt, der mit Eclipse Equinox als \acs{OSGI} Laufzeitumgebung agiert. Als 
-%     \acs{HTTP}-Server ist Jetty in Gebrauch. Die einzelnen Frameworks werden nicht im Detail erläutert, lediglich die für das 
-%     Verständnis des Konzeptes notwendigen.
-%     \\
-%     \linebreak
-%     Mit openHAB wird eine hochmodulare Software zur Verfügung gestellt, die durch sogenannte \textit{Add-ons} erweitert 
-%     werden kann. Durch diese wird der Plattform eine breite Palette an Funktionen geboten. Physische Geräte können in 
-%     großer Anzahl mit der Plattform interagieren und verknüpft werden.\footnote{Einleitung zu openHAB. \url{https://www.openhab.org/docs/} Abgerufen am 25.04.2022}
-
-    %\subsection*{Historie}
-    %\label{sec:historyoHAB}
-    %Das Smart Home Projekt begann im November 2009 und wurde von Kai Kreuzer entwickelt\footnote{Chronologie und Blogbeiträge von Kai Kreutzer. \url{http://kaikreuzer.blogspot.com} Abgerufen am 28.04.2022.}. 
-    %Im Februar 2010 wurde das Projekt unter dem Name openHAB bekannt. Nach zweieinhalb jähriger Entwicklung, im Dezember 2012, 
-    %gab Herrn Kreutzer ein Statement zu der Verwendung von OSGi ab, die seine Überzeugung der Verwendung des Frameworks nach wie 
-    %vor kundtut.
-    %\begin{quote}
-    %    „Looking back at this evolution of the project, I am perfectly sure that if I had designed openHAB as a normal Java 
-    %    application instead of an OSGi application, it would not have prospered as it did. It is really the choice of the 
-    %    software architecture that made it happen - and as a nice side effect, the community is not a pure user community 
-    %    as it is the case for many other Open Source projects, but it is full of engaged people who actively contribute to the 
-    %    project.\cite{kaikreutzer2012}“
-    %\end{quote} 
