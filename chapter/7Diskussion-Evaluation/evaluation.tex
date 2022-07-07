@@ -25,26 +25,52 @@ Ziel der Arbeit abschließend evaluiert.
         ähnlich gestaltet. zu Anfang, bevor der Test durchgeführt wurde, war der Kontext sowie das Framework zu erläutern, damit 
         die Informationen und Vorbedingungen für jeden Teilnehmer zu vergleichen waren. Vorab war die Erläuterung der 
         Kernkomponenten des Frameworks sowie die Rahmenbedingungen und die Aufgabenstellung selbst notwendig. So war für jeden Teilnehmer 
-        klar, welche Informationen zum Durchführen des Tests erforderlich waren. Die Realisierung der Tests wurde 
+        klar, welche Informationen zum Durchführen des Tests erforderlich waren. Die Realisierung des Tests wurde 
         an unterschiedlichen Orten durchgeführt. Für die Variation des Durchführungsortes war eine Aufgabe zu erstellen, die umgebungsunabhängig 
         erfüllt werden konnte. Da die Tests ausschließlich auf die Nutzung des Frameworks abzielten, war die Umgebung sowie die 
         Anbindung verfügbarer Geräte zu vernachlässigen. Damit der Testumfang nicht zu komplex wurde, war der Anwendungsfall der 
         umzusetzenden Aufgabe trivial. Für die Ausführung des Tests war eine Voraussetzung, dass bereits ein \acs{MQTT}-Broker 
         aufgesetzt war und für die Aufgabe zur Verfügung stand. Durch die Fehlende Anbindung von Geräten, wurden die ausgehenden 
-        \acs{MQTT} Nachrichten nicht für die weitere Verarbeitung benötigt. Eingehende Nachrichten wurden simuliert, indem durch den Broker 
-        manuell \acs{MQTT} Nachrichten veröffentlicht werden konnten.
+        \acs{MQTT}-Nachrichten nicht für die weitere Verarbeitung benötigt. Eingehende Nachrichten wurden simuliert, indem durch den Broker 
+        manuell \acs{MQTT}-Nachrichten veröffentlicht werden konnten.
         \\
         Die von den Anwendern durchzuführende Aufgabe ist wie folgt definiert: 
         \\
         \linebreak
-        TBD - Als PDF oder als text?   
-        
+        Es soll ein Anwendungsfall implementiert werden, bei dem ein Service-Roboter einen Mitarbeiter oder Gast, der an der Tür steht, 
+        empfangen und begrüßen soll. Eingangsbedingungen sind, dass eine Kamera zur Authentifizierung für die Anwendung simuliert wird. 
+        Die \acs{MQTT}-Nachricht wird im Rahmen der Aufgabe manuell erzeugt und losgelöst. Auch die Definition des \acs{MQTT}-Topics ist vorgegeben. 
+        Nachdem die simulierte Authentifizierung ausgelöst wurde, soll über die Steuerzentrale eine Regel ausgeführt werden, die folgende 
+        Anforderungen erfüllen soll: 
+        \begin{itemize}
+            \item Nach eingehendem Topic soll der Service-Roboter angesteuert und an die Tür geschickt werden. 
+            (Die Ansteuerung des Service-Roboters erfolgt ebenso über \acs{MQTT}. Da in den meisten Fällen kein Roboter verfügbar ist, wird auch 
+            diese Kommunikation mittels \acs{MQTT} simuliert.)
+            \item Ist der Roboter an der Tür, soll er die Begrüßung starten. (Die folgende Interaktion wird im Rahmen des Test nicht durchgeführt. 
+            Nach der Nachricht zur simulierten Begrüßung gilt die Aufgabe als erledigt.)
+        \end{itemize}
+        Für die Aufgabe sind folgende Punkte zu berücksichtigen:
+        \begin{itemize}
+            \item Die Kenntnis über \acs{MQTT}-Topics, die für die Kommunikation benötigt werden.
+            \item Ein Zustandsraum, der alle benötigten Komponenten abbildet.
+            \item Der Service-Roboter als Komponente, sodass dieser bei Ausführung einer Aufgabe für weiter Aufgaben geblockt werden kann. 
+            \item Der Auslöser, welcher durch ein \acs{MQTT} (PlugIn) abgebildet wird.
+            \item Die Transformation der eingehenden \acs{MQTT}-Topics zu Zustandsänderungen, auf die Regeln ausgeführt werden sollen.
+        \end{itemize}
+        Dem Anhang (REF TBD) ist das Dokument zur Durchführung des Usability-Test beigefügt. 
+        \\
+        \linebreak
+        Nach dem Abschluss der Aufgabe wurden die Probanden gebeten einen Fragebogen, welcher sich an dem \textit{System Usability Scale (SUS)} 
+        Template orientiert, auszufüllen, um damit ihre Erkenntnisse und Meinungen mitzuteilen. Auf die Auswertung des Fragebogens wird in der 
+        Zusammenfassung (\ref{subsec:usabilityFazit}) des Usability-Tests eingegangen. 
 
     \subsection{Fazit}
+    \label{subsec:usabilityFazit}
         Die Durchführung der quantitativen Forschung kann nicht als repräsentativ eingestuft werden. Die Ergebnisse der 
         Usability-Tests zeigen im Rahmen einer kleinen Auswahl von Experten eine Tendenz, die zeigt, welche Anforderungen abgedeckt, bzw. 
         welche Verbesserungspotentiale identifiziert wurden. 
         %TODO: ZUSAMMENFASSUNG DER DURCHGEFÜHRTEN TESTS (GROB)
+        % Meinungsbild der Probanden in Anzahl der Punkten.
         Nachdem die Tests durchgeführt wurden, wurde 
         mit den jeweiligen Experten ein abschließendes Interview geführt. Der Aufbau, die Durchführung und die Ergebnisse der Interviews 
         werden in folgendem Abschnitt dargelegt.
