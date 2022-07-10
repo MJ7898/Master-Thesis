@@ -1,14 +1,13 @@
 \section{Architekturkonzept}
 \label{sec:architekturkonzept}
     Das Framework stellt die Kern-Funktionalität zur Steuerung von implementierten Regeln und Prozessen innerhalb eines 
-    Büroraumes dar. Diese bildet das Fundament des Systems. Das Architekturkonzept umfasst ausschließlich den 
-    grundlegenden Aufbau, sowie die Funktionalitäten des Frameworks der Steuerzentrale. Potentielle Erweiterungen und 
-    Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
+    Büroraumes dar. Mit dem Architekturkonzept wird der grundlegende Aufbau, sowie die Funktionalität des Frameworks erläutert. 
+    Potentielle Erweiterungen und Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
     \\ 
     \linebreak
     Das System soll in drei Schichten aufgeteilt werden. Die oberste Schicht stell die Kommunikationsschicht dar, bei der mittleren 
     handelt es sich um die Logik- und Prozessschicht und die unterste repräsentiert die Persistenzschicht. Im Rahmen der Arbeit wird 
-    die dritte Schicht nicht weiter behandelt, da diese zu aktuellem Zeitpunkt keinen Nutzen generiert, bzw. für keine weitere Verarbeitung 
+    die dritte Schicht nicht weiter konkretisiert, da diese zu aktuellem Zeitpunkt keinen Nutzen generiert, bzw. für keine weitere Verarbeitung 
     genutzt wird. Der Abbildung (\ref{fig:schichtenarchitektur}) ist die Aufteilung der Schichtenarchitektur zu entnehmen. In 
     der Darstellung unterscheidet sich die Persistenzschicht von den anderen, um 
     erkenntlich zu machen, dass diese nicht detailliert beschrieben wird. 
@@ -17,7 +16,8 @@
     \textit{seperation of concerns}, greift. Durch die gezielte Abstraktion von Komponenten und Informationen kann die Komplexität 
     eines Systems gesteuert werden. Die Kommunikationsschicht ermöglicht die Anbindung von verschiedensten Kommunikationsprotokollen, die 
     dadurch schnell adaptiert werden können. Im Rahmen des Konzeptes wird ausschließlich Gebrauch des \acs{MQTT}-Protokolls gemacht. 
-    Die Logikschicht nimmt alle eingehenden Events der Kommunikationsschicht entgegen und durchläuft den Prozess des Frameworks. Die 
+    Die Logikschicht nimmt alle eingehenden Events, die jeweils eine Zustandsänderung erzwingen, der Kommunikationsschicht entgegen 
+    und durchläuft den Prozess des Frameworks, um auf die Zustandsänderung die passende Regel auszuführen. Die 
     Persistenzschicht ist für die Speicherung erzeugter Daten zuständig, bspw. wenn eine Transaktionshistorie von Zustandsänderungen 
     persistiert werden soll. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stünden. 
     \begin{figure}[hbt!]
@@ -26,6 +26,32 @@
         \caption{Schichtenarchitektur}
         \label{fig:schichtenarchitektur}
     \end{figure}
+    \\
+    Für die Konzeption von wartbarer und erweiterbarer Software, wird von den \textit{SOLID}-Prinzipien, sowie von nützlichen 
+    und für das Framework verwendbaren Programmiermustern Gebrauch gemacht. Diese werden an geeigneter Stelle und auf den Nutzen bezogen erläutert.
+    \\
+    \linebreak
+    Das \textit{SOLID} wurde von Robert C. Martin\footnote{Software Engineer, Lehrer und Autor Robert C. Martin. \url{https://en.wikipedia.org/wiki/Robert_C._Martin} Besucht am 10.07.2022} 
+    geprägt und soll zum Design guter objektorientierter Software beitragen. Dadurch soll 
+    ein Softwaresystem einer höheren Wartbarkeit unterliegen. Es setzt sich aus fünf Prinzipien zusammen, die wie folgt definiert sind.
+    \begin{itemize}
+        \item S - Single-Responsibility-Prinzip: „Das Single-Responsibility-Prinzip (SRP; Eine-Verantwortlichkeit-Prinzip; ...) fordert, dass eine Klasse oder ein Modul einen und nur einen \textit{Grund zur Änderung} haben sollte.“ \cite{cleancode2009}
+        \item O - Open-Closed-Prinzip: „Module sollten sowohl offen (für Erweiterungen) als auch verschlossen (für Modifikation) sein.“ \cite{ocpmeyer1988}
+        \item L - Liskovsches Substitutionsprinzip: „... Sei q(x) eine beweisbare Eigenschaft von Objekten x des Typs T. Dann soll q(y) für Objektes des Typs S wahr sein, wobei S ein Untertyp von T ist.“ \cite{liskov2001behavioral} - Das (Ersetzungs-)Prinzip sagt somit aus, dass eine 
+        Subklasse stets die Eigenschaften der Superklasse erfüllt und immer als Objekt der Superklasse anwendbar sein muss. Eine Subklasse darf dadurch erweitert werden, aber 
+        keine grundlegende Änderung erfahren. 
+        \item I - Interface-Segregation-Prinzip: „Clients sollen nicht dazu gezwungen werden, von Interfaces abzuhängen, die sie nicht verwenden.“ \cite{martin1996interface}
+        \item D - Dependency-Inversion-Prinzip: „A. Module hoher Ebenen sollten nicht von Modulen niedriger Ebenen abhängen. Beide sollten von Abstraktionen abhängen. B. Abstraktionen sollten nicht von Details abhängen. Details sollten von Abstraktionen abhängen.“ \cite{martin2003agile}
+    \end{itemize}
+
+    % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)
+    %\subsection{}?
+
+    % NOCHMALS DIE SCHICHTEN MIT:
+    % KOMMUNIKATIONSSCHICHT UND AUFBAU -> \subsection{}?
+    % LOGIKSCHICHT UND AUFBAU -> \subsection{}?
+    % EVTL.: PERSISTENZSCHICHT UND POTENTIELLER AUFBAU -> \subsection{}?
+
     % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
     % Der Zustandsraum wird verändert, wenn eine Aktion durchgeführt wird, bzw. durch eine Trigger angestoßen. 
     % Bzw. speichert den aktuellen Zustand des Gegenstandes 
@@ -57,6 +83,8 @@
     %   Anbindungen an Datenbanken sind je nach hinzukommendem Anwendungsfall ohne weiteres möglich. Dies ist eine Konzeptvertiefung, die 
     %    im Rahmen dieser Arbeit nicht konkretisiert wird, da der Fokus auf der Kernfunktionalität, sowie auf dem 
         % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
+
+    \subsection{Parallelisierung}
 
 
     %HERAUSFORDERUNG MIT DEM QUEUEING ANTEASERN.
