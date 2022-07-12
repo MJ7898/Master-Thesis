@@ -44,19 +44,20 @@
         \item D - Dependency-Inversion-Prinzip: „A. Module hoher Ebenen sollten nicht von Modulen niedriger Ebenen abhängen. Beide sollten von Abstraktionen abhängen. B. Abstraktionen sollten nicht von Details abhängen. Details sollten von Abstraktionen abhängen.“ \cite{martin2003agile}
     \end{itemize}
     Diese Prinzipien werden bei der Konzeption des Frameworks berücksichtigt. Da es sich bei diesem System nicht um eine klassische 
-    Webanwendung handelt und keine direkte Kommunikation zwischen Clients und Server stattfindet, wird ein solches allgemeines 
+    Webanwendung handelt und keine direkte Kommunikation unter anderem über \acs{REST} \acs{API}s stattfindet, wird ein allgemeines 
     Programmiermuster, wie bspw. das \ac{MVC}\footnote{Architekturmuster für Webapplikationen. \url{https://de.wikipedia.org/wiki/Model_View_Controller} Besucht am 10.07.2022} 
     oder das \ac{MVVM}\footnote{Software-Architekturmuster. \url{https://en.wikipedia.org/wiki/Model–view–viewmodel} Besucht am 10.02.2022 }, nicht 
     in Betracht gezogen. Verwendet werden allgemeine Architekturmuster und -prinzipien, die dazu beitragen die Software wartbar 
     zu gestalten, die Komplexität einzelner Funktionen zu reduzieren und die Lesbarkeit und Überschaubarkeit zu erhöhen. 
     
-    \subsection{Generische Programmierung in Java} % Typisierung
+    \subsection{Generische Programmierung} % Typisierung
+        % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
         Eine entscheidende konzeptionelle Überlegung in Richtung des Zustandsraumes wird vorab erläutert, damit in 
         folgenden Darstellungen klar zwischen der Objektdarstellung und der eigentlichen Repräsentation des Zustandes 
         differenziert werden kann. 
         \\
         Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
-        Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Entscheidung 
+        Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
         notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vorher bekannt ist. 
         \\
         \linebreak
@@ -74,8 +75,8 @@
         auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
         \\
         Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
-        jeweilige Objekt übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
-\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:pubmqtt}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
+        jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:generics}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
 public class LogicHub<E> {
     private E state;
     ...
@@ -100,14 +101,17 @@ public class Application {
         weniger Fehleranfällig macht. Zusätzlich wird durch die Generics die Typkorrektheit zur Kompilierzeit erzwungen und ermöglicht 
         die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätzlichen Overhead zu verursachen. 
         \\
-        Mit dieser Entscheidung kann das Framework generisch definiert und Zustandsraum vom Anwender der individuell implementiert werden.
+        Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
         \\
         \linebreak
-        Die Darstellung des Zustandsobjektes wird für die Vollständigkeit der folgenden Diagramme vorausgesetzt. Diese beschreiben jedoch zu keinem 
-        Zeitpunkt eine konkrete Struktur.
+        Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
+        Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur. 
+        \\
+        \linebreak
+        Im weiteren Verlauf wird der Aufbau der Komponenten erläutert, sowie die einzelnen Schichten und deren Funktionalitäten näher beschrieben.
 
     \subsection{Aufbau der Komponenten}
-    %WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten. 
+
     
 
     % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)

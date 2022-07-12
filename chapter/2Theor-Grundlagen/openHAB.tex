@@ -1,9 +1,9 @@
 \section{openHAB}
 \label{sec:openhab} 
-    Neben der erläuterten Home Assistant Plattform zählt openHAB zu den bekanntesten Open-Source Systemen im 
+    Neben der erläuterten Home Assistant Plattform zählt openHAB zu den bekanntesten Open-Source-Systemen im 
     Bereich des \acs{SH}. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
-    der Eclipse Public License und zählt zu der Rubrik der Open-Source Software. Durch die Verwendung 
+    der Eclipse Public License und zählt zu der Rubrik der Open-Source-Software. Durch die Verwendung 
     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
     Ähnlich zu der vorgestellten Home Assistant Software bietet \acs{OPENHAB} ebenso Benutzeroberflächen, sog. User Interfaces, die durch 
     den Webbrowser, Android- und iOS-Geräte unterstützt werden. 
@@ -155,7 +155,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     zu Änderungen und Versionsupdates ist der Organisation auf GitHub zu entnehmen.
     \\
     \linebreak
-    Der Open-Source Standard \textit{OSGi} beschreibt einen Ansatz zur Modularisierung von Software. Die Verwendung des 
+    Der Open-Source-Standard \textit{OSGi} beschreibt einen Ansatz zur Modularisierung von Software. Die Verwendung des 
     Frameworks setzt ebenso eine \ac{JVM} voraus. 
     Die \acl{JVM}\footnote{Beschreibung der JVM. \url{https://www.javatpoint.com/jvm-java-virtual-machine} Besucht am 01.05.2022} 
     ist der Teil der Java-Laufzeitumgebung, die für die Ausführung des Java-Bytecodes verantwortlich ist.
@@ -211,14 +211,13 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
 
     \subsection{Optionen der Regel- und Automatisierungserstellung}
         %Skizzierung der Möglichkeiten des Tools
-        Im Vergleich zu Home Assistant bietet \acs{OPENHAB} zur Definition und Erstellung von Regeln mehrere Möglichkeiten an. 
-        Zur nutzerfreundlichen Bedienung unterbreitet die \acs{OPENHAB} Lösung ebenso eine Oberfläche, über die Regeln definiert 
-        werden können. Die Konfiguration solcher Regeln kann jedoch mit unterschiedlichen Methoden umgesetzt werden. Zum 
+        Im Vergleich zu Home Assistant bietet \acs{OPENHAB} zur Definition und Erstellung von Regeln mehrere Möglichkeiten an, die über deren Oberfläche definiert werden können. 
+        Die Konfiguration solcher Regeln kann jedoch mit unterschiedlichen Methoden umgesetzt werden. Zum 
         einen mit einem visualisierten Baukasten Werkzeug Namens \textit{Blockly}\footnote{Ein visueller Code Editor von Google. \url{https://developers.google.com/blockly} Besucht am 29.05.2022} 
         und zum anderen über eine \ac{DSL}, im Deutschen eine domänenspezifische Sprache\footnote{Erklärung der domänenspezifischen Sprache. \url{https://martinfowler.com/dsl.html} Besucht am 29.05.2022}. 
         \acs{OPENHAB} verwendet für die Syntax der Regeldefinition Xbase\footnote{Erläuterung des Xbase Frameworks. \url{https://www.eclipse.org/Xtext/index.html} Besucht am 29.05.2022} 
         und darauf aufbauend Xtend\footnote{Spezieller Javadialekt. \url{https://www.eclipse.org/xtend/index.html} Besucht am 29.05.2022}. 
-        Diese \acs{DSL} gibt ein Konstrukt vor, welches eine Regel definiert. Das vorgegebene Konstrukt sieht wie folgt aus:
+        Diese \acs{DSL} gibt ein Konstrukt vor, mit dem Regeln definiert werden können. Dies sieht wie folgt aus:
         \\
         %\linebreak 
         \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:Xbase}, captionpos=b, caption={Konstrukt zur Regeldefinition über Xbase}]
@@ -229,9 +228,8 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
             <SCRIPT_BLOCK>
         end
         \end{lstlisting}
-        Jeder Regel muss ein eindeutiger Namen vergeben werden, der im besten Fall beim Aussprechen einen Sinn ergibt und den 
-        Inhalt der Regel wiedergibt. Danach muss eine Bedingung implementiert werden, die ebenso ein Event bei bestimmten 
-        eintreffenden Bedingungen auslöst. Die Logik der Regel wird dann über den Skript-Block implementiert. Für die Syntax 
+        Jede Regel bekommt einen eindeutigen Namen. Danach muss eine Bedingung implementiert werden, bei deren Eintreffen 
+        eine bestimmte, beliebige Aktion ausgelöst wird. Die Logik der Regel wird über den Skript-Block eingesetzt. Für die Syntax 
         der Regellogik wird \textit{Xtend} verwendet. 
 
 \section{Vergleich von Home Assistant und openHAB}
@@ -242,36 +240,35 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     % https://www.electronicshub.org/openhab-vs-home-assistant/ 
     % https://smarthome.university/your-smart-home-platform-home-assistant-vs-openhab/ 
     % https://purdylounge.com/openhab-vs-home-assistant/ 
-    Nach der Erläuterung der beiden Softwarelösungen im Bereich der Smart Home Plattformen, werden diese abschließend 
-    gegenübergestellt, um weitere Aspekte miteinander zu vergleichen. Grundlage dafür sind persönliche Erfahrungen als auch 
+    Nach der Erläuterung der beiden Softwarelösungen im Bereich der Smart Home Plattformen werden diese abschließend 
+    gegenübergestellt, um weitere Aspekte miteinander zu vergleichen. Grundlage dafür sind persönliche Erfahrungen, als auch 
     Eindrücke von Nutzern und Experten. Die Tabelle (\ref{tab:comparisonTableHAOS-openHAB}) zum Vergleich 
     der Plattformen ist dem Anhang (\ref{appendix:comparison}) zu entnehmen.
     \\
     \linebreak
-    Zusammenfassend zu dieser tabellarischen Gegenüberstellung ist zu sagen, dass beide Plattformen ihre markanten Stärken vorweisen. 
+    Zusammenfassend zu dieser tabellarischen Gegenüberstellung ist zu sagen, dass beide Plattformen Vorzüge aufweisen.  
     Beide Ansätze bieten eine gute Grundlage, die Automatisierungen in dem eigenen Gebäude voranzutreiben. Die Entscheidung, welches 
-    Tool verwendet werden soll, liegt in der Verantwortung des Nutzers. Übergreifend sind die beiden Open-Source Lösungen eine gute 
-    Alternative zu kommerziellen Produkten und Lösungen, sofern der Nutzer herstellerunabhängig interagieren möchte. Dennoch 
-    bedeutet es für Nutzer und Entwickler einen hohen Aufwand zu leisten, um Automationen und Regeln zu definieren, da 
-    Werkzeuge eingesetzt werden, die nicht dem Standard der verwendeten Programmiersprache, beispielsweise von Java, 
-    entsprechen. Dadurch muss zu erst die Funktionsweise des Frameworks verstanden werden, um anschließend Automationen und 
-    Regeln definieren und anwenden zu können. Beide Lösungen versuchen diese Herausforderung zu lösen, indem über eine Weboberfläche 
-    die Regeln konfiguriert und erstellt werden können. Home Assistant vereinfacht dies durch die Nutzung des YAML-Dateiformates, im 
-    Gegenzug nutzt \acs{OPENHAB} ein weiteres Framework, dass das Konstrukt der Regeldefinition vereinfacht, dennoch in seiner Interpretation 
-    und Anwendung eingeschränkt ist.
+    Tool verwendet werden soll, liegt in der Verantwortung des Nutzers. Übergreifend sind die beiden Open-Source-Lösungen eine gute 
+    Alternative zu kommerziellen Produkten und Lösungen, sofern der Nutzer herstellerunabhängig interagieren möchte. Dennoch ist 
+    es für Nutzer und Entwickler mit einem hohen Aufwand verbunden, Automationen und Regeln zu definieren, da Werkzeuge eingesetzt werden, 
+    die nicht dem Standard der verwendeten Programmiersprache, beispielsweise von Java, 
+    entsprechen. Dadurch muss zuerst die Funktionsweise des Frameworks verstanden werden, um anschließend Automationen und 
+    Regeln definieren und anwenden zu können. Beide Lösungen versuchen diese Herausforderung anzugehen, indem über eine Weboberfläche 
+    die Regeln konfiguriert und erstellt werden können. Home Assistant nutzt hierfür, wie bereits erläutert, das YAML-Dateiformat. Im 
+    Gegenzug dazu verwendet \acs{OPENHAB} ein Framework, das das Konstrukt der Regeldefinition starr vorgibt. Alternativ können Regeln auch 
+    mittels \textit{Blockly} realisiert werden. 
     \\
-    Beide Softwarelösungen bieten einen unterschiedlichen Ansatz zur Regeldefinition, die Flexibilität 
-    jedoch ist auf integrierte Komponenten beschränkt. Das bedeutet, dass nur vom System abbildbare Komponenten, 
-    Integrationen und Verknüpfungen verwendet werden können. Gibt es beispielsweise für eine Komponenten oder ein Gerät keine 
+    Beide Softwarelösungen bieten einen unterschiedlichen Ansatz zur Regeldefinition, jedoch ist die Flexibilität 
+    auf integrierte Komponenten beschränkt. Das bedeutet, dass nur vom System abbildbare Komponenten, 
+    Integrationen und Verknüpfungen verwendet werden können. Gibt es beispielsweise für eine Komponente oder ein Gerät keine 
     Integration oder kein Add-on, so muss dieses erst im Quellcode als Packet implementiert und angeboten werden, bevor der 
-    Anwender dieses verwenden kann. 
+    Anwender dieses benutzen kann. 
     \\
     \linebreak
-    Die aufgeführten Themen bilden ein grundlegendes Verständnis, damit der Kontextes dieser Arbeit klar wird. Die Erläuterung von 
-    \acs{IoT} und \acl{SH} geben einen Einblick in die Domäne der Bereiche. Mit den Kommunikationsprotokolle werden Standards 
+    Die soeben erläuterten Grundlagen geben einen Einblick in eine Domäne des \acs{IoT}. Mit den Kommunikationsprotokollen werden Standards 
     und derzeit oft verwendete Technologien beschrieben. Das \acs{MQTT}-Protokoll wird im Rahmen dieser Arbeit von Anfang an verwendet. 
     Die Erläuterung von zwei Softwareplattformen gibt einen Überblick 
-    darüber, welche Lösungen bereits vorhanden sind und wie sich deren Aufbau gestaltet. Diese Information ist notwendig, um in 
-    weiterem Verlauf die Konzeption als auch die anschließende Analyse nachvollziehen zu können.
+    darüber, welche Lösungen bereits vorhanden sind und wie sich deren Aufbau gestaltet. Diese Information ist notwendig, um im 
+    weiteren Verlauf die Konzeption als auch die anschließende Analyse nachvollziehen zu können.
 
  
