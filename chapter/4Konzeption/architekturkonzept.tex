@@ -105,13 +105,28 @@ public class Application {
         \\
         \linebreak
         Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
-        Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur. 
+        Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
         \\
         \linebreak
-        Im weiteren Verlauf wird der Aufbau der Komponenten erläutert, sowie die einzelnen Schichten und deren Funktionalitäten näher beschrieben.
+        Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
-    \subsection{Aufbau der Komponenten}
-
+    \subsection{Aufbau des Frameworks}
+        Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür eingesetzten Architekturmuster aufgegriffen. 
+        \\
+        Die Konzeptkomponenten (\ref{subsec:conceptcomps}) finden sich im umfassenden Architekturschaubild (siehe Abbildung %\ref{}
+        ) wieder. Die Regelstruktur 
+        soll die Funktion einer Bedingungsprüfung und der darauffolgenden Aktion vorgeben, damit bestimmte Anhaltspunkte geschaffen sind, die das Framework überprüfen 
+        und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden zur Implementierung zur Verfügung stehen, wird mittels dem 
+        \textit{Template Method} Pattern \cite{gamma1995template} ein Leitfaden vorgegeben. Dies gehört zu den Verhaltensmustern, engl. behavioral patterns. 
+        Ziel des Schablonenmethoden-Entwurfsmusters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
+        abstrakten Klasse wird das Skelett des Objektes definiert. Die einzelnen Schritte können so in den darunter liegenden Klassen überschrieben oder ergänzt 
+        werden, ohne dass die grundlegende Struktur der übergreifenden Klasse modifiziert werden muss. Die Unterklassen, die konkrete Definition einer Regel, sollen 
+        unter Verwendung des \textit{Singleton} Patterns \cite{gamma1995singleton} realisiert werden. Die zu den Erzeugungsmustern zugehörige Schablone dient zur 
+        Sicherstellung, dass eine Klasse, in dem Fall die einzelne Regel, zur Laufzeit ausschließlich eine einzige Instanz erzeugt und diese global erreichbar ist. 
+        Dadurch wird von jeder Regel immer nur ein Objekt erzeugt. 
+        \\
+        \linebreak
+        
     
 
     % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)
@@ -167,4 +182,7 @@ public class Application {
 \label{subsec:softwarekonzept}
 
 
-
+Für die Generierung mehrerer konkurrierender Sichten, wurde unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}
+bereits bei der Anforderungsanalyse (\ref{chap:anforderungsanalyse}) die Szenarien beschrieben. Die im Modell dargestellten Sichten wurden mit 
+Klassen-, Sequenz-, Aktivitäts- und Komponentendiagrammen im Konzept veranschaulicht. Nach Beendigung der Konzeption wird in folgendem Kapitel die 
+Implementierung des Prototypen vertieft. 
