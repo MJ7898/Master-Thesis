@@ -111,12 +111,12 @@ public class Application {
         Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
     \subsection{Aufbau des Frameworks}
-        Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür eingesetzten Architekturmuster aufgegriffen. 
+        Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür einzusetzenden Architekturmuster aufgegriffen. 
         \\
         Die Konzeptkomponenten (\ref{subsec:conceptcomps}) finden sich im umfassenden Architekturschaubild (siehe Abbildung %\ref{}
         ) wieder. Die Regelstruktur 
         soll die Funktion einer Bedingungsprüfung und der darauffolgenden Aktion vorgeben, damit bestimmte Anhaltspunkte geschaffen sind, die das Framework überprüfen 
-        und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden zur Implementierung zur Verfügung stehen, wird mittels dem 
+        und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden bei Implementierung einer spezifischen Regel zur Verfügung stehen, wird mittels dem 
         \textit{Template Method} Pattern \cite{gamma1995template} ein Leitfaden vorgegeben. Dies gehört zu den Verhaltensmustern, engl. behavioral patterns. 
         Ziel des Schablonenmethoden-Entwurfsmusters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
         abstrakten Klasse wird das Skelett des Objektes definiert. Die einzelnen Schritte können so in den darunter liegenden Klassen überschrieben oder ergänzt 
@@ -126,8 +126,10 @@ public class Application {
         Dadurch wird von jeder Regel immer nur ein Objekt erzeugt. 
         \\
         \linebreak
+        Ähnlich zu dem Aufbau des Regelwerks, sollen die Komponenten, die reale Gegenstände abbilden, ebenso Gebrauch des Schablonenmethoden-Entwurfsmusters machen. 
+        Unterschied zu den Regeln ist lediglich, dass die Funktion, eine Komponente für weitere Aufgaben zu sperren, bereits in der abstrakten Klasse definiert wird. 
+        Weitere Eigenschaften können zusätzlich in der jeweiligen Komponente definiert werden. 
         
-    
 
     % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)
     \subsection{Kommunikationsschicht}
