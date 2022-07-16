@@ -203,17 +203,21 @@
             erleichtern. Eine gewisse Komplexität ist dabei nicht zu verhindern, da die Funktionsweise des Frameworks selbst 
             verstanden werden muss.  
             Eine Optimierung in weiteren Forschungsschritten ist möglich.
+            Mithilfe des Systems können im Rahmen von praktischen Arbeiten im Forschungs- und Bildungsbereich kleinere Anwendungsfälle binnen 
+            weniger Schritte umgesetzt und getestet werden. Dadurch kann der Lerneffekt, im Umgang mit Geräten im \acl{SH} optimiert werden. 
             %Mit diesem Grundsatz sind gute Lerneffekt zu erzielen, indem diese Technologie zu praktischen Arbeiten im Forschungs- und 
             %Bildungsbereich eingesetzt wird. 
     \\
     \linebreak
-    Alle oben aufgeführten Artikel und Forschungsarbeiten sind keine explizite Referenz, bzw. stehen in keinem vollumfänglichen 
-    Verhältnis zu der in dieser Arbeit gestellten Forschungsfrage, da mit dem systematischen Literaturreview keine Literatur 
-    gefunden werden konnte, die sich ausschließlich dem zu behandelnden Thema widmet. Die zusammengefassten Arbeiten dienen 
+    Alle oben aufgeführten Artikel und Forschungsarbeiten sind keine explizite Referenz, bzw. stehen in keinem  
+    Verhältnis zu der in dieser Arbeit gestellten Forschungsfrage. Diese zeigen Ausschnitte von Forschungen, die 
+    mittels dem systematischen Literaturreviews gefunden wurden. %, da mit dem systematischen Literaturreview keine Literatur 
+    %gefunden werden konnte, die sich ausschließlich dem zu behandelnden Thema widmet. 
+    Die zusammengefassten Arbeiten dienen 
     lediglich als stichpunktartige Übersicht, um einen Einblick zu gewährleisten, welche Forschungsarbeiten mit den 
-    Suchtermen (siehe Tabelle \ref{tab:slr}) erzielt wurden. Basierend auf diesen Grundlagen und dem damit vermittelten Wissen 
-    konnten unter anderem die Anforderungen verfeinert und gefestigt werden, sowie Ideen für das folgende Konzept in Kapitel 
-    (\ref{chap:konzept}) aufgegriffen werden.
+    Suchtermen (siehe Tabelle \ref{tab:slr}) erzielt wurden. % Basierend auf diesen Grundlagen und dem damit vermittelten Wissen 
+    %konnten unter anderem die Anforderungen verfeinert und gefestigt werden, sowie Ideen für das folgende Konzept in Kapitel 
+    %(\ref{chap:konzept}) aufgegriffen werden.
     \\ 
     Durch das systematische Literaturreview wird deutlich, dass der Stand der Technik in die Richtung, in die die Arbeit 
     abzielt, keine aussagekräftigen Ergebnisse zeigt. Mittels weiteren Experten Interviews wird deutlich, dass viele mit der 
@@ -223,14 +227,14 @@
     dieser Arbeit.
     \\
     Um einen Gesamtüberblick bezüglich dem Technikstand rundum \acl{SH} zu vermitteln, 
-    wird in folgendem aus einer etwas pragmatischeren Sichtweise der Stand der Technik skizziert.
+    wird dieser in folgendem aus einer etwas pragmatischeren Sichtweise erläutert. %der Stand der Technik skizziert.
     
     %\pagebreak
     \subsection{Stand der Technik aus Nutzer- und Produktsicht}
-        Der aktuelle Markt bietet bereits viele Möglichkeiten und Alternativen der Umsetzung eines intelligenten Zuhauses. 
+        Der aktuelle Markt bietet bereits viele Möglichkeiten und Alternativen zur Umsetzung eines intelligenten Zuhauses. 
         Darunter z.B. kommerzielle in sich geschlossene Systeme, die ausschließlich dem Nutzer als Anwendung verkauft werden, 
-        einzelne Intelligente Geräte, die nichts zwangsläufig eine zentrale Plattform benötigen und Plattformen, wie bspw. 
-        Home Assistant und openHAB, die eine gewisse Technikaffinität erfordern und voraussetzen, um diese nach belieben 
+        einzelne Intelligente Geräte, die nichts zwangsläufig eine zentrale Steuerungsplattform benötigen und Plattformen, wie bspw. 
+        Home Assistant und \acs{OPENHAB}, die eine gewisse Technikaffinität erfordern und voraussetzen, um diese nach belieben 
         einsetzen und konfigurieren zu können. Viele große Unternehmen, darunter Bosch, Telekom, Siemens, Samsung und viele mehr bieten Geräte 
         und Softwarelösungen an, die der Nutzer anwenden kann und wenig Möglichkeiten hat, einzelne Komponenten zu individualisieren. 
         Diese geben keinen Einblick in ihre Software 
@@ -247,21 +251,24 @@
             \item Domoticz
             \item Homebridge.io
         \end{itemize}
-        Neben den aufgelisteten Produkten gibt es viele mehr, die jedoch nicht weiter aufgeführt werden. 
+        Die Auflistung gibt nicht alle am Markt verfügbaren Produkte wieder, lediglich eine kleine Auswahl, die jedoch nicht weiter ausgeführt wird. %.Neben den aufgelisteten Produkten gibt es viele mehr, die jedoch nicht weiter aufgeführt werden. 
         Durch die Vielzahl der Angebote und den immer größer werdenden Mehrwert, den eine solche Plattform bietet, 
         nimmt die Forschung und Entwicklung in dem Bereich des \acs{IoT} zu. Dadurch können immer mehr 
-        Anwendungsfälle abgedeckt und realisiert werden, wodurch dem Nutzer die Einsatzmöglichkeiten deutlicher aufgezeigt werden und 
+        Anwendungsfälle abgedeckt und realisiert werden, wodurch dem Nutzer die Einsatzmöglichkeiten deutlicher aufgezeigt und 
         effektiver genutzt werden können. 
         \\ 
         \linebreak
-        Für das Abbilden und Verwalten von Prozessen und Automatisierungen gibt es Systeme, sogenannte Regelwerke. 
-        Diese sind dafür entwickelt, damit bestimme Regel, Prozesse und Sachverhalte definiert und durchlaufen werde können. 
-        Einsatz finden die Frameworks in \ac{BRMS}, in Systemen, die eine bestimmte Logik über 
-        Regeln abbilden und in \acl{SH} Plattformen. Durch die Definition von Regel und Automatisierungen im Bereich des 
-        \acl{SH} ist der Einsatz von Regelwerken auch Bestandteil heutiger Plattformen. Ursprünglich war der Ansatz des Regelwerks 
-        für die effiziente Ausführung von Geschäftsregeln entwickelt. Es gibt eine Vielzahl an Anbietern, die solche Systeme und Frameworks 
+        Für das Abbilden und Verwalten von Prozessen und Automatisierungen gibt es sogenannte Regelwerke. 
+        Diese sind dafür entwickelt, um bestimme Regeln, Prozesse und Sachverhalte definieren und durchlaufen zu können. 
+        Einsatz finden diese Frameworks in \ac{BRMS}, in Systemen, die durch Regeln eine bestimmte Logik erfüllen und 
+        wiederholt auftreten und ausgelöst werden können, sowie in 
+        \acl{SH} Plattformen. Durch die Definition von Regel und Automatisierungen können wiederkehrende Prozesse in einem smarten 
+        Büro oder Zuhause automatisiert werden, sodass dem Nutzer kleiner Aufgaben abgenommen werden können. Ursprünglich war der 
+        Ansatz des Regelwerks für die effiziente Ausführung von Geschäftsregeln entwickelt. 
+        \\
+        Es gibt eine Vielzahl an Anbietern, die solche Systeme und Frameworks 
         in unterschiedlicher Implementierung bereitstellen. Die im Java-Umfeld bekanntesten sind unter anderem Drools, OpenL Tablets, 
-        Easy Rules und RuleBook\footnote{Regelwerke im Java-Umfeld. \url{https://www.baeldung.com/java-rule-engines} Besucht am 16.05.2022}
+        Easy Rules und RuleBook\footnote{Regelwerke im Java-Umfeld. \url{https://www.baeldung.com/java-rule-engines} Besucht am 16.05.2022}.
         \\
         Im folgenden Kapitel ist eine Marktanalyse (siehe Abschnitt \ref{sec:marktanalyse}) im Bereich \acl{SH} dargelegt, die auf die Fortschritte 
         und Prognosen der nächsten Jahre eingeht.
