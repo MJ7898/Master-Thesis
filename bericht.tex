@@ -191,6 +191,33 @@
 %\include{chapter/2Theor-Grundlagen/requirementsengineering}
 \include{chapter/1Einleitung/technikstand}
 \include{chapter/3Anforderungsanalyse/anforderungen}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Aktionsdiagramm_Check-in.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Sequenzdiagramm_Check-in.pdf}
+\end{landscape}
+\include{chapter/3Anforderungsanalyse/anforderungenUC}
 \include{chapter/3Anforderungsanalyse/nichtfunktionaleAnf}
 \include{chapter/3Anforderungsanalyse/mehrAnforderungen}
 \include{chapter/4Konzeption/konzept}
