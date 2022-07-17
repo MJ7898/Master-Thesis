@@ -278,7 +278,7 @@
     \linebreak
     Die Begrüßung und der Check-in eines Mitarbeiters oder angemeldeten Gastes an der Tür des Bürogebäudes erfordert mehrere Teilnehmer. 
     Darunter zählt die jeweilige Person, die den Check-in erfährt, eine Kamera, mit der die davor stehende Person authentifiziert wird, 
-    ein Service-Roboter, der die Begrüßung und den Check-in durchführt und die Steuerzentrale, die den Prozess koordiniert. 
+    ein Service-Roboter, der die Begrüßung und den Check-in durchführt und die Steuerzentrale, die den gesamten Prozess koordiniert. 
     \\
     \linebreak
     Für den Zeitpunkt des Check-ins muss die Person an 
@@ -291,7 +291,7 @@
     Nachricht wird als eingehendes Ereignis verwendet, worauf die Steuerzentrale reagiert. Basierend auf dem eingehenden Event, wird der 
     weitere Prozess gestartet. Nach dem Erhalt der Nachricht wird auf Grundlage des Topics diese zugeordnet und die dafür 
     vorgesehene Regel ausgeführt. Hierfür wird der Service-Roboter über die Steuerzentrale an die Tür geschickt, an der die Begrüßung 
-    stattfinden soll. Nach erfolgreicher Begrüßung findet der Check-in statt, worauf die Person einen Platzbuchen kann oder bei vorab getätigter 
+    stattfinden soll. Nach erfolgreicher Begrüßung wird der Check-in durchgeführt, worauf die Person einen Platz buchen kann oder bei vorab getätigter 
     Buchung diese bestätigen und sich als anwesend eintragen kann. Die grobe Skizzierung ist folgendem Anwendungsfalldiagramm zu entnehmen: 
     \begin{figure}[hbt!]
         \centering
@@ -306,7 +306,12 @@
     %Authentifizierung eine Nachricht an einen Nachrichten-Broker. An dieser Stelle hört die Steuerzentrale auf die 
     %veröffentlichte Nachricht und konsumiert diese. Mit dem Ereignis ist der Auslöser für die weiteren Schritte gegeben. Nach 
     %dem Erhalt der Nachricht wird diese zugeordnet und die dafür vorgesehene Regel angestoßen. Mit Beginn der Anweisung wird 
-    %der Service-Roboter an die Tür geschickt, um die Person zu begrüßen. 
+    %der Service-Roboter an die Tür geschickt, um die Person zu begrüßen.
+    \\
+    \linebreak
+    \pagebreak
+    \linebreak
+    %\pagebreak
     Sobald eine Person an der Tür authentifiziert und der Begrüßungsprozess gestartet wurde, werden, während der Service-Roboter an 
     die Tür fährt, über eine Schnittstelle zur internen Büroplatzbuchungssoftware die Platzbuchungen abgefragt. 
     Sobald der Service-Roboter an der Tür angelangt ist, öffnet sich diese und die Person kann eintreten. Wenn die zu begrüßende 
@@ -326,8 +331,7 @@
     Ladestation geschickt. Somit ist das Szenario abgearbeitet und der Roboter steht für weitere Aufgaben zur Verfügung. 
     \\
     \linebreak
-    Eine konkrete Aufgabenbeschreibung, sowie die User Story ist dem Anhang (SIEHE ANHANG %\ref{}
-    ) zu entnehmen. 
+    Eine konkrete Aufgabenbeschreibung, sowie die User Story ist dem Anhang (sie Anhang \ref{appendix:user-story-uc1}) zu entnehmen. 
     \\
     Zur besseren Veranschaulichung des Anwendungsfalls sind die Prozesse visualisiert und folgenden Diagrammen, darunter 
     einem Aktivitätsdiagramm, einem Sequenzdiagramm und einem Ablaufdiagramm, zu entnehmen: 

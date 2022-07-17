@@ -1,0 +1,74 @@
+\section*{Use Case 2 - Notfall-Evakuierung}
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{| p{3cm} | p{12.75cm} | }
+            \hline
+                \textbf{Task:} & \textbf{Begrüßung / Check-In von Member und Gästen} \\
+            \hline
+                \textbf{Ziel:} & Einen Notfall zu erkennen und darauf hin alle Member und Gäste, die sich im Büro befinden, informieren und bitten das Gebäude zu verlassen. \\
+            \hline
+                \textbf{Eingriffsmöglichkeiten:} & Keine, (Evtl. direkte Interaktion mit dem Service-Roboter). \\
+            \hline
+                \textbf{Ursachen:} & Aktivierung des Sensors durch äußerliche Einwirkung. \\
+            \hline
+                \textbf{Priorität:} & Hoch \\
+            \hline
+                \textbf{Durchführungsprofil:} & nach Meldung eines Notfalls durch Sensoren und Melder \\ 
+            \hline
+                \textbf{Vorbedingung:} & Ein Melder kann Nachrichten veröffentlichen, Topics für die Melder und Empfänger sind definiert. \\
+            \hline 
+                \textbf{Info-In:} & Meldung eines Sensors (Melder) über einen Notfall (Rauch, Feuer, Wasser, Gas). \\
+            \hline
+                \textbf{Info-Out:} & Kenntnis der gebuchten Plätze, Interaktionsmöglichkeiten mit dem Service-Roboter, Benachrichtigung bei Beendung des Prozesses. \\
+            \hline
+                \textbf{Ressourcen:} & Service-Roboter, Sensor (Rauch-, Feuer- oder Gas-Melder), Information über aktuelle Buchungen, Zuordnung von Positionen von Büroplätzen. \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Aufgabenbeschreibung UC 2 - Notfall-Evakuierung}
+    \label{tab:evacuation}
+\end{table}
+
+%\subsection*{UC 2 - Beschreibung}
+%%    Steuerzentrale:
+%    \begin{itemize}
+%        \item Input: MQTT Nachricht angestoßen von einem Member (Aktion; Uhrzeit)
+%        \item Input: DoorJames API - Gebuchte Büroplätze und Personen die einen Termin vor Ort registriert haben
+%        \item -	Output: Zu durchlaufender Prozess (Evakuierung) und Name des Gastes / Members und Position der Plätze und Räume, die gebucht wurden. 
+%    \end{itemize}
+	
+%    Service-Roboter: 
+%    \begin{itemize}
+%        \item Input: MQTT (Prozess-Trigger durch Steuerzentrale und Position gebuchter Plätze und Räume
+%        \item Input: Objekterkennung (Personenerkennung) durch die Kamera
+%        \item Output: (An Steuerzentrale) – Status / Prozess (erfolgreich/nicht erfolgreich) abgeschlossen
+%        \item -> Event-Möglichkeiten werden von Service-Roboter direkt verarbeitet. (Interaktion mit Person, Anweisungen an die Person) 
+%        \item -> Event-Möglichkeiten: 
+%        \item --> Kunde, Gast & Member: 
+%        \item ---> Alarmieren und bitten das Gebäude auf schnellstem Weg zu
+%    \end{itemize}
+
+\subsection*{UC 2 - User Story}
+\textbf{Gast:}
+\\
+    Als Gast, Member und Manager möchte ich bei einem Notfall alarmiert werden. Bei eintretendem Fall möchte ich 
+    Anweisungen, die zu beachten und umzusetzen sind, erhalten. Ebenso ist ein Hinweis zu den Notausgängen 
+    sinnvoll und hilft bei der Flucht, bzw. beim Verlassen des Gebäudes. Damit keine Personen im Büro 
+    bleiben, ist eine Information über Anwesende von belangen. Der Member sollte die Möglichkeit haben, den 
+    Service-Roboter aufzufordern nach Leuten zu rufen, die nicht in Sichtweite sind. Sobald alle Plätze 
+    abgefahren sind, bzw. durch den Service-Roboter keine Personen mehr erkannt werden, soll eine Benachrichtigung 
+    erfolgen, dass alle aus dem Gebäude sind, bzw. keine mehr gesichtet wurden. Diese Information hilft bei der 
+    anschließenden Kontrolle über am Treffpunkt anwesender Personen. Abschließend soll ggf. Eine Information über die 
+    Platzbuchungen gezeigt werden, damit bei der Kontrolle keine Fehler unterlaufen und keine Personen, die nicht 
+    gesehen werden, vergessen werden.
+
+\subsection*{Akzeptanzkriterien}
+\begin{itemize}
+    \item AK-01: Eine MQTT-Message des Rauchmelders (Sensors) wird von der Steuerzentrale empfangen.
+    \item AK-02: Die MQTT-Message wird gelesen und Abfragen an die DoorJames API erfolgen (Abfrage der Personen zum Zeitpunk im Bürogebäude)
+    \item AK-03: Informationen der DoorJames API werden empfangen und können weiterverarbeitet werden. 
+    \item AK-04: Die benötigten Informationen können an den Service-Roboter (Temi) weitergeleitet werden.
+    \item AK-05: Temi wird losgeschickt, um nach Personen im Gebäude zu suchen.
+    \item AK-06: Die Steuerzenrale schickt eine SMS, E-Mail an die Gebäudeverantwortliche Person, dass ein Notfall losgetreten wurde.
+    \item Ak-07: Eine MQTT-Message wird empfangen, sobald der Service-Roboter alle Tasks (ToDo's)  des Prozesses abgearbeitet hat. 
+\end{itemize}

@@ -217,7 +217,60 @@
 }% \AddToShipoutPictureBG*
   \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Sequenzdiagramm_Check-in.pdf}
 \end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Ablaufdiagramm_Sichtweisen.pdf}
+\end{landscape}
 \include{chapter/3Anforderungsanalyse/anforderungenUC}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Aktionsdiagramm_Notfall.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Sequenzdiagramm_Notfall.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Ablaufdiagramm_Sichtweisen.pdf}
+\end{landscape}
+\include{chapter/3Anforderungsanalyse/expertenInterviewUndAnforderungen}
 \include{chapter/3Anforderungsanalyse/nichtfunktionaleAnf}
 \include{chapter/3Anforderungsanalyse/mehrAnforderungen}
 \include{chapter/4Konzeption/konzept}
@@ -383,6 +436,14 @@
   \caption{Persona 3 zu der Zielgruppenanalyse}
   \label{appendix:persona3}
 \end{figure}
+
+\chapter{}
+\label{appendix:user-story-uc1}
+\include{chapter/9Anhang/UC1_UserStory}
+
+\chapter{}
+\label{appendix:user-story-uc2}
+\include{chapter/9Anhang/UC2_UserStory}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
