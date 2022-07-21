@@ -59,42 +59,45 @@
 \section{Anforderungen}
 \label{sec:requirementsFinal}
     In Folge der vorangestellten Literaturrecherche, der Markt- und, Zielgruppenanalyse, der entwickelten Anwendungsfälle und 
-    der durchgeführten Experteninterviews ergaben sich Anforderungen an das System als auch Bausteine, die in der 
-    Konzeption und der anschließenden prototypischen Implementierung der Software essentiell sind. Da der Fokus dieser 
-    Arbeit auf der einfachen Handhabung der formalisierten Interaktionen für den Softwareentwickler liegt, werden 
-    spezifische Anforderungen, die diese Richtung konkret adressieren, höher priorisiert als allgemeingültige Anforderungen, die mehr das 
-    Verhalten einer Software beschreiben. Zur Dokumentation der nicht funktionalen Anforderungen wird sich an dem 
-    \textit{Software Produkt Qualitätsmodell} nach der ISO Norm 25010\footnote{Die acht Qualitätscharakteristiken nach ISO 25010. \url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010} Abgerufen am 24.06.2022.} 
+    der durchgeführten Experteninterviews ergaben sich Anforderungen an das System, %als auch Bausteine, 
+    die in der Konzeption und der anschließenden prototypischen Implementierung zu berücksichtigen sind. %der Software essentiell sind. 
+    %Da der Fokus dieser 
+    %Arbeit auf der einfachen Handhabung der formalisierten Interaktionen für den Softwareentwickler liegt, werden 
+    %spezifische Anforderungen, die diese Richtung konkret adressieren, höher priorisiert als allgemeingültige Anforderungen, die mehr das 
+    %Verhalten einer Software beschreiben. 
+    Zur Dokumentation der nicht funktionalen Anforderungen wird sich an dem 
+    \textit{Software Produkt Qualitätsmodell} nach der ISO Norm 25010\footnote{Qualitätscharakteristiken nach ISO. \url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010} Besucht am 24.06.2022.} 
     orientiert. 
     \\
-    \linebreak
+    %\linebreak
     Der folgenden Tabelle (\ref{tab:functionalRequirements}) sind die funktionalen Anforderungen (FA) zu entnehmen: 
-    \pagebreak
+    %\pagebreak
     \begin{table}[hbt!]
         \begin{center}
             \begin{tabular}{ | p{0.6cm} | p{9.5cm} | p{1.6cm} | p{3.1cm} | }
                 \hline
                     \textbf{} & \textbf{Anforderung (User Story)} & \textbf{Priorität} & \textbf{Quelle} \\
                 \hline
-                    FA1 & Als Softwareentwickler möchte ich mit einer vorgegebenen Struktur Regeln definieren, die zur Laufzeit ausgeführt werden können, wenn das zutreffende Ereignis eintrifft. & Essentiell & Zielsetzung der Arbeit \\
+                    FA1 & Als Softwareentwickler möchte ich mit einer vorgegebenen Struktur Regeln definieren, die zur Laufzeit ausgeführt werden können. & Essentiell & Zielsetzung der Arbeit \\  %, wenn das zutreffende Ereignis eintrifft.
                 \hline
-                    FA2 & Als Softwareentwickler möchte ich Auslöser aktivieren, bzw. definieren können, nach denen die Regeln ausgelöst werden. & Essentiell & Experteninterview \\
+                    FA2 & Als Softwareentwickler möchte ich, dass alle Regeln, die ich definiert habe, zu bestimmtem Auslöser gestartet werden. & Essentiell & Experteninterview \\
                 \hline
-                    FA3 & Als Softwareentwickler möchte ich einen Zustandsraum erstellen, der nach meinen Bedürfnissen und Anwendungsfällen variabel implementiert werden kann. & Essentiell & Experteninterview \\ 
+                    FA3 & Als Softwareentwickler möchte ich einen Zustandsraum erstellen, der individuell implementiert werden kann. & Essentiell & Experteninterview \\ 
                 \hline
-                    FA4 & Als Softwareentwickler möchte ich Bedingungen definieren und abfragen können, die basierend auf dem Ereignis die dazugehörige Regel starten und ausführen lassen. & Essentiell & Experteninterview \\ 
+                    FA4 & Als Softwareentwickler möchte ich Bedingungen definieren und abfragen können, die basierend auf dem Ereignis die dazugehörige Regel ausführen. & Essentiell & Experteninterview \\ 
                 \hline
                     FA5 & Als Softwareentwickler möchte ich Komponenten anlegen können, die reelle Gegenstände und dessen Zustände abbilden. & Hoch & Experteninterview \\
                 \hline
                     FA6 & Als Softwareentwickler möchte ich das vorgegebene Framework individuell nutzen können, indem ich bei der Definition der Regeln und der Informationsbeschaffung nicht eingeschränkt bin. & Essentiell & Zielsetzung der Arbeit, Experteninterview \\
                 \hline
-                    FA7 & Als Softwareentwickler möchte ich, dass alle Regeln, die ich definiert habe, zu bestimmtem Auslöser gestartet werden. & Essentiell & Experteninterview \\ 
-                \hline
+                %    FA7 & Als Softwareentwickler möchte ich Auslöser aktivieren, bzw. definieren können, nach denen die Regeln ausgelöst werden. & Essentiell & Experteninterview \\ 
+                %\hline
             \end{tabular}
         \end{center}
         \caption{Funktionale Anforderungen (FAs)}
         \label{tab:functionalRequirements}
     \end{table}
-    \\
-    Nach der Aufstellung der funktionalen Anforderungen folgt die der nicht funktionalen Anforderungen (NFA):
+    %\\
+    %\pagebreak
+    %Nach der Aufstellung der funktionalen Anforderungen folgt die der nicht funktionalen Anforderungen (NFA):
    

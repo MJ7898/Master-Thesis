@@ -72,18 +72,21 @@
     etablierte Technologie.
     \\ 
     \linebreak
-    Zum aktuellen Zeitpunkt befindet sich die Technologie rund um Plattformen für intelligente Geräte im privaten 
+    Zum aktuellen Zeitpunkt befindet sich die Technologie rund um Plattformen für intelligente Geräte im privaten als auch im unternehmerischen 
     Bereich, engl. \textit{\ac{SH}} oder \textit{Connected Home}, im Anfangsstadium der letzten Phase, dem sogenannten 
     \textit{Plateau der Produktivität}. Mit zunehmender Akzeptanz werden im Umfeld des Internets der Dinge, engl. 
     \textit{\acl{IoT}}, stetig Szenarien entwickelt, die das Wachstum und die Verwendung von solchen Plattformen vorantreibt. 
     Mit einer immer tiefer gehenden Forschung und Umsetzung von Anwendungsbeispielen werden Bereiche offenbart, die 
     eine solche Plattform im privaten als auch im geschäftlichen Umfeld immer attraktiver gestaltet. Mit steigender  
-    Konnektivität und Kompatibilität mehreren Geräten und Gegenständen können Bereiche und Szenarien, wie die 
+    Konnektivität und Kompatibilität mehreren Geräten und Gegenständen können Szenarien und Prozessautomatisierungen, wie die 
     Steuerung von Service-Robotern, umgesetzt werden. Der jetzige technologische Fortschritt und die über die Forschungsjahre 
     gesammelten Erfahrungen bringt das Segment der intelligenten Geräte der \acs{IoT} den ursprünglich angedachten 
     Visionen und Ideen näher, sodass ein weiterer Ausbau dieser Technologie und dessen Anwendung stattfindet und sich 
     vollständig in den Markt etabliert. Der finale Schritt der endgültigen Marktreife ist ein faszinierender und wichtiger Grund 
-    für meine Motivation, mich dieser Technologie und der dahinterstehenden Theorie zu widmen.
+    für meine Motivation, mich dieser Technologie und der dahinterstehenden Theorie zu widmen. Ein weiterer dazu beitragender Aspekt ist 
+    die Steuerung und Verknüpfung von Geräten, sowie die Automatisierung von Prozessen innerhalb eines intelligenten Büros, um stetig hinzukommende 
+    Anwendungsfälle abdecken und einfach implementieren zu können. Einen Ansatz zu schaffen, der einem Softwareentwickler eine Struktur vorgibt, die 
+    in sich jedoch beliebig erweiterbar ist, sodass die Einschränkung von Prozessabbildungen minimiert wird. 
     % !!! Weiterer Grund zur Motivation: Dem Entwickler mehrere Freiheiten bei der Umsetzung von Anwendungsfällen oder Regeln zu 
     % !!! schaffen und die Regeldefinition nicht über ein Zusätzliches Framework abzubilden, sondern eine klar Struktur 
     % !!! vorzugeben, die klar definiert, welche grundlegenden Komponenten zu Erweiterung notwendig sind. Weitere Anpassungen oder 
@@ -102,21 +105,33 @@
     %Anwendungsszenarien und Objekte integriert werden, ohne einen zu großen Entwicklungsaufwand zu erzeugen.   
     \\ 
     \linebreak
-    Die Einsatzgebiete von intelligenten Geräten, beziehungsweise die Verwendung einer Kompaktlösung beschränkt sich räumlich 
-    auf Gebäude, Häuser und Wohnungen, bieten trotz dessen viele Verwendungs- und Einsatzmöglichkeiten. Diese sehen wie folgt aus: 
+    Die Einsatzgebiete von intelligenten Geräten, beziehungsweise die Verwendung von Kompaktlösungen, Plattformen und Steuereinheiten zielen räumlich 
+    auf Gebäude, Häuser und Wohnungen ab und bieten viele Verwendungs- und Einsatzmöglichkeiten, die stetig ausgebaut und optimiert werden. 
+    Diese sehen wie folgt aus: 
     \begin{itemize}
         \item Komfort
         \item Entertainment
         \item Überwachung und Sicherheit
         \item Steuerung von Prozessen
-        \item Management von Automationen
+        \item Management von Automatisierungen (Automationen)
     \end{itemize}    
     Neben der Affinität von \acl{SH} zum \acl{IdD} und der damit einhergehenden Technologie bringt diese Vorteile mit sich, wie z.B. 
-    die Modernisierung von Wohn- und Bürogebäuden und die angestrebte Verbesserung der Lebensqualität. 
-
+    die Modernisierung von Wohn- und Bürogebäuden und die routinierte Ausführung und Abarbeitung von Prozessen, die dem Menschen 
+    Aufgaben und Arbeiten abnehmen.
+\pagebreak
 \section{Forschungsfragen}
 \label{sec:forschungsfragen}
-    %-	Wie kann man die Usability von SmartHome-Plattformen verbessern, so dass die formalen Interaktionen der Softwareentwickler schneller sind?
+    Die in der Arbeit zentral behandelte Forschungsfrage ist wie folgt definiert: 
+    \\
+    \linebreak
+    \textit{F1: Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, sodass die formalen Interaktionen der Softwareentwickler schneller sind?}
+    \\
+    \linebreak
+    Eine Konkretisierung identifiziert konkret die Herausforderungen existierender Plattformen in Bezug auf die Definition von Regeln und Automatisierungen:
+    \\
+    \linebreak
+    \textit{F1.1: Welche sind die Usability-Herausforderungen existierender Plattformen, bzw. welche Anforderungen würden für eine Optimierung gelten?}
+    %-	Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, so dass die formalen Interaktionen der Softwareentwickler schneller sind?
         %o	Welche sind die Usability-Probleme der existierenden Plattformen? 
         %o	Welche Anforderungen würden für eine Verbesserung einer solchen Plattform gelten?
         % Nicht Bestandteil der eigentlichen Forschungsfrage: 
@@ -137,7 +152,7 @@
     %und lässt den Nutzer Regeln und Prozesse nur beschränkt einfach abbilden. 
     Mit dem Framework soll dem Anwender eine Struktur an die Hand gegeben werden, mit der Regeln und Prozesse innerhalb eines 
     smarten Büros einfach abgebildet werden können. Die Abarbeitung von Regeln und Prozessen sollen über das Framework 
-    koordiniert werden, sodass der Anwender sich um die Regeldefinition und um die abzubildende Umgebung durch Geräte, Zustände und weitere 
+    koordiniert werden, sodass der Anwender sich ausschließlich um die Regeldefinition und um die abzubildende Umgebung durch Geräte, Zustände und weitere 
     potentielle Mittel innerhalb eines smarten Büros, kümmern muss. 
     %"Anleitung" dem Entwickler an die Hand zu geben, dass Prozesse schnell umgesetzt werden können und jedoch 
     % keinerlei Einschränkungen hat, da mit Java (Spring Boot) keine Grenzen gesetzt sind und mit dem Framework auch 
