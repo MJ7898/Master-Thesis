@@ -7,10 +7,10 @@
     \linebreak
     Das System soll in drei Schichten aufgeteilt werden. Die oberste Schicht stell die Kommunikationsschicht dar, die mittlere Ebene 
     handelt um die Logik- und Prozessschicht und der unterste Block repräsentiert die Persistenzschicht. Im Rahmen der Arbeit wird 
-    die dritte Schicht nicht weiter konkretisiert, da diese zu aktuellem Zeitpunkt keinen Nutzen generiert, bzw. für keine weitere Verarbeitung 
+    die dritte Schicht nicht detailliert beschrieben, da diese zu aktuellem Zeitpunkt keinen Nutzen generiert, bzw. für keine weitere Verarbeitung 
     genutzt wird. Die Ausprägung der Schicht ist dennoch ohne weiteres möglich und wird auch grob skizziert. Der Abbildung 
     (\ref{fig:schichtenarchitektur}) ist die Aufteilung der Schichtenarchitektur zu entnehmen. In der Darstellung unterscheidet sich die 
-    Persistenzschicht von den anderen, um erkenntlich zu machen, dass diese in aktuellem Konzept lediglich eine Nebenrolle spielt. 
+    Persistenzschicht von den anderen, um erkenntlich zu machen, dass diese in aktuellem Konzept keine konkrete Implementierung erfährt. 
     Durch die Darstellung in übergreifender Form wird deutlich, das bereits auf dieser Ebene die Trennung der Zuständigkeiten, engl. 
     \textit{seperation of concerns}, greift. Durch die gezielte Abstraktion von Komponenten und Informationen kann die Komplexität 
     eines Systems gesteuert werden. Die Kommunikationsschicht ermöglicht die Anbindung von verschiedensten Kommunikationsprotokollen, die 
@@ -18,7 +18,8 @@
     Die Logikschicht nimmt alle eingehenden Events, die jeweils eine Zustandsänderung erzwingen, der Kommunikationsschicht entgegen 
     und durchläuft den Prozess des Frameworks, um auf die Zustandsänderung die passende Regel auszuführen. Die 
     Persistenzschicht ist für die Speicherung erzeugter Daten zuständig, bspw. wenn eine Transaktionshistorie von Zustandsänderungen 
-    persistiert werden soll. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stünden.  
+    persistiert werden soll. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stünden. Das Vorantreiben der Speicherung 
+    von Informationen kann durch den agilen Entwicklungsprozess außerhalb des Thesis-Rahmens erfolgen. 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Schichtenarchitektur.png}
@@ -50,66 +51,6 @@
     in Betracht gezogen. Verwendet werden allgemeine Architekturmuster und -prinzipien, die dazu beitragen die Software wartbar 
     zu gestalten, die Komplexität einzelner Funktionen zu reduzieren und die Lesbarkeit und Überschaubarkeit zu erhöhen. 
     
-    \subsection{Generische Programmierung} % Typisierung
-        % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
-        Eine entscheidende konzeptionelle Überlegung in Richtung des Zustandsraumes wird vorab erläutert, damit in 
-        folgenden Darstellungen klar zwischen der Objektdarstellung und der eigentlichen Repräsentation des Zustandes 
-        differenziert werden kann. 
-        \\
-        Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
-        Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
-        notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vorher bekannt ist. 
-        \\
-        \linebreak
-        Hierfür wird auf das Konzept der generischen Programmierung, sog. \textit{Generics}, gesetzt. Ein Synonym 
-        des Begriffs ist der parametrisierte Typ. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
-        gegeben, mit dem Klassen und Methoden mit Typen parametrisiert werden können. Diese Typ-Variablen sind zum 
-        Zeitpunkt der Implementierung unbekannt und können beliebig definiert werden. Erst zur Laufzeit des Systems 
-        wird die Typ-Variable durch einen oder ggf. auch mehrere Typen ersetzt. Somit ist zur Laufzeit das 
-        Objekt, dessen Struktur, Methoden und Funktionen bekannt. Bei der Verwendung von generischen Typen gibt es 
-        Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
-        einfachen Typ-Parameters. Weitere Varianzfälle werden in dieser Ausarbeitung nicht erläutert. 
-        \\
-        \linebreak
-        Ein konkretes Anwendungsbeispiel, wie es 
-        auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
-        \\
-        Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
-        jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
-\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:generics}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
-public class LogicHub<E> {
-    private E state;
-    ...
-    public E getState() {
-        return this.state();
-    }
-    ...
-}
-
-public class Application {
-    private final LogicHub<InnovationLab> logicHub;
-
-    public static void main(String[] args) {
-        logicHub = LogicHub.getInstance();
-        logicHub.getState(); // -> returns the InnovationLab object 
-                             // and it's values.
-        ...
-    }
-}
-\end{lstlisting}
-        Mit den Java Generics ist eine leistungsstarke Ergänzung der Java-Sprache gegeben, da es die Arbeit des Programmierers einfacher und 
-        weniger Fehleranfällig macht. Zusätzlich wird durch die Generics die Typkorrektheit zur Kompilierzeit erzwungen und ermöglicht 
-        die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätzlichen Overhead zu verursachen. 
-        \\
-        Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
-        \\
-        \linebreak
-        Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
-        Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
-        \\
-        \linebreak
-        Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
-
     \subsection{Aufbau des Frameworks}
         Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür einzusetzenden Architekturmuster aufgegriffen. 
         \\
@@ -121,15 +62,33 @@ public class Application {
         Ziel des Schablonenmethoden-Entwurfsmusters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
         abstrakten Klasse wird das Skelett des Objektes definiert. Die einzelnen Schritte können so in den darunter liegenden Klassen überschrieben oder ergänzt 
         werden, ohne dass die grundlegende Struktur der übergreifenden Klasse modifiziert werden muss. Die Unterklassen, die konkrete Definition einer Regel, sollen 
-        unter Verwendung des \textit{Singleton} Patterns \cite{gamma1995singleton} realisiert werden. Die zu den Erzeugungsmustern zugehörige Schablone dient zur 
+        unter Verwendung des \textit{Singleton} Patterns \cite{gamma1995singleton} realisiert werden. Das zu den Erzeugungsmustern 
+        zugehörige Pattern dient zur 
         Sicherstellung, dass eine Klasse, in dem Fall die einzelne Regel, zur Laufzeit ausschließlich eine einzige Instanz erzeugt und diese global erreichbar ist. 
         Dadurch wird von jeder Regel immer nur ein Objekt erzeugt. 
         \\
         \linebreak
         Ähnlich zu dem Aufbau des Regelwerks, sollen die Komponenten, die reale Gegenstände abbilden, ebenso Gebrauch des Schablonenmethoden-Entwurfsmusters machen. 
-        Unterschied zu den Regeln ist lediglich, dass die Funktion, eine Komponente für weitere Aufgaben zu sperren, bereits in der abstrakten Klasse definiert wird. 
-        Weitere Eigenschaften können zusätzlich in der jeweiligen Komponente definiert werden. 
-        
+        Unterschied zu der Regel-Schablone ist lediglich die Funktion der Sperrung einer Komponenten für weitere Aufgaben. Diese soll bereits in der abstrakten Klasse 
+        definiert sein. Konkrete Komponenten-Eigenschaften und Zustandsattribute können von dem Anwender selbst implementiert werden.
+        \\
+        \linebreak
+        Die durch den Anwender implementierte Transformation, die basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, wird  
+        ebenso stützend auf dem \textit{Template Method} Pattern vorgegeben. Hierbei werden alle notwendigen Attribute vorgegeben, die für die Transformation notwendig sind.
+        \\
+        Das Zustandsobjekt ist aus Anwendersicht als ein einfaches \ac{POJO}, ein ganz normales Java Objekt zu implementieren. Das Framework soll sich um die korrekte Nutzung 
+        des Objektes kümmern. 
+        \\
+        \linebreak
+        Der übergreifende Aufbau unter Verwendung von Entwurfsmustern ist folgender Abbildung zu entnehmen:
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/final_architecture_with_patterns.png}
+            \caption{Architektur mit verwendeten Entwurfsmustern}
+            \label{fig:patternarchitektur}
+        \end{figure}
+        \\
+        Der grob skizzierte Aufbau wird in den folgenden Abschnitten konkretisiert.
 
     % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)
     \subsection{Kommunikationsschicht}

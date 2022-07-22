@@ -91,6 +91,67 @@
 \section{Implementierung}
 \label{sec:implementation}
 
+\subsection{Generische Programmierung} % Typisierung
+% Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
+Eine entscheidende konzeptionelle Überlegung in Richtung des Zustandsraumes wird vorab erläutert, damit in 
+folgenden Darstellungen klar zwischen der Objektdarstellung und der eigentlichen Repräsentation des Zustandes 
+differenziert werden kann. 
+\\
+Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
+Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
+notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vorher bekannt ist. 
+\\
+\linebreak
+Hierfür wird auf das Konzept der generischen Programmierung, sog. \textit{Generics}, gesetzt. Ein Synonym 
+des Begriffs ist der parametrisierte Typ. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
+gegeben, mit dem Klassen und Methoden mit Typen parametrisiert werden können. Diese Typ-Variablen sind zum 
+Zeitpunkt der Implementierung unbekannt und können beliebig definiert werden. Erst zur Laufzeit des Systems 
+wird die Typ-Variable durch einen oder ggf. auch mehrere Typen ersetzt. Somit ist zur Laufzeit das 
+Objekt, dessen Struktur, Methoden und Funktionen bekannt. Bei der Verwendung von generischen Typen gibt es 
+Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
+einfachen Typ-Parameters. Weitere Varianzfälle werden in dieser Ausarbeitung nicht erläutert. 
+\\
+\linebreak
+Ein konkretes Anwendungsbeispiel, wie es 
+auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
+\\
+Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
+jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:generics}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
+public class LogicHub<E> {
+private E state;
+...
+public E getState() {
+return this.state();
+}
+...
+}
+
+public class Application {
+private final LogicHub<InnovationLab> logicHub;
+
+public static void main(String[] args) {
+logicHub = LogicHub.getInstance();
+logicHub.getState(); // -> returns the InnovationLab object 
+                     // and it's values.
+...
+}
+}
+\end{lstlisting}
+Mit den Java Generics ist eine leistungsstarke Ergänzung der Java-Sprache gegeben, da es die Arbeit des Programmierers einfacher und 
+weniger Fehleranfällig macht. Zusätzlich wird durch die Generics die Typkorrektheit zur Kompilierzeit erzwungen und ermöglicht 
+die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätzlichen Overhead zu verursachen. 
+\\
+Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
+\\
+\linebreak
+Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
+Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
+\\
+\linebreak
+Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
+
+
 \subsection{Prototypische Implementierung des Anwendungsfalls}
 %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
 %-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
