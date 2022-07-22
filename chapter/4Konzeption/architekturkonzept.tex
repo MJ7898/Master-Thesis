@@ -73,8 +73,11 @@
         definiert sein. Konkrete Komponenten-Eigenschaften und Zustandsattribute können von dem Anwender selbst implementiert werden.
         \\
         \linebreak
-        Die durch den Anwender implementierte Transformation, die basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, wird  
-        ebenso stützend auf dem \textit{Template Method} Pattern vorgegeben. Hierbei werden alle notwendigen Attribute vorgegeben, die für die Transformation notwendig sind.
+        Die durch den Anwender implementierte Transformation, die basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, soll das 
+        \textit{Adapter} Pattern verwenden. Dadurch können Events aus unterschiedlichen Services und mehreren Kommunikationswegen entgegengenommen werden, ohne das 
+        die eigentliche Schnittstelle modifiziert wird. %Erläuterung des Adapter Pattern...  
+        Zusätzlich stützt das \textit{Template Method} Pattern die Struktur der Transformation, die je nach Komponente und Regel unterschiedliche Eingangswerte definiert. 
+        Innerhalb dieser Schablone sollen alle Attribute vorgegeben, die für die Transformation notwendig sind. %TBD.. durchlesen / verbessern.
         \\
         Das Zustandsobjekt ist aus Anwendersicht als ein einfaches \ac{POJO}, ein ganz normales Java Objekt zu implementieren. Das Framework soll sich um die korrekte Nutzung 
         des Objektes kümmern. 
