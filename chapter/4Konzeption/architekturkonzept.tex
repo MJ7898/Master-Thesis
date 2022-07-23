@@ -54,11 +54,11 @@
     \subsection{Aufbau des Frameworks}
         Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür einzusetzenden Architekturmuster aufgegriffen. 
         \\
-        Die Konzeptkomponenten (\ref{subsec:conceptcomps}) finden sich im umfassenden Architekturschaubild (siehe Abbildung %\ref{}
-        ) wieder. Die Regelstruktur 
+        Die Konzeptkomponenten (\ref{subsec:conceptcomps}) finden sich im umfassenden Architekturschaubild (siehe Abbildung \ref{fig:patternarchitektur}) wieder. 
+        Die Regelstruktur 
         soll die Funktion einer Bedingungsprüfung und der darauffolgenden Aktion vorgeben, damit bestimmte Anhaltspunkte geschaffen sind, die das Framework überprüfen 
         und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden bei Implementierung einer spezifischen Regel zur Verfügung stehen, wird mittels dem 
-        \textit{Template Method} Pattern \cite{gamma1995template} ein Leitfaden vorgegeben. Dies gehört zu den Verhaltensmustern, engl. behavioral patterns. 
+        \textit{Template Method} Pattern \cite{gamma1995template} ein Leitfaden vorgegeben. Dieses gehört zu den Verhaltensmustern, engl. behavioral patterns. 
         Ziel des Schablonenmethoden-Entwurfsmusters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
         abstrakten Klasse wird das Skelett des Objektes definiert. Die einzelnen Schritte können so in den darunter liegenden Klassen überschrieben oder ergänzt 
         werden, ohne dass die grundlegende Struktur der übergreifenden Klasse modifiziert werden muss. Die Unterklassen, die konkrete Definition einer Regel, sollen 
@@ -73,11 +73,17 @@
         definiert sein. Konkrete Komponenten-Eigenschaften und Zustandsattribute können von dem Anwender selbst implementiert werden.
         \\
         \linebreak
-        Die durch den Anwender implementierte Transformation, die basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, soll das 
-        \textit{Adapter} Pattern verwenden. Dadurch können Events aus unterschiedlichen Services und mehreren Kommunikationswegen entgegengenommen werden, ohne das 
-        die eigentliche Schnittstelle modifiziert wird. %Erläuterung des Adapter Pattern...  
-        Zusätzlich stützt das \textit{Template Method} Pattern die Struktur der Transformation, die je nach Komponente und Regel unterschiedliche Eingangswerte definiert. 
-        Innerhalb dieser Schablone sollen alle Attribute vorgegeben, die für die Transformation notwendig sind. %TBD.. durchlesen / verbessern.
+        Die durch den Anwender implementierte Transformation, die basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, soll als Vorgabe 
+        stützend das {Template Method} Pattern verwenden. Dadurch ist die Struktur der Transformation vorgegeben, anhand dessen der Anwender neue Transformationsobjekte 
+        je nach Transformation erzeugen kann. Innerhalb dieser Schablone sollen alle Attribute vorgegeben werden, die für die Transformation notwendig sind.
+        \\
+        \linebreak
+        Damit zukünftig weitere Kommunikationsschnittstellen hinzugefügt werden können, soll für die Transformation zusätzlich das 
+        \textit{Adapter} Pattern verwenden werden. Dadurch können Events aus unterschiedlichen Services und über mehrere Kommunikationswege 
+        entgegengenommen werden, ohne dass die eigentliche Schnittstelle modifiziert werden muss. Das \textit{Adapter} Pattern gehört 
+        zu den Strukturmustern und ist wie folgt definiert: 
+        Die Konvertierung einer Schnittstelle einer Klasse in eine andere Schnittstelle, die vom Client erwartet wird. Dadurch ist die Zusammenarbeit von Klassen 
+        gewährleistet, die sonst aufgrund der inkompatiblen Schnittstelle nicht zusammenarbeiten könnten. \cite{gamma1995adapter}
         \\
         Das Zustandsobjekt ist aus Anwendersicht als ein einfaches \ac{POJO}, ein ganz normales Java Objekt zu implementieren. Das Framework soll sich um die korrekte Nutzung 
         des Objektes kümmern. 
