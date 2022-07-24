@@ -107,8 +107,8 @@
 
     \subsection{Logik- und Prozessschicht}
     % LOGIKSCHICHT UND AUFBAU -> \subsection{}?
-
-    \subsection*{Persistenzschicht}
+        
+    %\subsection*{Persistenzschicht}
     % EVTL.: PERSISTENZSCHICHT UND POTENTIELLER AUFBAU -> \subsection{}?
 
     % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
@@ -120,7 +120,7 @@
     % MQTT Broker über Home Assistant, bzw. losgelöster Broker
     % Anbindung von APIs auch Entwickler-Sache. Kann ich das vereinfachen, sodass die Integration einfacher wird?
 
-    \subsection{Überlegungen, Anstöße und Herausforderungen}
+    %\subsection{Überlegungen, Anstöße und Herausforderungen}
     % Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
     %werden können. -> Lediglich den Zustand der Komponenten locken.
     % KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
@@ -143,13 +143,13 @@
     %    im Rahmen dieser Arbeit nicht konkretisiert wird, da der Fokus auf der Kernfunktionalität, sowie auf dem 
         % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
 
-    \subsection{Parallelität}
+    %\subsection{Parallelität}
 
 
     %HERAUSFORDERUNG MIT DEM QUEUEING ANTEASERN.
 
-\subsection{Softwarekonzept}
-\label{subsec:softwarekonzept}
+%\subsection{Softwarekonzept}
+%\label{subsec:softwarekonzept}
 
 
 Für die Generierung mehrerer konkurrierender Sichten, wurde unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}

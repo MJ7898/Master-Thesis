@@ -1,13 +1,13 @@
 \chapter{Anforderungsanalyse}
 \label{chap:anforderungsanalyse}
     Dieses Kapitel befasst sich im Allgemeinen mit der Anforderungsanalyse und -erhebung. Hierbei wird eine
-    Marktanalyse repräsentiert, um das Potential rundum \acl{SH} aufzuzeigen und ein Gefühl 
-    dafür zu vermitteln, welche Anforderungen dabei entstehen können, bzw. bereits bestehen. Die Analyse ist 
+    Marktanalyse präsentiert, um das Potential rundum \acl{SH} aufzuzeigen und die entstehenden oder bereits 
+    bestehenden Anforderungen aufzuzeigen. Die Analyse ist 
     mit repräsentativen Statistiken, Studien und Umfragen belegt. Hauptsächlich wird im Rahmen der Anforderungserhebung 
     auf die Methodiken und Techniken eingegangen, die verwendet werden, um 
     Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerzentrale. Bestandteile der 
-    Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design}, im Deutschen 
-    nutzerzentriertes Design, eine \textit{Target Group Analysis}, im Deutschen Zielgruppenanalyse, und die Durchführung von 
+    Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design} (nutzerzentriertes Design), 
+    eine \textit{Target Group Analysis} (Zielgruppenanalyse), und die Durchführung von 
     Experteninterviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
     \\
     Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer und Anwender im 
@@ -16,39 +16,39 @@
     \\
     \linebreak
     Damit ein Eindruck entsteht, welches Marktpotential \acl{SH} Anwendungen haben und welche Anforderungen somit 
-    verbunden sind, wird basierend auf gegebenen Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
+    verbunden sind, wird basierend auf bestehenden Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
 
 \section{Marktanalyse}
 \label{sec:marktanalyse}
-    Der Markt rundum \acl{SH} nimmt immer weiter zu. Sei es die Entwicklung von neuen intelligenten Geräten, die 
-    Massentauglichkeit von Geräten %, die nicht lange am Markt bestehen 
+    Der Marktanteil rundum \acl{SH} wächst weiter an, %nimmt immer weiter zu. 
+    sei es in Bezug auf die Entwicklung von neuen intelligenten Geräten, die 
+    Massentauglichkeit von Geräten 
     oder die stetig wachsende Abdeckung von Anwendungsfällen und Übernahme von Aufgaben und Prozessen. Durch die Vielzahl an 
-    Produktanbietern und diversen Kommunikationsmöglichkeiten, ist es schwierig eine Lösung für alle Alternativen und 
-    Produktausprägungen anzubieten. Hersteller versuchen mit der angebotenen Produktpalette ihr eigenes Ökosystem im Bereich 
+    Produktanbietern und diversen Kommunikationsmöglichkeiten ist es schwierig, eine Lösung für alle Alternativen und 
+    Produktausprägungen anzubieten. Hersteller versuchen mit ihrer Produktpalette ihr eigenes Ökosystem im Bereich 
     \acl{SH} zu erstellen, um die Nutzer abhängig zu machen. Der repräsentativen Studie von Deloitte zufolge ist jedoch eine 
     Insellösung bei den Nutzern in Deutschland nicht gefragt \cite{deloitte2018}. Befragt wurden 2000 Konsumenten zwischen 
     19 und 75 Jahren. Einem geringen Anteil von 22 Prozent der 
     Befragten ist die Erweiterbarkeit des Systems mit Produkten anderer Hersteller weniger, bzw. nicht wichtig. Im Gegensatz dazu 
     empfinden 43 Prozent der Befragten die Erweiterbarkeit als wichtig und 28 Prozent als sehr wichtig \cite{deloitte2018}. 
-    Demnach müssen die Hersteller eine flexiblere Einsetzbarkeit gewährleisten, damit solche Systeme den Marktdurchbruch 
-    erlangen. Dadurch wird die Entwicklung von Plattformen komplexer und umfangreicher. Beispielsweise sind die am weit 
-    verbreitetsten Open Source Plattformen, openHAB und Home Assistant, sehr komplex und bilden ein großes Ökosystem ab, da 
-    stetig der Zuwachs an integrierbaren Geräten zunimmt und damit der Funktionsumfang steigt.  
+    Demnach sollten die Hersteller eine flexiblere Einsetzbarkeit gewährleisten, damit solche Systeme den Marktdurchbruch 
+    erlangen. Allerdings wird dadurch die Weiterentwicklung von Plattformen komplexer und umfangreicher, was sich wiederum als 
+    Nachteil erweist. Beispielsweise sind die am weitverbreitetsten Open-Source-Plattformen, openHAB und Home Assistant, 
+    vielschichtig und bilden ein großes System mit zunehmend integrierbaren Geräten ab, deren Funktionsumfang stetig steigt. 
 
     \subsection{Allgemeine Marktsituation und Marktprognose}
-    %Anbieter, Plattformen, Geräte
         Derzeit gibt es viele Anbieter für intelligente Produkte. Diese bieten zum einen einzelne Geräte an, die in 
         beliebige Plattformen integriert werden können und zum anderen ein eigenes Ökosystem, sofern der Anwender 
-        mehrere Produkte des Anbieters nutzen möchte. Dennoch ist in den meisten Fällen die Konfiguration der Geräte nur auf 
+        mehrere Produkte eines Anbieters nutzen möchte. Dennoch ist in den meisten Fällen die Konfiguration der Geräte nur auf 
         den hauseigenen Plattformen möglich. Somit kann der Nutzer nicht alle Komponenten ausschließlich über eine Plattform 
         konfigurieren und steuern. 
         \\
         \linebreak
-        Eine repräsentative Umfrage der \ac{SGCS} mit 1384 Teilnehmern, welche im April 2022 veröffentlicht wurde, zeigt, welche 
-        Anbieter in Deutschland am meist verbreitetsten sind, bzw. welche die Nutzer am häufigsten kaufen. An oberster Stelle 
+        Eine repräsentative Umfrage der \ac{SGCS} mit 1384 Teilnehmern, die im April 2022 veröffentlicht wurde, zeigt, welche 
+        Anbieter in Deutschland am populärsten sind, bzw. am häufigsten von den Nutzern gekauft werden. An oberster Stelle 
         steht Philips und Samsung mit jeweils 25 Prozent und an dritter Stelle Bosch mit 23 Prozent. Weitere Anbieter können dem 
-        Diagramm im Anhang (siehe \ref{appendix:brandings}) entnommen werden. Dabei sind jedoch weitaus nicht alle Hersteller und 
-        Anbieter aufgelistet. Detaillierter wird an dieser Stelle jedoch nicht eingegangen. 
+        Diagramm im Anhang (siehe \ref{appendix:brandings}) entnommen werden. Es sind jedoch nicht alle Hersteller und 
+        Anbieter aufgelistet. 
         \\
         \linebreak
         Der aktuelle Markt für intelligente Produkte ist in sechs primäre Segmente aufgeteilt, die jeweils andere Anwendungsfälle 
@@ -64,8 +64,7 @@
             \item Energiemanagement: Thermostate und Regler, Luftqualitätsmesser etc. 
         \end{itemize}
         \pagebreak
-        Die aufgelisteten Segmente werden von vielen Herstellern bedient. Darunter sind der folgenden Abbildung die 
-        repräsentativen Schlüsselanbieter zu entnehmen:
+        Die aufgelisteten Segmente werden von vielen Herstellern bedient. Der folgenden Abbildung sind die repräsentativen Schlüsselanbieter zu entnehmen:
         \begin{figure}[hbt!]
             \centering
             \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/keyplayers.png}
@@ -78,15 +77,15 @@
         \\
         \linebreak
         Laut den von Statista veröffentlichten Daten war die USA mit einem Umsatz von 28,86 Milliarden US-Dollar der größte 
-        \acl{SH} Markt im Jahr 2021, wogegen Deutschland eine Umsatz von 6,59 Milliarden US-Dollar erzielte. Zu berücksichtigen sind 
-        dabei jedoch die Demographische Lage als auch die Bevölkerungsdichte. Diese Aufstellung steht in keinem direkten Vergleich und 
-        dient lediglich zur Veranschaulichung und zur Unterscheidung der Marktanteile. Deutlich wird dabei jedoch, dass das 
-        Marktwachstum prozentual ähnlich ansteigt. 
+        \acl{SH} Markt im Jahr 2021, wogegen Deutschland einen Umsatz von 6,59 Milliarden US-Dollar erzielte. Zu berücksichtigen sind 
+        dabei jedoch die demographische Lage als auch die Bevölkerungsdichte. Diese Aufstellung steht in keinem direkten Vergleich und 
+        dient lediglich zur Veranschaulichung und zur Unterscheidung der Marktanteile. Deutlich wird dabei trotzdem das ähnlich prozentual ansteigende 
+        Marktwachstum. 
         \\
         \linebreak
-        Der Markt-Prognose in Abbildung (\ref{pic:revenue}) ist zu entnehmen, dass bis 2026 sich der Umsatz nahezu verdoppeln 
-        wird. Der Darstellung (\ref{pic:globalmarket}) der einzelnen Segmente kann entnommen werden, dass der Weltmarkt von 
-        2021 bis 2026 um ca. 100 Prozent zunimmt. Die Zeitspanne von 2019 bis 2026 stellt einen durchschnittlichen Zuwachs von 
+        Der Abbildung (\ref{pic:revenue}) ist die nahezu Verdoppelung des Umsatzes bis 2026 zu entnehmen. Die Darstellung 
+        (\ref{pic:globalmarket}) der einzelnen Segmente zeigt die Zunahme am Weltmarkt von 
+        2021 bis 2026 um ca. 100 Prozent. Die Zeitspanne von 2019 bis 2026 stellt einen durchschnittlichen Zuwachs von 
         17,4 Prozent dar. Anhand der Prognose und des Berichts von Statista ist deutlich zu sehen, dass der \acl{SH} Markt in 
         den nächsten Jahren erheblich wachsen wird. Prognostiziert ist ein globaler Marktwert bei ca. 207,8 Milliarden 
         US-Dollar bis 2026.
@@ -109,51 +108,53 @@
         Wohnraumes und Gebäudes forcieren. Dazu zählen unter anderem die Spracherkennung, die bei Sprachassistenten, 
         darunter bspw. Amazon Alexa, Apple HomePod (Siri) und dem Google Nest, eingesetzt wird, sowie \ac{AI} und \ac{KI} 
         zur Analyse, Auswertung und Optimierung von Verhaltensmustern und weiteren Analysezwecken \cite{statista2021}. 
-        Obwohl die Spracherkennung das Wachstum des Marktes ankurbelt, werden die herkömmlichen Interaktionsmöglichkeiten, 
-        z.B. die Kontrolle über Berührung durch Touch-Displays,
-        weiter bestehen und weiterhin eine wichtige Art des Gerätezugriffs darstellen \cite{all-electronics2022}. 
-        Mit dem Einsatz von \acs{KI} und \acs{AI} werden Prozesse noch autonomer und können den Komfort aus den Analysen je 
-        nach Bedürfnis individuell gestalten. Zu berücksichtigen ist dabei jedoch die dafür geeigneten Anwendungsfälle und 
-        die Bereitschaft der Nutzer, in wie fern diese das Analysieren von Verhaltensmustern akzeptieren und zulassen. 
+        Zu berücksichtigen sind dabei jedoch die dafür geeigneten Anwendungsfälle und 
+        die Akzeptanz der Nutzer ihre Verhaltensmuster analysieren zu lassen.
             
         \subsubsection*{Fehlender Interoperabilität}
-            Die Kommunikation von \acl{SH} Geräten findet über drahtlose Netzwerke auf Brandbreiten statt, die oft nicht 
-            miteinander kompatibel sind. Der hauptsächliche Grund dafür ist, dass Unternehmen ein Protokoll für einen 
-            bestimmten Zweck entwickeln und dieses darauf abgestimmt ist den Anwendungsfall abzudecken und um eine 
-            Markteintrittsbarriere zu schaffen, sodass der Wechsel zwischen Anbietern erschwert wird \cite{statista2021}. 
+            Die Kommunikation von \acl{SH} Geräten findet meistens über drahtlose Netzwerke auf Frequenz-Bandbreiten statt, die oft nicht 
+            miteinander kompatibel sind. Neben den drahtlosen Systemen gibt es auch, wie in Abschnitt (\ref{subsec:netzwerkprotokolle}) beschrieben, 
+            weitere Übertragungsmethoden, darunter Strom- und Datenleitungen. Ursächlich für die Inkompatibilität der Übertragungsmethoden 
+            ist die Entwicklung eines Protokolls für einen bestimmten 
+            Zweck, der darauf abgestimmt ist, den Anwendungsfall abzudecken und eine Markteintrittsbarriere zu 
+            schaffen, um einen Wechsel zwischen Anbietern zu erschweren \cite{statista2021}. 
             Die damit einhergehende Schwachstelle eines \acl{SH} ist, dass die Geräte mit den bereits entwickelten 
-            Protokollen genutzt werden. So ist die Kommunikation über verschiedene Protokollen nicht vorgesehen. Dadurch 
-            entsteht die fehlende Interoperabilität, die der Anwender jedoch für eine \acl{SH} Lösung ansieht und auch 
-            als äußerst sinnvoll betrachtet. Die Einführung von Bluetooth LE Mesh ist eine aktuelle Entwicklung, um der 
-            Herausforderung der Bewältigung der Interoperabilität einen Schritt näher zu kommen. Dennoch muss der 
-            Anwender prüfen, welche Geräte miteinander kompatibel sind \cite{statista2021}. Bei cloudbasierten 
+            Protokollen genutzt werden. So ist die Kommunikation über verschiedene Methoden nicht vorgesehen, was 
+            eine fehlende Interoperabilität zur Folge hat. Dies würde die Kombination von Geräten erschweren oder gar verhindern, die eventuell 
+            für den Anwender wünschenswert wäre. Um dies zu ermöglichen, müssten Integrationen 
+            oder Plug-ins von bestehende Plattformen zur Verfügung gestellt werden oder allgemein kompatible Kommunikationsprotokolle 
+            entwickelt werden, die bspw. mehrere Protokolle kombinieren können, darunter z.B. ZigBee2MQTT. 
+            Voraussetzung dafür ist die Fähigkeit zur Kompatibilität und die Übereinstimmung der Technologie, auf die das Protokoll aufbaut.
+            Der Anwender muss vorab selbst prüfen, welche Geräte miteinander kompatibel sind \cite{statista2021}.
+            \\
+            \linebreak
+            Die Einführung von Bluetooth Low Energy (LE) Mesh\footnote{Bluetooth Mesh Technologie. \url{https://www.bluetooth.com} Besucht am 23.05.2022} 
+            ist eine aktuelle Entwicklung, um der Herausforderung der Bewältigung der Interoperabilität einen Schritt näher zu kommen. Bei cloudbasierten 
             Sprachdiensten muss ebenso die Kompatibilität geprüft werden. 
-            Dadurch wird dem Nutzer neben der Ungewissheit der Datensicherheit und der Privatsphäre ein weiterer Aspekt 
-            geliefert, der die Nutzung von \acl{SH} Lösungen für bestimmte Anwendergruppen immer noch in Frage stellt.
+            Neben der Datensicherheit und dem Schutz der Privatsphäre ist die fehlender Interoperabilität ein weiterer kritisch zu betrachtender Aspekt von 
+            \acs{SH} Lösungen.
             \\ 
             \linebreak
             Derzeit häufig verwendete Protokolle sind unter anderem Bluetooth, \ac{WLAN} (WiFi), KNX, ZigBee, Z-Wave, 
             MQTT und weitere (siehe \ref{tab:protocolsSH}). Um Beispielsweise mit ZigBee über \acs{MQTT} kommunizieren zu 
             können, gibt es ein Framework, welches die Interoperabilität der beiden Protokolle ermöglicht. Dies ist das 
             sogenannte \textit{ZigBee2MQTT} Framework\footnote{Erschafft eine Brücke zwischen ZigBee und MQTT. \url{https://www.zigbee2mqtt.io/} Abgerufen am 23.05.2022}.
-\pagebreak
+%\pagebreak
 \section{Zielgruppenanalyse}
 \label{sec:zielgruppenanalyse}
-    Zur Analyse der Zielgruppen, die \acl{SH} Lösungen nutzen, bzw. die als Anwender des im Rahmen dieser Arbeit 
-    entstehenden Konzeptes gelten, erfolgt in diesem Abschnitt eine Zielgruppenanalyse. Hierbei wird zwischen 
-    zwei Gruppen stark differenziert. Zum einen erfolgt die Benutzer-Analyse, die aufzeigt, welche Zielgruppen 
-    im allgemeinen Kontext \acl{SH} adressiert werden, und zum anderen die Anwender-Analyse, die sich 
-    konkret der Zielgruppe widmet, die in dieser Arbeit adressiert wird. 
-
+    Um den Adressaten dieser Arbeit näher zu definieren, erfolgt in diesem Abschnitt eine Zielgruppenanalyse. Hierbei wird zwischen 
+    zwei Gruppen differenziert. Im Kontext der Arbeit wird unterschieden zwischen den Benutzern, die Produkte und Softwarelösungen von Herstellern ohne 
+    sie zu verändern gebrauchen und den Anwendern, die Frameworks als Grundlage verwenden und ihren Bedürfnissen entsprechend erweitern. Der Übergang von 
+    Benutzer zu Anwender kann fließend sein. 
+    
     \subsection{Ziel der Zielgruppenanalyse}
-        %was soll damit erzielt werden?
-        Ziel einer Zielgruppenanalyse\footnote{Beschreibung der Zielgruppenanalyse und mögliche Durchführungsschritte. \url{https://www.eology.net/magazine/target-group-analysis} Abgerufen am 24.05.2022.} 
+        Die Absicht einer Zielgruppenanalyse\footnote{Beschreibung der Zielgruppenanalyse und mögliche Durchführungsschritte. \url{https://www.eology.net/magazine/target-group-analysis} Abgerufen am 24.05.2022.} 
         ist die Identifizierung der Personengruppen, die als potentielle Nutzer eines Produktes 
         oder eines Marktsegmentes gelten. Diese Methodik ist ein relevantes Werkzeug in der Produktkonzeption und -entwicklung 
         als auch in der Marktforschung. Maßnahmen und Anforderungen können aus der Zielgruppenanalyse abgeleitet und 
         erarbeitet werden. 
         \\
-        Ein Weiteres Ziel ist das bessere Kennenlernen der Zielgruppe, um dadurch deren Bedürfnisse und Interessen 
+        Ein weiteres Ziel ist das bessere Kennenlernen der Zielgruppe, um dadurch deren Bedürfnisse und Interessen 
         genauer zu identifizieren und zu betrachten. 
     
     \subsection{Zielgruppe Benutzer}
