@@ -111,7 +111,7 @@
         Zu berücksichtigen sind dabei jedoch die dafür geeigneten Anwendungsfälle und 
         die Akzeptanz der Nutzer ihre Verhaltensmuster analysieren zu lassen.
             
-        \subsubsection*{Fehlender Interoperabilität}
+        \subsubsection*{Interoperabilität}
             Die Kommunikation von \acl{SH} Geräten findet meistens über drahtlose Netzwerke auf Frequenz-Bandbreiten statt, die oft nicht 
             miteinander kompatibel sind. Neben den drahtlosen Systemen gibt es auch, wie in Abschnitt (\ref{subsec:netzwerkprotokolle}) beschrieben, 
             weitere Übertragungsmethoden, darunter Strom- und Datenleitungen. Ursächlich für die Inkompatibilität der Übertragungsmethoden 
@@ -142,10 +142,15 @@
 %\pagebreak
 \section{Zielgruppenanalyse}
 \label{sec:zielgruppenanalyse}
-    Um den Adressaten dieser Arbeit näher zu definieren, erfolgt in diesem Abschnitt eine Zielgruppenanalyse. Hierbei wird zwischen 
-    zwei Gruppen differenziert. Im Kontext der Arbeit wird unterschieden zwischen den Benutzern, die Produkte und Softwarelösungen von Herstellern ohne 
-    sie zu verändern gebrauchen und den Anwendern, die Frameworks als Grundlage verwenden und ihren Bedürfnissen entsprechend erweitern. Der Übergang von 
-    Benutzer zu Anwender kann fließend sein. 
+    Um den Adressaten dieser Arbeit näher zu definieren, erfolgt in diesem Abschnitt eine Zielgruppenanalyse. %Hierbei wird zwischen 
+    %zwei Gruppen differenziert. 
+    Im Rahmen dieser Tätigkeit wird die konkrete Zielgruppe identifiziert, die das Framework als Grundlage nutzen, um die individuellen 
+    Anwendungsfälle in der Umgebung des Büros umzusetzen und ggf. erweitern. Die Verwendung des Frameworks ist nicht zwangläsufig auf die Büroumgebung zu reduzieren, ebenso kann 
+    das Framework in privatem Gebrauch angewendet werden. Da es sich bei der Zielgruppenanalyse um einen fortlaufenden Prozess handelt, wird in dieser Arbeit die erste Iteration durchgeführt, 
+    die anschließend weiter verfolgt werden kann. 
+    %Im Kontext der Arbeit wird unterschieden zwischen den Benutzern, die Produkte und Softwarelösungen von Herstellern ohne 
+    %sie zu verändern gebrauchen und den Anwendern, die Frameworks als Grundlage verwenden und ihren Bedürfnissen entsprechend erweitern. Der Übergang von 
+    %Benutzer zu Anwender kann fließend sein. 
     
     \subsection{Ziel der Zielgruppenanalyse}
         Die Absicht einer Zielgruppenanalyse\footnote{Beschreibung der Zielgruppenanalyse und mögliche Durchführungsschritte. \url{https://www.eology.net/magazine/target-group-analysis} Abgerufen am 24.05.2022.} 
@@ -157,22 +162,38 @@
         Ein weiteres Ziel ist das bessere Kennenlernen der Zielgruppe, um dadurch deren Bedürfnisse und Interessen 
         genauer zu identifizieren und zu betrachten. 
     
-    \subsection{Zielgruppe Benutzer}
+    \subsection{Zielgruppendefinition}
+    \label{subsec:zielgruppendefinition}
+        Zur Bestimmung einer Zielgruppe unter Verwendung des Prozesstemplates der \textit{Target Group Analysis} wird anhand von 
+        Kriterien die konkrete Zielgruppe definiert. Hierfür werden folgende Merkmale verwendet: 
+        \begin{itemize}
+            \item Beruf: \textit{Ist das System nur für bestimmte Berufsgruppen interessant?} - 
+            \item Bildung: \textit{Über welchen Bildungsstand verfügt die Zielgruppe, die das System anspricht?} - 
+            \item Interessen: \textit{Für Personen welcher Interessengebiete ist das System relevant?} - 
+            \item Werte: \textit{Über welche Werte verfügen die Interessenten?} - 
+        \end{itemize} 
+        Mithilfe der Zielgruppendefinition kann die Bestimmung und Eingrenzung der Interessenten erfolgen. Diese wird in 
+        folgendem Abschnitt verwendet, um die Zielgruppe zu erläutern. Stützend dazu werden bereits erhobenen Daten durch offizielle 
+        Statistiken und Umfragen genutzt. %wird die Erläuterung der Zielgruppe gestützt. 
+        
+        %Damit im Rahmen der Zielgruppenanalyse eine bestimmte Zielgruppe identifiziert werden kann     
+
+    \subsection{Zielgruppe} % Benutzer}
         % Smart Home - Deutschland. Zugriff: 11. Mai 2022. https://de.statista.com/outlook/dmo/smart-home/deutschland
         Die in der Marktanalyse (\ref{sec:marktanalyse}) identifizierten Segmente werden in der Abbildung 
         (\ref{pic:segments}) nochmals aufgegriffen. Hierbei wird in der repräsentativen Statistik und Prognose der 
         Statista GmbH die Nutzung des jeweiligen Segments veranschaulicht. Der Fokus dieser Prognose liegt 
         auf der verstärkten Vertretung eines Segments in einem \acl{SH} in Deutschland. Die derzeit am meisten eingesetzten 
-        Segmente sind \textit{Vernetzung und Steuerung} (rot gekennzeichnet) und \textit{Komfort und Licht} 
-        (gelb gekennzeichnet). Das am wenigsten genutzt Segment stellt die \textit{Gebäudesicherheit} 
-        (schwarz gekennzeichnet) in der Prognose dar. Im Jahr 2021 lag die Nutzung von Geräten des Segments \textit{Vernetzung 
-        und Steuerung} bei 6,6 Millionen Nutzer, dicht gefolgt von dem Segment \textit{Komfort und Licht} mit 
-        6,5 Millionen Nutzer. Dagegen liegt das Segment \textit{Home Entertainment} im Jahr 2021 bei 3,8 Millionen Nutzer.
+        Segmente sind \textit{Vernetzung und Steuerung} (rot) und \textit{Komfort und Licht} 
+        (gelb). Das am wenigsten genutzt Segment stellt die \textit{Gebäudesicherheit} 
+        (schwarz) in der Prognose dar. Im Jahr 2021 lag die Nutzung von Geräten des Segments \textit{Vernetzung und Steuerung} 
+        bei 6,6 Millionen Nutzern, dicht gefolgt von dem Segment \textit{Komfort und Licht} mit 
+        6,5 Millionen Nutzern. Dagegen liegt das Segment \textit{Home Entertainment} im Jahr 2021 bei 3,8 Millionen Nutzern.
         \\
         \linebreak
-        Die bis 2026 veröffentlichte Prognose gibt vor, dass die jeweiligen Segmente stark zunehmen %werden 
+        Die bis 2026 veröffentlichte Prognose sagt voraus, dass die jeweiligen Segmente stark zunehmen %werden 
         und sich jeweils vervierfachen.  
-        \pagebreak
+        %\pagebreak
         \begin{figure}[hbt!]
             \centering
             \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Anzahl-Smart-Homes-nach-Segment-Deutschland-Millionen-Nutzer.png}
@@ -180,38 +201,37 @@
             \label{pic:segments}
         \end{figure}
         \\
-        Das Resümee der Prognose zeigt, dass eine breitere Masse an Personen bereits Komponenten der Segmente 
-        \textit{Vernetzung und Steuerung} und \textit{Komfort und Licht} nutzen.
+        Das Schaubild zeigt, dass eine bedeutende Anzahl an Personen bereits Komponenten der Segmente 
+        \textit{Vernetzung und Steuerung} und \textit{Komfort und Licht} nutzen. 
         \\
         \linebreak
-        Im Hinblick auf die demographischen Statistiken wird in der Zielgruppenanalyse deutlich, welche Gesellschaftsschicht 
-        im Jahr 2021 am stärksten vertreten ist. Diese erstreckt sich über eine Altersspanne von 25 bis 54 Jahren. 
-        Wobei der Abbildung (\ref{pic:ageSH}) zu entnehmen ist, dass der Schwerpunkte im Alter zwischen 45 und 54 Jahren 
-        mit 22,7 Prozent. Die Balance nach Geschlecht liegt bei einem Anteil von 45,6 Prozent weiblichen Befragten und 
-        54,4 Prozent männlichen Befragten, demnach eine geringe Ungleichheit. Die Auswertung nach Einkommen zeigt, dass 
-        35,4 Prozent der Befragten mit mittlerem Einkommen Komponenten eines \acl{SH} nutzen, dicht gefolgt von 
-        Personen mit hohem Einkommen, diese liegen bei 34,9 Prozent. 
-        \\
-        \linebreak
-        Demzufolge ist eine große Masse adressiert, die jedoch nach den Segmenten (siehe Abbildung \ref{pic:segments}) 
-        wiederum eingeschränkt werden kann.
-        \pagebreak
-        \begin{figure}[hbt!]
-            \centering
-            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Nutzer-nach-Alter-Deutschland-Prozent.png}
-            \caption{Smart Home Nutzer nach Alter \cite{statista2021}} 
-            \label{pic:ageSH}
-        \end{figure}
-        \\
-        Die aufgeführten Statistiken und Prognosen zeigen den Markt rundum \acl{SH} auf und welches Potential für die 
-        nächsten Jahre prognostiziert wird. Im Hinblick auf die Zielgruppe lässt sich sagen, dass eine breite Masse 
-        fokussiert werden kann, die jeweils unterschiedliche Voraussetzungen und Bedürfnisse haben. Diese Analyse zeigt 
-        jedoch den gesamten Markt auf, um einen Einblick zu gewährleisten, wie stark \acl{SH} momentan in Deutschland, den 
-        Vereinigten Staaten (USA) und dem Rest der Welt vertreten ist. Um einen konkreteren Einblick 
-        zu gelangen, wird in nachfolgendem Abschnitt auf die Zielgruppe der Anwender, die in dieser Arbeit fokussiert werden, 
-        eingegangen. 
-
-    \subsection{Zielgruppe Anwender}
+        %Im Hinblick auf die demographischen Statistiken ist im Jahr 2021 die Altersgruppe der 25 bis 54 Jährigen am stärksten vertreten. 
+        %Der Abbildung ist weiter zu entnehmen, dass der Schwerpunkt 
+        %Wobei der Abbildung (\ref{pic:ageSH}) zu entnehmen ist, dass der Schwerpunkte im Alter zwischen 45 und 54 Jahren 
+        %mit 22,7 Prozent. Die Balance nach Geschlecht liegt bei einem Anteil von 45,6 Prozent weiblichen Befragten und 
+        %54,4 Prozent männlichen Befragten, demnach eine geringe Ungleichheit. Die Auswertung nach Einkommen zeigt, dass 
+        %35,4 Prozent der Befragten mit mittlerem Einkommen Komponenten eines \acl{SH} nutzen, dicht gefolgt von 
+        %Personen mit hohem Einkommen, diese liegen bei 34,9 Prozent. 
+        %\\
+        %\linebreak
+        %Demzufolge ist eine große Masse adressiert, die jedoch nach den Segmenten (siehe Abbildung \ref{pic:segments}) 
+        %wiederum eingeschränkt werden kann.
+        %\pagebreak
+        %\begin{figure}[hbt!]
+        %    \centering
+        %    \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Nutzer-nach-Alter-Deutschland-Prozent.png}
+        %    \caption{Smart Home Nutzer nach Alter \cite{statista2021}} 
+        %    \label{pic:ageSH}
+        %\end{figure}
+        %\\
+        %Die aufgeführten Statistiken und Prognosen zeigen den Markt rundum \acl{SH} auf und welches Potential für die 
+        %nächsten Jahre prognostiziert wird. Im Hinblick auf die Zielgruppe lässt sich sagen, dass eine breite Masse 
+        %fokussiert werden kann, die jeweils unterschiedliche Voraussetzungen und Bedürfnisse haben. Diese Analyse zeigt 
+        %jedoch den gesamten Markt auf, um einen Einblick zu gewährleisten, wie stark \acl{SH} momentan in Deutschland, den 
+        %Vereinigten Staaten (USA) und dem Rest der Welt vertreten ist. Um einen konkreteren Einblick 
+        %zu gelangen, wird in nachfolgendem Abschnitt auf die Zielgruppe der Anwender, die in dieser Arbeit fokussiert werden, 
+        %eingegangen. 
+   %\subsection{Zielgruppe Anwender}
         %Die eigentliche Zielgruppe, die Softwareentwickler, die das System betreiben und für ihre Bedürfnisse anpassen.
         Der Benutzergruppe wird die Anwenderzielgruppe gegenübergestellt, diese können jedoch ebenso Benutzer der Anwendung 
         werden. Im Umkehrschluss ist ein gewisses Maß an \acs{IT}-Affinität vorausgesetzt, sodass Benutzer nicht gleich 
