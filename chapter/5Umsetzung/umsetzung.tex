@@ -152,7 +152,29 @@ Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustands
 Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
 \subsection{Parallelisierung}
+\subsection{Reflection} 
+\subsection{Transformation}
+\subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
+\subsubsection*{Transformationsobjekt mittels eigener Klasse}
 \subsection{Inverse Transformation}
+Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch eine Zustandsänderung (hervorrufen) 
+kann, soll eine inverse Transformation stattfinden. Dadurch soll anhand der Zustandsänderung, die der Entwickler erwartet, dementsprechend 
+z.B. die zugehörige Aktion mittels \acs{MQTT}-Nachricht veröffentlicht werden. In Folge dessen muss der Entwickler bei der Implementierung einer 
+Regel keine Kenntnis über die Attribute und bspw. das \acs{MQTT}-Topic haben, die für die inverse Transformation vorgesehen sind. Lediglich muss 
+das richtige Attribut im Zustandsraum angesprochen und geändert werden. Ein konkretes Beispiel: 
+\\
+\linebreak
+Wird ein Lichtschalter eingeschaltet, so wird ein \acs{MQTT}-Topic konsumiert, dass den Zustandsraum ändert, indem der Schalter aktiviert 
+wurde. Daraufhin wird eine Regel ausgeführt, deren Regelaktion die LED-Leuchte  aktivieren soll. Hierfür muss erneut eine  \acs{MQTT}-Nachricht 
+über ein bestimmtes Topic veröffentlicht werden. Da diese Transformation bereits definiert ist, soll  innerhalb der Regel nur die Zustandsänderung 
+definiert werden können. Mithilfe der inversen Transformation wird anhand der Zustandsänderung die dementsprechende Aktion  invertiert und unter 
+dem Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin das Licht angeschaltet wird. 
+
+\subsection{Zustandsraum}
+%Aggregation von Objekten -> Nein
+%Aggregation über Serialisierung 
+%Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
+% Vermeidung von Rückkopplung 
 
 \subsection{Prototypische Implementierung eines Anwendungsfalls}
 %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
@@ -163,3 +185,9 @@ Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaill
 %\subsection{Aufbau der Architektur}
 %\subsection{Einbindung der Funktionen abgeleitet von der Konzeption}
 \section{Fazit der prototypischen Implementierung}
+\subsection{Modellierungsmöglichkeiten}
+
+%Grenzen 
+%Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 
+%Worauf man achten soll, wenn man ein neues Szenario abbildet. 
+%Modellierungsmöglichkeiten des Frameworks.
