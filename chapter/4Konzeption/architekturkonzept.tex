@@ -164,8 +164,13 @@
     \end{figure}
     \\
     \linebreak
-    Dem Sequenzdiagramm ist ebenso die Inverse Transformation zu entnehmen, die erzielt wird, wenn durch eine Regel eine erneute Zustandsänderung stattfindet, die bspw. Befehle über \acs{MQTT} 
-    veröffentlicht, um Komponenten steuern zu können. 
+    Dem Sequenzdiagramm ist ebenso die Transformation zu entnehmen, die erzielt wird, wenn durch eine Regel eine erneute Zustandsänderung stattfindet, die bspw. Befehle über \acs{MQTT} 
+    veröffentlicht, um Komponenten steuern zu können. Auf die konkrete Umsetzung der soeben architektonisch beschriebenen Komponenten wird in folgendem Kapitel (siehe Umsetzung \ref{chap:umsetzung}) 
+    eingegangen.
+    \\
+    Die Ausprägung der Persistenzsschicht wurde im Rahmen dieser Arbeit nicht weiter detailliert, da zu aktuellem Zeitpunkt 
+    kein Bedarf an der Speicherung von Historien oder Zustandsänderungen besteht. Dennoch wird an dieser Stelle erwähnt, dass die Einbindung einer 
+    Datenbank, sowie die Modellierung der Datenobjekte und deren Speicherung ohne weiteres möglich ist und dem keine Grenzen gesetzt sind.  
     %\subsection*{Persistenzschicht}
     % EVTL.: PERSISTENZSCHICHT UND POTENTIELLER AUFBAU -> \subsection{}?
     % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
@@ -198,9 +203,9 @@
 %\subsection{Softwarekonzept}
 %\label{subsec:softwarekonzept}
 \\
-\linebreak
+%\linebreak
 Für die Generierung mehrerer konkurrierender Sichten, wurde unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}
 bereits bei der Anforderungsanalyse (\ref{chap:anforderungsanalyse}) die Szenarien beschrieben. Die im Modell dargestellten Sichten wurden mit 
 Klassen- und Sequenzdiagrammen %-, Aktivitäts- und Komponentendiagrammen 
-im Konzept veranschaulicht. Nach Beendigung der Konzeption wird in folgendem Kapitel die 
+im Konzept veranschaulicht. Nach Beendigung der Konzeption wird in folgendem Kapitel die Umsetzung des Konzeptes und die 
 Implementierung des Prototypen vertieft. 

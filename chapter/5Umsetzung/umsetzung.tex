@@ -1,6 +1,6 @@
 \chapter{Umsetzung}
 \label{chap:umsetzung}
-    Im Rahmen einer prototypischen Implementierung wurde das im Kapitel Konzeption (\ref{chap:konzept}) geplante Systems 
+    Im Rahmen einer prototypischen Implementierung wurde das im Konzept (siehe Kapitel \ref{chap:konzept}) geplante System
     umgesetzt. Gegenstand dieses Kapitels wird es sein, Aspekte der Umsetzung widerzuspiegeln und konkret die Umsetzung eines  
     Anwendungsfalls darzulegen. Zusätzlich wird die Auswahl des dafür genutzten Frameworks aufgegriffen. 
 
@@ -90,6 +90,9 @@
 
 \section{Implementierung}
 \label{sec:implementation}
+    Hierbei wird konkret die Implementierung des Frameworks aufgegriffen und beschrieben, wie Konzeptentscheidungen im Code umgesetzt wurden. 
+    Auch werden wichtige Anhaltspunkte ergänzt, die in der Tiefe nicht aus dem Konzept hervorgehen, da dort lediglich die Idee und die allgemein gehaltene 
+    Vorstellung skizziert wurde. 
 
 \subsection{Generische Programmierung} % Typisierung
 % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
@@ -152,6 +155,13 @@ Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustands
 Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
 \subsection{Parallelisierung}
+    Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
+    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor} im java Code angestoßen wird. 
+    Durch das Auslagern des konkreten Prozesses in einen eigenen Thread können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
+    Regel ausgeführt wird. 
+    In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
+    würde sich das Durchführen von Regeln verzögern, bspw. wenn ein Licht eingeschaltet werden würde, davor allerdings noch zwei Regeln abgearbeitet werden müssten, die jeweils eine 
+    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. 
 \subsection{Reflection} 
 \subsection{Transformation}
 \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
