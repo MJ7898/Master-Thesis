@@ -164,7 +164,19 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
     Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
     wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
+
 \subsection{Reflection} 
+    Mit den Reflections\footnote{Java Reflections. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
+    (Reflexion, Spiegelung) ist eine Funktion der Programmiersprache Java gegeben, die es ermöglicht, Laufzeitattribute von Klassen, Schnittstellen, Feldern 
+    und Methoden zu überprüfen und zu ändern. Diese Funktion erweist sich als besonders praktisch, wenn die Namen der Attribute zur Kompilierzeit nicht bekannt sind. 
+    %dass ein ausgeführtes Programm bzw. ein erzeugtes Objekt sich während der Laufzeit selbst beobachtet und interne Eigenschaften darüber manipuliert werden können.
+    Darüber hinaus können neue Objekte instanziiert, Methoden aufgerufen und Feldwerte mithilfe von Reflexion abgerufen oder festgelegt werden. 
+    \\
+    \linebreak
+    Eingesetzt wird die Reflexion in der Transformation, die der Entwickler definiert, um aus eingehenden Events und Nachrichten Zustandsänderungen zu erzeugen. Konkret wird in der 
+    Transformation der Name des Feldes mitgegeben, der vom Entwickler bei der Definition des Zustandsobjektes vergeben wurde. Somit kann immer auf das Feld und dessen Wert zurückgegriffen werden und bei Bedarf durch eine eingehende Nachricht, bzw. durch eine Zustandsänderung innerhalb einer Regel überprüft und geändert werden. Die Struktur der 
+    Transformation wird in folgendem abschnitt greifbar aufgezeigt.
+
 \subsection{Transformation}
 \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
 \subsubsection*{Transformationsobjekt mittels eigenem Objekt}
