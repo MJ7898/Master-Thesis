@@ -103,7 +103,6 @@
         \\
         Der soeben grob skizzierte Aufbau wird in den folgenden Abschnitten konkretisiert.
 
-    % ALLGEMEIN MIT PATTERNS BESCHREIBEN (KERN-KOMPONENTEN UND DARAUF ANGEWENDETE PATTERN)
     \subsection{Kommunikationsschicht}
     Damit das Framework einer hohen Wartbarkeit und Erweiterbarkeit unterliegt, soll bereits in der Kommunikationsebene mithilfe 
     des genannten \textit{Adapter} Musters eine Abstraktionseben geschaffen werden. Diese erleichtert das Adaptieren 
@@ -120,7 +119,7 @@
         \label{fig:patternkommunikation}
     \end{figure}
     \pagebreak
-    %\\
+    \\
     Der interne Ablauf einer Nachrichtenkonsumierung kann dem Sequenzdiagramm in Abbildung (\ref{fig:kommunikationsequenz}) entnommen werden. Mit der Transformation 
     wird das eingehende \acs{MQTT}-Topic mit den vom Anwender definierten Topics überprüft. Gibt es dabei eine Übereinstimmung, so wird anhand des Topics die mitgelieferte 
     Nachricht konsumiert und dem jeweiligen Wert im Zustandsraum zugeordnet und dementsprechend verändert. Mit der Zustandsänderung wird die 

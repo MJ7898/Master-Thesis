@@ -96,9 +96,7 @@
 
 \subsection{Generische Programmierung} % Typisierung
 % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
-Eine entscheidende konzeptionelle Überlegung in Richtung des Zustandsraumes wird vorab erläutert, damit in 
-folgenden Darstellungen klar zwischen der Objektdarstellung und der eigentlichen Repräsentation des Zustandes 
-differenziert werden kann. 
+Eine entscheidende Überlegung der Umsetzung in Richtung des Zustandsraumes ist die Verwendung der generischen Programmierung. 
 \\
 Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
 Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
@@ -122,23 +120,23 @@ Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nac
 jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
 \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:generics}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
 public class LogicHub<E> {
-private E state;
-...
-public E getState() {
-return this.state();
-}
-...
+    private E state;
+    ...
+    public E getState() {
+        return this.state();
+    }
+    ...
 }
 
 public class Application {
-private final LogicHub<InnovationLab> logicHub;
+    private final LogicHub<InnovationLab> logicHub;
 
-public static void main(String[] args) {
-logicHub = LogicHub.getInstance();
-logicHub.getState(); // -> returns the InnovationLab object 
-                     // and it's values.
-...
-}
+    public static void main(String[] args) {
+        logicHub = LogicHub.getInstance();
+        logicHub.getState(); // -> returns the InnovationLab object 
+                             // and it's values.
+        ...
+    }
 }
 \end{lstlisting}
 Mit den Java Generics ist eine leistungsstarke Ergänzung der Java-Sprache gegeben, da es die Arbeit des Programmierers einfacher und 
@@ -148,37 +146,56 @@ die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätz
 Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
 \\
 \linebreak
-Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
-Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
-\\
-\linebreak
-Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
+Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen Framework und Anwender-Interaktionen deutlicher.
+%Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
+%Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
+%\\
+%\linebreak
+%Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
 \subsection{Parallelisierung}
     Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
-    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor} im java Code angestoßen wird. 
-    Durch das Auslagern des konkreten Prozesses in einen eigenen Thread können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
+    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
+    Durch das Auslagern des konkreten Prozesses in einen eigenen \textit{Thread} können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
     Regel ausgeführt wird. 
     In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
     würde sich das Durchführen von Regeln verzögern, bspw. wenn ein Licht eingeschaltet werden würde, davor allerdings noch zwei Regeln abgearbeitet werden müssten, die jeweils eine 
-    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. 
+    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. Durch die Auslagerung des Regelmanagements in jeweils eigene \textit{Threads} entfällt die sequenzielle 
+    Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
+    wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
+    Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
 \subsection{Reflection} 
 \subsection{Transformation}
 \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
-\subsubsection*{Transformationsobjekt mittels eigener Klasse}
+\subsubsection*{Transformationsobjekt mittels eigenem Objekt}
 \subsection{Inverse Transformation}
-Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch eine Zustandsänderung (hervorrufen) 
-kann, soll eine inverse Transformation stattfinden. Dadurch soll anhand der Zustandsänderung, die der Entwickler erwartet, dementsprechend 
-z.B. die zugehörige Aktion mittels \acs{MQTT}-Nachricht veröffentlicht werden. In Folge dessen muss der Entwickler bei der Implementierung einer 
-Regel keine Kenntnis über die Attribute und bspw. das \acs{MQTT}-Topic haben, die für die inverse Transformation vorgesehen sind. Lediglich muss 
-das richtige Attribut im Zustandsraum angesprochen und geändert werden. Ein konkretes Beispiel: 
-\\
-\linebreak
-Wird ein Lichtschalter eingeschaltet, so wird ein \acs{MQTT}-Topic konsumiert, dass den Zustandsraum ändert, indem der Schalter aktiviert 
-wurde. Daraufhin wird eine Regel ausgeführt, deren Regelaktion die LED-Leuchte  aktivieren soll. Hierfür muss erneut eine  \acs{MQTT}-Nachricht 
-über ein bestimmtes Topic veröffentlicht werden. Da diese Transformation bereits definiert ist, soll  innerhalb der Regel nur die Zustandsänderung 
-definiert werden können. Mithilfe der inversen Transformation wird anhand der Zustandsänderung die dementsprechende Aktion  invertiert und unter 
-dem Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin das Licht angeschaltet wird. 
+    Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch dadurch eine weitere 
+    Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation stattfinden. Dadurch wird anhand 
+    der Zustandsänderung, die der Entwickler durch eine Funktion vorgibt, die zugehörige Aktion mittels \acs{MQTT}-Nachricht 
+    veröffentlicht. In Folge dessen muss der Entwickler bei der Implementierung einer Regel keine Kenntnis über das 
+    \acs{MQTT}-Topic haben, lediglich muss das richtige Attribut im Zustandsraum angesprochen und geändert werden. 
+    Ein konkretes Beispiel: 
+    \\
+    \linebreak
+    Wird ein Lichtschalter eingeschaltet, so wird ein \acs{MQTT}-Topic konsumiert, dass den Zustandsraum ändert, indem 
+    der Schalter betätigt wurde. Daraufhin wird eine Regel ausgeführt, deren Regelaktion die LED-Leuchte aktiviert. 
+    Dementsprechend definiert der Entwickler eine Funktion, die den Wert des Lichtzustandes im Zustandsobjekt verändert. 
+    Mit der Veränderung wird überprüft, um welches Attribut es sich im Zustandsraum handelt und wie sich der Wert geändert hat. 
+    Wenn diese Überprüfung zutrifft, wird im Rahmen der inversen Transformation ein \textit{JSON}-Konstrukt generiert, welches 
+    mit dem in der Transformation definierten Topic als \acs{MQTT}-Nachricht an den \acs{MQTT}-Broker publiziert wird. 
+    Daraufhin wird die LED-Leuchte angeschaltet. 
+    \\
+    \linebreak
+    Zusammengefasst wird mit der inversen Transformation vermieden, dass der Entwickler sich neben der zu definierenden 
+    Zustandsänderung zusätzlich um das veröffentlichen der jeweiligen Nachricht und das Verpacken in eine übertragbare 
+    \textit{JSON}-Struktur kümmern muss. Des weiteren ist die Kenntnis über das Topics, unter dem die Nachricht 
+    gesendet wird, ausschließlich in der Transformation von Nöten und muss nicht an mehreren Stellen konkret 
+    aufgeschrieben werden. Hierbei wird dieser Schritt zentralisiert in dem Transformationsobjekt festgehalten. 
+%
+%Hierfür muss erneut eine  \acs{MQTT}-Nachricht 
+%über ein bestimmtes Topic veröffentlicht werden. Diese Veröffentlichung findet im Rahmen der inversen Transformation statt Da diese Transformation bereits definiert wurde, ist innerhalb der Regel %ausschließlich die Zustandsänderung 
+%zu definieren. Mithilfe der inversen Transformation wird anhand der Zustandsänderung die dementsprechende Aktion invertiert und unter 
+%dem dafür vorgesehenen Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin das Licht angeschaltet. 
 
 \subsection{Zustandsraum}
 %Aggregation von Objekten -> Nein
@@ -186,7 +203,7 @@ dem Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin d
 %Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
 % Vermeidung von Rückkopplung 
 
-\subsection{Prototypische Implementierung eines Anwendungsfalls}
+\subsection{Implementierung eines Anwendungsfalls}
 %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
 %-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
 % feingranulare Regeln, die immer wieder auf Rückmeldung über MQTT Topics warten und danach die Aktion auslösen
