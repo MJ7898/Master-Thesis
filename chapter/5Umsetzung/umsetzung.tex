@@ -133,7 +133,7 @@ public class Application {
 
     public static void main(String[] args) {
         logicHub = LogicHub.getInstance();
-        logicHub.getState(); // -> returns the InnovationLab object 
+        logicHub.getState(); // -> returns the state object 
                              // and it's values.
         ...
     }
@@ -166,7 +166,7 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
 
 \subsection{Reflection} 
-    Mit den Reflections\footnote{Java Reflections. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
+    Mit der Reflection\footnote{Java Reflection. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
     (Reflexion, Spiegelung) ist eine Funktion der Programmiersprache Java gegeben, die es ermöglicht, Laufzeitattribute von Klassen, Schnittstellen, Feldern 
     und Methoden zu überprüfen und zu ändern. Diese Funktion erweist sich als besonders praktisch, wenn die Namen der Attribute zur Kompilierzeit nicht bekannt sind. 
     %dass ein ausgeführtes Programm bzw. ein erzeugtes Objekt sich während der Laufzeit selbst beobachtet und interne Eigenschaften darüber manipuliert werden können.
@@ -178,8 +178,88 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
     Transformation wird in folgendem abschnitt greifbar aufgezeigt.
 
 \subsection{Transformation}
-\subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
-\subsubsection*{Transformationsobjekt mittels eigenem Objekt}
+    Die Transformation stellt die Schnittstelle zwischen den externen Auslösern, bspw. \acs{MQTT}, und der Kommunikationsschicht dar. 
+    Die über das Kommunikationsprotokoll gelieferten Daten werden der \textit{transform}-Methode übergeben, sodass die eigentliche 
+    Transformation stattfinden kann. Die Struktur der Transformation wird vorab erläutert, damit die anschließende Erläuterung 
+    übertragbar ist. 
+    \\
+    \linebreak
+    Im Rahmen der Arbeit wurden zwei Lösungswege erarbeitet, die jeweils dem Entwickler ermöglichen, eine Transformation zu definieren. Diese werden beide 
+    erläutert und anschließend gegenübergestellt. Das dabei verfolgte Ziel, ist dem Anwender den möglichst komfortableren Weg zu bieten, eine 
+    Transformation zu definiere, sodass die Aufwände für denjenigen gering bleiben.
+    \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
+    Die erste Option ist die Nutzung einer Switch-Case-Anweisung. Hierbei wird die \textit{transform}-Methode bis zum Anwender durchgereicht. An dieser Stelle 
+    wird klar definiert, welches \acs{MQTT}-Topic eine bestimmte Zustandsänderung auslöst. Innerhalb eines Falles (Case) wird über eine 
+    \textit{Lambda}\footnote{Java Lambda-Funktion. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html} Besucht am 28.07.2022}-Funktion 
+    der jeweilige Wert im Zustandsobjekt geändert. Mit dem direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
+    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Quellcode-Ausschnitt (siehe \ref{code:switch-case}) zu entnehmen:
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_old.png}
+        \caption{Transformation über Switch-Case-Anweisung}
+        \label{fig:sequenceTransformationOld}
+    \end{figure}
+
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch-case}, captionpos=b, caption={Transformeation über Switch-Case-Anweisung}]
+public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
+    private final LogicHubState<InnovationLabKA> logicHubState;
+    ...
+
+    public void transform(String topic, String payload) {
+        switch (topic) {
+            case "InnovationLab/LogicHub/PersonOnDoor":
+                logicHubState.setState((innovationLab) -> {
+                    innovationLab.setPersonOnDoor(payload);
+                    innovationLab.update();
+                });
+                break;
+            case "InnovationLab/LogicHub/SR/GoTo":
+                logicHubState.setState((innovationLab) -> {
+                    innovationLab.setSRGoTo(payload);
+                    innovationLab.update();
+                });
+                break;
+            ... 
+        }    
+    }
+}
+\end{lstlisting}
+    Dieser Ansatz gibt eine Übersicht des Topics und der dafür vorgesehenen Zustandsänderung. Nachteile dabei sind jedoch, dass die Anweisungen 
+    zunehmen, je mehr Regeln und dafür vorgesehen Zustandsänderungen hinzugefügt werden und die einmalige Verwendung der \acs{MQTT}-Topic-Zeichenkette. Dafür muss der 
+    Anwender, um innerhalb einer Regel eine weitere Zustandsänderung vorzunehmen, das Topic erneut aufgreifen und in Kenntnis des jeweiligen sein. Mit dem 
+    Topic würde dann über den \acs{MQTT}-Producer eine Nachricht veröffentlicht werden, die die Aktion der Regeländerung steuert. 
+    \\
+    Diese umständliche Art und Weise galt es dem Anwender zu erleichtern, deshalb wurde ein zweiter Lösungsweg erarbeitet, der in folgendem Abschnitt 
+    aufgezeigt wird.
+
+    \subsubsection*{Transformationsobjekt mittels eigenem Objekt}
+        Im Gegensatz zu der Verwendung einer Switch-Case-Anweisung wird ein Klasse implementiert, mit der je nach Bedarf 
+        weitere Objekte mit unterschiedlichen Werten erzeugt werden kann. 
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_new.drawio.png}
+        \caption{Transformation über eigenes Objekt}
+        \label{fig:sequenceTransformationNew}
+    \end{figure}
+
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:object}, captionpos=b, caption={Transformeation über eigenes Objekt}]
+public class SimpleTransformer extends AbstractTransformer<InnovationLabKA> {
+    public SimpleTopicWhiteListTransformation(
+            String topic, String key, List<?> whiteList, String attribute) {
+        setTopic(topic);
+        setKey(key);
+        setPayloadValues(whiteList);
+        try {
+            setField(InnovationLabKA.class.getDeclaredField(attribute));
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
+\end{lstlisting}
+     Hierbei werden die vorab definierten Transformationen des Entwicklers 
+    in einer Liste gespeichert, damit das darin enthaltene Topic mit dem eingehenden verglichen werden kann. Dafür wird über die Liste iteriert und jede Transformation, sowie deren zugewiesenes Topic geprüft. Sofern es eine Übereinstimmung gibt, wird Gibt es eine Übereinstimmung, Der Ablauf kann dem Sequenzdiagramm (siehe Abbildung \ref{fig:kommunikationsequenz}) entnommen werden. 
+
 \subsection{Inverse Transformation}
     Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch dadurch eine weitere 
     Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation stattfinden. Dadurch wird anhand 
