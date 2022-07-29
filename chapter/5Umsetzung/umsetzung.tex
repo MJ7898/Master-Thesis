@@ -180,19 +180,19 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
 \subsection{Transformation}
     Die Transformation stellt die Schnittstelle zwischen den externen Auslösern, bspw. \acs{MQTT}, und der Kommunikationsschicht dar. 
     Die über das Kommunikationsprotokoll gelieferten Daten werden der \textit{transform}-Methode übergeben, sodass die eigentliche 
-    Transformation stattfinden kann. Die Struktur der Transformation wird vorab erläutert, damit die anschließende Erläuterung 
-    übertragbar ist. 
+    Transformation stattfinden kann. %Die Struktur der Transformation wird vorab erläutert, damit die anschließende Erläuterung 
+    %übertragbar ist. 
     \\
     \linebreak
     Im Rahmen der Arbeit wurden zwei Lösungswege erarbeitet, die jeweils dem Entwickler ermöglichen, eine Transformation zu definieren. Diese werden beide 
-    erläutert und anschließend gegenübergestellt. Das dabei verfolgte Ziel, ist dem Anwender den möglichst komfortableren Weg zu bieten, eine 
-    Transformation zu definiere, sodass die Aufwände für denjenigen gering bleiben.
+    erläutert und anschließend gegenübergestellt. Das dabei verfolgte Ziel, ist dem Anwender einen möglichst komfortablen Weg zu bieten, eine 
+    Transformation zu implementieren, sodass die Aufwände für denjenigen gering bleiben.
     \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
     Die erste Option ist die Nutzung einer Switch-Case-Anweisung. Hierbei wird die \textit{transform}-Methode bis zum Anwender durchgereicht. An dieser Stelle 
     wird klar definiert, welches \acs{MQTT}-Topic eine bestimmte Zustandsänderung auslöst. Innerhalb eines Falles (Case) wird über eine 
     \textit{Lambda}\footnote{Java Lambda-Funktion. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html} Besucht am 28.07.2022}-Funktion 
     der jeweilige Wert im Zustandsobjekt geändert. Mit dem direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
-    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Quellcode-Ausschnitt (siehe \ref{code:switch-case}) zu entnehmen:
+    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcode (siehe \ref{code:switch-case}) zu entnehmen:
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_old.png}
@@ -226,41 +226,71 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
 \end{lstlisting}
     Dieser Ansatz gibt eine Übersicht des Topics und der dafür vorgesehenen Zustandsänderung. Nachteile dabei sind jedoch, dass die Anweisungen 
     zunehmen, je mehr Regeln und dafür vorgesehen Zustandsänderungen hinzugefügt werden und die einmalige Verwendung der \acs{MQTT}-Topic-Zeichenkette. Dafür muss der 
-    Anwender, um innerhalb einer Regel eine weitere Zustandsänderung vorzunehmen, das Topic erneut aufgreifen und in Kenntnis des jeweiligen sein. Mit dem 
+    Anwender, um innerhalb einer Regel eine weitere Zustandsänderung vornehmen zu können, das Topic erneut aufgreifen und in Kenntnis des jeweiligen sein. Mit dem 
     Topic würde dann über den \acs{MQTT}-Producer eine Nachricht veröffentlicht werden, die die Aktion der Regeländerung steuert. 
     \\
     Diese umständliche Art und Weise galt es dem Anwender zu erleichtern, deshalb wurde ein zweiter Lösungsweg erarbeitet, der in folgendem Abschnitt 
     aufgezeigt wird.
 
     \subsubsection*{Transformationsobjekt mittels eigenem Objekt}
-        Im Gegensatz zu der Verwendung einer Switch-Case-Anweisung wird ein Klasse implementiert, mit der je nach Bedarf 
-        weitere Objekte mit unterschiedlichen Werten erzeugt werden kann. 
+        In Opposition zu der Verwendung einer Switch-Case-Anweisung wird bei diesem Ansatz eine Klasse implementiert, mit der je nach Bedarf 
+        weitere Objekte mit unterschiedlichen Werten erzeugt werden kann. Dabei werden in dem Konstrukt der Klasse die jeweiligen Parameter 
+        definiert. Das zu erzeugende Objekt wird zur Laufzeit dem Framework übergeben und in einer Liste gespeichert, sodass das System damit arbeiten kann. 
+        Die Parameter, die der Entwickler bestimmt, haben folgende Funktion:
+        \begin{itemize}
+            \item 1. Parameter: Hier wird das Topic übergeben. Der \acs{MQTT}-Subscriber prüft, ob das konsumierte Topic einem in der Liste definierten Topics entspricht.
+            \item 2. Parameter: Hier wird der Key definiert. Das über das Topic mitgelieferte JSON-Konstrukt wird auf diesen key überprüft. Dessen Wert für den Zustandsraum relevant. Hierüber wird der Zustand des Objektes transportiert.
+            \item 3. Parameter: Hier wird optional eine Liste übergeben, die nur bestimmt Werte für den Key zulässt, eine sogenannte \textit{White-List}.
+            \item 4. Parameter: Hier wird der Name des Feldes im Zustandsraum wiedergegeben, sodass mittels Reflection der Wert im Zustandsraum adressiert werden kann.
+        \end{itemize}
+        Diese Werte bilden die Transformation, die ebenso für die inverse Transformation (siehe Abschnitt \ref{subsec:inverseTransformation}) gilt.
+        Der Ablauf dieser kann dem folgenden Sequenzdiagramm entnommen werden:
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_new.drawio.png}
         \caption{Transformation über eigenes Objekt}
         \label{fig:sequenceTransformationNew}
     \end{figure}
-
+    \\
+    Um das Objekt zu erzeugen, muss der Entwickler lediglich das folgende Code-Beispiel verwenden und auf die entsprechenden Werte anpassen:
 \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:object}, captionpos=b, caption={Transformeation über eigenes Objekt}]
-public class SimpleTransformer extends AbstractTransformer<InnovationLabKA> {
-    public SimpleTopicWhiteListTransformation(
-            String topic, String key, List<?> whiteList, String attribute) {
-        setTopic(topic);
-        setKey(key);
-        setPayloadValues(whiteList);
-        try {
-            setField(InnovationLabKA.class.getDeclaredField(attribute));
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        }
+public class InnovationLogicHubApplication {
+    public InnovationLogicHubApplication() {
+        ... 
+        logicHub.addTransformation(
+            new SimpleTopicTransformation(
+                "InnovationLab/LogicHub/PersonOnDoor",
+                "email",
+                "personOnDoorEmail"
+            )
+        );
     }
 }
 \end{lstlisting}
-     Hierbei werden die vorab definierten Transformationen des Entwicklers 
-    in einer Liste gespeichert, damit das darin enthaltene Topic mit dem eingehenden verglichen werden kann. Dafür wird über die Liste iteriert und jede Transformation, sowie deren zugewiesenes Topic geprüft. Sofern es eine Übereinstimmung gibt, wird Gibt es eine Übereinstimmung, Der Ablauf kann dem Sequenzdiagramm (siehe Abbildung \ref{fig:kommunikationsequenz}) entnommen werden. 
+    Der interne Ablauf des Frameworks unterscheidet sich bei beiden Transformationsmethoden in Nuancen, wie den beiden Sequenzdiagrammen 
+    (\ref{fig:sequenceTransformationOld} und \ref{fig:sequenceTransformationNew}) zu entnehmen ist. Jedoch wird bei dem zweiten Ansatz 
+    das Zustandsobjekt mittels Reflection manipuliert und anschließend als Änderung registriert und ausgeführt, während bei der ersten Methode 
+    die Änderung direkt über die Lambda-Funktion gesteuert und ausgelöst wird. Dies hat für den Anwender keinerlei Auswirkung, relevant hingegen war, 
+    welcher Ansatz für den Entwickler den besseren darstellt. An dieser Stelle bringt der zweite Ansatz Potentiale mit, die dem Entwickler die 
+    Handhabung der Interaktionen formalisieren und erleichtern und zudem übersichtlicher gestalten.
+    \\
+    \linebreak
+    Für die Vorteile, die der zweite Ansatz dem Entwickler gegenüber bringt, wurde dieser in dem Framework angewendet. 
+    \\
+    \linebreak
+    Die Funktionsweise der Transformation ist demnach wie folgt umgesetzt:
+    \\
+    Die vorab definierten Transformationen des Entwicklers werden in einer Liste gespeichert, damit das darin enthaltene Topic mit dem eingehenden 
+    verglichen werden kann. Dafür wird über die Liste iteriert und jede Transformation, sowie deren zugewiesenes Topic geprüft. Sofern 
+    es eine Übereinstimmung gibt, wird der Key-Wert ermittelt und als Nutzlast (\textit{Payload}) übergeben. An dieser Stelle wird der \textit{ReentrantLock} aktiviert 
+    und die Feldmanipulation durchgeführt für den Wert, der mittels Nutzlast mitgegeben wurde. Nachdem die Zustandsändeurng erfolgte, wird der \textit{Lock} deaktiviert und 
+    die Zustandsänderung an die Logikschicht weitergegeben. Der Ablauf kann dem Sequenzdiagramm (siehe Abbildung \ref{fig:kommunikationsequenz}) entnommen werden. 
+    Somit ist die Transformation erfolgt. 
+    \\
+    Die Funktion der inversen Transformation wird in folgendem Abschnitt erläutert.
 
 \subsection{Inverse Transformation}
+\label{subsec:inverseTransformation}
     Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch dadurch eine weitere 
     Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation stattfinden. Dadurch wird anhand 
     der Zustandsänderung, die der Entwickler durch eine Funktion vorgibt, die zugehörige Aktion mittels \acs{MQTT}-Nachricht 
