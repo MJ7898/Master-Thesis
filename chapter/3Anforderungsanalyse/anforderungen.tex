@@ -229,33 +229,38 @@
     Damit die adressierte Zielgruppe etwas greifbarer wird und die Anwendungsschritte der \textit{target group analysis} und 
     dem \textit{user-centered design} eingehalten werden, sind Persona\footnote{Eine repräsentative Vorstellung einer Person zu bestimmtem Kontext. \url{https://www.romanpichler.com/the-persona-template/} Abgerufen am 28.05.2022} 
     entwickelt worden. Diese geben die Anwenderzielgruppe wieder und vermittelt einen Eindruck von Personen, die sich mit dem 
-    Softwareprodukt, bzw. mit dem Konzept auseinandersetzen. Die entstandenen Persona sind dem Anhang beigefügt 
-    (\ref{appendix:persona}).
+    Softwareprodukt, bzw. mit dem Konzept auseinandersetzen. Ein konkretes Beispiel ist folgender Abbildung zu entnehmen, weitere Exemplare sind dem Anhang beigefügt (\ref{appendix:persona}).
+    \\
+    \linebreak
+    \pagebreak
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=15cm,height=10cm,keepaspectratio]{chapter/9Anhang/Persona-4_MA.png}
+        %\includepdf[scale=1.00, pages=1, pagecommand={}]{chapter/9Anhang/Persona-4_MA.pdf}
+        \caption{Persona zur Zielgruppenanalyse}
+        \label{appendix:persona}
+    \end{figure}
+    Der Zielgruppe werden folgende Eigenschaften, wie IT-affin, innovativ, zielstrebig, selbständig, flexibel, neugierig, erfinderisch, fortschrittlich beispielhaft zugeschrieben. 
+    Diese garantieren das Einsetzen und ständige Vorantreiben zum eigenen Nutzen. 
 
 \section{Anwendungsfälle - Use Cases}
 \label{sec:usecases}
     Für die Erhebung und Ausarbeitung von Anforderungen an das zu entwickelnde Framework der Steuerzentrale und dessen 
     einfache Handhabung der formalisierten Interaktionen des Softwareentwicklers wurden Anwendungsfälle, sogenannte 
-    \textit{Use Cases} definiert. Diese helfen dabei, alle Anforderungen und Kriterien zu identifizieren und für das 
+    \textit{Use Cases} definiert. Diese helfen dabei, alle Ansprüche und Kriterien zu identifizieren und für das 
     Konzept zu berücksichtigen. Im Rahmen des \acl{RE} wurden die Anwendungsfälle dokumentiert und für die Konzeption, sowie 
     für die Umsetzung des Prototyps, dem \textit{Proof of Concept (PoC)}, einbezogen. 
-    %zur Ergänzung von Regeln und Erweiterung des Systems und dessen 
-    %Regeldefinitionen werden Anwendungsfälle, 
-    %sogenannte Use Cases, definiert, bewertet und auf ihre Funktionalität geprüft. Diese wurden im Rahmen 
-    %des \acl{RE} dokumentiert. 
+    \\ 
     Das \acs{RE} nach \cite{pohl2021basiswissen} gibt Schablonen, Vorgehensmodelle und Aufgaben 
     vor, die dabei helfen, den Kontext des Projektes zu erläutern und aus den anliegenden Sachverhalten und Anwendungsfällen 
     die Anforderungen abzuleiten. Nach der strukturierten \acs{RE} Methode \ac{TORE} \cite{tore2014} werden die 
     Aufgaben, die Systemfunktionen und die Interaktionen deutlich. Zum besseren Verständnis des Kontextes und der daraus 
     resultierenden Anforderungen werden die jeweils generierten Anwendungsfälle in den folgenden Abschnitten 
     erläutert.
-    \\
-    \linebreak
-    %Zum besseren Verständnis wird auf diese in den folgenden Abschnitten eingegangen. 
+
 \subsection{Check-in mit einem Service-Roboter}
 \label{subsec:checkin}
-    Der Anwendungsfall des Check-ins mit einem Service-Roboter skizziert das Szenario und den Kontext des Sachverhaltes, als 
-    auch die Komponenten, die benötigt werden, um den Anwendungsfall mithilfe des Frameworks der Steuerzentrale abzubilden. 
+    Der erste Anwendungsfall skizziert den Check-in mit einem Service-Roboter. 
     Daraus können Anforderungen abgeleitet werden, die für das Konzept eine wichtige Rolle spielen. Mithilfe der 
     Erläuterung des Use Cases kann der Prozess aus mehreren Sichtweisen betrachtet werden, die zur Erhebung weiterer 
     Anforderungen beitragen können. 
@@ -275,41 +280,28 @@
     der Tür bekannt sein. Hierfür findet eine Authentifizierung der Person über die Kamera an der Eingangstür statt. Der 
     Authentifizierungsvorgang wird bereits als gegeben vorausgesetzt und ist kein direkter Bestandteil der Steuerzentrale. 
     \\
-    Sobald eine Person über die Kamera authentifiziert wurde, wird eine \acs{MQTT}-Nachricht über ein dafür definiertes Topic 
+    Sobald eine Person über die Kamera verifiziert wurde, wird eine \acs{MQTT}-Nachricht über ein dafür definiertes Topic 
     an den \acs{MQTT}-Broker veröffentlicht, 
     auf das die Steuerzentrale lauscht und dessen Inhalt konsumiert. Das Konsumieren des \acs{MQTT}-Topics und die damit gesendete 
-    Nachricht wird als eingehendes Ereignis verwendet, worauf die Steuerzentrale reagiert. Basierend auf dem eingehenden Event, wird der 
-    weitere Prozess gestartet. Nach dem Erhalt der Nachricht wird auf Grundlage des Topics diese zugeordnet und die dafür 
+    Nachricht wird als eingehendes Ereignis verwendet, worauf die Steuerzentrale reagiert. Basierend auf dem eingehenden Event wird der 
+    weitere Prozess gestartet. Nach dem Erhalt des Topics wird auf dessen Grundlage die Nachricht zugeordnet und die dafür 
     vorgesehene Regel ausgeführt. Hierfür wird der Service-Roboter über die Steuerzentrale an die Tür geschickt, an der die Begrüßung 
-    stattfinden soll. Nach erfolgreicher Begrüßung wird der Check-in durchgeführt, worauf die Person einen Platz buchen kann oder bei vorab getätigter 
-    Buchung diese bestätigen und sich als anwesend eintragen kann. Die grobe Skizzierung ist folgendem Anwendungsfalldiagramm zu entnehmen: 
+    stattfinden soll. Nach erfolgreichem Vorgang wird der Check-in durchgeführt, worauf die Person einen Platz buchen oder bei vorab getätigter 
+    Buchung diese bestätigen und sich als anwesend eintragen kann. Die grobe Skizzierung ist folgendem Diagramm zu entnehmen: 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/UC1_Diagramm_Check-in.png}
         \caption{Use Case 1 - Anwendungsfalldiagramm}
         \label{fig:uc1-check-in}
     \end{figure}
-    %Der Check-in erfordert drei Teilnehmer und eine vorausgesetzte Bedingung, die bereits implementiert ist. Als Teilnehmer 
-    %zählt eine Person, die den Check-in erfährt, ein Service-Roboter, der die Begrüßung und das Check-in als Anweisung 
-    %durchführt und die Steuerzentrale, die den Ablauf koordiniert. Als bereits implementierter Vorgang wird die 
-    %Authentifizierung der Person über eine Kamera an der Eingangstür vorausgesetzt. Diese veröffentlicht nach erfolgreicher 
-    %Authentifizierung eine Nachricht an einen Nachrichten-Broker. An dieser Stelle hört die Steuerzentrale auf die 
-    %veröffentlichte Nachricht und konsumiert diese. Mit dem Ereignis ist der Auslöser für die weiteren Schritte gegeben. Nach 
-    %dem Erhalt der Nachricht wird diese zugeordnet und die dafür vorgesehene Regel angestoßen. Mit Beginn der Anweisung wird 
-    %der Service-Roboter an die Tür geschickt, um die Person zu begrüßen.
-    %\\
-    %\linebreak
-    %\pagebreak
-    %\linebreak
-    %\pagebreak
-    Sobald eine Person an der Tür authentifiziert und der Begrüßungsprozess gestartet wurde, werden, während der Service-Roboter an 
-    die Tür fährt, über eine Schnittstelle zur internen Büroplatzbuchungssoftware die Platzbuchungen abgefragt. 
-    Sobald der Service-Roboter an der Tür angelangt ist, öffnet sich diese und die Person kann eintreten. Wenn die zu begrüßende 
-    Person vor dem Service-Roboter steht, kann dieser mithilfe einer integrierten Kamera erkennen, dass eine Person gegenübersteht. 
-    Zu diesem Zeitpunkt wird zur Einfachheit damit gerechnet, dass die Person, die vor dem Service-Roboter steht auch diejenige 
+    Sobald eine Person an der Tür authentifiziert und der Begrüßungsprozess gestartet wurde, werden über eine 
+    Schnittstelle zur internen Büroplatzbuchungssoftware die Platzbuchungen abgefragt. Währenddessen bewegt sich der 
+    Service-Roboter an die Tür, die sich daraufhin öffnet und die Person eintreten lässt. 
+    Zu aktuellen Zeitpunkt wird vorausgesetzt, dass die Person, die vor dem Service-Roboter steht auch diejenige 
     ist, die an der Tür authentifiziert wurde. In zukünftiger Arbeit könnte die Person auch über die Kamera des Roboters erneut 
-    authentifiziert werden, damit die Korrektheit gegeben ist. Dies ist zu diesem Anwendungsfall jedoch nicht erforderlich und 
-    wird deshalb an dieser Stelle nicht weiter verfolgt.
+    authentifiziert werden, um eine Übereinstimmung zwischen der Person an der Tür und der Person vor dem Service-Roboter zu 
+    erzielen. Damit wäre der korrekte Adressat des Check-ins gewährleistet. Dies ist für diesen Anwendungsfall jedoch nicht erforderlich und 
+    wird deshalb an der Stelle nicht weiter verfolgt.
     \\
     \linebreak
     Nachdem der Roboter die Person erkannt hat, startet die formale Begrüßung. Anschließend wird die Information der 
@@ -321,13 +313,8 @@
     Ladestation geschickt. Somit ist das Szenario abgearbeitet und der Roboter steht für weitere Aufgaben zur Verfügung. 
     \\
     \linebreak
-    Eine konkrete Aufgabenbeschreibung, sowie eine definierte User Story und ein ergänzendes Ablaufdiagramm ist dem Anhang (siehe Anhang \ref{appendix:user-story-uc1}) zu entnehmen. 
+    Eine konkrete Aufgabenbeschreibung, sowie eine definierte User Story und ein ergänzendes Ablaufdiagramm ist dem Anhang (siehe Anhang \ref{appendix:user-story-uc1}) beigefügt. 
     \\
-    Zur besseren Veranschaulichung des Anwendungsfalls sind die Prozesse visualisiert und auf einer übergreifenden Ebene skizziert. Den folgenden Diagrammen, darunter 
-    einem Aktivitätsdiagramm und einem Sequenzdiagramm, %und einem Ablaufdiagramm,
+    Zur besseren Veranschaulichung des Anwendungsfalls sind die Prozesse visualisiert und grob skizziert. Den folgenden Diagrammen, darunter 
+    einem Aktivitätsdiagramm und einem Sequenzdiagramm, 
     ist die visuelle Ergänzung zu entnehmen: 
-    
-    %im Anhang (%\ref{}%
-    %SIEHE REFERENZ TBD) eine weitere Aufgabenbeschreibung, sowie die User Story als auch ein Use Case-, 
-    %Sequenz- und Ablaufdiagramm zu finden.
-
