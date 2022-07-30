@@ -23,7 +23,7 @@
     Aufgrund der Vielzahl an Frameworks war es im Rahmen dieser Arbeit nicht möglich, alle vorhandenen und in Betracht 
     gezogenen Systeme detailliert aufzuführen. Lediglich die engere Auswahl wird aufgegriffen. 
     Nach ausführlicher Recherche und unter Berücksichtigung von Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, wurden 
-    schließlich genau zwei Systeme genauer betrachtet, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Betracht gezogenen Frameworks 
+    schließlich genau zwei Systeme genauer betrachtet, die die vorangestellten Kriterien in Gänze erfüllen. Viele in Erwägung gezogene Frameworks 
     finden überwiegend in der Web-Entwicklung Anwendung, bzw. basieren auf dem Spring Framework. Durch diese Erkenntnis wurden 
     viele Systeme nicht weiter berücksichtigt. Die beiden Kernsysteme, die ihren Einsatz und ihre Möglichkeiten rechtfertigen
     werden in den folgenden Abschnitten kurz erläutert.
@@ -91,23 +91,24 @@
 \section{Implementierung}
 \label{sec:implementation}
     Hierbei wird konkret die Implementierung des Frameworks aufgegriffen und beschrieben, wie Konzeptentscheidungen im Code umgesetzt wurden. 
-    Auch werden wichtige Anhaltspunkte ergänzt, die in der Tiefe nicht aus dem Konzept hervorgehen, da dort lediglich die Idee und die allgemein gehaltene 
-    Vorstellung skizziert wurde. 
+    Auch werden wichtige Anhaltspunkte ergänzt, die in der Tiefe nicht aus dem Konzept hervorgehen, da sich dort lediglich auf die Idee und die allgemein gehaltene 
+    Vorstellung bezogen wurde. 
 
 \subsection{Generische Programmierung} % Typisierung
+\label{subsec:java_generics}
 % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
 Eine entscheidende Überlegung der Umsetzung in Richtung des Zustandsraumes ist die Verwendung der generischen Programmierung. 
 \\
 Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
 Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
-notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vorher bekannt ist. 
+notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vor der Systemlaufzeit bekannt ist. 
 \\
 \linebreak
 Hierfür wird auf das Konzept der generischen Programmierung, sog. \textit{Generics}, gesetzt. Ein Synonym 
-des Begriffs ist der parametrisierte Typ. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
+des Begriffs ist der \textit{parametrisierte Typ}. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
 gegeben, mit dem Klassen und Methoden mit Typen parametrisiert werden können. Diese Typ-Variablen sind zum 
 Zeitpunkt der Implementierung unbekannt und können beliebig definiert werden. Erst zur Laufzeit des Systems 
-wird die Typ-Variable durch einen oder ggf. auch mehrere Typen ersetzt. Somit ist zur Laufzeit das 
+wird die Typ-Variable durch ein Objekt ersetzt. Somit ist zur Laufzeit das 
 Objekt, dessen Struktur, Methoden und Funktionen bekannt. Bei der Verwendung von generischen Typen gibt es 
 Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
 einfachen Typ-Parameters. Weitere Varianzfälle werden in dieser Ausarbeitung nicht erläutert. 
@@ -146,24 +147,29 @@ die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätz
 Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
 \\
 \linebreak
-Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen Framework und Anwender-Interaktionen deutlicher.
+Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen Framework und Anwender-Interaktionen im Quellcode deutlicher.
 %Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
 %Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
 %\\
 %\linebreak
 %Im weiteren Verlauf wird der Aufbau des Frameworks erläutert, sowie die detaillierte Beschreibung der einzelnen Schichten und deren Funktionalität. 
 
-\subsection{Parallelisierung}
-    Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
-    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
-    Durch das Auslagern des konkreten Prozesses in einen eigenen \textit{Thread} können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
-    Regel ausgeführt wird. 
-    In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
-    würde sich das Durchführen von Regeln verzögern, bspw. wenn ein Licht eingeschaltet werden würde, davor allerdings noch zwei Regeln abgearbeitet werden müssten, die jeweils eine 
-    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. Durch die Auslagerung des Regelmanagements in jeweils eigene \textit{Threads} entfällt die sequenzielle 
-    Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
-    wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
-    Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
+\subsection{Zustandsraum}
+\label{subsec:zustandsraum}
+    Der vom Anwender zu definierende Zustandsraum stellt ein einfaches Java Objekt dar, das in einer eigenen Klasse definiert wird. 
+    Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte Abbilden. Dies erfolgt durch 
+    Klassenvariablen, die einem primitiven Datentypen entsprechen, bspw. könnte eine LED-Leuchte als \textit{boolean} mit den 
+    Werten \textit{true} und \textit{false} oder als \textit{String} mit den Zeichenketten \textit{"on"} und \textit{"off} definiert 
+    werden. Diese Entscheidung kann alleinig der Entwickler treffen. 
+    \\
+    \linebreak
+    In der Modellierung des Zustandsraumes gibt es in dem aktuellen konzeptionellen Stand Designvorgaben. Diese werden im Abschnitt der 
+    Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) aufgegriffen. 
+%Aggregation von Objekten -> Nein
+%Aggregation über Serialisierung 
+%Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
+% Vermeidung von Rückkopplung 
+
 
 \subsection{Reflection} 
     Mit der Reflection\footnote{Java Reflection. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
@@ -293,7 +299,7 @@ public class InnovationLogicHubApplication {
 \label{subsec:inverseTransformation}
     Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch dadurch eine weitere 
     Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation stattfinden. Dadurch wird anhand 
-    der Zustandsänderung, die der Entwickler durch eine Funktion vorgibt, die zugehörige Aktion mittels \acs{MQTT}-Nachricht 
+    der Zustandsänderung, die der Entwickler durch eine Funktion in der jeweiligen Regel vorgibt, die zugehörige Aktion mittels \acs{MQTT}-Nachricht 
     veröffentlicht. In Folge dessen muss der Entwickler bei der Implementierung einer Regel keine Kenntnis über das 
     \acs{MQTT}-Topic haben, lediglich muss das richtige Attribut im Zustandsraum angesprochen und geändert werden. 
     Ein konkretes Beispiel: 
@@ -304,26 +310,54 @@ public class InnovationLogicHubApplication {
     Dementsprechend definiert der Entwickler eine Funktion, die den Wert des Lichtzustandes im Zustandsobjekt verändert. 
     Mit der Veränderung wird überprüft, um welches Attribut es sich im Zustandsraum handelt und wie sich der Wert geändert hat. 
     Wenn diese Überprüfung zutrifft, wird im Rahmen der inversen Transformation ein \textit{JSON}-Konstrukt generiert, welches 
-    mit dem in der Transformation definierten Topic als \acs{MQTT}-Nachricht an den \acs{MQTT}-Broker publiziert wird. 
+    mit dem in der Transformation definierten Topic als \acs{MQTT}-Nutzlast an den \acs{MQTT}-Broker publiziert wird. Dabei handelt 
+    es sich konkret um das Topic, auf das der \acs{MQTT}-Client der LED-Leuchte reagiert.
     Daraufhin wird die LED-Leuchte angeschaltet. 
     \\
     \linebreak
-    Zusammengefasst wird mit der inversen Transformation vermieden, dass der Entwickler sich neben der zu definierenden 
+    Zusammengefasst wird mit der inversen Transformation vermieden, dass der Entwickler sich bei der Regelimplementierung neben der zu definierenden 
     Zustandsänderung zusätzlich um das veröffentlichen der jeweiligen Nachricht und das Verpacken in eine übertragbare 
     \textit{JSON}-Struktur kümmern muss. Des weiteren ist die Kenntnis über das Topics, unter dem die Nachricht 
     gesendet wird, ausschließlich in der Transformation von Nöten und muss nicht an mehreren Stellen konkret 
-    aufgeschrieben werden. Hierbei wird dieser Schritt zentralisiert in dem Transformationsobjekt festgehalten. 
+    aufgeschrieben werden. Dafür kann zu jeder Zeit die Liste der Transformationen genutzt werden, um das erforderliche Topic zu erhalten. 
+    \\
+    \linebreak
+    Zu aktuellem Zeitpunk wird bei der inversen Transformation ein einfaches \textit{JSON}-Konstrukt erzeugt. Dafür wird der 
+    \textit{Key}-Wert der Transformation und die Nachricht als Nutzlast verwendet. Zur Veröffentlichung der Nachricht unter einem 
+    \acs{MQTT}-Topic, wird derzeit ausschließlich der \textit{Zigbee2MQTT}-Standard\footnote{Nutzung von Zigbee2MQTT. \url{https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html} Besucht am 30.07.2022} 
+    eingehalten. Dabei wird die Topic-Zeichenkette, die über das Transformationsobjekt abgerufen werden kann, um den Anhang (\textit{/set}) ergänzt. 
+    Hierfür wird vorab das \textit{JSON}-Konstrukt generiert und mit den jeweiligen Werten belegt. Diese Struktur wird als Nutzlast mittels dem 
+    Topic und dessen Anhang herausgegeben. Soll im Rahmen der Veröffentlichung einer Nachricht kein \textit{JSON}-Konstrukt sondern ein einzelner Wert 
+    publiziert werden, so kann dies erfolgen, indem das Topic um den zugehörigen \textit{Key}-Wert der Transformation (\textit{/set/[Key-Wert]}) ergänzt wird. Ein Beispiel dazu:
+    \\
+    Eine LED-Leuchte wird mit einer Transformation mit den Werten \textit{"mqtt/topic/test"}, \textit{"key-state"} und dem Attribut \textit{"led-leuchte"} 
+    definiert. Soll in dem Zuge die Nutzlast nur den Wert \textit{"on"} enthalten, so wird kein 
+    \textit{JSON}-Konstrukt erzeugt sondern lediglich die Nachricht über das modifizierte Topic (\textit{"mqtt/topic/test/set/key-state"}) veröffentlicht. 
+    \\
+    \linebreak
+    Resümierend gibt es im Kontext des \textit{Zigbee2MQTT} zwei Wege, um mit Geräten, die das ZigBee-Protokoll unterstützen, zu kommunizieren. Diese sind beide 
+    über das Framework, somit auch über die inverse Transformation abgedeckt.
+
 %
 %Hierfür muss erneut eine  \acs{MQTT}-Nachricht 
 %über ein bestimmtes Topic veröffentlicht werden. Diese Veröffentlichung findet im Rahmen der inversen Transformation statt Da diese Transformation bereits definiert wurde, ist innerhalb der Regel %ausschließlich die Zustandsänderung 
 %zu definieren. Mithilfe der inversen Transformation wird anhand der Zustandsänderung die dementsprechende Aktion invertiert und unter 
 %dem dafür vorgesehenen Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin das Licht angeschaltet. 
 
-\subsection{Zustandsraum}
-%Aggregation von Objekten -> Nein
-%Aggregation über Serialisierung 
-%Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
-% Vermeidung von Rückkopplung 
+\subsection{Parallelisierung}
+\label{subsec:parallelisierung}
+    Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
+    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
+    Durch das Auslagern des konkreten Prozesses in einen eigenen \textit{Thread} können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
+    Regel ausgeführt wird. 
+    In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
+    würde sich das Durchführen von Regeln verzögern, bspw. wenn ein Licht eingeschaltet werden würde, davor allerdings noch zwei Regeln abgearbeitet werden müssten, die jeweils eine 
+    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. Durch die Auslagerung des Regelmanagements in jeweils eigene \textit{Threads} entfällt die sequenzielle 
+    Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
+    wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
+    Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
+
+\subsection{Regeldefinition}
 
 \subsection{Implementierung eines Anwendungsfalls}
 %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
@@ -334,9 +368,16 @@ public class InnovationLogicHubApplication {
 %\subsection{Aufbau der Architektur}
 %\subsection{Einbindung der Funktionen abgeleitet von der Konzeption}
 \section{Fazit der prototypischen Implementierung}
-\subsection{Modellierungsmöglichkeiten}
+
+\subsection{Modellierungsvorgaben und -grenzen}
+\label{subsec:modellierungsgrenzen}
+%WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND NICHT MÖGLICH, 
+%DA DIES AN DIE GRENZE VON JAVA REFLECITON KOMMT. IST ABER AUCH NICHT NÖTIG, DA ALLE 
+%NOTWENDIGEN GEGENSTÄNDE ÜBER EINEN ODER MEHRERE ATTRIBUTE IM ZUSTANDSRAUM ABGEBILDET WERDEN KÖNNEN. BSP.? 
+% UND DIE ATTRIBUTE, BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
 
 %Grenzen 
 %Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 
 %Worauf man achten soll, wenn man ein neues Szenario abbildet. 
 %Modellierungsmöglichkeiten des Frameworks.
+
