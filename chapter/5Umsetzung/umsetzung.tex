@@ -156,22 +156,51 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
 
 \subsection{Zustandsraum}
 \label{subsec:zustandsraum}
-    Der vom Anwender zu definierende Zustandsraum stellt ein einfaches Java Objekt dar, das in einer eigenen Klasse definiert wird. 
-    Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte Abbilden. Dies erfolgt durch 
+    Der vom Anwender zu definierende Zustandsraum stellt ein einfaches Java Objekt (\textit{\acs{POJO}}) dar, das in einer eigenen Klasse definiert wird. 
+    Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte abbilden. Dies erfolgt durch 
     Klassenvariablen, die einem primitiven Datentypen entsprechen, bspw. könnte eine LED-Leuchte als \textit{boolean} mit den 
-    Werten \textit{true} und \textit{false} oder als \textit{String} mit den Zeichenketten \textit{"on"} und \textit{"off} definiert 
+    Werten \textit{true} und \textit{false} oder als \textit{char} mit jeweils \textit{"y"} und \textit{"n"} oder mit dem nicht primitiven 
+    Typen \textit{String} mit den Zeichenketten \textit{"on"} und \textit{"off"} definiert 
     werden. Diese Entscheidung kann alleinig der Entwickler treffen. 
     \\
     \linebreak
     In der Modellierung des Zustandsraumes gibt es in dem aktuellen konzeptionellen Stand Designvorgaben. Diese werden im Abschnitt der 
     Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) aufgegriffen. 
+    \\
+    Die im Zustandsraum erstellten Felder werden direkt an eine Transformation (siehe Abschnitt \ref{subsec:transformation}) gebunden. So kann sichergestellt werden, dass 
+    das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert, bzw. empfangen wird. Dadurch kann 
+    auch die Dopplung von Felder vermieden werden, dies bedeutet, dass ein Feld nicht für mehrere reelle Gegenstände stehen kann. Hierfür ist für jedes 
+    Gerät mindestens ein eigenes Feld zu definieren. Durch die Verwendung von primitiven Datentypen innerhalb 
+    des Zustandsobjektes kann eine Rückkopplung von Objekten vermieden werden. 
+    \\
+    \linebreak
+    Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Klasse, die neben einem Konstruktor alle Felder und Attribute besitzt, die Zustände reeller 
+    Geräte abbilden sollen. Damit der Anwender in seinen definierten Regeln die Werte setzen und abfragen kann, gibt es zu jedem Attribut eine \textit{Getter}- und \textit{Setter}-Methode.
+    Es ist wichtig anzumerken, dass das Zustandsobjekt mit dem \textit{Singleton}-Pattern markiert und der Konstruktor dementsprechend initialisiert werden muss. Dadurch wird 
+    die Integrität des Objektes, sowie die dadurch vermeidbare Redundanz gewährleistet. Durch die Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
+    kann mittels der \textit{@Data}-Annotation sämtlicher (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
+    Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Dieses Konstrukt kann in der Form als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
+    Transaktionshistorie der Zustandsänderungen zu erstellen.
+    \\
+    \linebreak
+    Durch die Verwendung von Reflection (siehe Abschnitt \ref{subsec:reflection}) ist die Initialisierung des Zustandsraumes auf primitive Typen beschränkt. 
+    Die Reflection \acs{API} ist dahingehend sperrig und bietet eine beschränkte Manipulation von Objekten. Auf dieser Grundlage ist eine Verwendung von Objekten im 
+    Zustandsraum nicht ohne weiteres Möglich. Mit dieser Einschränkung ist auch keine Aggregation von 
+    Objekten, bzw. deren Serialisierung vorgesehen. 
+    \\
+    Diese Entscheidung wurde getroffen, da in der Mehrheit der Anwendungsfälle die Zustände über primitive Typen abgebildet werden können. 
+    Ein Designnachteil ist dabei, dass für ein Geräte ggf. mehrere Attribute im Zustandsraum angelegt werden müssen und dadurch das Zustandsobjekt 
+    deutlich umfangreicher wird. Eine bessere Übersicht wäre gegeben, wenn die Felder in ein eigenes Objekt, bzw. eine eigene Klasse ausgelagert werden könnten. 
+    Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des Agilen Projektes könnte eine weitere Alternative konzipiert werden, die Objekte 
+    im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen. 
+
 %Aggregation von Objekten -> Nein
 %Aggregation über Serialisierung 
 %Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
 % Vermeidung von Rückkopplung 
 
-
 \subsection{Reflection} 
+\label{subsec:reflection}
     Mit der Reflection\footnote{Java Reflection. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
     (Reflexion, Spiegelung) ist eine Funktion der Programmiersprache Java gegeben, die es ermöglicht, Laufzeitattribute von Klassen, Schnittstellen, Feldern 
     und Methoden zu überprüfen und zu ändern. Diese Funktion erweist sich als besonders praktisch, wenn die Namen der Attribute zur Kompilierzeit nicht bekannt sind. 
@@ -184,6 +213,7 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
     Transformation wird in folgendem abschnitt greifbar aufgezeigt.
 
 \subsection{Transformation}
+\label{subsec:transformation}
     Die Transformation stellt die Schnittstelle zwischen den externen Auslösern, bspw. \acs{MQTT}, und der Kommunikationsschicht dar. 
     Die über das Kommunikationsprotokoll gelieferten Daten werden der \textit{transform}-Methode übergeben, sodass die eigentliche 
     Transformation stattfinden kann. %Die Struktur der Transformation wird vorab erläutert, damit die anschließende Erläuterung 
@@ -201,7 +231,7 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
     ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcode (siehe \ref{code:switch-case}) zu entnehmen:
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_old.png}
+        \includegraphics[width=14cm,height=8cm,keepaspectratio]{images/Transformation_old.png}
         \caption{Transformation über Switch-Case-Anweisung}
         \label{fig:sequenceTransformationOld}
     \end{figure}
@@ -209,7 +239,6 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
 \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch-case}, captionpos=b, caption={Transformeation über eine Switch-Case-Anweisung}]
 public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
     private final LogicHubState<InnovationLabKA> logicHubState;
-    ...
 
     public void transform(String topic, String payload) {
         switch (topic) {
@@ -225,7 +254,6 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
                     innovationLab.update();
                 });
                 break;
-            ... 
         }    
     }
 }
@@ -251,9 +279,11 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
         \end{itemize}
         Diese Werte bilden die Transformation, die ebenso für die inverse Transformation (siehe Abschnitt \ref{subsec:inverseTransformation}) gilt.
         Der Ablauf kann dem folgenden Sequenzdiagramm entnommen werden:
+        \\
+        \pagebreak
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=10cm,height=7cm,keepaspectratio]{images/Transformation_new.drawio.png}
+        \includegraphics[width=14cm,height=9cm,keepaspectratio]{images/Transformation_new.drawio.png}
         \caption{Transformation über eigenes Objekt}
         \label{fig:sequenceTransformationNew}
     \end{figure}
@@ -344,6 +374,21 @@ public class InnovationLogicHubApplication {
 %zu definieren. Mithilfe der inversen Transformation wird anhand der Zustandsänderung die dementsprechende Aktion invertiert und unter 
 %dem dafür vorgesehenen Topic eine Nachricht veröffentlicht, die die LED konsumiert und daraufhin das Licht angeschaltet. 
 
+\subsection{Regeldefinition}
+    Damit die Vorgaben für eine valide Regeldefinition eingehalten werden, wird dem Anwender mittels \textit{Template Methode}-Pattern 
+    eine Schablone vorgegeben, die alle notwendigen Methoden vorgibt, die der Entwickler implementiert sollte. Zusätzlich gibt es eine Annotation, die 
+    \textit{RuleAnnotation}, die eine Regel als solche kenntlich macht und die Implementierung der Methoden forciert. Die beiden wichtigsten Funktionen 
+    innerhalb der Klasse, die durch die abstrakte Definition zum Softwareentwickler durchgereicht werden, ist zum einen die \textit{checkCondition}-Funktion und 
+    zum anderen die \textit{ruleProcess}-Funktion. Innerhalb der erstgenannten Methode gibt der Anwender einen Sachverhalt vor, der zutreffen muss, sodass anschließend diese 
+    Regel ausgeführt werden kann. Die Bedingung ist abhängig von dem Feld des Zustandsraumes und der Absicht für die der Regelprozess gestartet werden soll. Sofern die 
+    Bedingung zutrifft, wird ein boolescher Werte (\textit{true}) zurückgeliefert, der die Regel ausführen lässt. Die ebenso wichtige Funktion des Regelprozesses beinhaltet die Schritte der 
+    Regelausführung als klassische Methode, die keinen konkreten Wert zurückgibt, sondern lediglich die darin enthaltenen Punkte abarbeitet. An dieser Stelle können wiederum 
+    weitere Zustandsänderungen implementiert werden. Dies ist abhängig von dem Inhalt der Regel und liegt ebenso in der Macht des Entwicklers. 
+    \\
+    Neben den beiden Hauptfunktionen, gibt es eine weitere Funktion, die den Auslöser der Regel definiert. Dieser dient dazu, um Regeln ggf. nur auslösen zu können, sofern ein bestimmter 
+    Auslöser dafür aktiviert wurde. Zusätzlich gibt es weitere Funktionen, die reine Informationswerte halten, darunter den Regelnamen und die -beschreibung. Darüber hinaus hat der 
+    Entwickler keinerlei Einschränkungen, das Regelobjekt ergänzend zu gestalten.
+
 \subsection{Parallelisierung}
 \label{subsec:parallelisierung}
     Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
@@ -357,7 +402,15 @@ public class InnovationLogicHubApplication {
     wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
 
-\subsection{Regeldefinition}
+\subsection{Regelwerk -und management}
+    Anknüpfend an die abgeschlossene Transformation wird nach der Zustandsänderung der Teil ausgeführt, der basierend auf der Zustandsänderungen 
+    alle bekannten Regel überprüft und die zutreffenden ausführt. Grundlegend gilt hier, wenn eine Zustandsänderung keiner konkreten Regel zugeordnet 
+    werden kann, fehlt entweder die dazugehörige Regel oder es liegt in der Absicht des Entwicklers, darauf keine Regel auszuführen. Wenn eine 
+    Zustandsänderung mehrfach hintereinander erfolgt, wird diese, sofern keine weitere Bedingung darauf zutrifft, ohne Auswirkungen übertragen 
+    und keine Regel ausgeführt. Damit jedoch voneinander unabhängige Regel parallel ausgeführt werden können, wird der Prozess der Regelüberprüfung und -durchführung 
+    in einen \textit{Thread} ausgelagert, wie bereits im Abschnitt der Parallelisierung (siehe \ref{subsec:parallelisierung}) beschrieben. Der Ablauf kann dem 
+    Sequenzdiagramm (siehe Abbildung \ref{fig:logiksequenz}) ab dem Schritt \textit{1.5:copyState} entnommen werden. 
+
 
 \subsection{Implementierung eines Anwendungsfalls}
 %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
