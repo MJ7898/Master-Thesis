@@ -1,0 +1,21 @@
+\section{Fazit der prototypischen Implementierung}
+    % Entscheidung für die Nutzung von Reflection. Begründung: Überprüfung der Werte im Zustandsraum, welche sich geändert haben. 
+    %Und zur Nutzung der inversen Transformation, um an einer Stelle die Topics etc. zu definieren.
+
+\subsection{Modellierungsvorgaben und -grenzen}
+\label{subsec:modellierungsgrenzen}
+%WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 
+%Problematisch dabei ist die Prüfung der Zustandsänderung, da bei jeder Kopie eine neue 
+%Referenz der Komponente erzeugt wird, die eine Zustandsänderung unter dem Feld simuliert (vorgibt) ohne das diese tatsächlich stattgefunden hat.
+%UND DA DIE INVERSE TRANSFORMATION ZUM AUSLÖSEN VON AKTIONEN NUR DIE OBERSTE EBENE DES ZUSTANDSRAUMES ANSCHAUT UND ÜBERPRÜFT.
+% An dieser Stelle müsste feingranularer überprüft werden, dass allerdings nicht funktioniert. Heißt: aktuell werden nur die 
+%Änderungen auf der obersten Ebene überprüft das Absteigen in Objecte ist dabei nicht möglich, da das Object im Framework erst zur Laufzeit bekannt ist.
+
+% IST ABER AUCH NICHT NÖTIG, DA ALLE 
+%NOTWENDIGEN GEGENSTÄNDE ÜBER EINEN ODER MEHRERE ATTRIBUTE IM ZUSTANDSRAUM ABGEBILDET WERDEN KÖNNEN. BSP.? 
+% UND DIE ATTRIBUTE, BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
+
+%Grenzen 
+%Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 
+%Worauf man achten soll, wenn man ein neues Szenario abbildet. 
+%Modellierungsmöglichkeiten des Frameworks.

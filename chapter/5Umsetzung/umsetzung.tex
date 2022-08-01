@@ -98,7 +98,6 @@
 \label{subsec:java_generics}
 % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
 Eine entscheidende Überlegung der Umsetzung in Richtung des Zustandsraumes ist die Verwendung der generischen Programmierung. 
-\\
 Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
 Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
 notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vor der Systemlaufzeit bekannt ist. 
@@ -126,7 +125,6 @@ public class LogicHub<E> {
     public E getState() {
         return this.state();
     }
-    ...
 }
 
 public class Application {
@@ -136,7 +134,6 @@ public class Application {
         logicHub = LogicHub.getInstance();
         logicHub.getState(); // -> returns the state object 
                              // and it's values.
-        ...
     }
 }
 \end{lstlisting}
@@ -158,46 +155,44 @@ Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen 
 \label{subsec:zustandsraum}
     Der vom Anwender zu definierende Zustandsraum stellt ein einfaches Java Objekt (\textit{\acs{POJO}}) dar, das in einer eigenen Klasse definiert wird. 
     Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte abbilden. Dies erfolgt durch 
-    Klassenvariablen, die einem primitiven Datentypen entsprechen, bspw. könnte eine LED-Leuchte als \textit{boolean} mit den 
+    Klassenvariablen, die einem primitiven und überwiegend einem nicht primitiven Datentypen entsprechen, bspw. könnte eine LED-Leuchte als \textit{boolean} mit den 
     Werten \textit{true} und \textit{false} oder als \textit{char} mit jeweils \textit{"y"} und \textit{"n"} oder mit dem nicht primitiven 
     Typen \textit{String} mit den Zeichenketten \textit{"on"} und \textit{"off"} definiert 
     werden. Diese Entscheidung kann alleinig der Entwickler treffen. 
     \\
     \linebreak
-    In der Modellierung des Zustandsraumes gibt es in dem aktuellen konzeptionellen Stand Designvorgaben. Diese werden im Abschnitt der 
-    Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) aufgegriffen. 
-    \\
     Die im Zustandsraum erstellten Felder werden direkt an eine Transformation (siehe Abschnitt \ref{subsec:transformation}) gebunden. So kann sichergestellt werden, dass 
     das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert, bzw. empfangen wird. Dadurch kann 
     auch die Dopplung von Felder vermieden werden, dies bedeutet, dass ein Feld nicht für mehrere reelle Gegenstände stehen kann. Hierfür ist für jedes 
-    Gerät mindestens ein eigenes Feld zu definieren. Durch die Verwendung von primitiven Datentypen innerhalb 
+    Gerät mindestens ein eigenes Feld zu definieren. Durch die Verwendung von einfachen primitiven und nicht primitiven Datentypen innerhalb 
     des Zustandsobjektes kann eine Rückkopplung von Objekten vermieden werden. 
     \\
     \linebreak
     Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Klasse, die neben einem Konstruktor alle Felder und Attribute besitzt, die Zustände reeller 
     Geräte abbilden sollen. Damit der Anwender in seinen definierten Regeln die Werte setzen und abfragen kann, gibt es zu jedem Attribut eine \textit{Getter}- und \textit{Setter}-Methode.
     Es ist wichtig anzumerken, dass das Zustandsobjekt mit dem \textit{Singleton}-Pattern markiert und der Konstruktor dementsprechend initialisiert werden muss. Dadurch wird 
-    die Integrität des Objektes, sowie die dadurch vermeidbare Redundanz gewährleistet. Durch die Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
+    die Integrität des Objektes, sowie die dadurch vermeidbare Redundanz gewährleistet. Anhand der Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
     kann mittels der \textit{@Data}-Annotation sämtlicher (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
     Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Dieses Konstrukt kann in der Form als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
     Transaktionshistorie der Zustandsänderungen zu erstellen.
     \\
     \linebreak
-    Durch die Verwendung von Reflection (siehe Abschnitt \ref{subsec:reflection}) ist die Initialisierung des Zustandsraumes auf primitive Typen beschränkt. 
-    Die Reflection \acs{API} ist dahingehend sperrig und bietet eine beschränkte Manipulation von Objekten. Auf dieser Grundlage ist eine Verwendung von Objekten im 
-    Zustandsraum nicht ohne weiteres Möglich. Mit dieser Einschränkung ist auch keine Aggregation von 
-    Objekten, bzw. deren Serialisierung vorgesehen. 
+    Durch die Verwendung von Reflection (siehe Abschnitt \ref{subsec:reflection}) ist die Initialisierung des Zustandsraumes auf bestimmte Typendefinitionen beschränkt. 
+    %Die Reflection \acs{API} ist dahingehend sperrig und bietet eine eingeschränkte Manipulation von Objekten. 
+    Auf dieser Grundlage ist eine Verwendung von Objekten im Zustandsraum möglich, davon wird dennoch zu aktuellem Zeitpunkt abgeraten. 
     \\
+    In der Modellierung des Zustandsraumes gibt es in dem aktuellen konzeptionellen Stand Designvorgaben. Diese werden im Abschnitt der 
+    Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) aufgegriffen. 
+    \\ 
     Diese Entscheidung wurde getroffen, da in der Mehrheit der Anwendungsfälle die Zustände über primitive Typen abgebildet werden können. 
     Ein Designnachteil ist dabei, dass für ein Geräte ggf. mehrere Attribute im Zustandsraum angelegt werden müssen und dadurch das Zustandsobjekt 
     deutlich umfangreicher wird. Eine bessere Übersicht wäre gegeben, wenn die Felder in ein eigenes Objekt, bzw. eine eigene Klasse ausgelagert werden könnten. 
     Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des Agilen Projektes könnte eine weitere Alternative konzipiert werden, die Objekte 
-    im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen. 
-
-%Aggregation von Objekten -> Nein
-%Aggregation über Serialisierung 
-%Objekte können nur einzeln erstellt werden (Einzelner Eintrag oder Objekt mit wiederum einträgen)
-% Vermeidung von Rückkopplung 
+    im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen.
+    \\
+    Eine Aggregation von Objekte, bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut, bzw. Element bedient und somit eine 
+    eins-zu-eins-Beziehung zwischen dem Feld und dem \acs{MQTT}-Topic besteht. 
+    %TBD Überprüfen, ob doch eine Verwendung von Objekten möglich ist... 
 
 \subsection{Reflection} 
 \label{subsec:reflection}
@@ -274,8 +269,9 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
         \begin{itemize}
             \item 1. Parameter: Hier wird das Topic übergeben. Der \acs{MQTT}-Subscriber prüft, ob das konsumierte Topic einem in der Liste definierten Topics entspricht.
             \item 2. Parameter: Hier wird der Key definiert. Das über das Topic mitgelieferte JSON-Konstrukt wird auf diesen key überprüft. Dessen Wert für den Zustandsraum relevant. Hierüber wird der Zustand des Objektes transportiert.
-            \item 3. Parameter: Hier wird optional eine Liste übergeben, die nur bestimmt Werte für den Key zulässt, eine sogenannte \textit{White-List}.
+            \item 3. Parameter: Hier wird optional eine Liste übergeben, die nur bestimmte Werte für den Key zulässt, eine sogenannte \textit{White-List}.
             \item 4. Parameter: Hier wird der Name des Feldes im Zustandsraum wiedergegeben, sodass mittels Reflection der Wert im Zustandsraum adressiert werden kann.
+            \item 5. Parameter: Hier wird der Name des Feldes der Komponente im Zustandsraum wiedergegeben, sodass mittels Reflection der Wert der Komponente im Zustandsraum adressiert werden kann.
         \end{itemize}
         Diese Werte bilden die Transformation, die ebenso für die inverse Transformation (siehe Abschnitt \ref{subsec:inverseTransformation}) gilt.
         Der Ablauf kann dem folgenden Sequenzdiagramm entnommen werden:
@@ -303,6 +299,12 @@ public class InnovationLogicHubApplication {
     }
 }
 \end{lstlisting}
+    Für die jeweiligen Konfigurationsmöglichkeiten der Transformation gibt es drei Konstrukte, die jeweils benutzt werden können. 
+    Neben der im Code-Beispiel (\ref{code:object}) aufgeführten Struktur gibt es die mit dem zusätzlichen Parameter der \textit{White-List} und 
+    die dritte Möglichkeit, die zusätzlich den Namen eines Feldes innerhalb der Komponente wiedergibt. So können Objekte theoretisch in den Zustandsraum 
+    aufgenommen werden, wovon allerdings zu aktuellem Zeitpunkt abgeraten wird. Die Begründung zu dieser Modellierung wird in dem Abschnitt 
+    (\ref{subsec:modellierungsgrenzen}) aufgegriffen. 
+    \\
     Der interne Ablauf des Frameworks unterscheidet sich bei beiden Transformationsmethoden in Nuancen, wie den beiden Sequenzdiagrammen 
     (\ref{fig:sequenceTransformationOld} und \ref{fig:sequenceTransformationNew}) zu entnehmen ist. Jedoch wird bei dem zweiten Ansatz 
     das Zustandsobjekt mittels Reflection manipuliert und anschließend als Änderung registriert und ausgeführt, während bei der ersten Methode 
@@ -392,7 +394,8 @@ public class InnovationLogicHubApplication {
 \subsection{Parallelisierung}
 \label{subsec:parallelisierung}
     Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
-    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
+    Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen 
+    \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
     Durch das Auslagern des konkreten Prozesses in einen eigenen \textit{Thread} können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
     Regel ausgeführt wird. 
     In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
@@ -400,7 +403,8 @@ public class InnovationLogicHubApplication {
     Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. Durch die Auslagerung des Regelmanagements in jeweils eigene \textit{Threads} entfällt die sequenzielle 
     Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
     wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
-    Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
+    Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} 
+    realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
 
 \subsection{Regelwerk -und management}
     Anknüpfend an die abgeschlossene Transformation wird nach der Zustandsänderung der Teil ausgeführt, der basierend auf der Zustandsänderungen 
@@ -410,27 +414,20 @@ public class InnovationLogicHubApplication {
     und keine Regel ausgeführt. Damit jedoch voneinander unabhängige Regel parallel ausgeführt werden können, wird der Prozess der Regelüberprüfung und -durchführung 
     in einen \textit{Thread} ausgelagert, wie bereits im Abschnitt der Parallelisierung (siehe \ref{subsec:parallelisierung}) beschrieben. Der Ablauf kann dem 
     Sequenzdiagramm (siehe Abbildung \ref{fig:logiksequenz}) ab dem Schritt \textit{1.5:copyState} entnommen werden. 
+    \\
+    \linebreak
+    Nach Implementierung der Funktionen des Frameworks ging es um die Umsetzung der Use Cases, um die Funktionalität des Systems zu testen 
+    und Anhaltspunkte für die Evaluation (siehe Kapitel \ref{chap:evaluation}) zu schaffen. Der folgende Abschnitt behandelt die praktische 
+    Umsetzung zweier Anwendungsfälle. 
 
+\subsection{Implementierung von Anwendungsfällen}
+    Zur Überprüfung des Frameworks wurden im Rahmen der Arbeit drei Anwendungsfälle implementiert, um anhand dessen die Funktionsweise 
+    darzustellen. Zum einen wurde ein trivialer Fall, die Steuerung einer LED-Leuchte, umgesetzt, um einen greifbaren Vergleich zwischen der 
+    Regeldefinition in Home Assistant, \acs{OPENHAB} und der Steuerzentrale (LogicHub) zu ziehen. Zum anderen wurden die beiden 
+    Anwendungsfälle, die im Rahmen der Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse}) als Anwendungsfälle (\ref{sec:usecases}) definiert wurden, umgesetzt. 
 
-\subsection{Implementierung eines Anwendungsfalls}
-%Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
-%-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
-% feingranulare Regeln, die immer wieder auf Rückmeldung über MQTT Topics warten und danach die Aktion auslösen
-
-
-%\subsection{Aufbau der Architektur}
-%\subsection{Einbindung der Funktionen abgeleitet von der Konzeption}
-\section{Fazit der prototypischen Implementierung}
-
-\subsection{Modellierungsvorgaben und -grenzen}
-\label{subsec:modellierungsgrenzen}
-%WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND NICHT MÖGLICH, 
-%DA DIES AN DIE GRENZE VON JAVA REFLECITON KOMMT. IST ABER AUCH NICHT NÖTIG, DA ALLE 
-%NOTWENDIGEN GEGENSTÄNDE ÜBER EINEN ODER MEHRERE ATTRIBUTE IM ZUSTANDSRAUM ABGEBILDET WERDEN KÖNNEN. BSP.? 
-% UND DIE ATTRIBUTE, BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
-
-%Grenzen 
-%Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 
-%Worauf man achten soll, wenn man ein neues Szenario abbildet. 
-%Modellierungsmöglichkeiten des Frameworks.
-
+    
+    %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
+    %-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
+    % feingranulare Regeln, die immer wieder auf Rückmeldung über MQTT Topics warten und danach die Aktion auslösen
+    
