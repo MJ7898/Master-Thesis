@@ -422,14 +422,123 @@ public class InnovationLogicHubApplication {
 
 \subsection{Implementierung von Anwendungsfällen}
     Zur Überprüfung des Frameworks wurden im Rahmen der Arbeit drei Anwendungsfälle implementiert, um anhand dessen die Funktionsweise 
-    darzustellen. Zum einen wurde ein trivialer Fall, die Steuerung einer LED-Leuchte, umgesetzt, um einen greifbaren Vergleich zwischen der 
-    Regeldefinition in Home Assistant, \acs{OPENHAB} und der Steuerzentrale (LogicHub) zu ziehen. Zum anderen wurden die beiden 
-    Anwendungsfälle, die im Rahmen der Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse}) als Anwendungsfälle (\ref{sec:usecases}) definiert wurden, umgesetzt. 
+    darzustellen. Zum einen wurde ein trivialer Fall, die Steuerung einer LED-Lampe über einen Schalter und ein Steckdosen-Funkmodul, umgesetzt, um einen Vergleich zwischen der 
+    Regeldefinition in Home Assistant, \acs{OPENHAB} und der Steuerzentrale (InnovationLogicHub) ziehen zu können. Zum anderen wurden die beiden 
+    Anwendungsfälle, die im Rahmen der Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse}) als Anwendungsfälle (\ref{sec:usecases}) definiert wurden, realisiert. 
+    
+    \subsubsection*{Lichtregelung}
+    Der Lichtschalter-Anwendungsfall besteht darin, dass mittels einem physischen oder virtuellen Schalter eine LED-Leuchte eingeschaltet werden kann. Zur 
+    Gegenüberstellung der Umsetzungen wurden jeweils die gleichen Komponenten im selben Netzwerk verwendet. Dadurch sind die identischen Voraussetzungen geschaffen. 
+    Zu Beginn musste sichergestellt werden, dass die Komponenten mindestens das \textit{ZigBee}-Kommunikationsprotokoll unterstützen, damit über \textit{Zigbee2mqtt} 
+    die Nutzung von \acs{MQTT} möglich war. 
+    \\
+    Im Rahmen dieser Arbeit wurden zu Anfang bereits Instanzen der beiden Plattformen, Home Assistant und \acs{OPENHAB}, gestartet, damit eine Grundlage zur Analyse und 
+    Untersuchung der jeweiligen Plattformen gegeben ist. Diese wurden zur Umsetzung des einfachen Anwendungsfalls genutzt, um anschließend die 
+    Resultate beurteilen zu können. Die Integration der Elemente in die jeweilige Plattform wird an dieser Stelle nicht weiter aufgegriffen, zur Veranschaulichung wird 
+    lediglich die Regeldefinition aufgegriffen, damit diese kontrastiert werden können. Im Fokus steht jedoch die Umsetzung über die Steuerzentrale.
     \\
     \linebreak
-    Der Lichtschalter-Anwendungsfall besteht darin, dass mittels einem physischen oder virtuellen Schalter eine LED-Leuchte eingeschaltet werden kann.   
-    
-    %Erläuterung der Umsetzung des Anwendungsfalls (Mögliche Regeldefinition)
-    %-> Einbauen von Thread.sleeps um einen durchehenden Prozess zu durchlaufen oder 
-    % feingranulare Regeln, die immer wieder auf Rückmeldung über MQTT Topics warten und danach die Aktion auslösen
-    
+    Unter Anwendung des Frameworks werden in folgendem Abschnitt die Schritte dargestellt, die notwendig sind, um den Anwendungsfall zu realisieren:
+    \\
+    Damit die Zustände der Komponenten abgebildet werden konnten, mussten diese im Zustandsraum hinterlegt werden. Unter der Berücksichtigung, dass der Schalter, sowie das Funkmodul 
+    beide die trivialen Werte \textit{"on"} und \textit{"off"} über das Kommunikationsprotokoll versenden, wurden die Zustandsattribute jeweils als \textit{String}-Datentyp gewählt, um die 
+    beiden Zustände abbilden zu können. Durch die Nutzung der \textit{lombok}-Bibliothek sind die \textit{Getter}- und \textit{Setter}-Methoden gegeben. 
+    \\
+    Anhand der definierten Zustandsattribute konnten anschließend die Transformationen für beide Komponenten implementiert werden. Dafür notwendig waren jeweils 
+    die \acs{MQTT}-Topics, der Name des Wertes innerhalb des \textit{JSON}-Konstruktes, ggf. eine Liste der akzeptierten Zustandswerte und der Name des im Zustandsraum 
+    definierten Feldes. Die Transformationen waren daraufhin dem Framework zu übergeben, damit diese in die dafür vorgesehene Liste aufgenommen und zur Laufzeit als Objekte 
+    erzeugt werden konnten. Abschließend war die Regel zu definieren, darunter die zu prüfende Bedingung und die darauf folgende Aktion, das an- bzw. ausschalten des Lichtes über das 
+    Steckdosen-Funkmodul. Die beiden Methoden sind überschaubar und mit weniger als fünf Zeilen Code implementiert. Dem folgenden Quellcode-Ausschnitt sind die folgenden Methoden 
+    zu entnehmen:
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch}, captionpos=b, caption={Regeldefinition der Lichtschaltung}]
+@Scope("singleton")
+public class RuleLampSwitch extends Rule<InnovationLabKA> {
+    ...
+    @Override
+    @TriggerAnnotation
+    public Trigger ruleTrigger(InnovationLabKA state) {
+        return Trigger.MQTT;
+    }
+
+    @Override
+    @ConditionAnnotation
+    public boolean checkCondition(InnovationLabKA state) {
+        return state.isSchalterOn() != state.isLampeOn();
+    }
+
+    @Override
+    @ProcessAnnotation
+    public void ruleProcess(InnovationLabKA state) {
+        logicHubState.setState((state) -> {
+            state.setLampe(state.getSchalter());
+        });
+    }
+    ...
+}
+\end{lstlisting}
+    Die Umsetzung des Anwendungsfalls in Home Assistant stellte sich als umständlicher und aufwändiger dar. Hierbei war im Kontext des Home Assistant 
+    eine übergreifende Automation, zwei Szenen (Aktionen) für das Schalten des Lichts und ein Auslöser für jede Aktion des Schalters zu definieren. Die Konfigurationsdatei 
+    erstreckt sich über 50 Zeilen, in denen die eigentliche Funktion definiert wird. Das Erstellen der Automatisierung über die Nutzeroberfläche gestaltet sich einfacher, dennoch 
+    aufwändig mit vielen Interaktionen. Ergänzend dazu ist dem Anhang ein Ausschnitt der Konfigurationsdatei beigefügt (siehe Anhang \ref{appendix:hoasAutomation}).
+    \\
+    \linebreak
+    Ähnlicher Konfigurationsaufwand war bei der Umsetzung in \acs{OPENHAB} über die Benutzeroberfläche festzustellen. Das skriptbasierte Definieren von Regeln erfordert eine 
+    hohe Lernkurve, da die Semantik  des \textit{ECMAScript} oder die Funktionsweise von bspw. \textit{Blockly} erst erlernt und verstanden werden muss. Die Regeldefinition 
+    mittels der \textit{Rule \acs{DSL}} hingegen kann mit der der Steuerzentrale verglichen werden. Diese ist in ähnlich wenigen Schritten realisiert. Der folgende 
+    Quellcode-Ausschnitt zeigt den Umfang der Regel über die \acs{OPENHAB} \acs{DSL}:
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:openhabSwitch}, captionpos=b, caption={Regeldefinition der Lichtschaltung via openHAB}]
+rule "Ikea_FB_Button" 
+when Channel "deconz:switch:XXXXXXXX:XXXXXX:buttonevent"  triggered
+     
+then
+    if (TRADFRIFernbedienungIKEAofSweden_Button.state==5002){
+        if (IkeaLight.state==ON) {
+            IkeaLight.sendCommand(OFF)
+         }
+         if (IkeaLight.state==OFF) {
+             IkeaLight.sendCommand(ON)
+         }
+    }
+end
+\end{lstlisting}
+    Die Umsetzung der folgenden Anwendungsfälle erfolgte ausschließlich über die Steuerzentrale.
+
+    \subsubsection*{Check-in mit einem Service-Roboter}
+        Die Handlungsschritte, um einen Anwendungsfall mit dem Framework zu realisieren, sind grundlegend immer die gleichen. Je nach Bedarf sind mehrere 
+        Aktionen notwendig. Damit alle, für den Fall, notwendigen Zustände abgedeckt sind, wurden diese in dem Zustandsraum hinterlegt. Zu den notwendigen Attributen 
+        zählen unter anderem die E-Mail-Adresse, bzw. der Name der authentifizierten Person, die Verfügbarkeit des Service-Roboters, sowie dessen 
+        verfügbaren Prozesse. Anschließend wurden die Transformationen definiert. 
+        \\
+        \linebreak
+        Sobald eine Person über die Kamera authentifiziert wurde, wird ein \acs{MQTT}-Topic gesendet, welches als Nutzlast ein \textit{JSON}-Konstrukt mit einem Zeitstempel, den 
+        Vor- und Nachnamen, sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, worauf die Regeln auf ihre 
+        Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und einchecken des Gastest gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
+        Gast empfängt. Während der Roboter an die Tür fährt, checkt er die Buchungen und überprüft, ob die Person einen Platz gebucht hat. Dort angekommen, wird die Person zuerst 
+        begrüßt. Nachdem der Gast empfangen und eine Buchung gefunden wurde, fragt der Service-Roboter, ob er den Gast einchecken soll. Dieser kann die Frage beantworten. 
+        Wird die gestellte Frage bejaht, so checkt der Service-Roboter die Person in dem Büroplatzbuchungssystem ein.  
+        \\ 
+        Falls bei der Abfrage des Service-Roboters keine Buchung gefunden wurde, wird der Gast aktuell darum gebeten, nachträglich einen Platz zu buchen und darauf einzuchecken. 
+        Die Regelabfolge kann zusätzlich dem Sequenzdiagramm (siehe Abbildung \ref{fig:sequenceRuleGreet}) entnommen werden.
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=14cm,height=9cm,keepaspectratio]{images/sequence_rule_temi_greet.png}
+            \caption{Check-in Regelablauf (RuleProcess)}
+            \label{fig:sequenceRuleGreet}
+        \end{figure}
+        \\
+        \pagebreak
+        \linebreak
+        Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
+        Bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein Zustandsaustausch in Echtzeit nicht möglich. 
+        Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
+        der Roboter in etwa braucht, um einen Ortswechsel, bzw. einen Sprachbefehl durchzuführen. Eine alternative Lösung, sofern der Service-Roboter Statusmeldungen geben 
+        kann, wäre die feingranularere Aufteilung von einzelnen Prozessen, sodass erst nach erfolgreicher Rückmeldung des Roboters der weitere Schritt eingeleitet werden würde.
+        \\
+        \linebreak
+        Wird bspw. ein Sprachbefehl ausgeführt, so wird innerhalb der Regel über eine \textit{Lambda}-Funktion der Zustandsraum erneut geändert, wodurch die inverse Transformation 
+        die Zustandsänderung überprüft und anhand dessen den Sprachbefehl über ein \acs{MQTT}-Topic an den Broker sendet. Hierbei reagiert der Roboter auf das Topic und führt 
+        den Sprachbefehl aus. Diese Aktion ist dem Sequenzdiagramm (\ref{fig:sequenceRuleGreet}) unter anderem in den Schritten \textit{1.2:() ->} zu entnehmen. 
+        \\
+        Der Anwendungsfall wurde erfolgreich umgesetzt und konnte mit dem realen Service-Roboter getestet werden. Für die 
+        Usability-Tests \ref{sec:usabilitytest}, zur Überprüfung der Nutzbarkeit, wurde ein \textit{Mock}\footnote{Simulierte Objekte in der objekt-orientieren Programmierung. \url{https://en.wikipedia.org/wiki/Mock_object} Besucht am 02.08.2022} 
+        des Service-Roboters entwickelt, um die Interaktionen simulieren zu können.

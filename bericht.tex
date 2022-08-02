@@ -445,6 +445,24 @@
   \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Ablaufdiagramm_Sichtweisen.pdf}
 \end{landscape}
 
+\chapter{}
+\label{appendix:hoasAutomation}
+\begin{lstlisting}[language=xml, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:hoasAutomation}, captionpos=b, caption={Regeldefinition der Lichtschaltung über Home Assistant}]
+  id: '1632733838684'
+  alias: Schalter Kueche Licht An
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 7281b0009a1b5a48f077dc0873070ce5
+      type: action
+      subtype: 'on'
+      discovery_id: 0x804b50fffe8f57fc action_on
+  condition: []
+  action:
+    - scene: scene.licht_kuche
+  mode: single
+  \end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{erklaerung.tex}
