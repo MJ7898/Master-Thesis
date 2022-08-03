@@ -539,6 +539,37 @@ public class InnovationLogicHubApplication {
     
     \subsection{Modellierungsvorgaben und -grenzen}
     \label{subsec:modellierungsgrenzen}
+        Aus Sicht des Anwenders hat dieser drei Stellen, die in seiner Verantwortung liegen. Damit steht  
+        dem Entwickler alles zur Verfügung, was er benötigt, um seine Anwendungsfälle nach den Bedürfnissen zu implementieren. 
+        \\
+        \linebreak
+        In der Klasse, in der die Zustandsattribute abgebildet werden, ist das Nutzen von einfachen Attributen vorgesehen. Es können 
+        zwar Objekte hinzugefügt werden, dies erschwert jedoch die Überprüfung, ob Änderungen darin vorgenommen wurden. 
+        Dies ist zum Teil der Reflection geschuldet, da im Zustandsraum lediglich die Referenz des zur Laufzeit erzeugten Objektes 
+        steht und zum anderen, da bei der Kopie des Zustandsobjektes eine neue Objektreferenz geschaffen wird, die als Änderung 
+        registriert wird. Das bedeutet jedoch nicht, dass immer eine Änderung des Objekts hervorgerufen wurde. Ebenso müsste sichergestellt 
+        werden können, um welches Objekt es sich handelt. Um dies sicherzustellen, wäre ausschließlich das Hinzufügen von Komponenten im 
+        Zustandsraum zugelassen. Damit dies jedoch umgangen werden kann, wird vorerst die Nutzung von einfachen Attributen, darunter 
+        \textit{String}, \textit{Integer}, \textit{Double}, \textit{boolean} und \textit{Long} empfohlen. Andere Felder können zwar hinzugefügt werden, 
+        diese werden jedoch nicht vom Framework berücksichtigt.
+        \\
+        \linebreak
+        Die Transformation gibt ein klar definiertes Konstrukt. Dafür gibt es Zwei Klassen, die implementiert werden können, die 
+        jeweils die Oberklasse \textit{AbstractTopicTransformation} erweitern. Zum einen die Transformation ohne 
+        optionale \textit{White-List} von zugelassenen Werten und zum anderen die, in der eine solche Liste übergeben werden kann. Über die 
+        \textit{addTransformation}-Funktion wird zur Laufzeit das Transformationsobjekt erzeugt. Die Inhalte sind klar vorgegeben (siehe Abschnitt \ref{subsec:transformation}) 
+        und müssen vom Entwickler entsprechend definiert und erzeugt werden.
+        \\
+        \linebreak
+        Die Definition einer Regel sieht vor, dass die Bedingung, die zutreffen muss, auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
+        frei implementiert werden. Zum Erstellen einer Regel ist zu Anfang sicherzustellen, dass diese von der Abstrakten Regel klasse erbt. So kann die Regel einer 
+        Oberklasse zugeordnet werden und vom Framework als solche erkannt werden. Zusätzlich dazu, gibt es für die wichtigen Funktionen, die eine Regel zum 
+        Implementieren bereitstellt, eine Annotation. Diese geben syntaktische Metadaten vor, die die richtige Implementieren der Funktionen forciert. Die 
+        Annotation muss beim erstellen einer Klasse über der Funktion hinzugefügt werden. Dem Quellcode-Ausschnitt im Anhang (siehe \ref{code:switch}) ist diese 
+        syntaktische Hilfestellung zu entnehmen. Wichtig ist ebenso, dass nach der Definition einer Regel diese auch dem Framework mittels der \textit{addRule}-Funktion 
+        übergeben wird. 
+        \\
+        Diese Anmerkungen sind bei der Nutzung des Frameworks zu berücksichtigen, damit das Framework entsprechend arbeitet und die Regel und Prozesse ausführt. 
     %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 
     %Problematisch dabei ist die Prüfung der Zustandsänderung, da bei jeder Kopie eine neue 
     %Referenz der Komponente erzeugt wird, die eine Zustandsänderung unter dem Feld simuliert (vorgibt) ohne das diese tatsächlich stattgefunden hat.
