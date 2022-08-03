@@ -49,44 +49,44 @@
 
     \subsection{Spring}
     \label{subsec:springBootFramework}
-    Spring\footnote{Open-Source-Framework Spring. \url{https://spring.io} Abgerufen am 02.07.2022} ist ein Open-Source-Framework, welches auf der Java-Plattform aufbaut. 
-    Das Ziel von Spring selbst ist die Vereinfachung und Förderung von Programmierpraktiken in der Java- und Java EE Entwicklung. Mit einem breiten Spektrum an 
-    Funktionalitäten bietet das Framework eine ganzheitliche Lösung zur Entwicklung von Applikationen, Anwendungen und Frameworks. Im Vordergrund dabei steht immer die 
-    Entkopplung von Applikationskomponenten. Das Spring Framework wurde im März 2004 offiziell Freigegeben und wird seitdem stetig weiterentwickelt. 
-    Initiator des Frameworks ist der Author und Softwareentwickler Rod Johnson. Das Framework, welches in dem Buch des Experten Rod Johnson erläutert wird, basiert auf 
-    den folgenden Prinzipien \cite{johnson2004expert}: 
-    \\
-    \linebreak
-    Dependency Injection ist ein sehr bekanntes Entwurfsmuster. Dabei werden die Abhängigkeiten eines Objektes zur Laufzeit reglementiert. Unter 
-    Verwendung des Frameworks werden den Objekten die benötigten Objekte und Ressourcen zugewiesen. Dadurch müssen diese nicht selbst gesucht werden. 
-    \\
-    \linebreak
-    Ein weiterer Punkt ist die aspektorientierte Programmierung, durch die der Entwickler technische Aspekte voneinander isolieren und den eigentlichen Programmcode 
-    von Transaktionen oder anderen Faktoren freizuhalten. 
-    \\
-    \linebreak
-    Das dritte Prinzip ist das Bereitstellen von Vorlagen zur Vereinfachung der Nutzung von Schnittstellen, sog. \acs{API}s. Dadurch wird ein POJO-basiertes Modell 
-    möglich. Unter POJO, \textit{Plain Old Java Object}, ist ein ganz normales Objekt in Java zu verstehen. 
-    \\
-    \linebreak
-    Zusammenfassend sind beide Frameworks dazu geeignet, um das Konzept der Steuerzentrale unterstützend zu realisieren. 
-    Ein direkter Vergleich zwischen den Frameworks kann nicht gezogen werden, da die Funktionalitäten, bzw. die aus der Nutzung 
-    profitablen Eigenschaften nicht vergleichbar sind. Während sich Spring auf die Unterstützung zur Erstellung von Applikationen konzentriert, 
-    legt \acs{OSGI} den Mehrwert auf die Modularisierung durch Kontainerisierung. Durchaus ist eine Kombination aus beiden 
-    Frameworks möglich, um Vorteile beider zu vereinen. Fundamental bietet Spring jedoch weitaus mehr Möglichkeiten und Unterstützungen 
-    zur Entwicklung von Applikationen und Frameworks, weshalb es im Rahmen dieser Arbeit eingesetzt wird. Mit Spring Boot, welches auf Spring 
-    aufbaut können auch \acl{MVC} Web-Architekturen und \acs{REST} \acs{API}s implementiert werden. So kann mit dieser Entscheidung 
-    ein Vollumfängliches System erstellt werden. Unter zusätzlicher Verwendung von \acs{OSGI} wäre eine weiter Modularisierung und Kontainerisierung möglich. Dies 
-    ist auch durch Spring mit Hilfe von Microservices in einer anderen Form realisierbar. 
-    \\
-    An der Stelle wird im Rahmen dieser Arbeit das Thema von Microservices und Kontainerisierung nicht weiter konkretisiert.
-    \\
-    \linebreak
-    Die Entscheidung viel auf Spring, da dieses ein modernes und etabliertes Framework darstellt und die 
-    Community erheblich größer ist, als die des \acs{OSGI} Frameworks. Hinzukommt, die Schaffung eines alternativen Ansatzes zu openHAB, da dieses System bereits 
-    auf \acs{OSGI} aufbaut. 
-    Dennoch unterscheidet sich die Steuerzentrale in den Funktionalitäten und Angeboten immens im Vergleich zu openHAB. Das System bietet weitaus mehr 
-    Funktionalitäten, Erweiterungen und Ausprägungen. Lediglich kann zum Vergleich die Definition von Regeln herangezogen werden. 
+        Spring\footnote{Open-Source-Framework Spring. \url{https://spring.io} Abgerufen am 02.07.2022} ist ein Open-Source-Framework, welches auf der Java-Plattform aufbaut. 
+        Das Ziel von Spring selbst ist die Vereinfachung und Förderung von Programmierpraktiken in der Java- und Java EE Entwicklung. Mit einem breiten Spektrum an 
+        Funktionalitäten bietet das Framework eine ganzheitliche Lösung zur Entwicklung von Applikationen, Anwendungen und Frameworks. Im Vordergrund dabei steht immer die 
+        Entkopplung von Applikationskomponenten. Das Spring Framework wurde im März 2004 offiziell Freigegeben und wird seitdem stetig weiterentwickelt. 
+        Initiator des Frameworks ist der Author und Softwareentwickler Rod Johnson. Das Framework, welches in dem Buch des Experten Rod Johnson erläutert wird, basiert auf 
+        den folgenden Prinzipien \cite{johnson2004expert}: 
+        \\
+        \linebreak
+        Dependency Injection ist ein sehr bekanntes Entwurfsmuster. Dabei werden die Abhängigkeiten eines Objektes zur Laufzeit reglementiert. Unter 
+        Verwendung des Frameworks werden den Objekten die benötigten Objekte und Ressourcen zugewiesen. Dadurch müssen diese nicht selbst gesucht werden. 
+        \\
+        \linebreak
+        Ein weiterer Punkt ist die aspektorientierte Programmierung, durch die der Entwickler technische Aspekte voneinander isolieren und den eigentlichen Programmcode 
+        von Transaktionen oder anderen Faktoren freizuhalten. 
+        \\
+        \linebreak
+        Das dritte Prinzip ist das Bereitstellen von Vorlagen zur Vereinfachung der Nutzung von Schnittstellen, sog. \acs{API}s. Dadurch wird ein POJO-basiertes Modell 
+        möglich. Unter POJO, \textit{Plain Old Java Object}, ist ein ganz normales Objekt in Java zu verstehen. 
+        \\
+        \linebreak
+        Zusammenfassend sind beide Frameworks dazu geeignet, um das Konzept der Steuerzentrale unterstützend zu realisieren. 
+        Ein direkter Vergleich zwischen den Frameworks kann nicht gezogen werden, da die Funktionalitäten, bzw. die aus der Nutzung 
+        profitablen Eigenschaften nicht vergleichbar sind. Während sich Spring auf die Unterstützung zur Erstellung von Applikationen konzentriert, 
+        legt \acs{OSGI} den Mehrwert auf die Modularisierung durch Kontainerisierung. Durchaus ist eine Kombination aus beiden 
+        Frameworks möglich, um Vorteile beider zu vereinen. Fundamental bietet Spring jedoch weitaus mehr Möglichkeiten und Unterstützungen 
+        zur Entwicklung von Applikationen und Frameworks, weshalb es im Rahmen dieser Arbeit eingesetzt wird. Mit Spring Boot, welches auf Spring 
+        aufbaut können auch \acl{MVC} Web-Architekturen und \acs{REST} \acs{API}s implementiert werden. So kann mit dieser Entscheidung 
+        ein Vollumfängliches System erstellt werden. Unter zusätzlicher Verwendung von \acs{OSGI} wäre eine weiter Modularisierung und Kontainerisierung möglich. Dies 
+        ist auch durch Spring mit Hilfe von Microservices in einer anderen Form realisierbar. 
+        \\
+        An der Stelle wird im Rahmen dieser Arbeit das Thema von Microservices und Kontainerisierung nicht weiter konkretisiert.
+        \\
+        \linebreak
+        Die Entscheidung viel auf Spring, da dieses ein modernes und etabliertes Framework darstellt und die 
+        Community erheblich größer ist, als die des \acs{OSGI} Frameworks. Hinzukommt, die Schaffung eines alternativen Ansatzes zu openHAB, da dieses System bereits 
+        auf \acs{OSGI} aufbaut. 
+        Dennoch unterscheidet sich die Steuerzentrale in den Funktionalitäten und Angeboten immens im Vergleich zu openHAB. Das System bietet weitaus mehr 
+        Funktionalitäten, Erweiterungen und Ausprägungen. Lediglich kann zum Vergleich die Definition von Regeln herangezogen werden. 
 
 \section{Implementierung}
 \label{sec:implementation}
@@ -97,27 +97,27 @@
 \subsection{Generische Programmierung} % Typisierung
 \label{subsec:java_generics}
 % Erledigt! -> WICHTIG!!!: Verwendung der Typisierung, um dem Anwender die Möglichkeit der offenen Gestaltung des Zustandobjektes zu gewährleisten.
-Eine entscheidende Überlegung der Umsetzung in Richtung des Zustandsraumes ist die Verwendung der generischen Programmierung. 
-Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
-Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
-notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vor der Systemlaufzeit bekannt ist. 
-\\
-\linebreak
-Hierfür wird auf das Konzept der generischen Programmierung, sog. \textit{Generics}, gesetzt. Ein Synonym 
-des Begriffs ist der \textit{parametrisierte Typ}. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
-gegeben, mit dem Klassen und Methoden mit Typen parametrisiert werden können. Diese Typ-Variablen sind zum 
-Zeitpunkt der Implementierung unbekannt und können beliebig definiert werden. Erst zur Laufzeit des Systems 
-wird die Typ-Variable durch ein Objekt ersetzt. Somit ist zur Laufzeit das 
-Objekt, dessen Struktur, Methoden und Funktionen bekannt. Bei der Verwendung von generischen Typen gibt es 
-Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
-einfachen Typ-Parameters. Weitere Varianzfälle werden in dieser Ausarbeitung nicht erläutert. 
-\\
-\linebreak
-Ein konkretes Anwendungsbeispiel, wie es 
-auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
-\\
-Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
-jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
+    Eine entscheidende Überlegung der Umsetzung in Richtung des Zustandsraumes ist die Verwendung der generischen Programmierung. 
+    Mit dem Hintergrund, dass der Entwickler die volle Entscheidungsmacht über die Implementierung der 
+    Regeln, des Zustandsraumes und den dafür notwendigen Bedingungen beibehält, ist die Überlegung  
+    notwendig, wie mit einem Objekt gearbeitet werden kann, ohne dass es vor der Systemlaufzeit bekannt ist. 
+    \\
+    \linebreak
+    Hierfür wird auf das Konzept der generischen Programmierung, sog. \textit{Generics}, gesetzt. Ein Synonym 
+    des Begriffs ist der \textit{parametrisierte Typ}. Mit der Nutzung von Generics ist ein syntaktisches Mittel 
+    gegeben, mit dem Klassen und Methoden mit Typen parametrisiert werden können. Diese Typ-Variablen sind zum 
+    Zeitpunkt der Implementierung unbekannt und können beliebig definiert werden. Erst zur Laufzeit des Systems 
+    wird die Typ-Variable durch ein Objekt ersetzt. Somit ist zur Laufzeit das 
+    Objekt, dessen Struktur, Methoden und Funktionen bekannt. Bei der Verwendung von generischen Typen gibt es 
+    Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
+    einfachen Typ-Parameters. Weitere Varianzfälle werden in dieser Ausarbeitung nicht erläutert. 
+    \\
+    \linebreak
+    Ein konkretes Anwendungsbeispiel, wie es 
+    auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
+    \\
+    Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
+    jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
 \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:generics}, captionpos=b, caption={Zustandsobjekt als Typ-Variable}]
 public class LogicHub<E> {
     private E state;
@@ -137,14 +137,14 @@ public class Application {
     }
 }
 \end{lstlisting}
-Mit den Java Generics ist eine leistungsstarke Ergänzung der Java-Sprache gegeben, da es die Arbeit des Programmierers einfacher und 
-weniger Fehleranfällig macht. Zusätzlich wird durch die Generics die Typkorrektheit zur Kompilierzeit erzwungen und ermöglicht 
-die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätzlichen Overhead zu verursachen. 
-\\
-Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
-\\
-\linebreak
-Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen Framework und Anwender-Interaktionen im Quellcode deutlicher.
+    Mit den Java Generics ist eine leistungsstarke Ergänzung der Java-Sprache gegeben, da es die Arbeit des Programmierers einfacher und 
+    weniger Fehleranfällig macht. Zusätzlich wird durch die Generics die Typkorrektheit zur Kompilierzeit erzwungen und ermöglicht 
+    die Implementierung generischer Algorithmen, ohne für Anwendungen einen zusätzlichen Overhead zu verursachen. 
+    \\
+    Mit der Option des generischen Typs kann das Framework universell definiert und der Zustandsraum vom Anwender individuell implementiert werden.
+    \\
+    \linebreak
+    Durch die Verwendung der Java Generics wird der konzeptionelle Schnitt zwischen Framework und Anwender-Interaktionen im Quellcode deutlicher.
 %Die Darstellung des Zustandsobjektes wird als bereits bestehendes vorausgesetzt, um die folgenden Diagramme vollständig und sinngemäß wiederzugeben. 
 %Diese beschreiben jedoch zu keinem Zeitpunkt eine konkrete Struktur des Zustandsobjektes. 
 %\\
@@ -448,59 +448,21 @@ public class InnovationLogicHubApplication {
     die \acs{MQTT}-Topics, der Name des Wertes innerhalb des \textit{JSON}-Konstruktes, ggf. eine Liste der akzeptierten Zustandswerte und der Name des im Zustandsraum 
     definierten Feldes. Die Transformationen waren daraufhin dem Framework zu übergeben, damit diese in die dafür vorgesehene Liste aufgenommen und zur Laufzeit als Objekte 
     erzeugt werden konnten. Abschließend war die Regel zu definieren, darunter die zu prüfende Bedingung und die darauf folgende Aktion, das an- bzw. ausschalten des Lichtes über das 
-    Steckdosen-Funkmodul. Die beiden Methoden sind überschaubar und mit weniger als fünf Zeilen Code implementiert. Dem folgenden Quellcode-Ausschnitt sind die folgenden Methoden 
-    zu entnehmen:
-\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch}, captionpos=b, caption={Regeldefinition der Lichtschaltung}]
-@Scope("singleton")
-public class RuleLampSwitch extends Rule<InnovationLabKA> {
-    ...
-    @Override
-    @TriggerAnnotation
-    public Trigger ruleTrigger(InnovationLabKA state) {
-        return Trigger.MQTT;
-    }
-
-    @Override
-    @ConditionAnnotation
-    public boolean checkCondition(InnovationLabKA state) {
-        return state.isSchalterOn() != state.isLampeOn();
-    }
-
-    @Override
-    @ProcessAnnotation
-    public void ruleProcess(InnovationLabKA state) {
-        logicHubState.setState((state) -> {
-            state.setLampe(state.getSchalter());
-        });
-    }
-    ...
-}
-\end{lstlisting}
+    Steckdosen-Funkmodul. Die beiden Methoden sind überschaubar und mit weniger als fünf Zeilen Code implementiert. Dem Quellcode-Ausschnitt (siehe Anhang \ref{code:switch}) 
+    sind die folgenden Methoden zu entnehmen.
+    \\
     Die Umsetzung des Anwendungsfalls in Home Assistant stellte sich als umständlicher und aufwändiger dar. Hierbei war im Kontext des Home Assistant 
     eine übergreifende Automation, zwei Szenen (Aktionen) für das Schalten des Lichts und ein Auslöser für jede Aktion des Schalters zu definieren. Die Konfigurationsdatei 
     erstreckt sich über 50 Zeilen, in denen die eigentliche Funktion definiert wird. Das Erstellen der Automatisierung über die Nutzeroberfläche gestaltet sich einfacher, dennoch 
-    aufwändig mit vielen Interaktionen. Ergänzend dazu ist dem Anhang ein Ausschnitt der Konfigurationsdatei beigefügt (siehe Anhang \ref{appendix:hoasAutomation}).
+    aufwändig mit vielen Interaktionen. Ergänzend dazu ist dem Anhang ein Ausschnitt der Konfigurationsdatei beigefügt (siehe Anhang \ref{code:hoasAutomation}).
     \\
     \linebreak
     Ähnlicher Konfigurationsaufwand war bei der Umsetzung in \acs{OPENHAB} über die Benutzeroberfläche festzustellen. Das skriptbasierte Definieren von Regeln erfordert eine 
     hohe Lernkurve, da die Semantik  des \textit{ECMAScript} oder die Funktionsweise von bspw. \textit{Blockly} erst erlernt und verstanden werden muss. Die Regeldefinition 
-    mittels der \textit{Rule \acs{DSL}} hingegen kann mit der der Steuerzentrale verglichen werden. Diese ist in ähnlich wenigen Schritten realisiert. Der folgende 
-    Quellcode-Ausschnitt zeigt den Umfang der Regel über die \acs{OPENHAB} \acs{DSL}:
-\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:openhabSwitch}, captionpos=b, caption={Regeldefinition der Lichtschaltung via openHAB}]
-rule "Ikea_FB_Button" 
-when Channel "deconz:switch:XXXXXXXX:XXXXXX:buttonevent"  triggered
-     
-then
-    if (TRADFRIFernbedienungIKEAofSweden_Button.state==5002){
-        if (IkeaLight.state==ON) {
-            IkeaLight.sendCommand(OFF)
-         }
-         if (IkeaLight.state==OFF) {
-             IkeaLight.sendCommand(ON)
-         }
-    }
-end
-\end{lstlisting}
+    mittels der \textit{Rule \acs{DSL}} hingegen kann mit der der Steuerzentrale verglichen werden. Diese ist in ähnlich wenigen Schritten realisiert. Der 
+    Quellcode-Ausschnitt zeigt den Umfang der Regel über die \acs{OPENHAB} \acs{DSL} (siehe Anhang \ref{code:openhabSwitch}). 
+    \\
+    \linebreak
     Die Umsetzung der folgenden Anwendungsfälle erfolgte ausschließlich über die Steuerzentrale.
 
     \subsubsection*{Check-in mit einem Service-Roboter}
@@ -521,13 +483,13 @@ end
         Die Regelabfolge kann zusätzlich dem Sequenzdiagramm (siehe Abbildung \ref{fig:sequenceRuleGreet}) entnommen werden.
         \begin{figure}[hbt!]
             \centering
-            \includegraphics[width=14cm,height=9cm,keepaspectratio]{images/sequence_rule_temi_greet.png}
+            \includegraphics[width=14cm,height=12cm,keepaspectratio]{images/sequence_rule_temi_greet.png}
             \caption{Check-in Regelablauf (RuleProcess)}
             \label{fig:sequenceRuleGreet}
         \end{figure}
         \\
-        \pagebreak
-        \linebreak
+        %\pagebreak
+        %\linebreak
         Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
         Bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein Zustandsaustausch in Echtzeit nicht möglich. 
         Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
@@ -540,5 +502,55 @@ end
         den Sprachbefehl aus. Diese Aktion ist dem Sequenzdiagramm (\ref{fig:sequenceRuleGreet}) unter anderem in den Schritten \textit{1.2:() ->} zu entnehmen. 
         \\
         Der Anwendungsfall wurde erfolgreich umgesetzt und konnte mit dem realen Service-Roboter getestet werden. Für die 
-        Usability-Tests \ref{sec:usabilitytest}, zur Überprüfung der Nutzbarkeit, wurde ein \textit{Mock}\footnote{Simulierte Objekte in der objekt-orientieren Programmierung. \url{https://en.wikipedia.org/wiki/Mock_object} Besucht am 02.08.2022} 
+        Usability-Tests \ref{sec:usabilitytest}, zur Überprüfung der Nutzbarkeit, wurde ein \textit{Mock}\footnote{Simulierte Objekte in der Objekt-orientierten Programmierung. \url{https://en.wikipedia.org/wiki/Mock_object} Besucht am 02.08.2022} 
         des Service-Roboters entwickelt, um die Interaktionen simulieren zu können.
+    
+    \subsubsection*{Notfall-Evakuierung mit einem Service-Roboter}
+        Der Anwendungsfall der Notfall-Evakuierung enthält ähnliche Handlungsschritte als die des Check-ins, weswegen dieser nicht in die 
+        Tiefe aufgegriffen wird. Die Prozessschritte sind ebenso möglich umzusetzen und wurden auch im Rahmen dieser 
+        Arbeit umgesetzt. Der Ablauf gestaltet sich ähnlich zu dem im Sequenzdiagramm \ref{fig:sequenceRuleGreet} dargestellt. 
+        Der Roboter selbst ist aktuell nicht in der Lage Personen zu erkennen. Um dies zu vereinfachen, wurde im Rahmen dieser Arbeit 
+        lediglich ein gebuchter Platz angefahren und die Warnmeldung ausgeführt. Dies erfolgt für jeden gebuchten Platz des Erdgeschosses 
+        im Büro.
+        
+    \section{Fazit der prototypischen Implementierung}
+        % Entscheidung für die Nutzung von Reflection. Begründung: Überprüfung der Werte im Zustandsraum, welche sich geändert haben. 
+        %Und zur Nutzung der inversen Transformation, um an einer Stelle die Topics etc. zu definieren.
+        Die Anwendungsfälle konnten wie erwartet umgesetzt werden und zeigen, dass die konzeptionellen Entscheidungen eine Grundlage für das 
+        Framework darstellen. Die Regeln selbst können je nach Anwendungsfall beliebig definiert werden. An dieser Stelle werden dem 
+        Entwickler alle Möglichkeiten offengelassen, dadurch erfährt dieser keine Einschränkungen. Des weiteren ist der Schnitt zwischen 
+        Anwender und Framework klar gegeben, indem der Softwareentwickler sich ausschließlich um die Regeln, Transformationen und Zustandsattribute 
+        kümmern muss. Entscheiden ist die Gegebenheit eines \acs{MQTT}-Brokers, da ohne diesen das Framework keine Verbindung aufbauen und so nicht an 
+        einem Datentransfer teilnehmen kann. 
+        \\
+        \linebreak
+        Mit der Konzeption der Transformation wird bereits zu Anfang ein zentraler Punkt gegeben, mit dem der Anwender alle notwendig Informationen 
+        bündeln und dem Frameworks zur Verfügung stellen kann. Anhand dieses Beschlusses kann der Entwickler die Zuordnung treffen, bspw. durch welches 
+        eingehende \acs{MQTT}-Topic welches Attribut im Zustandsraum geändert werden soll. Mit der Entscheidung zur Nutzung der generischen Programmierung 
+        und somit der flexiblen Gestaltung des Zustandsraumes, musste überlegt werden, wie dieses Objekt dennoch überwacht und manipuliert werden konnte. 
+        Hierfür wurde die Java Reflection genutzt, die eine sehr mächtige Funktion der Java-Programmierung darstellt, dennoch für die Nutzung aktuell 
+        Grenzen einräumt, die im Rahmen der Konzeption hingenommen wurden, allerdings keine Einschränkung bewirken. Trotz dessen kann durch die Einhaltung 
+        von den Modellierungsvorgaben (\ref{subsec:modellierungsgrenzen}) die Grenze umgangen werden und so die Anwendungsfälle, die im Rahmen der Arbeit 
+        definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend ist dabei die Definition der 
+        Transformation, sowie die der Regel selbst. 
+        \\
+        \linebreak
+        Der Prototyp erfüllt alle Voraussetzungen, um die definierten Anwendungsfälle umzusetzen.
+    
+    \subsection{Modellierungsvorgaben und -grenzen}
+    \label{subsec:modellierungsgrenzen}
+    %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 
+    %Problematisch dabei ist die Prüfung der Zustandsänderung, da bei jeder Kopie eine neue 
+    %Referenz der Komponente erzeugt wird, die eine Zustandsänderung unter dem Feld simuliert (vorgibt) ohne das diese tatsächlich stattgefunden hat.
+    %UND DA DIE INVERSE TRANSFORMATION ZUM AUSLÖSEN VON AKTIONEN NUR DIE OBERSTE EBENE DES ZUSTANDSRAUMES ANSCHAUT UND ÜBERPRÜFT.
+    % An dieser Stelle müsste feingranularer überprüft werden, dass allerdings nicht funktioniert. Heißt: aktuell werden nur die 
+    %Änderungen auf der obersten Ebene überprüft das Absteigen in Objecte ist dabei nicht möglich, da das Object im Framework erst zur Laufzeit bekannt ist.
+    
+    % IST ABER AUCH NICHT NÖTIG, DA ALLE 
+    %NOTWENDIGEN GEGENSTÄNDE ÜBER EINEN ODER MEHRERE ATTRIBUTE IM ZUSTANDSRAUM ABGEBILDET WERDEN KÖNNEN. BSP.? 
+    % UND DIE ATTRIBUTE, BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
+    
+    %Grenzen 
+    %Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 
+    %Worauf man achten soll, wenn man ein neues Szenario abbildet. 
+    %Modellierungsmöglichkeiten des Frameworks.

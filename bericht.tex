@@ -263,7 +263,7 @@
 \end{landscape}
 \include{chapter/4Konzeption/architekturkonzept}
 \include{chapter/5Umsetzung/umsetzung}
-\include{chapter/5Umsetzung/useCaseImpl}
+%\include{chapter/5Umsetzung/useCaseImpl}
 \include{chapter/7Diskussion-Evaluation/evaluation}
 \include{chapter/8Fazit/fazit}
 \include{chapter/8Fazit/xausblick}
@@ -272,8 +272,8 @@
 % Ab hier beginnt der Anhang
 \appendix
 
-\addcontentsline{toc}{chapter}{Index}
-\printindex
+%\addcontentsline{toc}{chapter}{Index}
+%\printindex
 
 %\newpage
 %\addcontentsline{toc}{chapter}{Liste der ToDo's}
@@ -446,6 +446,34 @@
 \end{landscape}
 
 \chapter{}
+\label{appendix:steuerzentrale}
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch}, captionpos=b, caption={Regeldefinition der Lichtschaltung}]
+@Scope("singleton")
+public class RuleLampSwitch extends Rule<InnovationLabKA> {
+  ...
+  @Override
+  @TriggerAnnotation
+  public Trigger ruleTrigger(InnovationLabKA state) {
+    return Trigger.MQTT;
+  }
+  
+  @Override
+  @ConditionAnnotation
+  public boolean checkCondition(InnovationLabKA state) {
+    return state.isSchalterOn() != state.isLampeOn();
+  }
+  
+  @Override
+  @ProcessAnnotation
+  public void ruleProcess(InnovationLabKA state) {
+    logicHubState.setState((state) -> {
+        state.setLampe(state.getSchalter());
+    });
+  }
+  ...
+}
+\end{lstlisting}
+\pagebreak
 \label{appendix:hoasAutomation}
 \begin{lstlisting}[language=xml, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:hoasAutomation}, captionpos=b, caption={Regeldefinition der Lichtschaltung über Home Assistant}]
   id: '1632733838684'
@@ -462,7 +490,24 @@
   action:
     - scene: scene.licht_kuche
   mode: single
-  \end{lstlisting}
+\end{lstlisting}
+
+\label{appendix:openhabCode}
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:openhabSwitch}, captionpos=b, caption={Regeldefinition der Lichtschaltung via openHAB}]
+rule "Ikea_FB_Button" 
+when Channel "deconz:switch:XXXXXXXX:XXXXXX:buttonevent"  triggered
+         
+then
+  if (TRADFRIFernbedienungIKEAofSweden_Button.state==5002){
+    if (IkeaLight.state==ON) {
+      IkeaLight.sendCommand(OFF)
+    }
+    if (IkeaLight.state==OFF) {
+      IkeaLight.sendCommand(ON)
+    }
+  }
+end
+\end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{erklaerung.tex}

@@ -34,7 +34,8 @@
     \linebreak
     Das \textit{SOLID} wurde von Robert C. Martin\footnote{Software Engineer, Lehrer und Autor Robert C. Martin. \url{https://en.wikipedia.org/wiki/Robert_C._Martin} Besucht am 10.07.2022} 
     geprägt und soll zum Design guter objektorientierter Software beitragen. Dadurch soll 
-    ein Softwaresystem einer höheren Wartbarkeit unterliegen. Es setzt sich aus fünf Prinzipien zusammen, die wie folgt definiert sind.
+    ein Softwaresystem einer höheren Wartbarkeit unterliegen. Es setzt sich aus fünf Prinzipien zusammen, %\footnote{SOLID Prinzipien. \url{https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html} Besucht am 10.07.2022}, 
+    die wie folgt definiert sind:
     \begin{itemize}
         \item S - Single-Responsibility-Prinzip: „Das Single-Responsibility-Prinzip (SRP; Eine-Verantwortlichkeit-Prinzip; ...) fordert, dass eine Klasse oder ein Modul einen und nur einen \textit{Grund zur Änderung} haben sollte.“ \cite{cleancode2009}
         \item O - Open-Closed-Prinzip: „Module sollten sowohl offen (für Erweiterungen) als auch verschlossen (für Modifikation) sein.“ \cite{ocpmeyer1988}
@@ -44,7 +45,9 @@
         \item I - Interface-Segregation-Prinzip: „Clients sollen nicht dazu gezwungen werden, von Interfaces abzuhängen, die sie nicht verwenden.“ \cite{martin1996interface}
         \item D - Dependency-Inversion-Prinzip: „A. Module hoher Ebenen sollten nicht von Modulen niedriger Ebenen abhängen. Beide sollten von Abstraktionen abhängen. B. Abstraktionen sollten nicht von Details abhängen. Details sollten von Abstraktionen abhängen.“ \cite{martin2003agile}
     \end{itemize}
-    Diese Prinzipien werden bei der Konzeption des Frameworks berücksichtigt. Da es sich bei diesem System nicht um eine klassische 
+    Besonders das \textit{Single-Responsibility} und das \textit{Open-Closed}-Prinzip wurden bei der Konzeption berücksichtigt. 
+    %Diese Prinzipien werden bei der Konzeption des Frameworks berücksichtigt. 
+    Da es sich bei diesem System nicht um eine klassische 
     Webanwendung handelt und keine direkte Kommunikation unter anderem über \acs{REST} \acs{API}s stattfindet, wird ein allgemeines 
     Programmiermuster, wie bspw. das \ac{MVC}\footnote{Architekturmuster für Webapplikationen. \url{https://de.wikipedia.org/wiki/Model_View_Controller} Besucht am 10.07.2022} 
     oder das \ac{MVVM}\footnote{Software-Architekturmuster. \url{https://en.wikipedia.org/wiki/Model–view–viewmodel} Besucht am 10.02.2022 }, nicht 
