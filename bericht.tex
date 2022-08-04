@@ -364,7 +364,7 @@
           \hline
             Unterstützte Geräte und Verknüpfungen & Durch die gängigen Smart Home Protokolle werden über 1000 Komponenten unterstützt. & Home Assistant unterstützt ebenso über 1000 Komponenten, wobei die Benutzerfreundlichkeit beim Anlegen und Verwalten bei Home Assistant deutlich angenehmer und leichter erscheint \cite{msuttner-comparison}. \\ 
           \hline
-            Automatisierungs-regeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ mit Node-RED. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
+            Automatisierungs-regeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ über ein Node-RED Add-On. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
           \hline
       \end{tabular}
   \end{center}
@@ -378,15 +378,15 @@
           \hline
             \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
           \hline
-            User Interface & openHAb hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
+            User Interface & openHAB hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
           \hline
             Mobile Anwendungen & openHAB bietet eine dedizierte App für iOS und Android. Diese ist mit innovativen Optionen ausgestattet.  & Home Assistant bietet ebenso eine App für iOS und Android, jedoch bei weitem nicht so stark entwickelt als die von openHAB. Die Benachrichtigungsdienste sind jedoch mit Home Assistant besser genutzt. \\ 
           \hline
             Community und Dokumentation & openHAB bietet eine sehr starke und repräsentative Community. Die Dokumentation ist ausführlich und beschreibt die Prozesse, Konzept und Architektur ausführlich. & Home Assistant unterscheidet sich in diesen Punkten nicht von openHAB. Eine starke Community und eine solide Dokumentation der Plattform.  \\
           \hline
-            Vergleich von Xtend \& YAML &  &  \\ 
+            Vergleich von Xtend \& YAML & Xtend ist eine sehr mächtige Skriptsprache mit vielen verfügbaren komplexen Strukturen und Funktionen. Dennoch gibt es keine klare Dokumentation, keine Unterstützung von Funktionen, eine seltsame Syntax und kein echtes Tooling. & YAML ist ein lesbarer Datenserialisierungsstandard für Programmiersprachen. Es ist sehr mühsam in größerer Struktur zu verwenden und bieten ebenso keine Funktionen.  \\ 
           \hline 
-        \end{tabular}
+      \end{tabular}
   \end{center}
   \caption{Vergleich der Plattformen \cite{sh-uni-comparison} \cite{msuttner-comparison} \cite{barclay-comparison}}
   \label{tab:comparisonTableHAOS-openHAB-part2}
@@ -394,9 +394,10 @@
 
 \chapter{}
 \label{appendix:brandings}
+\pagebreak
 \begin{figure}[hbt!]
   \centering
-  \includepdf[scale=0.60, pages=1, pagecommand={}]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
+  \includepdf[scale=0.65, pages=-, fitpaper=false]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
   \caption{Umfrage der Statista GCS. Abgerufen am 22.05.2022}
   %\label{appendix:brandings}
 \end{figure}
