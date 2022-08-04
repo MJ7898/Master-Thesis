@@ -1,7 +1,7 @@
 \section{Architekturkonzept}
 \label{sec:architekturkonzept}
     Das Framework stellt die Kern-Funktionalität zur Steuerung von implementierten Regeln und Prozessen innerhalb eines 
-    Gebäudes, bspw. eines Büroraumes, dar. Mit dem Architekturkonzept wird der grundlegende Aufbau, sowie die Funktionalität des Frameworks erläutert. 
+    Gebäudes, bspw. eines Büroraumes, dar. Mit dem Architekturkonzept wird der grundlegende Aufbau, sowie die Funktionalität des Systems erläutert. 
     Potentielle Erweiterungen und Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
     \\ 
     \linebreak
@@ -11,11 +11,11 @@
     genutzt wird. Die Ausprägung der Schicht ist dennoch ohne weiteres möglich und wird auch grob skizziert. Der Abbildung 
     (\ref{fig:schichtenarchitektur}) ist die Aufteilung der Schichtenarchitektur zu entnehmen. In der Darstellung unterscheidet sich die 
     Persistenzschicht von den anderen, um erkenntlich zu machen, dass diese in aktuellem Konzept keine konkrete Implementierung erfährt. 
-    Durch die Darstellung in übergreifender Form wird deutlich, das bereits auf dieser Ebene die Trennung der Zuständigkeiten, engl. 
+    Durch die Darstellung in übergreifender Form wird deutlich, dass bereits auf dieser Ebene die Trennung der Zuständigkeiten, engl. 
     \textit{seperation of concerns}, greift. Durch die gezielte Abstraktion von Komponenten und Informationen kann die Komplexität 
     eines Systems gesteuert werden. Die Kommunikationsschicht ermöglicht die Anbindung von verschiedensten Kommunikationsprotokollen, die 
     dadurch schnell adaptiert werden können. Im Rahmen des Konzeptes wird ausschließlich Gebrauch des \acs{MQTT}-Protokolls gemacht. 
-    Die Logikschicht nimmt alle eingehenden Events, die jeweils eine Zustandsänderung erzwingen, der Kommunikationsschicht entgegen 
+    Die Logikschicht nimmt alle eingehenden Events der Kommunikationsschicht entgegen, die jeweils eine Zustandsänderung erzwingen, 
     und durchläuft den Prozess des Frameworks, um auf die Zustandsänderung die passende Regel auszuführen. Die 
     Persistenzschicht ist für die Speicherung erzeugter Daten zuständig, bspw. wenn eine Transaktionshistorie von Zustandsänderungen 
     persistiert werden soll. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stünden. Das Vorantreiben der Speicherung 

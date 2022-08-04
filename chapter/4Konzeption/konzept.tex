@@ -8,7 +8,7 @@
     \\
     Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes, sowie das konkrete Ziel dieser Arbeit 
     erläutert. Anschließend 
-    wird auf das Anwendungsumfeld des Systems, bzw. des Frameworks, (\ref{sec:anwendungsumfeld}) eingegangen, darunter 
+    wird auf das Anwendungsumfeld des Systems (\ref{sec:anwendungsumfeld}) eingegangen, darunter 
     welche zusätzlichen Komponenten notwendig sind, damit das Framework in einer dafür vorgesehenen Umgebung sinnvoll 
     eingesetzt werden kann.
     % die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
@@ -34,7 +34,8 @@
     erarbeitet eine Lösung zur Implementierung einer Anwendung, die es ermöglicht, Automatisierungen, Regeln und Prozesse innerhalb eines 
     Firmenbüros zu koordinieren. Der Fokus liegt dabei verstärkt auf der einfachen Nutzung des Frameworks für den Anwender und 
     die uneingeschränkte und schnell umzusetzende Ausprägungsvielfalt von Regelprozessen. Dadurch kann der Anwender die vorgegebene Struktur nutzen, um individuelle 
-    Sachverhalte zu realisieren, die in seinem Umfeld abzudecken sind. 
+    Sachverhalte zu realisieren, die in seinem Umfeld abzudecken sind. Im Rahmen dieser Arbeit werden verstärkt Anwendungsfälle mit einem Service-Roboter 
+    umgesetzt.
     %\\
     Hierfür wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen kann. 
     Unter Berücksichtigung der Forschungsfrage (siehe Abschnitt \ref{sec:forschungsfragen}) wird eine Möglichkeit offengelegt, mit der 
@@ -43,8 +44,7 @@
     Definition der Zielsetzung der Arbeit (siehe Abschnitt\ref{sec:zielsetzung}) wird die Abgrenzung deutlich. 
     \\
     \linebreak
-    In folgender Darlegung %des Konzeptes 
-    wird nochmals konkreter auf den Kontext als auch auf die Intension der Arbeit eingegangen. 
+    In folgender Darlegung wird nochmals konkreter auf den Kontext als auch auf die Intension der Arbeit eingegangen. 
     % Das Ziel des Konzeptes ist es, dem Entwickler den Aufwand zur Erweiterung des Systems zu minimieren durch weitere 
     % Regeln und Abdeckung von Anwendungsfällen (Use Cases) und eine Struktur vorgeben. (ToDo's, Flexibilität in der 
     % Umsetzung (nicht wie Home Assistant und openHAB eher eingeschränkt)) 
@@ -69,15 +69,15 @@
 \section{Anwendungsumfeld}
 \label{sec:anwendungsumfeld}
     Grundsätzlich ist der Einsatzort des Frameworks variabel, da die eigentliche Implementierung und Nutzung der Regeln und Prozesse stark 
-    abhängig von den Anwendern und dessen Umfeld ist. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen ein System mittels dem 
-    Framework erstellt werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
+    abhängig von dem Anwender und dessen Umfeld ist. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen ein System mittels dem 
+    Framework aufgebaut werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
     Einsatz im Smart Office, liegt der Fokus auf dieser. % Schwerpunkt der Arbeit auf dem Einsatz in einem smarten Büro. 
     \\
     \linebreak
     Stützend auf den vorab ermittelten Anwendungsfällen (siehe Abschnitt \ref{subsec:checkin} und \ref{subsec:evacuation}) sind unabhängige 
     Komponenten, darunter bspw. ein Service-Roboter und weitere einsatzfähige Geräte, sowie ein \acs{MQTT}-Broker notwendig. Ein \acs{MQTT}-Broker 
-    wird im Zuge der Konzeption nicht von dem Framework bereitgestellt, lediglich die Anbindung als Client wird gegeben, und muss daher als eigenständige 
-    Instanz bereitgestellt werden. Dadurch kann die Anforderung, die Kommunikation mittels \acs{MQTT}, ermöglicht werden. Eine mögliche infrastrukturelle 
+    wird im Zuge der Konzeption nicht von dem Framework selbst bereitgestellt, lediglich die Client-Anbindung wird gegeben, und muss daher als eigenständige 
+    Instanz bereitgestellt werden. Dadurch kann die Anforderung, die Kommunikation mittels \acs{MQTT}, ermöglicht werden. Eine denkbare infrastrukturelle 
     Architektur kann wie folgt aussehen: 
     \begin{figure}[hbt!]
         \centering
@@ -117,13 +117,13 @@
     können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP} Abfragen bezogen werden, bzw. Ressourcen 
     und Inhalte individuell nachgezogen werden.
     \\ 
-    Das Konzept beinhaltet die in folgendem Abschnitt dargelegten Komponenten. Aus denen bildet sich der grundlegende Aufbau 
-    des Frameworks.
+    Das Konzept beinhaltet die in folgendem Abschnitt dargelegten grundsätzlichen Komponenten. %Aus denen bildet sich der grundlegende Aufbau 
+    %des Frameworks.
 
     \subsection{Konzeptkomponenten}
     \label{subsec:conceptcomps}
         Für die Erläuterung des Konzeptes werden vorab die einzelnen Konzeptkomponenten erläutert, da diese die Anhaltspunkte 
-        für den weiteren Verlauf darstellen: % . Das Framework baut auf folgenden Bausteinen auf:
+        für den weiteren Verlauf und den Kern des Frameworks darstellen: % . Das Framework baut auf folgenden Bausteinen auf:
         \begin{itemize} 
             \item Regel (Rule): Eine Regel ist ein Konstrukt, welches bei bestimmten Events die darin enthaltenen Aktionen ausführen soll. 
             Der grobe Aufbau einer Regel ist immer gleich. Diese beinhaltet einen Auslöser, eine Bedingung, einen Prozess und einen eindeutigen 
@@ -133,7 +133,7 @@
             \item Zustandsraum (State): Der Zustandsraum, das sog. Zustandsobjekt, soll alle Zustände von Komponenten und weiteren Geräten abbilden. Dieser Repräsentiert die Zustände der Realität.
             \item Auslöser (Trigger): Ein Auslöser löst im Allgemeinen eine Zustandsänderung aus. Im Kontext des Frameworks gibt es zwei Ausprägungen von 
             Auslösern. Zum einen werden eingehende Aktionen entgegengenommen und über die Transformation zu einer Zustandsänderung verarbeitet, zum anderen können durch Regelprozesse 
-            wiederum Aktionen, weitere Schritte und Zustandsänderungen ausgelöst werden. Dadurch werden ausgehende Aktionen gesteuert. 
+            wiederum weitere Schritte und Zustandsänderungen ausgelöst werden. Dadurch werden ausgehende Aktionen gesteuert. 
             %Der Auslöser ist unter anderem ein von außen einwirkendes Objekt, das Zustandsänderungen hervorruft. Beispielsweise ist ein 
             %Auslöser das eintreffen eines Events über eine Kommunikationsschnittstelle. Ebenso können durch Regelprozesse Events ausgelöst werden. 
             \item Transformation (Transformer): Mit der Transformation werden eingehenden Zustandsänderungen, die durch ein Event oder Auslöser ausgelöst werden, 
@@ -141,11 +141,11 @@
             %, die eine Zustandsänderung bewirken, die durch einen Auslöser hervorgerufen 
             %werden und eine Zustandsänderung bewirken
         \end{itemize}
-        Diese Komponenten bilden den Kern des Frameworks.
+        %Diese Komponenten bilden den Kern des Frameworks.
         %In folgendem Abschnitt wird nochmals auf die Sichten eingegangen und anhand denen der Ablauf des Frameworks als auch die 
         %Aufgaben des Anwenders erläutert. %Der Ablauf des Prozesses von Auslöser bis zur Ausführung der Regel wird anhand eines Programmablaufdiagramms gestützt.
-        \\
-        \linebreak
+        %\\
+        %\linebreak
         Das Konzept wird aus zweierlei Sichtweisen betrachtet, die in folgendem Abschnitt aufgegriffen werden und für die weitere 
         Konzepterläuterung notwendig sind.
     
@@ -170,36 +170,31 @@
         \\
         \linebreak
         Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
-        Darin sind alle notwendigen Zustände als Attribute und Objektattribute abzubilden. Diese können konkret Geräte sein, die im Rahmen des 
-        intelligenten Büros verwendet werden können, bspw. ein Service-Roboter, ein Türöffner und weitere steuerbare Geräte, die 
+        Darin sind alle notwendigen Zustände als Attribute und Objektfelder abzubilden. Diese können konkret Geräte sein, die im Rahmen des 
+        intelligenten Büros verwendet werden, bspw. ein Service-Roboter, ein Türöffner und weitere steuerbare Geräte, die 
         ihren Zustand ändern können. Nachdem das Zustandsobjekt 
         definiert wurde, geht es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach 
         Anforderungen des Anwenders zu erstellen. Jedoch sind bestimmte Funktionen und Vorgaben bezüglich Bedingungsprüfung 
         und Regeldurchlauf einzuhalten. Anforderungen dabei sind das Implementieren von drei unabdingbaren Funktionen. 
         Die erste Funktion ist die Zuordnung des Auslösers, damit klar wird, durch welches Event eine Regel ausgelöst werden kann. 
         Die zweite zu implementierende Funktion ist die Prüfung von Werten im Zustandsraum, sodass beim eintreffen spezifischer 
-        Bedingungen und Zuständen bestimmte Regelprozesse ausgeführt werden können und die dritte vorgegebene Funktion ist die 
-        des tatsächlichen Regeldurchlaufs. Die darin enthaltenen Aufgaben werden nach eintreffender Anforderungen, durch Prüfung der 
-        vorangestellten Bedingungen, abgearbeitet.
-        %Zum einen die Prüfung einer Bedingung, die zutreffen muss, damit ein bestimmter Prozess ausgelöst wird
-        %, die zum einen die 
-        %Bedingungen gegen Werte im Zustandsobjekt zu prüfen und zum anderen das Nutzen der Prozessfunktion, damit der Inhalt 
-        %der Regel durchlaufen wird.
+        Bedingungen und Zuständen bestimmte Regelprozesse ausgeführt werden können. Die dritte vorgegebene Funktion ist die 
+        des eigentlichen Regeldurchlaufes. Die darin enthaltenen Aufgaben werden nach zutreffender Bedingung abgearbeitet.
         \\
-        Nach Fertigstellung aller Regeln, müssen diese in einer Liste an das System übergeben werden. Anschließend sind die 
-        konkreten Transformationen zu definieren. Darüber wird festgelegt, welches eingehende Event, bzw. \acs{MQTT}-Topics 
+        Nach Fertigstellung einer Regel, muss diese dem System übergeben werden. Anschließend ist die 
+        konkrete Transformation zu definieren. Darüber wird festgelegt, welches eingehende Event, bzw. \acs{MQTT}-Topics 
         eine bestimmte Zustandsänderung bewirkt, da erst nach der Änderung des Zustandes die Überprüfung und Ausführung 
-        von Regeln ausgelöst wird. Das konkrete Konstrukt der Transformation wird in der Umsetzung (siehe Kapitel \ref{chap:umsetzung}) 
+        von Regeln ausgelöst wird. Das konkrete Konstrukt der Transformation wird im Kapitel der Umsetzung (siehe Abschnitt \ref{subsec:transformation}) 
         erläutert. Abschließend sind die Kommunikationswege zu aktivieren. 
         Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle 
         abbildet, ist die Konfiguration des \acs{MQTT}-Clients einzustellen. Hierfür muss der Entwickler 
         dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzername des Clients und dessen Passwort übergeben. Über das 
-        Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumiert 
-        werden können. In Zuge dessen muss der Anwender alle Topics definieren mittels der Transformation an das Framework übergeben. Dadurch wird gewährleistet, dass 
-        die Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. %Abschließend muss der Softwareentwickler 
-        %noch die Zuordnung der Topics implementieren. Hierbei muss fest vorgegeben werden, mit welcher \acs{MQTT} Nachricht ein 
-        %bestimmter Wert, bzw. ein bestimmtes Attribut im Zustandsraum geändert werden soll. Hierfür ein Beispiel: 
+        Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumierbar 
+        sind. In Zuge dessen muss der Anwender die Topics innerhalb der jeweiligen Transformation definieren. Dadurch wird gewährleistet, dass 
+        die Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. Durch die Transformation erfolgt ebenso die 
+        Zuordnung, welches Zustandsattribute mittels eines bestimmten Topics geändert werden soll. Hierfür ein Beispiel:  
         \\
+        \linebreak
         Sobald eine Person an der Tür authentifiziert wurde, wird ein Thema mit dem Namen derjenigen Person übergeben. Basierend auf 
         dem eingehenden Topic wird dann für dieses Ereignis der Wert im Zustandsraum auf den Namen der Person geändert. Somit kann 
         die Steuerzentrale mit dem neuen Wert und der Änderung des Zustandsraumes arbeiten. Durch die Zustandsänderung wird dann 
@@ -215,16 +210,16 @@
         \linebreak
         Nach erfolgreichem Einstellen und Starten des Systems soll der \acs{MQTT}-Client hochgefahren werden. Dieser baut daraufhin eine 
         Verbindung zu dem \acs{MQTT}-Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits auf die Topics,  
-        die der Nutzer über die Einstellungen als Liste aller Topic-Zeichenketten übergibt, gefiltert werden. Sobald eine der bekannten 
+        die der Nutzer über die Einstellungen im Rahmen der Transformation übergibt, gefiltert werden. Sobald eine der bekannten 
         \acs{MQTT}-Nachrichten konsumiert wird, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
         auf die in dem Topic enthaltenen Informationen abgeändert werden. Der Transformer stellt den Ausgangspunkt für die Transformation 
         des Inhaltes der Nachricht zur Änderung des Zustandsobjektes dar. Innerhalb dieser Komponente findet die Zuordnung 
-        des Topics zu den darauf adressierten Instanzvariablen des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
-        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen, bzw. überschrieben werden. Die Änderung des 
+        des Topics zu den darauf adressierten Feldern des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
+        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen werden. Die Änderung des 
         Zustandsraumes löst darauf hin den weiteren Ablauf aus. 
         \\
         Das aktuelle Zustandsobjekt wird zum Zeitpunkt der Überschreibung für weitere Lese- und Schreiboperationen gesperrt, sodass 
-        die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor den realen Zustand wiedergibt. Anschließend erfolgt die 
+        die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor die realen Zustände wiedergibt. Anschließend erfolgt die 
         Erstellung einer Kopie des Zustandsobjektes, mit der 
         darauf folgend weiter verfahren wird. Nachdem das Zustandsobjekt geklont wurde, wird der Sperrvorgang aufgehoben. 
         Nachdem der Lock-Mechanismus entsperrt wurde, wird über alle Regeln, die dem Framework bekannt sind, iteriert. In diesem Prozess 
@@ -249,7 +244,7 @@
         Wird eine Regel durchgeführt, so wird der vom Anwender definierte Prozess abgearbeitet. Über Regelprozesse selbst kann wiederum eine 
         Zustandsänderung erfolgen, die daraufhin eine weitere Regel ausführt. Dies soll durch die inverse Funktion der Transformation erfolgen, indem der 
         Anwender in dem Regelprozess lediglich die Zustandsänderung beschreibt. Das Framework nutzt auf dessen Grundlage die vorab durch die Transformation 
-        übergebenen Informationen, damit zum Zeitpunkt der Regelimplementierung das Topic für die Kommunikation über \acs{MQTT} dem Anwender nicht zwangsweise 
+        übergebenen Informationen, damit zum Zeitpunkt der Regelimplementierung dem Anwender nicht zwangsweise das Topic für die Kommunikation über \acs{MQTT} 
         bekannt sein muss. Die Kenntnis über das Topic und die darauf zugewiesene Zustandsänderung ist nur bei initialer Definition erforderlich. 
         \pagebreak
         \\
@@ -269,5 +264,5 @@
         (\ref{chap:umsetzung}) aufgegriffen. 
         \\
         \linebreak
-        Zur Veranschaulichung der abgeschlossenen textuellen Erläuterung des Konzeptes hilft die nachfolgenden Abbildung: 
+        Zur Veranschaulichung der abgeschlossenen textuellen Erläuterung des Konzeptes hilft die nachfolgende Abbildung: 
         
