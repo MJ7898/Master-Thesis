@@ -474,12 +474,12 @@ public class InnovationLogicHubApplication {
         \linebreak
         Sobald eine Person über die Kamera authentifiziert wurde, wird ein \acs{MQTT}-Topic gesendet, welches als Nutzlast ein \textit{JSON}-Konstrukt mit einem Zeitstempel, den 
         Vor- und Nachnamen, sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, worauf die Regeln auf ihre 
-        Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und einchecken des Gastest gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
+        Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und einchecken des Gastes gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
         Gast empfängt. Während der Roboter an die Tür fährt, checkt er die Buchungen und überprüft, ob die Person einen Platz gebucht hat. Dort angekommen, wird die Person zuerst 
-        begrüßt. Nachdem der Gast empfangen und eine Buchung gefunden wurde, fragt der Service-Roboter, ob er den Gast einchecken soll. Dieser kann die Frage beantworten. 
-        Wird die gestellte Frage bejaht, so checkt der Service-Roboter die Person in dem Büroplatzbuchungssystem ein.  
-        \\ 
-        Falls bei der Abfrage des Service-Roboters keine Buchung gefunden wurde, wird der Gast aktuell darum gebeten, nachträglich einen Platz zu buchen und darauf einzuchecken. 
+        begrüßt. Nachdem der Gast empfangen und eine Buchung gefunden wurde, checkt der Roboter die Person ein und gibt daraufhin Rückmeldung, dass die Person erfolgreich in dem 
+        Büroplatzbuchungssystem eingecheckt wurde. Ist der Gast bereits eingechekt oder hat vorab keine Buchung getätigt, wird der Gast aktuell darum gebeten, nachträglich 
+        einen Platz zu buchen und darauf einzuchecken. 
+        \\
         Die Regelabfolge kann zusätzlich dem Sequenzdiagramm (siehe Abbildung \ref{fig:sequenceRuleGreet}) entnommen werden.
         \begin{figure}[hbt!]
             \centering
@@ -491,7 +491,7 @@ public class InnovationLogicHubApplication {
         %\pagebreak
         %\linebreak
         Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
-        Bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein Zustandsaustausch in Echtzeit nicht möglich. 
+        Bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein reeller Zustandsaustausch in Echtzeit nicht möglich. 
         Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
         der Roboter in etwa braucht, um einen Ortswechsel, bzw. einen Sprachbefehl durchzuführen. Eine alternative Lösung, sofern der Service-Roboter Statusmeldungen geben 
         kann, wäre die feingranularere Aufteilung von einzelnen Prozessen, sodass erst nach erfolgreicher Rückmeldung des Roboters der weitere Schritt eingeleitet werden würde.
