@@ -146,16 +146,26 @@ Ziel der Arbeit abschließend evaluiert.
         Übergabe von den dafür vorgesehenen Parameterwerten diese auch vollends zu erzeugen und das Erstellen eines leeren Regelkonstruktes. Dadurch müsste sich der Entwickler 
         ausschließlich um das Implementieren der Regel kümmern. Dadurch würde der notwendige Code generiert und dem Anwender zur Verfügung gestellt werden.
         
-
 \section{Evaluation der Anforderungen}
     Im Rahmen der Arbeit werden die Anforderungen (siehe Kapitel \ref{sec:requirementsFinal}) abschließend anhand von dafür vorgesehenen Praktiken evaluiert. 
-    Die Reihenfolge entspricht der tabellarischen Aufstellung der Anforderungen. Zuerst erfolgt die Abarbeitung der \textit{Funktionalen Anforderungen}, 
-    anschließend die der \textit{Nicht funktionalen Anforderungen} und zum Schluss die der \textit{Zusätzlichen Anforderungen}, die ebenso Randbedingungen adressieren.
+    Die Reihenfolge entspricht der tabellarischen Aufstellung der Anforderungen. Zuerst erfolgt die Abarbeitung der \textit{funktionalen Anforderungen}, 
+    anschließend die der \textit{nicht funktionalen Anforderungen} und zum Schluss die der \textit{zusätzlichen Anforderungen}, die ebenso Randbedingungen adressieren.
     
     \subsection*{Funktionale Anforderungen}
         Während der Konzeption und Entwicklung des Frameworks wurden die funktionalen Anforderungen (FA1 - FA6, siehe Tabelle \ref{tab:functionalRequirements}) stets 
-        berücksichtigt. Diese stellen die wichtigsten Anhaltspunkte dar und stellen die grundlegende Funktionen bereit. Deren Erfüllung konnte durch die abschließenden 
-        Experteninterviews identifiziert werden. Die Resonanz der Experten gab auch deutlich wieder, dass auf Grundlage der Anforderungen der Prototyp aufbaut.
+        berücksichtigt. Diese stellen die wichtigsten Anhaltspunkte dar und die grundlegende Funktionen bereit. Deren Erfüllung konnte durch die abschließenden 
+        Experteninterviews identifiziert werden. Die Resonanz der Experten gab auch deutlich wieder, dass auf Grundlage der Anforderungen der Prototyp aufbaut. Die Struktur 
+        des Regelobjektes (FA1) wird gegeben, indem eine Klasse von der Oberklasse erbt und diese Erweitert. Umgesetzt wurde diese Anforderung mithilfe des 
+        \textit{Template Method} Architekturmuster, auf das auch bereits in der Konzeption (siehe Kapitel \ref{chap:konzept}) eingegangen wird. Die Anforderung (FA2) ist 
+        umgesetzt, indem der Regel über eine Methode Namens \textit{ruleTrigger} ein Wert eines \textit{Enum Types}\footnote{Spezieller Datentyp. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html} Besucht am 05.08.2022} 
+        zugeordnet wird. Ein unumgänglicher Teil des Frameworks ist der vom Anwender implementierte Zustandsraum, welcher über eine separate Klasse vorgegeben wird. Dadurch 
+        ist auch die Anforderung (FA3) als umgesetzt anzusehen. Zu den Regel sind die Bedingungen zur Ausführung des Prozesses unabdingbar. Diese sind durch eine eigenständige Funktion der 
+        Regelklasse gegeben und müssen vom Anwender aufgestellt werden (FA4). Die darauf folgende Forderung (FA5) ist prinzipiell gegeben, wird allerdings durch die Einschränkung im 
+        Zustandsraum durch die Nutzung von Java Reflections, bzw. die Umsetzung der inversen Transformation nicht als geeignet angesehen. Deshalb wird von der Einbindung von 
+        Komponenten in das Zustandsobjekt abgeraten. Das Erstellen von Komponenten ist dennoch möglich und kann angewendet werden, sofern bestimmte Eigenschaften für eine Regel relevant sind. Der 
+        letzte Punkt der funktionalen Anforderungen (FA6) ist ebenso ermöglicht, da innerhalb der Regel keine Einschränkung greifen, bis auf die Voraussetzung, dass die Regelbedingung, sowie der -prozess 
+        implementiert werden. Zusätzlich können bspw. sämtliche \acs{HTTP}-Abfragen getätigt werden. Im Falle des Use Cases, Check-in mit einem Service-Roboter, werden \acs{HTTP}-Abfragen getätigt, damit 
+        Informationen der Büroplatzbuchungssoftware abgerufen werden können. 
 
     \subsection*{Nicht funktionale Anforderungen}
         %BF durch die Usability-Tests und Interviews
