@@ -172,45 +172,94 @@ Ziel der Arbeit abschließend evaluiert.
         Informationen der Büroplatzbuchungssoftware abgerufen werden können. 
 
     \subsection*{Nicht funktionale Anforderungen}
-        Zur Überprüfung der \textit{nicht funktionalen Anforderungen} wurden weitere Methoden zur Überprüfung verwendet. Zusätzlich zu den verifizierten \textit{User Stories} mittels der Usability-Tests 
-        konnten ebenso die aufgestellten Forderungen, die allgemein die Benutzerfreundlichkeit (BF) adressieren, überprüft werden. Der durch die Experteninterviews aufgestellte Anspruch (NFA1) konnte 
-        durch die Usability-Tests erfüllt werden, da die Probanden überwiegend einen Schritt benötigten, um die Regel den Framework zu übergeben. Grund dafür ist die Funktion der Steuerzentrale 
-        \textit{addRule(...)}. Der Anwender kann die Funktion schnell zuordnen und bekommt mitgeteilt, welche Übergabeparameter die Funktion erwartet.
+        Zur Überprüfung der \textit{nicht funktionalen Anforderungen} wurden Methoden für deren Überprüfung verwendet. Zusätzlich zu den 
+        verifizierten \textit{User Stories} mittels der Usability-Tests konnten ebenso die aufgestellten Forderungen, die allgemein 
+        die Benutzerfreundlichkeit (BF) adressieren, überprüft werden. Der durch die Experteninterviews aufgestellte Anspruch (NFA1) konnte 
+        durch die Usability-Tests erfüllt werden, da die Probanden überwiegend einen Schritt benötigten, um die bereits erstellte Regel 
+        dem Framework zu übergeben. Grund dafür ist die Funktion der Steuerzentrale \textit{addRule(...)}. Der Anwender kann die Funktion 
+        schnell zuordnen und bekommt mitgeteilt, welche Übergabeparameter die Funktion erwartet.
         \\
         \linebreak 
-        Im Rahmen des überschaubaren, jedoch nicht repräsentativen Usability-Tests waren alle Teilnehmer in der Lage eine Regel zu erstellen und diese dem Regelwerk hinzuzufügen (NFA2). Durch die 
-        rein programmatische Anwendung des Frameworks, kann der Entwickler zu jedem Zeitpunkt auf die Funktionen der Steuerzentrale zugreifen (NFA3). Dies wurde ebenso von den Testteilnehmern im anschließenden 
-        Experteninterview bestätigt. Zu aktuellem Zeitpunkt sind die nutzbaren Funktionen sehr überschaubar und decken die zum derzeitigen Stand notwendigsten Funktion ab, darunter das Hinzufügen von Regeln, 
-        das Erstellen aller notwendigen Objekte und Komponenten, das Aufsetzen der notwendigen \acs{MQTT}-Konfiguration, das Ergänzen von Transformationen, das Starten des \acs{MQTT}-Clients und das Erweitern um 
-        zeitbasierte Regelauslöser. Die Anforderung (NFA4) ist ebenso gegeben, da der Anwender sich ausschließlich um die Definition der Regeln kümmern braucht. Dennoch gibt es zur weiteren Vereinfachung der 
-        Regeldefinition zusätzliche Möglichkeiten, die im Rahmen dieser Arbeit nicht umgesetzt wurden. Diese werden im Ausblick aufgegriffen, um zu zeigen, welche potentiellen Erweiterungen stattfinden können. 
+        Im Rahmen des überschaubaren, jedoch nicht repräsentativen Usability-Tests waren alle Teilnehmer in der Lage eine Regel zu erstellen 
+        und diese dem Regelwerk hinzuzufügen (NFA2). Ausgehend von dieser Anforderung wurden 
+        während der Experteninterviews Anregungen angebracht, die gegebenenfalls eine weitere Vereinfachung für den Entwickler darstellen. 
+        Diese werden im Ausblick (siehe Kapitel \ref{chap:ausblick}) aufgegriffen. 
+        \\
+        Durch die rein programmatische Anwendung des Frameworks, kann der Entwickler zu jedem Zeitpunkt auf die Funktionen der Steuerzentrale zugreifen (NFA3). 
+        Dies wurde ebenso von den Testteilnehmern im anschließenden Experteninterview bestätigt. Zu aktuellem Zeitpunkt sind die nutzbaren Funktionen sehr 
+        überschaubar und decken die zum derzeitigen Stand notwendigsten Funktion ab, darunter das Hinzufügen von Regeln, 
+        das Erstellen aller notwendigen Objekte und Komponenten, das Aufsetzen der notwendigen \acs{MQTT}-Konfiguration, das Ergänzen von Transformationen, das Starten 
+        des \acs{MQTT}-Clients und das Erweitern um zeitbasierte Regelauslöser. 
+        \\
+        \linebreak 
+        Die Anforderung (NFA4) ist ebenso gegeben, da der Anwender sich 
+        ausschließlich um die Definitionen der Regeln, der Transformationen und des Zustandsraumes kümmern braucht. Dennoch gibt es zur weiteren 
+        Vereinfachung der Regeldefinition zusätzliche Möglichkeiten, die im Rahmen dieser Arbeit nicht umgesetzt wurden. Diese werden im Ausblick 
+        aufgegriffen, um zu zeigen, welche potentiellen Erweiterungen stattfinden können. 
         \\
         \linebreak
-        Ein weiterer Aspekt ist die allgemeine Zuverlässigkeit des Systems. Zur Überprüfung der Zuverlässigkeitsanforderung (NFA5) wurden im Rahmen der Entwicklung JUnit-Test implementiert, die 
-        einen bestimmten Sachverhalt überprüfen. Demnach wird ein Zustand vorausgesetzt, der nach dem Auslösen einer Regel eintreffen sollte. Somit kann die Zuverlässigkeit überprüft werden. 
-        Dennoch gibt es eine starke Abhängigkeit zur  der Regelbedingung, die der Anwender definiert. Ist diese nicht deutlich genug, kann es passieren, dass Regeln ungewollt ausgeführt werden. 
-        Deshalb ist die Validierung der Regelbedingung durch den Entwickler essentiell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
-        systemseitig keine Auswirkung, die fälschlicherweise die Zuordnung und Ausführung gefährdet. 
+        Ein weiterer Aspekt ist die allgemeine Zuverlässigkeit des Systems. Zur Überprüfung der Zuverlässigkeitsanforderung (NFA5) wurden im Rahmen der 
+        Entwicklung \textit{JUnit-Tests}\footnote{Test Framework für Java. \url{https://junit.org/junit5/} Besucht am 08.08.2022} implementiert, die 
+        einen bestimmten Sachverhalt auslösen und überprüfen. Demnach wird ein Zustand vorausgesetzt, der nach dem Auslösen einer Regel eintreffen sollte. Somit kann 
+        die Zuverlässigkeit überprüft werden. Dennoch gibt es eine starke Abhängigkeit zur Regelbedingung, die der Anwender definiert. Ist diese 
+        nicht deutlich genug, kann es passieren, dass Regeln ungewollt ausgeführt werden. Deshalb ist die Validierung der Regelbedingung durch den 
+        Entwickler essentiell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
+        systemseitig keine negativen Auswirkungen von mehrdeutigen Bedingungen, die fälschlicherweise die Zuordnung und Ausführung einer Regel gefährden. Wird jedoch durch die 
+        Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat. So Würde das 
+        Framework eine Endlosschleife bilden und in einen \textit{StackOverflowError} laufen. Demnach ist die Auswahl der Bedingung einer der wichtigsten 
+        Punkte, die zu berücksichtigen sind.
         \\
         \linebreak
-        Durch die Verwendung von \textit{Threads} werden Regel, deren Bedingung im Vorfeld zutreffen, asynchron ausgeführt. Dadurch können voneinander unabhängige Regel parallel abgearbeitet werden. Somit kann 
-        die Performanz des Systems erhöht werden (NFA6). Die Reaktionszeit und die Performanz der Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, 
-        sowie auch die dafür verwendete Hardware und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zu aktuellem Zeitpunkt keine 
+        Durch die Verwendung von \textit{Threads} werden Regeln, deren Bedingung im Vorfeld zutreffen, asynchron ausgeführt. Dadurch können voneinander 
+        unabhängige Regel parallel abgearbeitet werden. Somit ist die Performanz des Systems erhöht (NFA6). Die Reaktionszeit und die Performanz der 
+        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, sowie die dafür verwendete Hardware 
+        und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zu aktuellem Zeitpunkt keine 
         Auswirkungen auf das System selbst haben. Dennoch ist unter Verwendung der derzeitigen Technologien eine gewisse Performanz vorauszusetzen und zu erwarten. 
-
-        %BF durch die Usability-Tests und Interviews
-        % Testung mit Regel, die über bspw. einen cronjob ausgelöst werden sollen.
-        %JUnit Test, die immer den gleichen Aufruf auslösen und ein bestimmtes Ergebnis erwarten
-        % Perfomance Theading -> asnchrones ausführen von Regeln
-        % Performance wird auf mqtt abgeladen
-        % Verfügbarkeit ist aktuell abhängig von dem MQTT broker, da ohne Verbindung die Steuerzentrale nicht funktioniert, bzw. terminiert
-        % Fehlertoleranz Fehlerhafte Regel werden ausgeführt, jedoch führen diese Zu Fehlern und ggf. zum abstürtzen. Dafür wäre evtl. eine Validierung der Regelsyntax vorhrer von Vorteil 
-        % Kontrollierbarkeit ist einfach nachzuziehen. 
+        \\
+        \linebreak
+        Die \textit{nicht funktionalen Anforderungen}, die allgemein die Verfügbarkeit des Systems beschreiben (NFA8 \& NFA9), sind aktuell zu vernachlässigen und wurden im Rahmen dieser 
+        Arbeit nicht überprüft. Trotz dessen kann erwähnt werden, dass das Framework selbst keine Einbusen der Verfügbarkeit hervorruft. Entscheidend sind dabei die 
+        Verbindungen zu dem \acs{MQTT}-Broker und Internet, sowie die Stromversorgung, da das Framework lokal auf einem \textit{Raspberry Pi} betrieben wird. 
+        \\
+        \linebreak
+        Zur Überprüfung der Fehlertoleranz (NFA10) wurden die \textit{JUnit-Tests} um weitere Testfälle ergänzt. Hierbei wird eine fehlerhafte Regel definiert, die innerhalb des 
+        Tests ausgelöst und ausgeführt wird. Die Resultate erzielten eine gewissen Fehlertoleranz, die in weiterer Entwicklung stets verbessert werden kann.
+        \\
+        \linebreak
+        Der letzte Punkt (NFA11) der Tabelle (\ref{tab:notfunctionalRequirements}) zählt als Erweiterung des Frameworks, sodass ein ständiger Informationsaustausch stattfindet und der 
+        Entwickler das System überwachen kann und zu jedem Zeitpunkt einen Einblick in die Prozesse erlangt. Die Integration solch einer Lösung in das System ist ohne weiteres möglich.
     
     \subsection*{Zusätzliche Anforderungen (Randbedingungen)}
-        % Randbedingungen, die eingehalten wurden (Ja -> Wie?)
-        % Kommunikation über MQTT -> Check
-        % SPO in gewisser Maßen 
-
+        Die Tabelle (\ref{tab:furtherRequirements}) beinhaltet weitere Anforderungen und Randbedingungen, die mithilfe der verwendeten 
+        Erhebungstechniken identifiziert wurden. 
+        \\
+        Die Randbedingung (ZAF1), Nutzung der Programmiersprache Java, wurde eingehalten. Das Framework ist ausschließlich in Java entwickelt. 
+        \\
+        Für den Zustandsraum ist eine gewissen Modellierungsempfehlung vorgegeben, die keine Objekte als Felder im Zustandsraum zulässt. Die 
+        Abbildung von reellen Zuständen findet 
+        ausschließlich über Attribute statt, die bereits gegeben sind. Somit ist (ZAF2) minimalistisch erfüllt. 
+        \\
+        \linebreak
+        Die Anforderung (ZAF3) ist erfüllt, da die Regelprüfung uns -ausführung über einen \textit{Thread Pool} in einen eigenen \textit{Thread} ausgelagert wird. Ebenso 
+        ist (ZAF4) erfüllt, da die Kommunikation zu aktuellem Zeitpunkt ausschließlich über \acs{MQTT} erfolgt. Das Auslösen von Regeln über definierte Zeitpunkte kann durch 
+        \textit{Cronjobs} oder durch die Annotation (\textit{\@ Scheduled}) des Spring Frameworks erfolgen. Demnach stellen diese beide Möglichkeiten die einzige Option eines 
+        Auslösers dar. In Folge dessen gilt auch die Forderung (ZAF5) als erfüllt.
+        \\
+        \linebreak
+        Durch die Verwendung der generischen Programmierung in Java ist sichergestellt, dass das Zustandsobjekt zur Laufzeit dem Framework übergeben wird (ZAF6). Zusätzlich zu dem generischen 
+        Typ wird ebenfalls eine Objektinstanz erzeugt, die den Zustandsraum wiedergibt. Somit kann das Framework mit dem Objekt arbeiten, unabhängig von der Struktur der Klasse.
+        \\
+        \linebreak
+        Anhand der Anforderung (ZAF7) findet die Kommunikation überwiegend über \acs{MQTT} statt. Ein Punkt, der nicht von dem Framework abgedeckt ist, ist die Sicherheit der 
+        Kommunikation. Der Anwender muss sicherstellen, dass dementsprechend die Vorkehrungen getroffen sind, damit der \acs{MQTT}-Broker und die darüber laufende Kommunikation abgeschirmt und für 
+        dritte nicht zugänglich ist (ZAF8). Im Rahmen der Arbeit ist der \acs{MQTT}-Broker ausschließlich im lokalen Netzwerk verfügbar und erlaubt den Zugriff nur für bestimmte Nutzer und Kommunikationsteilnehmer. 
+        \\
+        \linebreak
+        Der \textit{\acl{SPC}} ist gegeben, dadurch dass die Einstellungen und das Hinzufügen von Regeln und Transformationen ausschließlich über eine einzige Klasse funktioniert, die \textit{InnovationLogicHubApplication}. 
+        \\
+        \linebreak
+        Nachdem die aufgestellten Anforderungen evaluiert wurden, wird in folgendem Abschnitt auf die Evaluation der Forschungsfrage eingegangen.
+        \pagebreak
 
 \section{Evaluation der Forschungsfrage}
+    
