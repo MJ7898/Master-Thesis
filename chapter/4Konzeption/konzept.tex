@@ -3,34 +3,28 @@
     In diesem Kapitel wird das erarbeitete Konzept dargelegt. Basierend auf den 
     Anforderungen, die aus den Anwendungsfällen, den Experteninterviews und der Zielgruppenanalyse 
     erhoben wurden, werden die daraus generierten Überlegungen und Entscheidungen transparent 
-    dargestellt. Durch die bereits erfolgten Schritte der Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse})
+    dargestellt. Durch die bereits erfolgte Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse})
     sind erste Schritte der Konzeption abgeschlossen. 
     \\
-    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes, sowie das konkrete Ziel dieser Arbeit 
+    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes, sowie die konkrete Absicht hinter dieser Arbeit 
     erläutert. Anschließend 
-    wird auf das Anwendungsumfeld des Systems (\ref{sec:anwendungsumfeld}) eingegangen, darunter 
-    welche zusätzlichen Komponenten notwendig sind, damit das Framework in einer dafür vorgesehenen Umgebung sinnvoll 
-    eingesetzt werden kann.
-    % die abzudeckenden Funktionalitäten (\ref{sec:konzeptfunktionalitaet}), die 
-    %aus den Anforderungen ermittelt wurden, eingegangen. 
-    Darauf folgend wird anhand den 
-    zugrundeliegenden Informationen und Anforderungen das Architekturkonzept (\ref{sec:architekturkonzept}) erläutert. %, sowie das 
-    %Softwarekonzept (\ref{subsec:softwarekonzept}) erläutert. 
+    wird auf das Anwendungsumfeld des Systems (\ref{sec:anwendungsumfeld}) eingegangen, darunter die
+    zusätzlichen Komponenten, die notwendig sind, um das Framework in einer dafür vorgesehenen Umgebung sinnvoll 
+    einzusetzen. Darauffolgend wird anhand der zugrundeliegenden Informationen und Anforderungen das 
+    Architekturkonzept (\ref{sec:architekturkonzept}) ausgeführt. 
     Dabei wird auf verschiedene kontextabhängige Aspekte, sowie auf die Sichtweisen des Anwenders und des Frameworks eingegangen.
-    %Die Darstellung des Konzeptes stützt sich mit Diagrammen und Veranschaulichungen.
-    %Des Weiteren werden die Hintergründe der 
+
 
 \section{Ziel der Konzeption}
 \label{sec:konzeptziele}
-    Das Ziel einer Konzeption ist die Veranschaulichung von abstrakten Ideen, geistiger Entwürfe und Leitideen. 
+    Das Ziel einer Konzeption ist die Veranschaulichung von abstrakten Ideen und Entwürfen. %und Leitideen. 
     Hierbei werden aus den zugrundeliegenden Problemstellungen, Szenarien und Anforderungen Entwürfe und 
     Lösungsmöglichkeiten erarbeitet und identifiziert. Diese helfen bei der Aufstellung von notwendigen Schritten 
     und dienen als Grundlage zur Untermauerung und Darlegung von Entscheidungen. Somit wird Dritten der Kontext, die 
     Domäne und das zu lösende Problem, bzw. die Lösung dargestellt. 
     \\
     \linebreak
-    Im Rahmen dieser Arbeit ist das Ziel des Konzeptes die Veranschaulichung der Entscheidungsfindung zur Lösung des vorliegenden 
-    Sachverhaltes. Das Konzept 
+    Das Konzept dieser Thesis 
     erarbeitet eine Lösung zur Implementierung einer Anwendung, die es ermöglicht, Automatisierungen, Regeln und Prozesse innerhalb eines 
     Firmenbüros zu koordinieren. Der Fokus liegt dabei verstärkt auf der einfachen Nutzung des Frameworks für den Anwender und 
     die uneingeschränkte und schnell umzusetzende Ausprägungsvielfalt von Regelprozessen. Dadurch kann der Anwender die vorgegebene Struktur nutzen, um individuelle 
@@ -40,11 +34,10 @@
     Hierfür wird der allgemeine Aufbau der Architektur skizziert und demonstriert, wie eine solche Lösung aussehen kann. 
     Unter Berücksichtigung der Forschungsfrage (siehe Abschnitt \ref{sec:forschungsfragen}) wird eine Möglichkeit offengelegt, mit der 
     ein Softwareentwickler neue Regeln entwickeln und dem System hinzufügen kann, ohne ein weiteres zu erlernendes Framework zu verwenden. 
-    Dabei sollen die notwendigen Schritte und Interaktionen formalisiert und für den Entwickler vereinfacht werden. Mit der 
-    Definition der Zielsetzung der Arbeit (siehe Abschnitt\ref{sec:zielsetzung}) wird die Abgrenzung deutlich. 
-    \\
-    \linebreak
-    In folgender Darlegung wird nochmals konkreter auf den Kontext als auch auf die Intension der Arbeit eingegangen. 
+    Dabei sollen die notwendigen Schritte und Interaktionen formalisiert und für den Entwickler vereinfacht werden. 
+    %\\
+    %\linebreak
+    %In folgender Darlegung wird nochmals konkreter auf den Kontext als auch auf die Intension der Arbeit eingegangen. 
     % Das Ziel des Konzeptes ist es, dem Entwickler den Aufwand zur Erweiterung des Systems zu minimieren durch weitere 
     % Regeln und Abdeckung von Anwendungsfällen (Use Cases) und eine Struktur vorgeben. (ToDo's, Flexibilität in der 
     % Umsetzung (nicht wie Home Assistant und openHAB eher eingeschränkt)) 
@@ -68,16 +61,16 @@
 
 \section{Anwendungsumfeld}
 \label{sec:anwendungsumfeld}
-    Grundsätzlich ist der Einsatzort des Frameworks variabel, da die eigentliche Implementierung und Nutzung der Regeln und Prozesse stark 
-    abhängig von dem Anwender und dessen Umfeld ist. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen ein System mittels dem 
-    Framework aufgebaut werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse und die Eingrenzung auf den 
-    Einsatz im Smart Office, liegt der Fokus auf dieser. % Schwerpunkt der Arbeit auf dem Einsatz in einem smarten Büro. 
+    Grundsätzlich ist der Einsatzort des Frameworks variabel, da die eigentliche Implementierung und Nutzung der Regeln und Prozesse 
+    abhängig vom Anwender und dessen Umfeld sind. Dadurch kann sowohl im privaten \acl{SH} Umfeld als auch in Büroräumen ein System mithilfe des 
+    Frameworks aufgebaut werden. Basierend auf den vorangestellten Tätigkeiten, darunter die Anforderungsanalyse, und der Eingrenzung auf den 
+    Einsatz im Smart Office liegt darauf der Fokus. % Schwerpunkt der Arbeit auf dem Einsatz in einem smarten Büro. 
     \\
     \linebreak
     Stützend auf den vorab ermittelten Anwendungsfällen (siehe Abschnitt \ref{subsec:checkin} und \ref{subsec:evacuation}) sind unabhängige 
     Komponenten, darunter bspw. ein Service-Roboter und weitere einsatzfähige Geräte, sowie ein \acs{MQTT}-Broker notwendig. Ein \acs{MQTT}-Broker 
-    wird im Zuge der Konzeption nicht von dem Framework selbst bereitgestellt, lediglich die Client-Anbindung wird gegeben, und muss daher als eigenständige 
-    Instanz bereitgestellt werden. Dadurch kann die Anforderung, die Kommunikation mittels \acs{MQTT}, ermöglicht werden. Eine denkbare infrastrukturelle 
+    wird im Zuge der Konzeption von dem Framework selbst nicht bereitgestellt, lediglich die Client-Anbindung wird gegeben. Der Anwender muss sich selbstständig um den verfügbaren Broker kümmern. 
+    Dadurch kann die Anforderung einer Kommunikation mittels \acs{MQTT} umgesetzt werden. Eine denkbare infrastrukturelle 
     Architektur kann wie folgt aussehen: 
     \begin{figure}[hbt!]
         \centering
@@ -98,23 +91,22 @@
     verarbeitet und genutzt werden können. 
     \\ 
     \linebreak
-    In vergleichbaren Softwareprodukten, die im Rahmen dieser Arbeit erläutert 
+    Bei vergleichbaren Softwareprodukten, die im Rahmen dieser Arbeit erläutert 
     wurden (siehe Kapitel \ref{sec:homeassistant} und \ref{sec:openhab}), ist die Vielfalt der Regelausprägung auf 
-    den Kontext des Systems eingeschränkt und braucht mehrere Schritte, um eine einfache Regel zu realisieren. Dies bedeutet, dass 
+    den Kontext des Systems eingeschränkt und benötigt mehrere Schritte, um sie zu realisieren. Dies bedeutet, dass 
     Regeln und Prozesse nur mit Komponenten und Informationen innerhalb des Systems arbeiten können, bzw. benötigte 
     Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind, auf die der Nutzer keinen direkten 
-    Einfluss nehmen kann. Diese Auswirkung ist unter anderem der 
-    Tatsache geschuldet, dass mit den bestehenden Lösungen versucht wird, die Regeldefinition für Endnutzer so 
-    einfach wie möglich zu gestalten. 
+    Einfluss nehmen kann. Mit den bestehenden Lösungen wird versucht, die Regeldefinition für Endnutzer so 
+    einfach wie möglich zu gestalten, wodurch eventuell erst zahlreiche Selektionen über die Benutzeroberfläche zum gewünschten Ziel führen.   
     \\
     \linebreak
     Um dennoch dem Anwender eine Struktur vorzugeben, mit der Regeln definiert und zur Laufzeit der Anwendung ausgeführt 
-    werden können, soll mit diesem Konzept ein Framework erarbeitet werden, dass diese Herausforderungen löst. Hierfür soll 
-    dem Anwender die Komplexität der Regelverwaltung und deren Durchführung nicht vorgehalten werden. Dieser ist lediglich 
+    werden können, soll mit diesem Konzept ein Framework zum Lösen dieser Herausforderungen erarbeitet werden. Hierfür soll 
+    der Anwender mit der Komplexität der Regelverwaltung und deren Durchführung nicht konfrontiert werden. Dieser ist lediglich 
     in der Verantwortung, die für ihn notwendigen Regeln und Prozesse zu definieren und dem Framework bereitzustellen. 
-    Dadurch soll der Person, die das Framework verwendet, die Möglichkeit geboten werden, das zur Verfügung gestellte System 
-    mit individuellen Regeln, dafür vorgesehene Bedingungen, Komponenten und dessen Zustände zu implementieren. Beispielsweise 
-    können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP} Abfragen bezogen werden, bzw. Ressourcen 
+    Dadurch soll dem Framework-Verwender die Möglichkeit geboten werden, das zur Verfügung gestellte System 
+    mit individuellen Regeln, dafür vorgesehenen Bedingungen, Komponenten und deren Zustände zu implementieren. Beispielsweise 
+    können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP}-Abfragen bezogen werden, bzw. Ressourcen 
     und Inhalte individuell nachgezogen werden.
     \\ 
     Das Konzept beinhaltet die in folgendem Abschnitt dargelegten grundsätzlichen Komponenten. %Aus denen bildet sich der grundlegende Aufbau 
@@ -122,15 +114,15 @@
 
     \subsection{Konzeptkomponenten}
     \label{subsec:conceptcomps}
-        Für die Erläuterung des Konzeptes werden vorab die einzelnen Konzeptkomponenten erläutert, da diese die Anhaltspunkte 
+        Für die Erläuterung des Konzeptes werden vorab die einzelnen Konzeptkomponenten dargelegt, da diese die Anhaltspunkte 
         für den weiteren Verlauf und den Kern des Frameworks darstellen: % . Das Framework baut auf folgenden Bausteinen auf:
         \begin{itemize} 
             \item Regel (Rule): Eine Regel ist ein Konstrukt, welches bei bestimmten Events die darin enthaltenen Aktionen ausführen soll. 
             Der grobe Aufbau einer Regel ist immer gleich. Diese beinhaltet einen Auslöser, eine Bedingung, einen Prozess und einen eindeutigen 
-            Namen. Die Inhalte der Regel kann der Anwender ja nach bedarf beliebig ausprägen und ergänzen. 
+            Namen. Die Inhalte der Regel kann der Anwender ja nach Bedarf beliebig ausprägen und ergänzen. 
             \item Komponente (Component): Eine Komponente soll einen reellen Gegenstand abbilden, der bei Benutzung durch eine Regel unter anderem 
-            für weitere Regeln gesperrt und freigegeben werden kann. Diese Komponente kann ebenso sämtliche Zustände beinhalten und als Objekt in den Zustandsraum aufgenommen werden.
-            \item Zustandsraum (State): Der Zustandsraum, das sog. Zustandsobjekt, soll alle Zustände von Komponenten und weiteren Geräten abbilden. Dieser Repräsentiert die Zustände der Realität.
+            für weitere gesperrt und danach freigegeben werden kann. Diese Komponente kann ebenso sämtliche Zustände beinhalten und als Objekt in den Zustandsraum aufgenommen werden.
+            \item Zustandsraum (State): Der Zustandsraum, das sog. Zustandsobjekt, soll alle Zustände von Komponenten und weiteren Geräten abbilden. Dieser repräsentiert die Zustände der Realität.
             \item Auslöser (Trigger): Ein Auslöser löst im Allgemeinen eine Zustandsänderung aus. Im Kontext des Frameworks gibt es zwei Ausprägungen von 
             Auslösern. Zum einen werden eingehende Aktionen entgegengenommen und über die Transformation zu einer Zustandsänderung verarbeitet, zum anderen können durch Regelprozesse 
             wiederum weitere Schritte und Zustandsänderungen ausgelöst werden. Dadurch werden ausgehende Aktionen gesteuert. 
