@@ -1,40 +1,36 @@
 \chapter{Einleitung}
 \label{chap:Einleitung}
-    Die folgende Master-Thesis befasst sich mit der Konzepterstellung einer zentralen Steuerzentrale, die 
-    dem Entwickler die formalen Interaktionen, weitere Funktionen hinzuzufügen, erleichtern soll. Hierfür werden
-    bereits bestehende Plattformen für \acl{SH} analysiert und daraus ein Konzept erstellt, die den Anforderungen 
-    entsprechend einen größeren Mehrwert in der Weiterentwicklung der Plattform bietet. Die Umsetzung des ausgearbeiteten 
-    Konzeptes wird nur in sehr geringem Maß behandelt.
+    Die folgende Master-Thesis befasst sich mit der Konzepterstellung einer Steuerzentrale, die 
+    dem Entwickler die formalen Interaktionen, wie z.B. weitere Funktionen hinzuzufügen, erleichtern sollen. Hierfür werden
+    bereits bestehende Plattformen für \acl{SH} analysiert und daraus ein Konzept erstellt, das den Anforderungen 
+    entsprechend das Implementieren von weiteren Anwendungsfällen einfach handhaben lässt. 
     \\
     \linebreak
     In diesem Teil der Arbeit wird auf die Motivation des Themas eingegangen. Darüber hinaus 
     werden sowohl die Forschungsfragen als auch die Zielsetzung der Arbeit genauestens dargelegt. Darauf 
     folgend findet eine Übersicht über die Arbeit im Gesamten statt, mit der die Inhalte angerissen werden. 
-    Eine nähere Betrachtung des Standes der Technik untermauert die Beweggründe dieser Themenwahl und 
-    Ausarbeitung dessen. 
+    Eine nähere Betrachtung des Standes der Technik untermauert die Beweggründe für diese Themenwahl und 
+    ihre Ausarbeitung. 
 
 \section{Motivation}
 \label{sec:Motivation}
-    Jede neu entwickelte Technologie durchlebt im Laufe der Entstehung und Publikation ein enormes Aufsehen. 
-    So lange bis diese Technik eine standardisierte Verwendung in der Gesellschaft findet oder sich als 
-    unpraktikabel erweist und nicht weiter vorangetrieben oder eingestellt wird. Es wird in der Zeit des 
-    Aufkommens und der Forschung viel darüber fantasiert, debattiert und geplant, ohne jedoch die Ausmaße und 
-    Resultate der Forschungen und Praktiken abwägen zu können. Durch fehlende Erfahrung und nicht ausgereifte 
-    Konzepte werden Höhepunkte und Illusionen erwartet, die zu diesem Zeitpunkt technisch nicht umsetzbar sind. 
-    Um solche kühnen Versprechungen und Übertreibungen, sogenannte Hypes, die jede neue technologische Idee 
-    mit sich bringt, von dem zu differenzieren was wirtschaftlich umsetzbar ist, werden bestimmte Phasen 
-    der Entwicklung durchlaufen. \cite{gartner.2022m}
+    Jede neu entwickelte Technologie durchlebt im Laufe der Entstehung und Publikation ein enormes Aufsehen, 
+    so lange bis diese Technik eine standardisierte Verwendung in der Gesellschaft findet oder sich als 
+    unpraktikabel erweist und nicht weiter vorangetrieben oder eingestellt wird. Zu Beginn des Aufkommens der Idee 
+    und der Forschung wird viel darüber fantasiert, debattiert und geplant, ohne jedoch die Ausmaße, Resultate und 
+    Umsetzungen abwägen zu können. Durch fehlende Erfahrungen und nicht ausgereifte 
+    Konzepte werden Höhepunkte und Illusionen erwartet, die zu diesem Zeitpunkt technisch womöglich nicht umsetzbar sind. 
+    Solche Versprechungen und Übertreibungen, sogenannte Hypes, durchlaufen bestimmte Phasen in ihrer Entwicklung, wonach 
+    sich eine aussichtsreiche technologische Idee von einer wirtschaftlich nicht umsetzbaren differenziert. 
     \\
     \linebreak
-    Die oben erwähnten Phasen der Entwicklung sind in einem sogenannten Hype-Zyklus, engl. Hype-Cycle, dargestellt. 
-    Dieser Zyklus ist ein visualisiertes Modell, das die Entwicklung einer neuen Technologie von der Innovation 
-    und Entstehung über die Forschung und Umsetzung bis hin zur ausgereiften Marktfähigkeit repräsentiert und so 
-    diese Phasen der Entwicklung versinnbildlicht.  
+    Die oben erwähnten Phasen der Entwicklung sind in einem sogenannten Hype-Zyklus, engl. Hype-Cycle \cite{gartner.2022m}, dargestellt. 
+    Dieser Zyklus ist ein visualisiertes Modell für den Verlauf der Entwicklung einer neuen Technologie von der Innovation 
+    und Entstehung bis hin zur Forschung, Umsetzung und zur ausgereiften Marktfähigkeit. 
     \\
-    Entwickelt wurde der Hype Cycle von der Gartner Inc. Forschungsgruppe. Durch die Mitarbeiterin 
-    Jackie Finn wurden die Definitionen der Entwicklungsphasen\footnote{Die Entwicklungsphasen der Gartner Inc. ist unter folgender URL zu finden: "\url{https://www.gartner.com/en/research/methodologies/gartner-hype-cycle}"} 
-    geprägt. Diese sind wie folgt in fünf Phasen 
-    dargestellt:
+    Erfunden wurde der Hype Cycle von der Gartner Inc. Forschungsgruppe. Die Definitionen der 
+    Entwicklungsphasen\footnote{Die Entwicklungsphasen der Gartner Inc. ist unter folgender URL zu finden: "\url{https://www.gartner.com/en/research/methodologies/gartner-hype-cycle}"} 
+    wurden durch die Mitarbeiterin Jackie Finn geprägt. Diese sind wie folgt in fünf Phasen untergliedert: 
     \begin{enumerate}
         \item \textit{Innovationsauslöser, engl. Innovation Trigger}: Ein potentieller technologischer Durchbruch 
         löst die Dinge aus. Frühe Proof-of-Concept (PoC) Ansätze und ein großes Medieninteresse lösen eine 
@@ -43,29 +39,29 @@
         \item \textit{Höhepunkt überhöhter Erwartungen, engl. Peak of Inflated Expectations}: Frühe Publizität 
         bringt eine Reihe von Erfolgsgeschichten hervor – oft begleitet von zahlreichen Misserfolgen. 
         Einige Unternehmen ergreifen Maßnahmen; viele nicht. \cite{gartner.2022m}
-        \item \textit{Trog der Ernüchterung, engl. Trough of Disillusionment}: Das Interesse schwindet, da 
-        Experimente und Implementierungen nicht liefern. Hersteller der Technologie reißen es heraus 
-        oder scheitern. Investitionen werden nur fortgesetzt, wenn die überlebenden Anbieter ihre Produkte 
-        zur Zufriedenheit der frühzeitigen Anwender verbessern. \cite{gartner.2022m}
+        \item \textit{Trog der Ernüchterung, engl. Trough of Disillusionment}: Das Interesse schwindet, wenn 
+        Experimente und Implementierungen die Erwartungen nicht erfüllen. Hersteller der Technologie schaffen den Durchbruch 
+        oder scheitern. Investitionen werden nur fortgesetzt, wenn die übriggebliebenen Anbieter ihre Produkte 
+        zur Zufriedenheit der Kunden verbessern. \cite{gartner.2022m}
         \item \textit{Steigung der Erleuchtung, engl. Slope of Enlightenment}: Mehr Beispiele dafür, wie 
-        die Technologie dem Unternehmen zugute kommen kann, beginnen sich zu herauszukristallisieren und 
+        die Technologie dem Unternehmen zugute kommen kann, beginnen sich herauszukristallisieren und 
         werden allgemeiner verstanden. Produkte der zweiten und dritten Generation erscheinen von den 
-        Technologieanbietern. Mehr Unternehmen finanzieren Pilotprojekte; Konservative Unternehmen 
+        Technologieanbietern. Mehr Unternehmen finanzieren Pilotprojekte; konservative Unternehmen 
         bleiben vorsichtig. \cite{gartner.2022m}
         \item \textit{Plateau der Produktivität, engl. Plateau of Productivity}: Mainstream-Akzeptanz beginnt 
-        sich abzuheben. Kriterien zur Bewertung der Lebensfähigkeit des Anbieters sind klarer definiert. 
+        sich abzuheben. Kriterien zur Bewertung der Rentabilität des Anbieters sind klarer definiert. 
         Die breite Markteinsetzbarkeit und Relevanz der Technologie zahlen sich eindeutig aus. \cite{gartner.2022m}
     \end{enumerate}
-    Nachdem ein innovativer Gedanke den \textit{Höhepunkt überhöhter Erwartungen} passiert hat, z.B. die 
-    Revolutionierung der Softwareentwicklung oder Szenarien, wie z.B. die Vollautomatisierung eines Gebäudes 
-    oder Service-Roboter die uneingeschränkt interagieren können, die man in der Form nur aus Science-Fiction Filmen kennt, 
-    folgt der \textit{Trog der Ernüchterung}. In Folge dessen wird festgestellt, dass die Erwartungen nicht 
-    in Gänze übertragbar sind, bzw. nur zu einem geminderten Teil in die Realität umgesetzt werden können 
-    und der verfolgte Gedanke an Interesse verliert. Nach erneutem Aufgriff der Technologie findet eine realistischere 
-    Beurteilung der Innovation statt, die dazu beiträgt, dass die Technologie wieder an Interesse gewinnt. Die 
-    objektive und realitätsnahe Betrachtungsweise formt ein neues und realistisches Bild der Potentiale, als auch 
-    der Grenzen. Mit dem neu gewonnenen Maßstab geht die ehemals neue innovative Idee in eine routinierte Technologie über, 
-    die an Anerkennung gewinnt und in der breiten Masse akzeptiert wird. Die Technologie erfährt mit steigender 
+    Nachdem ein innovativer Gedanke, z.B. die 
+    Vollautomatisierung eines Gebäudes 
+    oder eines uneingeschränkt interagierenden Service-Roboters, den \textit{Höhepunkt überhöhter Erwartungen} passiert hat, 
+    folgt der \textit{Trog der Ernüchterung}. In Folge dessen wird festgestellt, dass die Erwartungen zum aktuellen Zeitpunkt nicht 
+    vollständig, bzw. nur zu einem geminderten Teil in die Realität umgesetzt werden können 
+    und dadurch an Interesse verlieren. Wird die Technologie erneut aufgegriffen, findet eine realitätsbezogenere 
+    Beurteilung der Innovation statt, die dazu beitragen kann, dass die Technologie wieder an Interesse gewinnt. Die 
+    objektive und realitätsnahe Betrachtungsweise kann ein neues und realistischeres Bild der Potentiale, aber auch 
+    der Grenzen aufzeigen. Mit dem neu gewonnenen Maßstab kann die ehemals neue innovative Idee in eine routinierte Technologie übergehen, 
+    die eventuell an Anerkennung gewinnt und in der breiten Masse akzeptiert wird. Die Technologie erfährt mit steigender 
     Zuwendung eine stetigere Weiterentwicklung, die dann zu einer Community geformt wird. Mit der Erreichung dieses Status 
     befindet sich die Innovation, bezogen auf den Hype Cycle, in der letzten Phase, dem \textit{Plateau der Produktivität}, 
     und bestätigt so die Marktreife. Dieser Zeitpunkt löst die Zukunftsvision auf und es handelt sich um eine am Markt 
@@ -76,17 +72,18 @@
     Bereich, engl. \textit{\ac{SH}} oder \textit{Connected Home}, im Anfangsstadium der letzten Phase, dem sogenannten 
     \textit{Plateau der Produktivität}. Mit zunehmender Akzeptanz werden im Umfeld des Internets der Dinge, engl. 
     \textit{\acl{IoT}}, stetig Szenarien entwickelt, die das Wachstum und die Verwendung von solchen Plattformen vorantreibt. 
-    Mit einer immer tiefer gehenden Forschung und Umsetzung von Anwendungsbeispielen werden Bereiche offenbart, die 
-    eine solche Plattform im privaten als auch im geschäftlichen Umfeld immer attraktiver gestaltet. Mit steigender  
-    Konnektivität und Kompatibilität mehreren Geräten und Gegenständen können Szenarien und Prozessautomatisierungen, wie die 
+    Mit einer immer tiefer gehenden Forschung und Umsetzung von Anwendungsbeispielen werden Bereiche eröffnet, die 
+    eine solche Plattform im privaten als auch im geschäftlichen Umfeld immer attraktiver werden lässt. Mit steigender  
+    Konnektivität und Kompatibilität mehrerer Geräte und Gegenstände können Szenarien und Prozessautomatisierungen, wie die 
     Steuerung von Service-Robotern, umgesetzt werden. Der jetzige technologische Fortschritt und die über die Forschungsjahre 
-    gesammelten Erfahrungen bringt das Segment der intelligenten Geräte der \acs{IoT} den ursprünglich angedachten 
+    gesammelten Erfahrungen bringen das Segment der intelligenten Geräte der \acs{IoT} den ursprünglich angedachten 
     Visionen und Ideen näher, sodass ein weiterer Ausbau dieser Technologie und dessen Anwendung stattfindet und sich 
-    vollständig in den Markt etabliert. Der finale Schritt der endgültigen Marktreife ist ein faszinierender und wichtiger Grund 
+    vollständig in den Markt etabliert. Der finale Schritt der endgültigen Marktreife ist ein faszinierender und wichtiger Beweggrund 
     für meine Motivation, mich dieser Technologie und der dahinterstehenden Theorie zu widmen. Ein weiterer dazu beitragender Aspekt ist 
-    die Steuerung und Verknüpfung von Geräten, sowie die Automatisierung von Prozessen innerhalb eines intelligenten Büros, um stetig hinzukommende 
-    Anwendungsfälle abdecken und einfach implementieren zu können. Einen Ansatz zu schaffen, der einem Softwareentwickler eine Struktur vorgibt, die 
-    in sich jedoch beliebig erweiterbar ist, sodass die Einschränkung von Prozessabbildungen minimiert wird. 
+    die Möglichkeit der Steuerung und Verknüpfung von Geräten, sowie die Automatisierung von Prozessen innerhalb eines intelligenten Büros. 
+    Stetig hinzukommende Anwendungsfälle abzudecken und einfach implementieren zu können, einen Ansatz zu schaffen, der einem 
+    Softwareentwickler formalisierte Interaktionen ermöglicht und trotzdem Handlungsspielraum für Prozessabbildungen lässt, sind 
+    zusätzliche Impulse, warum ich mich dieser Thematik zuwende. 
     % !!! Weiterer Grund zur Motivation: Dem Entwickler mehrere Freiheiten bei der Umsetzung von Anwendungsfällen oder Regeln zu 
     % !!! schaffen und die Regeldefinition nicht über ein Zusätzliches Framework abzubilden, sondern eine klar Struktur 
     % !!! vorzugeben, die klar definiert, welche grundlegenden Komponenten zu Erweiterung notwendig sind. Weitere Anpassungen oder 
@@ -105,7 +102,7 @@
     %Anwendungsszenarien und Objekte integriert werden, ohne einen zu großen Entwicklungsaufwand zu erzeugen.   
     \\ 
     \linebreak
-    Die Einsatzgebiete von intelligenten Geräten, beziehungsweise die Verwendung von Kompaktlösungen, Plattformen und Steuereinheiten zielen räumlich 
+    Die Einsatzgebiete von Kompaktlösungen, Plattformen und Steuereinheiten, beziehungsweise von Gateways und intelligenten Geräten zielen räumlich 
     auf Gebäude, Häuser und Wohnungen ab und bieten viele Verwendungs- und Einsatzmöglichkeiten, die stetig ausgebaut und optimiert werden. 
     Diese sehen wie folgt aus: 
     \begin{itemize}
@@ -116,15 +113,15 @@
         \item Management von Automatisierungen (Automationen)
     \end{itemize}    
     Neben der Affinität von \acl{SH} zum \acl{IdD} und der damit einhergehenden Technologie bringt diese Vorteile mit sich, wie z.B. 
-    die Modernisierung von Wohn- und Bürogebäuden und die routinierte Ausführung und Abarbeitung von Prozessen, die dem Menschen 
+    die Modernisierung von Wohn- und Bürogebäuden und die routinierte Ausführung und Abarbeitung von Prozessen, die dem Nutzer 
     Aufgaben und Arbeiten abnehmen.
 \pagebreak
-\section{Forschungsfragen}
+\section{Forschungsfrage}
 \label{sec:forschungsfragen}
     Die in der Arbeit zentral behandelte Forschungsfrage ist wie folgt definiert: 
     \\
-    \linebreak
-    \textit{F1: Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, sodass die formalen Interaktionen der Softwareentwickler schneller sind?}
+    \linebreak 
+    \textit{F: Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, sodass die formalen Interaktionen für den Softwareentwickler einfacher in der Handhabung sind?}
     %\\
     %\linebreak
     %Eine Konkretisierung identifiziert konkret die Herausforderungen existierender Plattformen in Bezug auf die Definition von Regeln und Automatisierungen:
@@ -144,15 +141,14 @@
 \label{sec:zielsetzung}
     %TBD Wird zum Schluss geschrieben. 
     %Programmierseitige Möglichkeit um Regeln umzusetzen.
-    Das Ziel der Arbeit ist die Erarbeitung eines Konzeptes und die prototypische Implementierung des Frameworks, welches dem Softwareentwickler das 
-    Umsetzen von Regeln und zu automatisierende Prozesse im Rahmen der Programmierung erleichtert und in der Ausprägung 
+    Das Ziel dieser Thesis ist die Erarbeitung eines Konzeptes und die prototypische Implementierung des Frameworks, welches dem Softwareentwickler das 
+    Umsetzen von Regeln, sowie zu automatisierende Prozesse im Rahmen der Programmierung erleichtert, jedoch in der Ausprägung 
     der Regeln nicht einschränkt. Dabei wird sich an bestehenden Produkten orientiert, die versuchen, diese 
-    Automatisierungen für den Nutzer vereinfacht darzustellen. Die aktuellen Praktiken setzen trotz dessen eine starke Lernkurve voraus. 
-    %und lässt den Nutzer Regeln und Prozesse nur beschränkt einfach abbilden. 
+    Automatisierungen für den Nutzer vereinfacht darzustellen. Voraussetzung ist trotz allem eine intensive Auseinandersetzung mit der Materie. 
     Mit dem Framework soll dem Anwender eine Struktur an die Hand gegeben werden, mit der Regeln und Prozesse innerhalb eines 
     smarten Büros einfach abgebildet werden können. Die Abarbeitung von Regeln und Prozessen sollen über das Framework 
     koordiniert werden, sodass der Anwender sich ausschließlich um die Regeldefinition und um die abzubildende Umgebung durch Geräte, Zustände und weitere 
-    potentielle Mittel innerhalb eines smarten Büros, kümmern muss. 
+    potentielle Mittel innerhalb eines smarten Büros kümmern muss. 
     %"Anleitung" dem Entwickler an die Hand zu geben, dass Prozesse schnell umgesetzt werden können und jedoch 
     % keinerlei Einschränkungen hat, da mit Java (Spring Boot) keine Grenzen gesetzt sind und mit dem Framework auch 
     %keine Grenzen gesetzt werden.
@@ -174,46 +170,46 @@
     Hierbei werden die Strategien kurz erläutert und die Methoden skizziert. Die Anwendung der Strategien findet zu 
     späterem Zeitpunkt statt. 
     \\
-    Diese Arbeit ist in die drei Phasen aufgeteilt, Forschung, Konzeption und Evaluation. Zuerst erfolgt durch ein 
-    systematisches Literaturreview eine Analyse des aktuellen Stands der Technik, welche die Forschungsfragen aufgreift und 
-    anhand dessen den aktuellen Stand identifiziert. Schwerpunkt dabei liegt auf der einfachen Handhabung der formalisierten 
-    Interaktionen eines Softwareentwicklers bei der Weiterentwicklung, bzw. bei der Ergänzung einer bestehenden 
-    Softwarelösung, um weitere Anwendungsfälle abzudecken. 
-    In der Phase der Anforderungserhebung werden Experteninterviews durchgeführt, mit denen die Anforderungen des Produktes, 
-    für welches ein Konzept erstellt wird, identifiziert werden. Ergänzend dazu werden im Rahmen der Arbeit weitere 
-    Anforderungen durch das \ac{RE} und der Anwendung des \textit{user-centered design}-Prinzips\footnote{Iterativer Prozess zur Ermittlung von Anforderungen, die nutzerorientiert aufgestellt werden. \url{https://www.interaction-design.org/literature/topics/user-centered-design} Abgerufen am 08.05.2022} 
+    Die Struktur ist in vier Phasen Forschung, Konzeption, prototypische Umsetzung und Evaluation aufgeteilt. Zuerst erfolgt durch ein 
+    systematisches Literaturreview eine Analyse zum aktuellen Stand der Technik in Bezug auf die Forschungsfrage. 
+    Schwerpunkt dabei liegt auf der einfachen Handhabung der formalisierten 
+    Interaktionen eines Softwareentwicklers bei der Umsetzung, bzw. Ergänzung einer bestehenden 
+    Softwarelösung zur Abdeckung weiterer Anwendungsfälle. 
+    In der Phase der Anforderungserhebung werden Experteninterviews durchgeführt, mit denen die Anforderungen an das Produkt, 
+    für welches ein Konzept erstellt wird, identifiziert werden. Ergänzend dazu werden im Rahmen der Arbeit zusätzliche 
+    Anforderungen durch das \ac{RE} und der Anwendung des \textit{user-centered design}-Prinzips\footnote{Iterativer Prozess zur Ermittlung von Anforderungen, die nutzerorientiert aufgestellt werden. \url{https://www.interaction-design.org/literature/topics/user-centered-design} Abgerufen am 08.05.2022}, 
     sowie des \textit{target group analysis}-Ansatzes (\ref{sec:zielgruppenanalyse}) ermittelt. Dabei wird die 
-    Nutzerorientierung auf den Softwareentwickler ausgelegt. 
-    Zur anschließenden Evaluation wird ein Usability Test durchgeführt und darauf erneut ein Experten Interview, damit 
-    Eindrücke über das Konzept entstehen und die Erfahrungen der Experten während des Usability Tests 
+    Nutzerorientierung auf den Softwareentwickler ausgelegt. Basierend auf den Ergebnissen wird das Konzept erstellt und daraufhin die Umsetzung eingeleitet. 
+    Zur anschließenden Evaluation wird ein Usability-Test und ein erneutes Experteninterview durchgeführt, damit 
+    Eindrücke über das Konzept entstehen und die Erfahrungen der Experten während des Usability-Tests 
     in die Beantwortung der Forschungsfrage mit einfließen.
     \\
-    Die soeben genannten Forschungsmethoden werden im Nachfolgen- den näher erklärt.
+    Die soeben genannten Forschungsmethoden werden nachfolgend näher erklärt.
 
     \subsection{Experteninterview}
     \label{subsec:experteninterview}
-        Zu Anfang wird bei einem Experten Interview der Hintergrund des Interviews erläutert. Nachdem die interviewende 
-        Person den Grund dargelegt hat, stellt ein Forscher einem Experten ausgewählte Interview-Fragen, die für die 
-        Forschung relevant sind und dazu beitragen die Forschungsfrage zu beantworten.
+        Zu Anfang wird dem Experten der Hintergrund des Interviews erläutert und ihm zum Sachverhalt relevante Fragen gestellt. 
         \\
         \linebreak
-        Die Interview-Fragen können als offene oder geschlossene Fragen formuliert werden, je nachdem ist eine beliebige Reihe 
-        an Antworten möglich oder nur eine begrenzte Anzahl an Antworten \cite{robson2002real}. Der Verlauf des Interviews 
-        kann von dem Forscher selbst bestimmt werden. Sind nur bestimmte Antworten gewünscht, so können die Fragen strukturiert und 
-        geschlossen formuliert werden. Ebenso gibt es den semi-strukturierten und den unstrukturierten Ansatz, bei dem das Interview 
-        offen gestaltet werden kann. Der Semi-Strukturierte Ansatz eignet sich, wenn spezielle Fragen adressiert werden, bzw. eine 
-        Reihenfolge festgelegt ist, sodass der Interviewer eine klare Reihenfolge hat. Mit dem unstrukturierten Vorgehen wird 
-        ein völlig offenes Interview angestrebt, bei dem der Verlauf abhängig von dem Inhalt der Konversation ist.
+        Die Interviewfragen können als offene oder geschlossene Fragen formuliert werden, eine beliebige Reihenfolge an Antworten ist 
+        möglich oder nur eine begrenzte Anzahl \cite{robson2002real}. Der Verlauf des Interviews 
+        kann von dem Forscher selbst bestimmt werden. Sind nur bestimmte Antworten erwünscht, so können die Fragen strukturiert und 
+        geschlossen formuliert werden. 
         \\
-        Die Durchführung von Experteninterviews zählt zu den qualitativen Forschungsansätzen, um Daten zu bestimmten Kontexten zu sammeln.
+        Ebenso gibt es den semi-strukturierten und den unstrukturierten Ansatz, bei dem das Interview 
+        offen gestaltet werden kann. Der semi-strukturierte Ansatz eignet sich, um spezielle Fragen zu adressieren, bzw. eine 
+        Reihenfolge festgelegt ist. Mit dem unstrukturierten Vorgehen wird 
+        ein völlig offenes Interview angestrebt, bei dem der Verlauf abhängig vom Inhalt der Konversation ist.
+        \\
+        Die Durchführung von Experteninterviews zählt zu den qualitativen Forschungsansätzen zum Sammeln von Daten in bestimmten Kontexten. 
 
     \subsection{Systematisches Literaturreview}
     \label{subsec:systematischesliteraturreview}
         Mit einem systematischen Literaturreview wird zur evidenzbasierten Identifizierung, Bewertung und Interpretation  
         von bestehender Literatur eine wissenschaftliche Methode angewendet, mit der Fragestellungen zu einer bestimmten Thematik 
-        herausgearbeitet werden können. Mithilfe diesen Ansatzes soll die Erzielung einer Schlussfolgerung zu einem untersuchten Objekt 
+        herausgearbeitet werden können. Mithilfe dieses Ansatzes soll die Erzielung einer Schlussfolgerung zu einem untersuchten Objekt 
         ermöglicht werden. 
-        Die Methodik des systematischen Literaturreviews orientiert sich an den Richtlinen von Kitchenham et al.. Diese ist in drei 
+        Die Methodik des systematischen Literaturreviews orientiert sich an den Richtlinien von Kitchenham et al.. Diese ist in drei 
         aufeinander aufbauende Schritte gegliedert. Zu Beginn erfolgt die Planung, anschließend die Durchführung und abschließend die 
         Dokumentation und Offenlegung der Ergebnisse \cite{Kitchenham2007}.
 
@@ -221,17 +217,16 @@
     \label{subsec:usabilitytests}
         Ein Usability-Test ist eine Methode zur Testung von Prototypen oder Arbeitsversionen von Computerschnittstellen \cite{LAZAR2017263}. 
         Das Testen der Nutzbarkeit kann durch vorab definierte Aufgaben, die durch Probanden und Benutzer in einer dafür vorgesehenen 
-        Umgebung durchgeführt werden, erfolgen. Die Aufgaben können je nach Anwendungsfeld oder -kontext unterschiedlich ausfallen. 
-        Ebenso können solche Tests auch dazu beitragen, um physische Interaktionen mit bspw. Geräten zu bewerten. 
+        Umgebung durchgeführt werden, erfolgen. Diese können je nach Anwendungsfeld oder -kontext unterschiedlich ausfallen. 
+        Ebenso können solche Tests auch dazu beitragen, physische Interaktionen mit bspw. Geräten zu bewerten. 
         \\
-        Alle Ansätze für Usability-Tests haben ein grundlegendes Ziel: Die Qualität einer Schnittstelle zu verbessern und den 
-        dafür vorgesehenen Anwendern diese Benutzung so einfach wie möglich zu gestalten \cite{LAZAR2017263}. Während diese Tests optimaler 
-        Weise Schnittstellenfehler aufdecken, die den Benutzern Schwierigkeiten bereiten, ist gleichzeitig rauszufinden, welches Schnittstellendesign 
-        gut funktioniert, um dieses für Zukünftige Entwicklungen beizubehalten. 
+        Alle Ansätze für Usability-Tests haben ein grundlegendes Ziel: Die Qualität einer Schnittstelle zu verbessern und sie anwenderfreundlich zu 
+        gestalten \cite{LAZAR2017263}. Während diese Tests optimalerweise Schnittstellenfehler aufdecken, die den Benutzern Schwierigkeiten bereiten 
+        können, ist gleichzeitig eine Modifizierung des Schnittstellendesigns für zukünftige Entwicklungen. 
         \\
         \linebreak
         Zur Kategorisierung von durchgeführten Tests, werden Werkzeuge verwendet, die das Verhalten und die Meinungen der Benutzer 
-        messbar macht. Eines dieser Werzeuge ist das \textit{System Usability Scale (SUS)}\footnote{System Usability Scale. \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html} Besucht am 03.07.2022}. 
+        messbar machen. Eines davon ist das \textit{System Usability Scale (SUS)}\footnote{System Usability Scale. \url{https://www.usability.gov/how-to-and-tools/methods/system-usability-scale.html} Besucht am 03.07.2022}. 
         Dabei handelt es sich um einen einfachen 
         technologieunabhängigen Fragebogen, anhand dessen die Gebrauchstauglichkeit eines Systems bewertet werden kann. Dieser 
         ist eine Praktik zur quantitativen Analyse der Nutzbarkeit. Der Umfang umfasst zehn Fragen nach der Likert-Skala \cite{likert1932technique}.
@@ -239,70 +234,52 @@
 \section{Aufbau der Arbeit}
 \label{sec:aufbau}
     Die vorliegende Master-Thesis gliedert sich nach den soeben genannten einleitenden Information im Aufbau in insgesamt 
-    zehn Kapitel. Das erste Kapitel (\ref{chap:Einleitung}) beschreibt die Motivation (\ref{sec:Motivation}), welche die 
-    Intension kundtut, diese Thematik rund um \acs{IoT} und Smart Home zu bearbeiten. Darauf folgend werden die 
-    Forschungsfragen (\ref{sec:forschungsfragen}), die im Rahmen der Thesis behandelt werden, erläutert. Nach der 
-    Beschreibung der Forschungsfragen wird im anknüpfenden Abschnitt (\ref{sec:zielsetzung}) die Zielsetzung der 
-    Arbeit erläutert. Hierbei werden zusätzliche Schwerpunkte und Ziele aufgegriffen. Abschließend wird das Unternehmen, in der 
-    die Thesis geschrieben wird, hervorgehoben und deren Absichten in Verbindung mit Innovationen beleuchtet. 
+    zehn Kapitel. Das erste Kapitel (\ref{chap:Einleitung}) beschreibt die Motivation (\ref{sec:Motivation}) zur Bearbeitung 
+    dieser Thematik rundum \acs{IoT} und Smart Home. Darauffolgend wird die 
+    Forschungsfrage (\ref{sec:forschungsfragen}) im Rahmen der Thesis definiert. Nach der 
+    Beschreibung der Forschungsfrage wird im anknüpfenden Abschnitt (\ref{sec:zielsetzung}) die Zielsetzung der 
+    Arbeit erläutert. Hierbei werden zusätzliche Schwerpunkte aufgegriffen. 
     \\
     \linebreak
     Das Kapitel (\ref{chap:grundlagen}) widmet sich den essentiellen und wichtigen Grundlagen dieser Arbeit. Zu Anfang wird dem 
-    Leser der Terminus des \acl{IoT} (\ref{sec:iot}) offenbart, um zum Teil den Kontext im Bezug zu dieser Arbeit zu begreifen, 
-    gefolgt von einer Einführung in die Thematik des \acl{SH} (\ref{sec:smartHome}), der Problematik der Begriffsdefinition, der 
-    historischen und kontinuierlichen Entwicklung und mit den Zielen, die mit der Verwendung einer Smart Home Lösung bewältigt 
+    Leser der Terminus des \acl{IoT} (\ref{sec:iot}) zum besseren Verständnis näher gebracht, 
+    gefolgt von einer Einführung in die Thematik des \acl{SH} (\ref{sec:smartHome}), der 
+    historischen und kontinuierlichen Entwicklung und den Zielen, die mit der Verwendung verfolgt 
     werden sollen. Mit dem Verständnis der übergeordneten Begriffe, \acs{IoT} und \acl{SH}, werden Technologien 
     (\ref{sec:technologien}) aufgegriffen, die im Rahmen dieser Arbeit erwähnenswert sind und verwendet werden. %Um auf die Vielfältigkeit 
     %von der Umsetzung eines \acl{SH} einzugehen und einen Teilaspekt der Anforderungen Abzudecken, wird ebenso auf Service-Roboter 
     %(\ref{sec:roboter}) eingegangen. 
-    Abschließend werden in Kapitel (\ref{chap:grundlagen}) die Softwarelösungen, Home Assistant 
-    und openHAB (\ref{sec:homeassistant} \& \ref{sec:openhab}), dargestellt. Diese dienen zur Grundlage für die Evaluation als 
-    auch zur Gegenüberstellung der Lösungen in Kapitel (\ref{chap:evaluation}) Diskussion und Evaluation. 
+    Abschließend werden im Kapitel (\ref{chap:grundlagen}) die Softwarelösungen, Home Assistant 
+    und openHAB (\ref{sec:homeassistant} \& \ref{sec:openhab}), dargestellt. Diese dienen als Grundlage für die Evaluation und werden im Kapitel 
+    (\ref{chap:evaluation}) der im Rahmen dieser Arbeit konzipierten Lösung gegenübergestellt. 
     \\
     \linebreak
-    Die theoretischen und methodischen Hintergründe sowie den Stand der Technik wird in Kapitel (\ref{chap:technikStand} )
-    angesprochen. Dieser Teil enthält Beschreibungen, Forschungen und aktuelle Erkenntnisse über Technologien, die im Umfeld der 
-    Smart Home Anwendungen innerhalb des \acs{IoT} verwendet werden. Zudem werden in Zusammenhang der Erkenntnisse und 
-    Möglichkeiten der Technologie die Szenarien dargestellt. 
+    Die theoretischen und methodischen Hintergründe, sowie der Stand der Technik wird in Kapitel (\ref{chap:technikStand})
+    beleuchtet. Dieser Teil enthält Beschreibungen, Forschungen und aktuelle Erkenntnisse über Technologien, die im Umfeld der 
+    \acl{SH} Anwendungen innerhalb des \acs{IoT} eingesetzt werden. 
     \\
     \linebreak
-    Kapitel (\ref{chap:anforderungsanalyse}) befasst sich mit den Anforderungen, engl. Requirements, die für die 
-    eigentliche Konzeption relevant sind. Innerhalb dieses Kapitels wird anhand von Informationen und den umzusetzenden 
-    Szenarien die Anforderungen für die Konzeption erarbeitet. Hierbei werden aus der Praxis bekannte Verfahren verwenden, um 
-    die Anforderungen zu definieren. Mittels den zugrundeliegenden Anforderungen wird im nachfolgenden Schritt die eigentliche 
-    Konzeption dargelegt.
+    Kapitel (\ref{chap:anforderungsanalyse}) befasst sich mit den Anforderungen, engl. Requirements, an das zu 
+    entwickelnde System, die aus der Markt- und Zielgruppenanalyse, den Anwendungsfällen und den Experteninterviews generiert werden. 
     \\
     \linebreak 
     Nach Aufbereitung der Anforderungen durch das sogenannte Anforderungsmanagement, engl. \textit{Requirements Engineering},
-    wird in Kapitel (\ref{chap:konzept}) das Konzept erarbeitet, welches als Grundlage für die prototypische Implementierung und 
-    Umsetzung des Konzepts dient. Das Konzept befasst sich mit den Anforderungen und setzt diese ein, um die Organisation des 
-    Systems in Komponenten, deren Beziehungen zueinander und zur Umgebung sowie deren Prinzipien zu definieren. Zum Ende des 
-    Konzepts steht eine Architektur, die sich aus den Anforderungen und auch aus den Analysen der eigentlichen Forschungsfrage 
-    abzeichnet.
+    wird in Kapitel (\ref{chap:konzept}) das Konzept erarbeitet, welches als Grundlage für die prototypische Implementierung dient. 
     \\
     \linebreak
-    In Kapitel (\ref{chap:umsetzung}) wird die Umsetzung des Konzepts skizziert. Darunter welche Problem während der Implementierung 
-    auftraten als auch deren Lösungsfindung. Ebenso wird hier aus praktischer Sicht auf die Architektur geschaut, welche Komponenten,  
-    Bibliotheken und zusätzliche Systeme, engl. \textit{Frameworks}, verwendet wurden. Das erzielte Ergebnis und Resultat wird 
-    abschließend zusammengefasst und neutral betrachtet.
-    %\\ 
-    %\linebreak
-    %Das Ergebnis wird aus objektiver Sicht in dem darauf folgenden Kapitel (\ref{chap:ergebnis}) erläutert. 
+    In Kapitel (\ref{chap:umsetzung}) wird die Umsetzung des Konzepts skizziert, Herausforderungen aufgegriffen und Lösungen erarbeitet. 
+    Es wird aus praktischer Sicht die Architektur und deren Komponenten betrachtet. Das erzielte Ergebnis und Resultat wird 
+    abschließend zusammengefasst.
     \\
     \linebreak
-    Nach Abschluss der Umsetzung und dessen Ergebnisdokumentation befasst sich das Kapitel (\ref{chap:evaluation}) mit der Diskussion 
-    und Evaluation. Hier findet eine Analyse des Konzepts sowie deren Umsetzung und objektive Betrachtung statt. Anschließend werden 
-    Vergleiche zwischen der Eigenentwicklung und bereits bestehender Softwarelösungen, die im Grundlagenkapitel aufgefasst werden, 
-    aufgestellt und bewertet. %Testdurchführung und anschließende Evaluation (Experten Interview)
+    Die Evaluation (\ref{chap:evaluation}) behandelt die objektive Betrachtung und Bewertung des entstandenen Prototyps 
+    anhand von Usability-Tests und damit zusammenhängenden Experteninterviews. Zudem wird 
+    die Forschungsfrage evaluiert und beantwortet. 
     \\
     \linebreak
     Im vorletzten Teil, Kapitel (\ref{chap:fazit}), wird ein Fazit aus den Erkenntnissen und Ergebnissen gezogen. Dieses Schlussresümee 
     führt nochmals die Höhepunkte sowie eine eigene Einschätzung auf. 
     \\
     \linebreak
-    Zum Abschluss der Thesis wird in Kapitel (\ref{chap:ausblick}) ein Ausblick gegeben. Dieser gibt Aufschluss darüber, welche 
-    Erweiterungsmöglichkeiten es für die in dieser Thesis erfolgten Arbeit gibt und wie innovativ sich dieser Grundbaustein in Zukunft 
-    erweisen könnte. 
-
-%\section{CGI}
-%\label{sec:cgi}
+    Zum Abschluss der Thesis wird in Kapitel (\ref{chap:ausblick}) ein Ausblick aufgezeigt, der Aufschluss über die Erweiterungsmöglichkeiten 
+    und der Innovation der in dieser Thesis erfolgten Arbeit gibt. 
