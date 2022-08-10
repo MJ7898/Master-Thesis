@@ -143,48 +143,39 @@
     
     \subsection{Sichtweisen}
     \label{subsec:sichtweisen}
-        Wie bereits aus dem Kontext hervorgeht, wird das Konzept auf zwei Sichtweisen aufgeteilt. Zum einen auf die 
-        Anwendersicht, die der Softwareentwickler als entscheidende Kraft einnimmt, indem dieser das Aufsetzen und das in 
-        Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln übernimmt. Zum anderen die 
-        Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Ausführung der vom 
-        Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events und das starten 
-        von Regeln ermöglicht. Das Management zum Starten von Regeln und Prozessen wird in Gänze vom Framework übernommen. 
-        Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. %Zum besseren Verwalten und Starten von 
-        %Prozessen können weitere Konzepte und Managementroutinen ergänzt werden. Diese sind nicht Teil dieses Konzeptes und 
-        %werden im Ausblick zu möglichen Erweiterungsschritten nochmals aufgegriffen.
-        \\
-        \linebreak
-        Zusammenfassend wird zwischen den beiden Sichtweisen differenziert, da diese Trennung ein elementarer Schnitt des Konzeptes 
-        aufzeigt. Die Sichten werden konkretisiert, indem die Aufgaben des Anwenders als auch der Ablauf innerhalb des Frameworks 
-        andeutungsweise erläutert wird.
-        % dafür, dass für das Setup benötigte Funktionen bereitstehen und vom Anwender definierte Regeln 
-        %ausgeführt werden. 
+        Wie bereits aus dem Kontext hervorgeht, wird das System aus zwei Perspektiven beleuchtet. Zum einen aus Sicht des Anwenders, 
+        der das Aufsetzen und in Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln als 
+        Aufgabe übernimmt. Zum anderen die 
+        Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Erfüllung der vom 
+        Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events, das Starten 
+        von Regeln und Prozessen ermöglicht. Das Management dazu wird vom Framework übernommen. 
+        Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. 
         \\
         \linebreak
         Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
         Darin sind alle notwendigen Zustände als Attribute und Objektfelder abzubilden. Diese können konkret Geräte sein, die im Rahmen des 
         intelligenten Büros verwendet werden, bspw. ein Service-Roboter, ein Türöffner und weitere steuerbare Geräte, die 
         ihren Zustand ändern können. Nachdem das Zustandsobjekt 
-        definiert wurde, geht es an die Definition und Implementierung der Regeln. Diese sind individuell, je nach 
+        definiert wurde, geht es in die Implementierung der Regeln. Diese sind individuell je nach 
         Anforderungen des Anwenders zu erstellen. Jedoch sind bestimmte Funktionen und Vorgaben bezüglich Bedingungsprüfung 
         und Regeldurchlauf einzuhalten. Anforderungen dabei sind das Implementieren von drei unabdingbaren Funktionen. 
-        Die erste Funktion ist die Zuordnung des Auslösers, damit klar wird, durch welches Event eine Regel ausgelöst werden kann. 
-        Die zweite zu implementierende Funktion ist die Prüfung von Werten im Zustandsraum, sodass beim eintreffen spezifischer 
+        Die erste Funktion ist die Zuordnung des Auslösers, der bei einem bestimmten Event eine Regel durchläuft. 
+        Die zweite zu implementierende Funktion ist die Prüfung von Werten im Zustandsraum, sodass beim Eintreten spezifischer 
         Bedingungen und Zuständen bestimmte Regelprozesse ausgeführt werden können. Die dritte vorgegebene Funktion ist die 
-        des eigentlichen Regeldurchlaufes. Die darin enthaltenen Aufgaben werden nach zutreffender Bedingung abgearbeitet.
+        des eigentlichen Regeldurchlaufs. Die darin enthaltenen Aufgaben werden nach zutreffender Bedingung abgearbeitet.
         \\
-        Nach Fertigstellung einer Regel, muss diese dem System übergeben werden. Anschließend ist die 
-        konkrete Transformation zu definieren. Darüber wird festgelegt, welches eingehende Event, bzw. \acs{MQTT}-Topics 
-        eine bestimmte Zustandsänderung bewirkt, da erst nach der Änderung des Zustandes die Überprüfung und Ausführung 
-        von Regeln ausgelöst wird. Das konkrete Konstrukt der Transformation wird im Kapitel der Umsetzung (siehe Abschnitt \ref{subsec:transformation}) 
+        Nach Fertigstellung aller drei Funktionen muss das Objekt dem System übergeben werden. Anschließend ist die 
+        konkrete Transformation zu definieren. Darüber wird festgelegt, welches eingehende Event, bzw. \acs{MQTT}-Topic 
+        eine bestimmte Zustandsänderung bewirkt. Erst nach Änderung des Zustandes wird die Überprüfung und Ausführung 
+        von Regeln ausgelöst. Das konkrete Konstrukt der Transformation wird im Kapitel der Umsetzung (siehe Abschnitt \ref{subsec:transformation}) 
         erläutert. Abschließend sind die Kommunikationswege zu aktivieren. 
         Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle 
         abbildet, ist die Konfiguration des \acs{MQTT}-Clients einzustellen. Hierfür muss der Entwickler 
-        dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzername des Clients und dessen Passwort übergeben. Über das 
+        dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzernamen des Clients und dessen Passwort übergeben. Über das 
         Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumierbar 
-        sind. In Zuge dessen muss der Anwender die Topics innerhalb der jeweiligen Transformation definieren. Dadurch wird gewährleistet, dass 
-        die Steuerzentrale nur auf die Topics hört, die der Anwender bekannt gegeben hat. Durch die Transformation erfolgt ebenso die 
-        Zuordnung, welches Zustandsattribute mittels eines bestimmten Topics geändert werden soll. Hierfür ein Beispiel:  
+        sind. Im Zuge dessen muss der Anwender die Topics innerhalb der jeweiligen Transformation definieren, wodurch gewährleistet wird, dass 
+        die Steuerzentrale nur auf diese reagiert. Durch die Transformation erfolgt ebenso die 
+        Zuordnung, welches Zustandsattribut mittels eines bestimmten Topics geändert werden soll. Hierfür ein Beispiel:  
         \\
         \linebreak
         Sobald eine Person an der Tür authentifiziert wurde, wird ein Thema mit dem Namen derjenigen Person übergeben. Basierend auf 
@@ -194,54 +185,55 @@
         durchlaufen.  
         \\
         \linebreak
-        Sind diese Schritte abgearbeitet, so sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
+        Sind diese Schritte abgearbeitet, sind die Pflichten des Anwenders erfüllt und die Steuerzentrale kann gestartet werden. 
         \\
-        Hierfür wird der Durchlauf von dem Eingang einer \acs{MQTT}-Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks 
+        Im Nachfolgenden wird jetzt der Durchlauf vom Eingang einer \acs{MQTT}-Nachricht bis zur Ausführung einer Regel aus Sicht des Frameworks 
         erläutert.
         \\
         \linebreak
         Nach erfolgreichem Einstellen und Starten des Systems soll der \acs{MQTT}-Client hochgefahren werden. Dieser baut daraufhin eine 
-        Verbindung zu dem \acs{MQTT}-Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits auf die Topics,  
-        die der Nutzer über die Einstellungen im Rahmen der Transformation übergibt, gefiltert werden. Sobald eine der bekannten 
-        \acs{MQTT}-Nachrichten konsumiert wird, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
-        auf die in dem Topic enthaltenen Informationen abgeändert werden. Der Transformer stellt den Ausgangspunkt für die Transformation 
-        des Inhaltes der Nachricht zur Änderung des Zustandsobjektes dar. Innerhalb dieser Komponente findet die Zuordnung 
+        Verbindung zu dem \acs{MQTT}-Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits nach den Topics,  
+        die der Nutzer über die Einstellungen im Rahmen der Transformation übergeben hat, gefiltert werden. Sobald eine der bekannten 
+        \acs{MQTT}-Nachrichten konsumiert wurde, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
+        auf die im Topic enthaltenen Informationen abgeändert werden. Der Transformer stellt den Ausgangspunkt für die Transformation 
+        des Nachrichteninhalts zur Zustandsänderung dar. Innerhalb dieser Komponente findet die Zuordnung 
         des Topics zu den darauf adressierten Feldern des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
-        in den Attributwert der durch den Entwickler spezifizierten Variable übertragen werden. Die Änderung des 
-        Zustandsraumes löst darauf hin den weiteren Ablauf aus. 
+        in den Attributwert der Variable, die durch den Entwickler spezifiziert wurde, übertragen werden. Die Änderung des 
+        Zustandsraumes löst daraufhin den weiteren Ablauf aus. 
         \\
         Das aktuelle Zustandsobjekt wird zum Zeitpunkt der Überschreibung für weitere Lese- und Schreiboperationen gesperrt, sodass 
-        die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor die realen Zustände wiedergibt. Anschließend erfolgt die 
+        die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor reale Zuständen wiedergegeben werden. Anschließend erfolgt die 
         Erstellung einer Kopie des Zustandsobjektes, mit der 
-        darauf folgend weiter verfahren wird. Nachdem das Zustandsobjekt geklont wurde, wird der Sperrvorgang aufgehoben. 
-        Nachdem der Lock-Mechanismus entsperrt wurde, wird über alle Regeln, die dem Framework bekannt sind, iteriert. In diesem Prozess 
+        darauffolgend weiter verfahren wird. Nachdem das Zustandsobjekt geklont wurde, wird der Sperrvorgang aufgehoben und die 
+        Überprüfung aller Regeln, die dem Framework bekannt sind, iteriert, d.h. es werden alle Regeln der Liste durchlaufen bis eine Bedingung zutrifft. In diesem Prozess 
         wird jeweils nochmals eine Kopie des Zustandsobjektes erzeugt, mit dem bei der Iteration die Regel-Bedingungen überprüft werden. 
-        Bei zutreffender Bedingung wird die entsprechende Regel der aktuellen Iteration durchgeführt. Zur Abarbeitung mehrerer Prozesse 
-        gleichzeitig, soll durch Asynchronität die Bedingungsprüfung und Durchführung der Regel in einen separaten Thread ausgelagert werden. 
+        Bei zutreffender Bedingung wird die entsprechende Regel ausgeführt. Zur Abarbeitung mehrerer Prozesse 
+        gleichzeitig soll durch Asynchronität die Bedingungsprüfung und Durchführung der Regel in einen separaten \textit{Thread} ausgelagert 
+        werden, sodass Regeln parallel ausgeführt werden können.  
         %Für die Zeitspanne der Zustandsänderung und der 
         %nachfolgenden Kopie soll das Zustandsobjekt kurzzeitig für weitere Transaktionen und Änderungen, genauer gesagt für Lese- und 
         %Schreiboperationen durch einen Lock-Mechanismus gesperrt werden. Dadurch kann anschließend das Zustandsobjekt mit der vorher 
         %getätigten Änderung kopiert werden, um die anschließende Regel-Iteration durchzuführen. 
         Wichtig an dieser Stelle zu 
-        erwähnen ist, dass die Prüfung der Regel-Bedingungen mit der Kopie durchgeführt werden soll.
-        Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und darauf hin eine Regel mit der 
-        Kopie des Zustandsobjektes ausgelöst werden kann. Hierdurch ist sichergestellt, dass jeweils eine Zustandsänderung zu einem 
-        Zeitpunkt stattfindet und zu dieser die dafür definierte Regel ausgeführt wird, sofern die Bedingung im Vorfeld ebenso zutrifft. 
+        erwähnen ist die Prüfung der Regel-Bedingungen mittels der Kopie des Zustandsraumes. 
+        Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und daraufhin eine Regel mit der 
+        Kopie des Zustandsobjektes ausgelöst werden kann. Hierdurch wird eine Zustandsänderung zu einem 
+        Zeitpunkt stattfinden und die dafür definierte Regel ausgeführt, sofern die Bedingung im Vorfeld ebenso zutrifft. 
         \\
         Wird kurz darauf eine weitere Nachricht konsumiert, so kann das aktuelle Zustandsobjekt dahingehend überschrieben und erneut 
         kopiert werden. Die Kopie wird wiederum für die Regel-Iteration verwendet und tangiert die vorherige Kopie nicht. Somit soll 
-        zu jedem Zeitpunkt der aktuelle Zustandsraum repräsentiert werden. Davon ausgehend entspricht dieser immer der Wahrheit.
+        zu jedem Zeitpunkt der aktuelle Zustandsraum dargestellt werden. 
         \\
         \linebreak
-        Wird eine Regel durchgeführt, so wird der vom Anwender definierte Prozess abgearbeitet. Über Regelprozesse selbst kann wiederum eine 
-        Zustandsänderung erfolgen, die daraufhin eine weitere Regel ausführt. Dies soll durch die inverse Funktion der Transformation erfolgen, indem der 
-        Anwender in dem Regelprozess lediglich die Zustandsänderung beschreibt. Das Framework nutzt auf dessen Grundlage die vorab durch die Transformation 
+        Innerhalb eines laufenden Regelprozesses kann wiederum eine Zustandsänderung erfolgen, die daraufhin eine weitere Regel ausführen kann. 
+        Dies soll durch die inverse Funktion der Transformation geschehen, indem der 
+        Anwender in dem Regelprozess lediglich die Zustandsänderung beschreibt. Das Framework nutzt auf deren Grundlage die vorab durch die Transformation 
         übergebenen Informationen, damit zum Zeitpunkt der Regelimplementierung dem Anwender nicht zwangsweise das Topic für die Kommunikation über \acs{MQTT} 
-        bekannt sein muss. Die Kenntnis über das Topic und die darauf zugewiesene Zustandsänderung ist nur bei initialer Definition erforderlich. 
-        \pagebreak
+        bekannt sein muss. Die Kenntnis des Topics und dem darauf zugewiesenen Feld des Zustandsraumes ist nur bei initialer Definition erforderlich. 
+        %\pagebreak
         \\
         \linebreak
-        Dem folgenden Diagramm ist der abstrakte Programmablauf des Frameworks, welcher soeben skizziert wurde, zu entnehmen:
+        Dem folgenden Diagramm ist der abstrakte Programmablauf des Frameworks zu entnehmen:
         \begin{figure}[hbt!]
             \centering
             \includegraphics[width=14cm,height=11cm,keepaspectratio]{images/Programmablauf_Framework.png}
@@ -249,12 +241,10 @@
             \label{fig:programmablauf_framework}
         \end{figure}
         \\
-        Aspekte, die nicht aus dem Ablaufdiagramm hervorgehen, sind zum einen die parallele Ausführung von zwei voneinander unabhängigen 
-        Zustandsänderungen und zum anderen die erneute Änderung des Zustandes durch eine Regel selbst. Sofern die Änderungen unabhängig 
-        sind, sollen Prozesse auch asynchron ablaufen, bzw. Regeln auch neue Zustandsänderungen hervorrufen können. Die genauere Ausprägung des 
-        Konzeptes wird im Rahmen des Architekturkonzeptes (\ref{sec:architekturkonzept}), sowie dem Kapitel der Umsetzung 
-        (\ref{chap:umsetzung}) aufgegriffen. 
+        Aus dem Ablaufdiagramm gehen die parallele Ausführung von zwei voneinander unabhängigen Zustandsänderungen und die 
+        erneute Änderung des Zustandes durch eine Regel selbst nicht hervor. Sofern die Änderungen unabhängig 
+        sind, sollen Prozesse asynchron ablaufen, bzw. Regeln neue Zustandsänderungen hervorrufen können. 
         \\
-        \linebreak
-        Zur Veranschaulichung der abgeschlossenen textuellen Erläuterung des Konzeptes hilft die nachfolgende Abbildung: 
+        %\linebreak
+        Zur Veranschaulichung hilft die nachfolgende Abbildung. 
         
