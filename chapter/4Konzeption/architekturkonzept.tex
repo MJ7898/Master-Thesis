@@ -5,30 +5,30 @@
     Potentielle Erweiterungen und Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
     \\ 
     \linebreak
-    Das System soll in drei Schichten aufgeteilt werden. Die oberste Schicht stell die Kommunikationsschicht dar, die mittlere Ebene 
-    handelt um die Logik- und Prozessschicht und der unterste Block repräsentiert die Persistenzschicht. Im Rahmen der Arbeit wird 
-    die dritte Schicht nicht detailliert beschrieben, da diese zu aktuellem Zeitpunkt keinen Nutzen generiert, bzw. für keine weitere Verarbeitung 
-    genutzt wird. Die Ausprägung der Schicht ist dennoch ohne weiteres möglich und wird auch grob skizziert. Der Abbildung 
+    Das System soll in drei Schichten aufgeteilt werden. Die oberste Schicht stellt die Kommunikationsschicht dar, die mittlere 
+    die Logik- und Prozessschicht und die unterste die Persistenzschicht. Im Rahmen der Arbeit wird 
+    die dritte Schicht nicht detailliert beschrieben, da diese zum aktuellen Zeitpunkt weniger von Interesse ist, bzw. für keine weitere Verarbeitung 
+    genutzt wird. Die Ausprägung der Schicht wäre dennoch ohne weiteres möglich und wird grob skizziert. Der Abbildung 
     (\ref{fig:schichtenarchitektur}) ist die Aufteilung der Schichtenarchitektur zu entnehmen. In der Darstellung unterscheidet sich die 
-    Persistenzschicht von den anderen, um erkenntlich zu machen, dass diese in aktuellem Konzept keine konkrete Implementierung erfährt. 
-    Durch die Darstellung in übergreifender Form wird deutlich, dass bereits auf dieser Ebene die Trennung der Zuständigkeiten, engl. 
-    \textit{seperation of concerns}, greift. Durch die gezielte Abstraktion von Komponenten und Informationen kann die Komplexität 
-    eines Systems gesteuert werden. Die Kommunikationsschicht ermöglicht die Anbindung von verschiedensten Kommunikationsprotokollen, die 
-    dadurch schnell adaptiert werden können. Im Rahmen des Konzeptes wird ausschließlich Gebrauch des \acs{MQTT}-Protokolls gemacht. 
-    Die Logikschicht nimmt alle eingehenden Events der Kommunikationsschicht entgegen, die jeweils eine Zustandsänderung erzwingen, 
+    Persistenzschicht farblich von den anderen, da diese im aktuellen Konzept keine konkrete Implementierung erfährt. 
+    Das Schaubild zeigt bereits auf dieser Ebene die Trennung der Zuständigkeiten, engl. \textit{seperation of concerns}. 
+    Durch die gezielte Abstraktion von Komponenten und Informationen kann die Komplexität 
+    eines Systems vereinfacht dargestellt werden. Die Kommunikationsschicht ermöglicht die Anbindung von verschiedensten Kommunikationsprotokollen, die 
+    dadurch adaptiert werden können. Im Rahmen des Konzepts wird ausschließlich vom \acs{MQTT}-Protokoll Gebrauch gemacht. 
+    Die Logikschicht nimmt alle eingehenden Events der Kommunikationsschicht, die jeweils eine Zustandsänderung hervorrufen können, entgegen 
     und durchläuft den Prozess des Frameworks, um auf die Zustandsänderung die passende Regel auszuführen. Die 
-    Persistenzschicht ist für die Speicherung erzeugter Daten zuständig, bspw. wenn eine Transaktionshistorie von Zustandsänderungen 
-    persistiert werden soll. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stünden. Das Vorantreiben der Speicherung 
+    Persistenzschicht ist für die Speicherung erzeugter Daten verantwortlich, bspw. können bei Zustandsänderungen die Transaktionen 
+    als Historie persistiert werden. Ebenso können Informationen gespeichert werden, die anderweitig zur Verfügung stehen würden. Das Vorantreiben der Speicherung 
     von Informationen kann durch den agilen Entwicklungsprozess außerhalb des Thesis-Rahmens erfolgen. 
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Schichtenarchitektur.png}
+        \includegraphics[width=14cm,height=11cm,keepaspectratio]{images/Schichtenarchitektur.png}
         \caption{Schichtenarchitektur}
         \label{fig:schichtenarchitektur}
     \end{figure}
     \\
     %\pagebreak
-    Für die Konzeption von wartbarer und erweiterbarer Software, wird von den \textit{SOLID}-Prinzipien, sowie von nützlichen 
+    Für die Konzeption von wartbarer und erweiterbarer Software wird von den \textit{SOLID}-Prinzipien, sowie von nützlichen 
     und für das Framework verwendbaren Programmiermustern Gebrauch gemacht. Diese werden an geeigneter Stelle und auf den Nutzen bezogen erläutert.
     \\
     \linebreak
@@ -39,57 +39,54 @@
     \begin{itemize}
         \item S - Single-Responsibility-Prinzip: „Das Single-Responsibility-Prinzip (SRP; Eine-Verantwortlichkeit-Prinzip; ...) fordert, dass eine Klasse oder ein Modul einen und nur einen \textit{Grund zur Änderung} haben sollte.“ \cite{cleancode2009}
         \item O - Open-Closed-Prinzip: „Module sollten sowohl offen (für Erweiterungen) als auch verschlossen (für Modifikation) sein.“ \cite{ocpmeyer1988}
-        \item L - Liskovsches Substitutionsprinzip: „... Sei q(x) eine beweisbare Eigenschaft von Objekten x des Typs T. Dann soll q(y) für Objektes des Typs S wahr sein, wobei S ein Untertyp von T ist.“ \cite{liskov2001behavioral} - Das (Ersetzungs-)Prinzip sagt somit aus, dass eine 
+        \item L - Liskovsches Substitutionsprinzip: „... Sei q(x) eine beweisbare Eigenschaft von Objekten x des Typs T. Dann soll q(y) für Objekte des Typs S wahr sein, wobei S ein Untertyp von T ist.“ \cite{liskov2001behavioral} - Das (Ersetzungs-)Prinzip sagt somit aus, dass eine 
         Subklasse stets die Eigenschaften der Superklasse erfüllt und immer als Objekt der Superklasse anwendbar sein muss. Eine Subklasse darf dadurch erweitert werden, aber 
         keine grundlegende Änderung erfahren. 
         \item I - Interface-Segregation-Prinzip: „Clients sollen nicht dazu gezwungen werden, von Interfaces abzuhängen, die sie nicht verwenden.“ \cite{martin1996interface}
         \item D - Dependency-Inversion-Prinzip: „A. Module hoher Ebenen sollten nicht von Modulen niedriger Ebenen abhängen. Beide sollten von Abstraktionen abhängen. B. Abstraktionen sollten nicht von Details abhängen. Details sollten von Abstraktionen abhängen.“ \cite{martin2003agile}
     \end{itemize}
     Besonders das \textit{Single-Responsibility} und das \textit{Open-Closed}-Prinzip wurden bei der Konzeption berücksichtigt. 
-    %Diese Prinzipien werden bei der Konzeption des Frameworks berücksichtigt. 
     Da es sich bei diesem System nicht um eine klassische 
     Webanwendung handelt und keine direkte Kommunikation unter anderem über \acs{REST} \acs{API}s stattfindet, wird ein allgemeines 
     Programmiermuster, wie bspw. das \ac{MVC}\footnote{Architekturmuster für Webapplikationen. \url{https://de.wikipedia.org/wiki/Model_View_Controller} Besucht am 10.07.2022} 
-    oder das \ac{MVVM}\footnote{Software-Architekturmuster. \url{https://en.wikipedia.org/wiki/Model–view–viewmodel} Besucht am 10.02.2022 }, nicht 
-    in Betracht gezogen. Verwendet werden allgemeine Architekturmuster und -prinzipien, die dazu beitragen die Software wartbar 
+    oder das \ac{MVVM}\footnote{Software-Architekturmuster. \url{https://en.wikipedia.org/wiki/Model–view–viewmodel} Besucht am 10.07.2022 }, nicht 
+    in Betracht gezogen. Verwendet werden allgemeine Architekturmuster und -prinzipien, die dazu beitragen, die Software wartbar 
     zu gestalten, die Komplexität einzelner Funktionen zu reduzieren und die Lesbarkeit und Überschaubarkeit zu erhöhen. 
-    
+    \pagebreak
     \subsection{Aufbau des Frameworks}
-        Nach Veranschaulichung der Schichten-Modellierung wird übergreifend der Komponenten Aufbau, sowie die dafür einzusetzenden Architekturmuster aufgegriffen. 
+        Nach Veranschaulichung der Schichten-Modellierung werden übergreifend der Komponentenaufbau und die dafür einzusetzenden Architekturmuster aufgegriffen. 
         \\
         Die Konzeptkomponenten (\ref{subsec:conceptcomps}) finden sich im umfassenden Architekturschaubild (siehe Abbildung \ref{fig:patternarchitektur}) wieder. 
-        Die Regelstruktur 
-        soll die Funktion einer Bedingungsprüfung und der darauffolgenden Aktion vorgeben, damit bestimmte Anhaltspunkte geschaffen sind, die das Framework überprüfen 
-        und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden bei Implementierung einer spezifischen Regel zur Verfügung stehen, wird mittels dem 
-        \textit{Template Method} Pattern \cite{gamma1995template} ein Leitfaden vorgegeben. Dieses gehört zu den Verhaltensmustern, engl. behavioral patterns. 
-        Ziel des Schablonenmethoden-Entwurfsmusters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
+        Die Regelstruktur soll die Funktion einer Bedingungsprüfung und der darauffolgenden Aktion vorgeben, damit bestimmte Anhaltspunkte geschaffen werden, die das Framework überprüfen 
+        und anwenden kann. Um zu gewährleisten, dass dem Anwender diese Methoden bei Implementierung einer spezifischen Regel zur Verfügung stehen, wird ihm mittels dem 
+        \textit{Template Method} Pattern \cite{gamma1995template} (Schablonenmethoden-Entwurfsmusters) ein Leitfaden vorgegeben. Es gehört zu den Verhaltensmustern, engl. behavioral patterns. 
+        Ziel des Musters ist die Delegation der konkreten Ausformung einzelner Methoden und Funktionen zu deren Unterklassen. Innerhalb der 
         abstrakten Klasse wird das Skelett des Objektes definiert. Die einzelnen Schritte können so in den darunter liegenden Klassen überschrieben oder ergänzt 
-        werden, ohne dass die grundlegende Struktur der übergreifenden Klasse modifiziert werden muss. Die Unterklassen, die konkrete Definition einer Regel, sollen 
+        werden, ohne dass die grundlegende Struktur der übergreifenden Klasse modifiziert werden muss. Die Unterklassen, die konkret die Definition einer Regel ist, sollen 
         unter Verwendung des \textit{Singleton} Patterns \cite{gamma1995singleton} realisiert werden. Das zu den Erzeugungsmustern 
         zugehörige Pattern dient zur 
         Sicherstellung, dass eine Klasse, in dem Fall die einzelne Regel, zur Laufzeit ausschließlich eine einzige Instanz erzeugt und diese global erreichbar ist. 
         Dadurch wird von jeder Regel immer nur ein Objekt erzeugt. 
         \\
         \linebreak
-        Ähnlich zu dem Aufbau des Regelwerkes, sollen die Komponenten, die reale Gegenstände abbilden, ebenso Gebrauch des Schablonenmethoden-Entwurfsmusters machen. 
+        Ähnlich zum Aufbau des Regelwerks sollen die Komponenten, die reale Gegenstände abbilden, ebenso vom Schablonenmethoden-Entwurfsmuster Gebrauch machen. 
         Unterschied zu der Regel-Schablone ist lediglich die Funktion der Sperrung einer Komponenten für weitere Aufgaben. Diese soll bereits in der abstrakten Klasse 
-        definiert sein. Konkrete Komponenten-Eigenschaften und Zustandsattribute können von dem Anwender selbst implementiert werden.
+        definiert sein. Konkrete Eigenschaften von Komponenten und konkrete Zustandsattribute können vom Anwender selbst implementiert werden.
         \\
         \linebreak
-        Die durch den Anwender implementierte Transformation, die unter anderem basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, soll %als Vorgabe 
-        %stützend 
-        das {Template Method} Pattern verwenden. Dadurch ist die Struktur der Transformation vorgegeben, die bei der Definition eines neuen Transformationsobjektes die zu 
-        implementierenden Funktionen bereitstellt. %anhand dessen der Anwender neue Transformationsobjekte 
-        %je nach Anwendungsfall erzeugen kann. 
-        Innerhalb dieser Schablone sollen alle Attribute vorgegeben werden, die für die Transformation notwendig sind und von dem Softwareentwickler implementiert werden sollen. 
+        Die durch den Anwender implementierte Transformation, die unter anderem basierend auf einem eingehenden \acs{MQTT}-Topic das Zustandsobjekt verändert, soll 
+        das {Template Method} Pattern verwenden. Dadurch ist die Struktur der Transformation vorgegeben. Soll ein Transformationsobjekt erzeugt werden, so müssen 
+        diesem die notwendigen Parameter übergeben werden. 
+        %Innerhalb dieser Schablone sollen alle Attribute vorgegeben werden, die für die Transformation notwendig sind und von dem Softwareentwickler implementiert werden sollen. 
         \\
         \linebreak
         Damit zukünftig weitere Kommunikationsschnittstellen hinzugefügt werden können, soll für die Transformation zusätzlich das 
-        \textit{Adapter} Pattern verwenden werden. Dadurch können Events aus unterschiedlichen Services und über mehrere Kommunikationswege 
+        \textit{Adapter} Pattern verwendet werden. Dadurch können Events aus unterschiedlichen Services und über mehrere Kommunikationswege 
         entgegengenommen werden, ohne dass die eigentliche Schnittstelle modifiziert werden muss. Das \textit{Adapter} Pattern gehört 
-        zu den Strukturmustern und ist wie folgt definiert: 
-        Die Konvertierung einer Schnittstelle einer Klasse in eine andere Schnittstelle, die vom Client erwartet wird. Dadurch ist die Zusammenarbeit von Klassen 
-        gewährleistet, die sonst aufgrund der inkompatiblen Schnittstelle nicht zusammenarbeiten könnten. \cite{gamma1995adapter}
+        zu den Strukturmustern und ist wie folgt definiert:
+        \\
+        „Das \textit{Adapter} Pattern fungiert als Verbinder zwischen zwei inkompatiblen Schnittstellen, die ansonsten nicht direkt verbunden werden können. Ein Adapter umschließt 
+        eine vorhandene Klasse mit einer neuen Schnittstelle, sodass sie mit der Schnittstelle des Clients kompatibel wird.“\footnote{Beschreibung des Adapter Entwurfsmusters. \url{https://www.baeldung.com/java-adapter-pattern} Besucht am 10.08.2022} \cite{gamma1995adapter}
         \pagebreak
         \\
         Das Zustandsobjekt ist aus Anwendersicht als ein einfaches \ac{POJO}, ein ganz normales Java Objekt, zu implementieren. Das Framework soll sich um die korrekte Nutzung 
@@ -107,10 +104,10 @@
         Der soeben grob skizzierte Aufbau wird in den folgenden Abschnitten konkretisiert.
 
     \subsection{Kommunikationsschicht}
-    Damit das Framework einer hohen Wartbarkeit und Erweiterbarkeit unterliegt, soll bereits in der Kommunikationsebene mithilfe 
-    des genannten \textit{Adapter} Musters eine Abstraktionseben geschaffen werden. Diese erleichtert das Adaptieren 
-    hinzukommender Kommunikationsschnittstellen. Im Rahmen der Arbeit und unter Verwendung des \acs{MQTT}-Kommunikationsprotokolls kann die 
-    Konzeption der Kommunikationsschicht mithilfe des \textit{Adapter} Patterns dem Klassendiagramm der Abbildung (\ref{fig:patternarchitektur}) entnommen werden. 
+    Damit das Framework einer hohen Wartbarkeit und Erweiterbarkeit unterliegt, soll bereits in der Kommunikationsschicht mithilfe 
+    des genannten \textit{Adapter} Musters eine Abstraktionsebene geschaffen werden. Diese erleichtert das Adaptieren 
+    hinzukommender Kommunikationsschnittstellen. Im Rahmen der Arbeit und unter Verwendung des \acs{MQTT}-Protokolls kann die 
+    Struktur der Kommunikationsschicht anhand des \textit{Adapter} Patterns umgesetzt und dem Klassendiagramm der Abbildung (\ref{fig:patternarchitektur}) entnommen werden. 
     Der Client, in dem Fall der \acs{MQTT}-Topic-Subscriber, wird mit einem Transformationsadapter versehen. Hierbei werden die 
     Informationen, die über den Subscriber generiert werden, über eine Funktion an das Framework übergeben, sodass dieses mit den Eingangsinformationen arbeiten kann. 
     Wird eine weitere Kommunikationsschnittstelle hinzugefügt, so muss lediglich ein dafür vorgesehener \textit{Adapter} implementiert werden, der 
