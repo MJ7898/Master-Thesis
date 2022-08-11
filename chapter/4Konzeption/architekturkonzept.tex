@@ -106,12 +106,13 @@
     \subsection{Kommunikationsschicht}
     Damit das Framework einer hohen Wartbarkeit und Erweiterbarkeit unterliegt, soll bereits in der Kommunikationsschicht mithilfe 
     des genannten \textit{Adapter} Musters eine Abstraktionsebene geschaffen werden. Diese erleichtert das Adaptieren 
-    hinzukommender Kommunikationsschnittstellen. Im Rahmen der Arbeit und unter Verwendung des \acs{MQTT}-Protokolls kann die 
-    Struktur der Kommunikationsschicht anhand des \textit{Adapter} Patterns umgesetzt und dem Klassendiagramm der Abbildung (\ref{fig:patternarchitektur}) entnommen werden. 
-    Der Client, in dem Fall der \acs{MQTT}-Topic-Subscriber, wird mit einem Transformationsadapter versehen. Hierbei werden die 
+    hinzukommender Kommunikationsschnittstellen, damit in Zukunft weitere \acs{IoT}-Protokolle mit dem Framework genutzt werden können. 
+    Die geplante Struktur kann dem Klassendiagramm in Abbildung (\ref{fig:patternarchitektur}) entnommen werden. 
+    Der Client, in dem speziellen Fall der \textit{\acs{MQTT}-Topic-Subscriber}, wird mit einem \textit{Transformationsadapter} versehen. Hierbei werden die 
     Informationen, die über den Subscriber generiert werden, über eine Funktion an das Framework übergeben, sodass dieses mit den Eingangsinformationen arbeiten kann. 
     Wird eine weitere Kommunikationsschnittstelle hinzugefügt, so muss lediglich ein dafür vorgesehener \textit{Adapter} implementiert werden, der 
-    alle für das Framework notwendigen Informationen übergibt. So bleibt die interne Arbeitsweise des Frameworks unverändert.
+    alle für das Framework notwendigen Informationen übergibt. Dadurch bleibt die interne Arbeitsweise des Frameworks unverändert und fördert so die Erweiterbarkeit des 
+    Systems.
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Kommunikationsschicht_final.png}
@@ -121,10 +122,10 @@
     \pagebreak
     \\
     Der interne Ablauf einer Nachrichtenkonsumierung kann dem Sequenzdiagramm in Abbildung (\ref{fig:kommunikationsequenz}) entnommen werden. Mit der Transformation 
-    wird das eingehende \acs{MQTT}-Topic mit den vom Anwender definierten Topics überprüft. Gibt es dabei eine Übereinstimmung, so wird anhand des Topics die mitgelieferte 
-    Nachricht konsumiert und dem jeweiligen Wert im Zustandsraum zugeordnet und dementsprechend verändert. Mit der Zustandsänderung wird die 
-    Prozessschicht des Frameworks aufgerufen, die daraufhin die dem Framework bekannten Regeln überprüft und zutreffende startet. Der Durchlauf wird in dem Abschnitt (\ref{subsec:logikschicht}) 
-    explizit dargestellt. 
+    soll das eingehende \acs{MQTT}-Topic mit den vom Anwender definierten Topics überprüft werden. Gibt es dabei eine Übereinstimmung, soll anhand des Topics die mitgelieferte 
+    Nachricht konsumiert und dem jeweiligen Wert im Zustandsraum zugeordnet und dementsprechend überschrieben werden. Mit der Zustandsänderung wird die 
+    Prozessschicht des Frameworks aufgerufen, die daraufhin alle dem Framework bekannten Regeln überprüft und die Zutreffenden startet. Der Durchlauf wird in dem Abschnitt (\ref{subsec:logikschicht}) 
+    dargestellt. 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Kommunikationsschicht_Sequenz_Final.png}
@@ -141,10 +142,10 @@
     Klassendiagramm (\ref{fig:patternlogik}) zu entnehmen. Die an zentraler Stelle stehende Klasse des \textit{LogicHubState} übernimmt die Koordination 
     der Zustandsänderung, sowie das nachträgliche Prüfen der Regelbedingungen, sowie das Ausführen des Regelprozesses. 
     \\
-    Darin wird die Kopie des Zustandsobjektes inklusive der Änderung vorgenommen werden, damit in folgenden Prozessen die Repräsentation des Objektes nicht verfälscht wird. 
+    Darin wird die Kopie des Zustandsobjektes inklusive der Änderung vorgenommen werden, damit in folgenden Prozessen keine Inkonsistenz des Zustandsraumes entsteht. %die Repräsentation des Objektes nicht verfälscht wird. 
     Somit wird verhindert, dass eine durch Regeln erzeugte Zustandsänderung das eigentliche Objekt direkt manipuliert. Dies ist eine getroffene Maßnahme, da die Regelprozesse asynchron abgearbeitet werden 
-    und so mehrere Zustandsänderungen erfolgen könnten. Zusätzlich ist der Kopiervorgang zu sperren, dass keine Inkonsistenz des Zustandes entsteht. 
-    Dieser Vorgang wird in der Umsetzung (siehe Kapitel \ref{chap:umsetzung}) erläutert.
+    und so mehrere Zustandsänderungen erfolgen könnten. Zusätzlich ist der Kopiervorgang zu sperren, dass ebenso keine Inkonsistenz des Zustandes entsteht. 
+    %Dieser Vorgang wird in der Umsetzung (siehe Kapitel \ref{chap:umsetzung}) erläutert.
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Logikschicht_final.png}
@@ -152,7 +153,7 @@
         \label{fig:patternlogik}
     \end{figure}
     \\
-    Der initiale Ablauf von der Erstellung einer Kopie, bis hin zur Prüfung der Regelbedingung, sowie das anschließende Durchführen gestaltet sich wie folgt: 
+    Der initiale Ablauf von der Erstellung einer Kopie, bis hin zur Prüfung der Regelbedingung, sowie das anschließende Durchführen gestaltet sich, wie dem folgenden Sequenzdiagramm zu entnehmen ist. 
     \\
     \pagebreak
     \begin{figure}[hbt!]
@@ -162,9 +163,11 @@
         \label{fig:logiksequenz}
     \end{figure}
     \\
-    \linebreak
-    Dem Sequenzdiagramm ist ebenso die Transformation zu entnehmen, die erzielt wird, wenn durch eine Regel eine erneute Zustandsänderung stattfindet, die bspw. Befehle über \acs{MQTT} 
-    veröffentlicht, um Komponenten steuern zu können. Auf die konkrete Umsetzung der soeben architektonisch beschriebenen Komponenten wird in folgendem Kapitel (siehe Umsetzung \ref{chap:umsetzung}) 
+    %\linebreak
+    Dem Diagramm (\ref{fig:logiksequenz}) ist ebenso die inverse Transformation (\ref{subsec:inverseTransformation}) zu entnehmen. Mithilfe dieser sollen erneute 
+    Zustandsänderungen, die der Anwender durch eine Regel definiert, stattfinden, bspw. zur Veröffentlichung von Steuerbefehlen über eine \acs{MQTT}-Nachricht. %von Nachrichten über \acs{MQTT}, um Steuerbefehle die erzielt wird, wenn durch eine Regel eine erneute Zustandsänderung stattfindet, die bspw. Befehle über \acs{MQTT} 
+    %veröffentlicht, um Komponenten steuern zu können. 
+    Auf die konkrete Umsetzung der soeben architektonisch beschriebenen Komponenten wird in folgendem Kapitel (siehe Umsetzung \ref{chap:umsetzung}) 
     eingegangen.
     \\
     Die Ausprägung der Persistenzsschicht wurde im Rahmen dieser Arbeit nicht weiter detailliert, da zu aktuellem Zeitpunkt 
