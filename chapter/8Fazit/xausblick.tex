@@ -32,7 +32,8 @@
     \linebreak
     Eine weitere Maßnahme mit der die formalisierten Interaktionen der Softwareentwickler künftig noch einfacher zu handhaben sind, wäre die Entwicklung eines \ac{CLI}. Dadurch könnten mithilfe 
     von dynamischer Quellcode Generierung die einzelnen Komponenten für eine Regel, darunter Attribut im Zustandsraum, leeres Transformationsobjekt und Regelklasse, erstellt werden. Als Grundlage dafür 
-    würde beispielsweise das \acs{CLI} von Maven dienen. Dadurch könnte über einen einfachen Befehl alle Elemente, die für eine Regel notwendig sind erstellt werden. Dadurch entfiele z.B. die 
+    würde beispielsweise das \acs{CLI} von \textit{Apache Maven}\footnote{Kommandozeilenwerkzeug aus der Kategorie der Build-Werkzeuge. \url{https://maven.apache.org/index.html} Besucht am 12.08.2022} 
+    dienen. Dadurch könnte über einen einfachen Befehl alle Elemente, die für eine Regel notwendig sind erstellt werden. Dadurch entfiele z.B. die 
     eigenständige Erstellung der Regel, wobei zu beachten ist, dass die richtige abstrakte Klasse verwendet wird und alle zu implementierenden Funktionen präsent sind. 
     \\
     Alternativ wäre die Entwicklung eines \ac{IDE} Plug-ins möglich, mithilfe dessen das Regelkonstrukt darüber erzeugt werden kann. 
@@ -43,7 +44,17 @@
     gebündelt wird. 
     \\
     \linebreak
-    %Transaktionshistorie
+    Zur Steigerung der Integrität und Konsistenz des Zustandsraumes, kann mittels der Persistenzschicht beispielsweise eine Transaktionshitsorie erstellt werden, die jede Zustandsänderung als Datenmodell, bzw. Objekt in eine 
+    Datenbank speichert. So kann nach einem Ausfall der konkrete Zustandsraum wieder eingespielt und die eigentlichen Zustände verwendet werden. Aktuell müssten alle Geräte ihren derzeitigen Zustand erneut übermitteln, wodurch 
+    die Steuerzentrale diese erneut registrieren kann. Durch das Einspielen der letzten Transaktion würden alle Zustände wieder vorhanden sein. Die Ausprägung dieser Schicht ist für weitere Entwicklungen offengehalten. 
+    \\
+    \linebreak
+    Für die Fähigkeit der Überwachung von aktuell ablaufenden Regeln könnte ein sogenanntes \textit{Monitoring} entwickelt und beliebig ausgeprägt werden, sodass auch Prognosen erhoben und Interaktionspunkte geschaffen 
+    werden können. Hierbei könnte beispielsweise über einen separaten Monitor im Büro angezeigt werden, welche Regel durchlaufen wird, bzw. wie die Zustände im Zustandsraum aussehen. 
+    \\
+    \linebreak
+    Der Ansatz bietet allgemein eine Möglichkeit, um in einer Umgebung neue Automationen und Prozesse schnellstmöglich umzusetzen. Durch das stetige Wachstum und die Akzeptanz des Bereiches \acl{SH} und dessen Spezifikation des 
+    \textit{Smart Office} wäre das Vorantreiben dieser Idee durch ein Open-Source-Ansatz möglich. Durch die geschaffene Grundlage sind alle Optimierungs-, sowie Erweiterungsmöglichkeiten denkbar und ebenso umsetzbar. 
     %Monitoring
     %Open-source Projekt
     
