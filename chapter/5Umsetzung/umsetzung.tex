@@ -534,7 +534,7 @@ public class InnovationLogicHubApplication {
         definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend ist dabei die Definition der 
         Transformation, sowie die der Regel selbst. 
         \\
-        \linebreak
+        %\linebreak
         Der Prototyp erfüllt alle Voraussetzungen, um die definierten Anwendungsfälle umzusetzen.
     
     \subsection{Modellierungsvorgaben und -grenzen}
@@ -554,20 +554,23 @@ public class InnovationLogicHubApplication {
         diese werden jedoch nicht vom Framework berücksichtigt.
         \\
         \linebreak
-        Die Transformation gibt ein klar definiertes Konstrukt. Dafür gibt es Zwei Klassen, die implementiert werden können, die 
+        Die Transformation gibt ein klar definiertes Konstrukt vor. Dafür gibt es Zwei Klassen, die implementiert werden können, die 
         jeweils die Oberklasse \textit{AbstractTopicTransformation} erweitern. Zum einen die Transformation ohne 
         optionale \textit{White-List} von zugelassenen Werten und zum anderen die, in der eine solche Liste übergeben werden kann. Über die 
         \textit{addTransformation}-Funktion wird zur Laufzeit das Transformationsobjekt erzeugt. Die Inhalte sind klar vorgegeben (siehe Abschnitt \ref{subsec:transformation}) 
         und müssen vom Entwickler entsprechend definiert und erzeugt werden.
         \\
-        \linebreak
-        Die Definition einer Regel sieht vor, dass die Bedingung, die zutreffen muss, auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
+        %\linebreak
+        Die Definition einer Regel sieht vor, dass die Bedingung auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
         frei implementiert werden. Zum Erstellen einer Regel ist zu Anfang sicherzustellen, dass diese von der Abstrakten Regel klasse erbt. So kann die Regel einer 
-        Oberklasse zugeordnet werden und vom Framework als solche erkannt werden. Zusätzlich dazu, gibt es für die wichtigen Funktionen, die eine Regel zum 
-        Implementieren bereitstellt, eine Annotation. Diese geben syntaktische Metadaten vor, die die richtige Implementieren der Funktionen forciert. Die 
+        Oberklasse zugeordnet und vom Framework als solche erkannt werden. Zusätzlich gibt es für die wichtigen Funktionen, die eine Regel zur 
+        Implementierung bereitstellt, Annotationen. Diese geben syntaktische Metadaten vor, die das richtige Implementieren der Funktionen forciert. Die 
         Annotation muss beim erstellen einer Klasse über der Funktion hinzugefügt werden. Dem Quellcode-Ausschnitt im Anhang (siehe \ref{code:switch}) ist diese 
-        syntaktische Hilfestellung zu entnehmen. Wichtig ist ebenso, dass nach der Definition einer Regel diese auch dem Framework mittels der \textit{addRule}-Funktion 
-        übergeben wird. 
+        syntaktische Hilfestellung zu entnehmen. Wichtig ist ebenso das Übergeben der definierten Regel an das Framework mittels der \textit{addRule}-Funktion 
+        übergeben. 
+        \\
+        Bei der Verwendung einer Bedingungsprüfung ist darauf zu achten, dass diese aussagekräftig ist. Wird allerdings eine Bedingung so gewählt, dass sie bei jeder Zustandsänderung greift, wird die 
+        Regel rückgekoppelt und endlos oft ausgeführt. Dafür muss entweder innerhalb der Regel der Zustand wieder geändert oder eine treffendere Bedingung definiert werden.
         \\
         Diese Anmerkungen sind bei der Nutzung des Frameworks zu berücksichtigen, damit das Framework entsprechend arbeitet und die Regel und Prozesse ausführt. 
     %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 

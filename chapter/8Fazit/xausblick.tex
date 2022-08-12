@@ -1,5 +1,65 @@
 \chapter{Ausblick}
 \label{chap:ausblick}
+    Das Framework liefert aus Sicht der Usability gute Ergebnisse und gibt dem Anwender die zu implementierenden Elemente klar vor. 
+    Vorausgesetzt werden hierbei jedoch Grundkenntnisse der Programmierung, sowie die Kenntnis über die zu implementierenden Elemente des Systems. 
+    Zukünftige Weiterentwicklungen des im Rahmen dieser Arbeit vorgestellten Frameworks sollten demnach zum Ziel haben, das entworfene Konzept, 
+    sowie den aktuellen Prototypen entsprechend zu erweitern. 
+    \\
+    \linebreak
+    Für die Optimierung des Systems bietet primär der Algorithmus der Regelprüfung und -ausführung Potential. Dieser ließe sich beispielsweise 
+    gut um einen \textit{Queuing}-Mechanismus ergänzen, damit alle eintreffenden Zustandsänderungen berücksichtigt werden, die zum 
+    Zeitpunkt der Bedingungsüberprüfung eventuell nicht zutreffen. Diese würden dann zurückgehalten und immer wieder überprüft werden, bis eine 
+    Bedingung zutrifft und die Zustandsänderung eine entsprechende Aktion ausführt. Sofern dies beabsichtigt ist. 
+    \\
+    \linebreak
+    Des weiteren kann das derzeit statische \textit{JSON}-Konstrukt der inversen Transformation so optimiert werden, dass beliebige Konstrukte 
+    als \acs{MQTT}-Nutzlast veröffentlicht werden können. Dadurch wäre eine Versendung mehrerer Informationen möglich. 
+    \\
+    Im Zuge dessen wäre eine Optimierung des Kopieralgorithmus angebracht, sodass verwendete Komponenten im Zustandsraum nach dem Kopiervorgang keine neue 
+    Objektreferenz zur Programmlaufzeit erhalten. In Kombination dieser Schritte wäre nachfolgend eine Verwendung von Komponenten im Zustandsraum möglich, wobei 
+    dies nach wie vor keine konkreten Vorteile aufweist. Dadurch würde lediglich die Gestaltung des Zustandsraumes auf die Komponenten verlagert werden. 
+    \\
+    Die Java Reflection müsste dahingehen geringfügig angepasst werden, sodass Überprüfungen im Stile des abfolgenden Baumgraphs, entlang der Pfade stattfindet.
+    \\
+    \linebreak
+    Neben den inhaltlichen Optimierungen gibt es ebenso Erweiterungsmöglichkeiten, um die formalisierten Interaktionen der Softwareentwickler zusätzlich zu vereinfachen und 
+    weitere Funktionalitäten dem Framework zu übergeben. Diese sind im Rahmen von Ergänzungen anzusehen.
+    \\
+    Damit der Softwareentwickler zu den Annotationen und der vorgegebenen Regelstruktur dessen Richtigkeit überprüfen kann, wäre ein Debug-Mechanismus für die implementierten Regeln sinnvoll. 
+    Mithilfe dessen könnte zusätzlich die Syntax und zu verwendende Struktur der Regel sichergestellt werden. In Folge dessen könnte auch ein Ansatz konzipiert werden, wie ein Testframework 
+    auf das System angewendet werden könnte, um die Funktionalität ergänzend zu den JUnit-Tests zu überprüfen. 
+    \\
+    \linebreak
+    Eine weitere Maßnahme mit der die formalisierten Interaktionen der Softwareentwickler künftig noch einfacher zu handhaben sind, wäre die Entwicklung eines \ac{CLI}. Dadurch könnten mithilfe 
+    von dynamischer Quellcode Generierung die einzelnen Komponenten für eine Regel, darunter Attribut im Zustandsraum, leeres Transformationsobjekt und Regelklasse, erstellt werden. Als Grundlage dafür 
+    würde beispielsweise das \acs{CLI} von Maven dienen. Dadurch könnte über einen einfachen Befehl alle Elemente, die für eine Regel notwendig sind erstellt werden. Dadurch entfiele z.B. die 
+    eigenständige Erstellung der Regel, wobei zu beachten ist, dass die richtige abstrakte Klasse verwendet wird und alle zu implementierenden Funktionen präsent sind. 
+    \\
+    Alternativ wäre die Entwicklung eines \ac{IDE} Plug-ins möglich, mithilfe dessen das Regelkonstrukt darüber erzeugt werden kann. 
+    \\
+    \linebreak
+    Zum stetigen Ausbau des Frameworks wäre eine Erweiterung zur Nutzung zusätzlicher Kommunikationsprotokolle durchaus denkbar. Die notwendigen Vorkehrungen sind durch die Architektur durchaus gegeben. 
+    Ähnlich zu Home Assistant wäre die Bereitstellung einer \acs{MQTT}-Broker-Instanz möglich, sodass das Framework autark und unabhängiger verwendet werden kann, bzw. das Management der grundlegenden Funktionen 
+    gebündelt wird. 
+    \\
+    \linebreak
+    %Transaktionshistorie
+    %Monitoring
+    %Open-source Projekt
+    
+    %Ergänzungen, bspw. 
+        %Regeldebugger (Anwendung eines Testframeworks), 
+        %Code Generator (CLI like Angular CLI), 
+        %IDE Plugin zur Erstellung von Regelkonstrukten, 
+        %Weitere KommunikationsProtokolle, Bereitstellung eigener Kommunikationskomponenten?
+        % Transaktionshistorie
+        %Monitoring von Prozessen und Regeln, um den Status des Systems überblicken zu können. (Welche Regel wird gerade ausgeführt und wie lange braucht diese?)
+    % Optimierungen: 
+        %Verbesserung der Regeldurchführung durch Queueing, 
+        %inverse Transformation um zu sendendes JSON Konstrukt dynamisch zu erstellen je nach Bedarf, 
+        %Nutzung von Komponenten im Zustandsraum 
+    % Das Framework als open-source-Projekt pushen und anbieten
+
 
 % Nutzung von Spring Dynamic Modules for OSGi Service Platforms -> https://de.wikipedia.org/wiki/Spring_(Framework)#Vergleich 
 % -> Für die Realisierung eines weitreichenderen Frameworks, bzw. Applikation. 

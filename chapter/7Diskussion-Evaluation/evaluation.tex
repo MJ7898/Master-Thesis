@@ -205,8 +205,8 @@ Ziel der Arbeit abschließend evaluiert.
         nicht deutlich genug, kann es passieren, dass Regeln ungewollt ausgeführt werden. Deshalb ist die Validierung der Regelbedingung durch den 
         Entwickler essentiell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
         systemseitig keine negativen Auswirkungen von mehrdeutigen Bedingungen, die fälschlicherweise die Zuordnung und Ausführung einer Regel gefährden. Wird jedoch durch die 
-        Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat. So Würde das 
-        Framework eine Endlosschleife bilden und in einen \textit{StackOverflowError} laufen. Demnach ist die Auswahl der Bedingung einer der wichtigsten 
+        Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat. So würde das 
+        Framework eine Endlosschleife und Rückkopplung bilden und dadurch einen \textit{StackOverflowError} erzeugen. Demnach ist die Auswahl der Bedingung einer der wichtigsten 
         Punkte, die zu berücksichtigen sind.
         \\
         \linebreak
