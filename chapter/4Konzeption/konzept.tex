@@ -201,7 +201,7 @@
         in den Attributwert der Variable, die durch den Entwickler spezifiziert wurde, übertragen werden. Die Änderung des 
         Zustandsraumes löst daraufhin den weiteren Ablauf aus. 
         \\
-        Das aktuelle Zustandsobjekt wird zum Zeitpunkt der Überschreibung für weitere Lese- und Schreiboperationen gesperrt, sodass 
+        Das aktuelle Zustandsobjekt wird zum Zeitpunkt der Überschreibung für weitere Lese- und Schreiboperationen durch einen Lock-Mechanismus gesperrt, sodass 
         die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor reale Zuständen wiedergegeben werden. Anschließend erfolgt die 
         Erstellung einer Kopie des Zustandsobjektes, mit der 
         darauffolgend weiter verfahren wird. Nachdem das Zustandsobjekt geklont wurde, wird der Sperrvorgang aufgehoben und die 
@@ -209,11 +209,7 @@
         wird jeweils nochmals eine Kopie des Zustandsobjektes erzeugt, mit dem bei der Iteration die Regel-Bedingungen überprüft werden. 
         Bei zutreffender Bedingung wird die entsprechende Regel ausgeführt. Zur Abarbeitung mehrerer Prozesse 
         gleichzeitig soll durch Asynchronität die Bedingungsprüfung und Durchführung der Regel in einen separaten \textit{Thread} ausgelagert 
-        werden, sodass Regeln parallel ausgeführt werden können.  
-        %Für die Zeitspanne der Zustandsänderung und der 
-        %nachfolgenden Kopie soll das Zustandsobjekt kurzzeitig für weitere Transaktionen und Änderungen, genauer gesagt für Lese- und 
-        %Schreiboperationen durch einen Lock-Mechanismus gesperrt werden. Dadurch kann anschließend das Zustandsobjekt mit der vorher 
-        %getätigten Änderung kopiert werden, um die anschließende Regel-Iteration durchzuführen. 
+        werden, sodass Regeln parallel ausgeführt werden können. 
         Wichtig an dieser Stelle zu 
         erwähnen ist die Prüfung der Regel-Bedingungen mittels der Kopie des Zustandsraumes. 
         Durch den Sperrvorgang wird gewährleistet, dass eine Zustandsänderung sauber durchgeführt wird und daraufhin eine Regel mit der 

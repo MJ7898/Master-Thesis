@@ -106,12 +106,12 @@
     \subsection{Kommunikationsschicht}
     Damit das Framework einer hohen Wartbarkeit und Erweiterbarkeit unterliegt, soll bereits in der Kommunikationsschicht mithilfe 
     des genannten \textit{Adapter} Musters eine Abstraktionsebene geschaffen werden. Diese erleichtert das Adaptieren 
-    hinzukommender Kommunikationsschnittstellen, damit in Zukunft weitere \acs{IoT}-Protokolle mit dem Framework genutzt werden können. 
+    hinzukommender Kommunikationsschnittstellen, um in Zukunft weitere \acs{IoT}-Protokolle mit dem Framework zu nutzen. 
     Die geplante Struktur kann dem Klassendiagramm in Abbildung (\ref{fig:patternarchitektur}) entnommen werden. 
-    Der Client, in dem speziellen Fall der \textit{\acs{MQTT}-Topic-Subscriber}, wird mit einem \textit{Transformationsadapter} versehen. Hierbei werden die 
-    Informationen, die über den Subscriber generiert werden, über eine Funktion an das Framework übergeben, sodass dieses mit den Eingangsinformationen arbeiten kann. 
+    Der Client, in dem speziellen Fall der \textit{\acs{MQTT}-Topic-Subscriber}, wird mit einem \textit{Transformationsadapter} versehen. Hierbei wird mit den eingehenden 
+    Informationen, die über die Funktion des Subscribers abgegriffen und an das Frameworks übergeben wurden, gearbeitet. 
     Wird eine weitere Kommunikationsschnittstelle hinzugefügt, so muss lediglich ein dafür vorgesehener \textit{Adapter} implementiert werden, der 
-    alle für das Framework notwendigen Informationen übergibt. Dadurch bleibt die interne Arbeitsweise des Frameworks unverändert und fördert so die Erweiterbarkeit des 
+    alle für das Framework notwendigen Informationen delegiert. Dadurch bleibt die interne Arbeitsweise des Frameworks unverändert und fördert so die Erweiterbarkeit des 
     Systems.
     \begin{figure}[hbt!]
         \centering
@@ -124,7 +124,7 @@
     Der interne Ablauf einer Nachrichtenkonsumierung kann dem Sequenzdiagramm in Abbildung (\ref{fig:kommunikationsequenz}) entnommen werden. Mit der Transformation 
     soll das eingehende \acs{MQTT}-Topic mit den vom Anwender definierten Topics überprüft werden. Gibt es dabei eine Übereinstimmung, soll anhand des Topics die mitgelieferte 
     Nachricht konsumiert und dem jeweiligen Wert im Zustandsraum zugeordnet und dementsprechend überschrieben werden. Mit der Zustandsänderung wird die 
-    Prozessschicht des Frameworks aufgerufen, die daraufhin alle dem Framework bekannten Regeln überprüft und die Zutreffenden startet. Der Durchlauf wird in dem Abschnitt (\ref{subsec:logikschicht}) 
+    Prozessschicht des Frameworks aufgerufen, die daraufhin alle dem Framework bekannten Regeln überprüft und die Zutreffenden startet. Der Durchlauf wird im Abschnitt (\ref{subsec:logikschicht}) 
     dargestellt. 
     \begin{figure}[hbt!]
         \centering
@@ -132,20 +132,19 @@
         \caption{Sequenzdiagramm zur Kommunikationsschicht}
         \label{fig:kommunikationsequenz}
     \end{figure}
-    % NOCHMALS DIE SCHICHTEN MIT:
-    % KOMMUNIKATIONSSCHICHT UND AUFBAU -> \subsection{}?
-    % LOGIKSCHICHT UND AUFBAU -> \subsection{}?
+
     \subsection{Logik- und Prozessschicht}
     \label{subsec:logikschicht}
     Die Logik- und Prozessschicht wird aktiv, wenn durch eine bestimmte Kommunikationsschnittstelle, im Rahmen der Arbeit ausschließlich durch \acs{MQTT} realisiert, ein eingehendes 
     Event, bzw. eine eingehende Nachricht konsumiert und daraufhin das Zustandsobjekt geändert wurde. Die in erster Linie dafür benötigten Objekte sind dem 
-    Klassendiagramm (\ref{fig:patternlogik}) zu entnehmen. Die an zentraler Stelle stehende Klasse des \textit{LogicHubState} übernimmt die Koordination 
-    der Zustandsänderung, sowie das nachträgliche Prüfen der Regelbedingungen, sowie das Ausführen des Regelprozesses. 
+    Klassendiagramm (\ref{fig:patternlogik}) zu entnehmen. Die an zentraler Stelle stehende Klasse des \textit{LogicHubState} soll die Koordination 
+    der Zustandsänderung, sowie das nachträgliche Prüfen der Regelbedingungen und das Ausführen des Regelprozesses übernehmen. 
     \\
-    Darin wird die Kopie des Zustandsobjektes inklusive der Änderung vorgenommen werden, damit in folgenden Prozessen keine Inkonsistenz des Zustandsraumes entsteht. %die Repräsentation des Objektes nicht verfälscht wird. 
-    Somit wird verhindert, dass eine durch Regeln erzeugte Zustandsänderung das eigentliche Objekt direkt manipuliert. Dies ist eine getroffene Maßnahme, da die Regelprozesse asynchron abgearbeitet werden 
-    und so mehrere Zustandsänderungen erfolgen könnten. Zusätzlich ist der Kopiervorgang zu sperren, dass ebenso keine Inkonsistenz des Zustandes entsteht. 
-    %Dieser Vorgang wird in der Umsetzung (siehe Kapitel \ref{chap:umsetzung}) erläutert.
+    Die \textit{LogicHubState} Klasse muss eine \textit{setState}-Methode enthalten, die die Schritte der Zustandsänderung und die des Kopiervorgangs des Zustandsobjektes beinhaltet. 
+    In der vorgesehenen Funktion wird anschließend mit der Kopie des Zustandsraumes und der hierin immanierten Änderung gearbeitet, indem daraufhin das Regelwerk durchlaufen wird und die Bedingungen 
+    der darin enthaltenen Regel überprüft werden. Durch die Verwendung der Kopie zum Durchlaufen der zutreffenden Regelprozesse entsteht keine Inkonsistenz des eigentlichen Zustandsraums.  
+    Somit wird verhindert, dass eine Zustandsänderung durch eine Regel das repräsentative Zustandsobjekt direkt manipuliert. Dadurch können Regelprozesse asynchron abgearbeitet werden 
+    und so mehrere Zustandsänderungen erfolgen. Zusätzlich wird der Kopiervorgang gesperrt, sodass keine Inkonsistenz des Zustandes durch gleichzeitig hereinkommende Änderungen entsteht. 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Logikschicht_final.png}
@@ -153,7 +152,7 @@
         \label{fig:patternlogik}
     \end{figure}
     \\
-    Der initiale Ablauf von der Erstellung einer Kopie, bis hin zur Prüfung der Regelbedingung, sowie das anschließende Durchführen gestaltet sich, wie dem folgenden Sequenzdiagramm zu entnehmen ist. 
+    Der initiale Ablauf von der Zustandsänderung bis hin zur Prüfung der Regelbedingung über die Erstellung einer Kopie, sowie das anschließende Durchführen kann dem folgenden Sequenzdiagramm entnommen werden. 
     \\
     \pagebreak
     \begin{figure}[hbt!]
@@ -164,50 +163,20 @@
     \end{figure}
     \\
     %\linebreak
-    Dem Diagramm (\ref{fig:logiksequenz}) ist ebenso die inverse Transformation (\ref{subsec:inverseTransformation}) zu entnehmen. Mithilfe dieser sollen erneute 
+    Das Diagramm (\ref{fig:logiksequenz}) beinhaltet ebenso die inverse Transformation (\ref{subsec:inverseTransformation}). Mithilfe dieser sollen erneute 
     Zustandsänderungen, die der Anwender durch eine Regel definiert, stattfinden, bspw. zur Veröffentlichung von Steuerbefehlen über eine \acs{MQTT}-Nachricht. %von Nachrichten über \acs{MQTT}, um Steuerbefehle die erzielt wird, wenn durch eine Regel eine erneute Zustandsänderung stattfindet, die bspw. Befehle über \acs{MQTT} 
     %veröffentlicht, um Komponenten steuern zu können. 
-    Auf die konkrete Umsetzung der soeben architektonisch beschriebenen Komponenten wird in folgendem Kapitel (siehe Umsetzung \ref{chap:umsetzung}) 
-    eingegangen.
+    Auf die konkrete Umsetzung der soeben architektonisch beschriebenen Komponenten wird im folgenden Kapitel (siehe Umsetzung \ref{chap:umsetzung}) 
+    eingegangen. 
     \\
-    Die Ausprägung der Persistenzsschicht wurde im Rahmen dieser Arbeit nicht weiter detailliert, da zu aktuellem Zeitpunkt 
+    Die Ausprägung der Persistenzschicht wurde im Rahmen dieser Arbeit nicht weiter detailliert aufgezeigt, da zum aktuellen Zeitpunkt 
     kein Bedarf an der Speicherung von Historien oder Zustandsänderungen besteht. Dennoch wird an dieser Stelle erwähnt, dass die Einbindung einer 
-    Datenbank, sowie die Modellierung der Datenobjekte und deren Speicherung ohne weiteres möglich ist und dem keine Grenzen gesetzt sind.  
-    %\subsection*{Persistenzschicht}
-    % EVTL.: PERSISTENZSCHICHT UND POTENTIELLER AUFBAU -> \subsection{}?
-    % Es wird alles abgebildet über einen Zustandsraum, der sich aus den Dingen (Gegenständen) und Zuständen der Anwendung ergibt.
-    % Der Zustandsraum wird verändert, wenn eine Aktion durchgeführt wird, bzw. durch eine Trigger angestoßen. 
-    % Bzw. speichert den aktuellen Zustand des Gegenstandes 
-    % (lightBulb = true/false, personOnDoor = null/Mikka, booking = stringBooking, temiAktive = true/false, 
-    % temiPosition = stringKoordinates)
-    % Zustandsraum muss von dem Entwickler definiert werden. 
-    % MQTT Broker über Home Assistant, bzw. losgelöster Broker
-    % Anbindung von APIs auch Entwickler-Sache. Kann ich das vereinfachen, sodass die Integration einfacher wird?
-    %\subsection{Überlegungen, Anstöße und Herausforderungen}
-    % Regeln über Thread abbilden? Ja, Nein? - Nein, wieso? Da Durch die MQTT Message mehrere Regeln ausgeführt 
-    %werden können. -> Lediglich den Zustand der Komponenten locken.
-    % KEIN THREAD (wird schon abgebildet durch die Services und die Auslöser durch MQTT), Falls eine Komponente 
-    %  doppelt beansprucht wird, ist der Zustand der Komponenten zu locken und ein 
-    % Thread.sleep einzurichten. Abfrage, ob der Wert, bzw. die Komponente wieder freigegeben wurde. 
-    % Zustandsraum -> Abbildung aller notwendigen Komponenten 
-    % Bei Bearbeitung einer Regeln die Komponenten Locken, sodass nur die einzelne Komponenten (deren Zustand) gelockt ist 
-    % und nicht der ganze Zustandsraum, somit können mehrere Komponenten und Aktionen ausführen zu können. 
-    %Was brauche ich für Funktionen und Werte in einer Regel?
-    % Ein Zustandsraum (Objekt) für alles oder ein Globales, welches die die Komponenten enthält? - Begründung für die Auswahl.
-    %\subsection{Schnittstellen}
-        % Kommunikation mit API's je nach Use Case und Gebrauch zur Datenabfrage
-    %\subsection*{Datenbanken}
-    %   Anbindungen an Datenbanken sind je nach hinzukommendem Anwendungsfall ohne weiteres möglich. Dies ist eine Konzeptvertiefung, die 
-    %    im Rahmen dieser Arbeit nicht konkretisiert wird, da der Fokus auf der Kernfunktionalität, sowie auf dem 
-        % Datenbanken je nach Use Case und Gebrauch zur Datenabfrage
-    %\subsection{Parallelität}
-    %HERAUSFORDERUNG MIT DEM QUEUEING ANTEASERN.
-%\subsection{Softwarekonzept}
-%\label{subsec:softwarekonzept}
+    Datenbank, sowie die Modellierung der Datenobjekte und deren Speicherung ohne weiteres möglich ist. 
 \\
-%\linebreak
-Für die Generierung mehrerer konkurrierender Sichten, wurde unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}
-bereits bei der Anforderungsanalyse (\ref{chap:anforderungsanalyse}) die Szenarien beschrieben. Die im Modell dargestellten Sichten wurden mit 
-Klassen- und Sequenzdiagrammen %-, Aktivitäts- und Komponentendiagrammen 
-im Konzept veranschaulicht. Nach Beendigung der Konzeption wird in folgendem Kapitel die Umsetzung des Konzeptes und die 
+\linebreak
+Für die Generierung mehrerer konkurrierender Sichten wurden die Diagramme, darunter Klassen- und Sequenzidagramme 
+(siehe \ref{fig:patternkommunikation}, \ref{fig:kommunikationsequenz}, \ref{fig:patternlogik} \& \ref{fig:logiksequenz}) 
+unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}, erstellt. 
+Die Beschreibung der Szenarien fand bereits in der Anforderungsanalyse (siehe \ref{subsec:checkin} \& \ref{subsec:evacuation}) statt. 
+Nach Beendigung der Konzeption wird im folgenden Kapitel die Umsetzung des Konzeptes und die 
 Implementierung des Prototypen vertieft. 
