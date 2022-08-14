@@ -136,46 +136,43 @@ public class Application {
 
 \subsection{Zustandsraum}
 \label{subsec:zustandsraum}
-    Der vom Anwender zu definierende Zustandsraum stellt ein einfaches Java Objekt (\textit{\acs{POJO}}) dar, das in einer eigenen Klasse definiert wird. 
+    Der vom Anwender zu beschreibende Zustandsraum stellt ein einfaches Java Objekt (\textit{\acs{POJO}}) dar, das in einer eigenen Klasse definiert wird. 
     Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte abbilden. Dies erfolgt durch 
-    Klassenvariablen, die einem primitiven und überwiegend einem nicht primitiven Datentypen entsprechen, bspw. könnte eine LED-Leuchte als \textit{boolean} mit den 
+    Klassenvariablen, die sowohl einem primitiven Datentypen entsprechen als auch dem nicht primitiven \textit{String}. Beispielsweise könnte eine LED-Leuchte als \textit{boolean} mit den 
     Werten \textit{true} und \textit{false} oder als \textit{char} mit jeweils \textit{"y"} und \textit{"n"} oder mit dem nicht primitiven 
-    Typen \textit{String} mit den Zeichenketten \textit{"on"} und \textit{"off"} definiert 
+    Typen \textit{String} mit den Zeichenketten \textit{\"on"} und \textit{\"off"} definiert 
     werden. Diese Entscheidung kann alleinig der Entwickler treffen. 
     \\
     \linebreak
     Die im Zustandsraum erstellten Felder werden direkt an eine Transformation (siehe Abschnitt \ref{subsec:transformation}) gebunden. So kann sichergestellt werden, dass 
-    das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert, bzw. empfangen wird. Dadurch kann 
-    auch die Dopplung von Felder vermieden werden, dies bedeutet, dass ein Feld nicht für mehrere reelle Gegenstände stehen kann. Hierfür ist für jedes 
-    Gerät mindestens ein eigenes Feld zu definieren. Durch die Verwendung von einfachen primitiven und nicht primitiven Datentypen innerhalb 
-    des Zustandsobjektes kann eine Rückkopplung von Objekten vermieden werden. 
+    das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert, bzw. empfangen wurde. Dadurch kann 
+    auch die Dopplung von Felder vermieden werden, was bedeutet, dass ein Feld nicht für mehrere reelle Gegenstände stehen kann. Für jedes 
+    Gerät ist mindestens ein eigenes Feld zu definieren. Durch die Verwendung von einfachen primitiven und nicht primitiven Datentypen innerhalb 
+    des Zustandsobjektes kann eine Rückkopplung umgangen werden. 
     \\
     \linebreak
-    Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Klasse, die neben einem Konstruktor alle Felder und Attribute besitzt, die Zustände reeller 
+    Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Java-Klasse, die zusätzlich zu einem Konstruktor alle Felder, bzw. Attribute besitzt, die Zustände reeller 
     Geräte abbilden sollen. Damit der Anwender in seinen definierten Regeln die Werte setzen und abfragen kann, gibt es zu jedem Attribut eine \textit{Getter}- und \textit{Setter}-Methode.
     Es ist wichtig anzumerken, dass das Zustandsobjekt mit dem \textit{Singleton}-Pattern markiert und der Konstruktor dementsprechend initialisiert werden muss. Dadurch wird 
     die Integrität des Objektes, sowie die dadurch vermeidbare Redundanz gewährleistet. Anhand der Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
-    kann mittels der \textit{@Data}-Annotation sämtlicher (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
-    Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Dieses Konstrukt kann in der Form als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
+    kann mittels der \textit{@Data}-Annotation der (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
+    Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Das Konstrukt könnte in diesem Zusammenhang als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
     Transaktionshistorie der Zustandsänderungen zu erstellen.
     \\
     \linebreak
     Durch die Verwendung von Reflection (siehe Abschnitt \ref{subsec:reflection}) ist die Initialisierung des Zustandsraumes auf bestimmte Typendefinitionen beschränkt. 
-    %Die Reflection \acs{API} ist dahingehend sperrig und bietet eine eingeschränkte Manipulation von Objekten. 
-    Auf dieser Grundlage ist eine Verwendung von Objekten im Zustandsraum möglich, davon wird dennoch zu aktuellem Zeitpunkt abgeraten. 
-    \\
-    In der Modellierung des Zustandsraumes gibt es in dem aktuellen konzeptionellen Stand Designvorgaben. Diese werden im Abschnitt der 
-    Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) aufgegriffen. 
+    Auf dieser Grundlage ist eine Verwendung von Objekten im Zustandsraum möglich, jedoch wird zum aktuellen Zeitpunkt davon abgeraten. Die 
+    Begründung dazu findet in den Modellierungsvorgaben (siehe \ref{subsec:modellierungsgrenzen}) statt. Ebenso werden dort die Designvorgaben des 
+    Zustandsraums zum derzeitigen konzeptionellen Stand aufgegriffen. 
     \\ 
     Diese Entscheidung wurde getroffen, da in der Mehrheit der Anwendungsfälle die Zustände über primitive Typen abgebildet werden können. 
-    Ein Designnachteil ist dabei, dass für ein Geräte ggf. mehrere Attribute im Zustandsraum angelegt werden müssen und dadurch das Zustandsobjekt 
+    Ein Designnachteil ist dabei die Anlegung ggf. mehrere Attribute für ein Gerät im Zustandsraum, wodurch das Zustandsobjekt 
     deutlich umfangreicher wird. Eine bessere Übersicht wäre gegeben, wenn die Felder in ein eigenes Objekt, bzw. eine eigene Klasse ausgelagert werden könnten. 
-    Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des Agilen Projektes könnte eine weitere Alternative konzipiert werden, die Objekte 
+    Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des agilen Vorgangs könnte eine weitere Alternative konzipiert werden, die Objekte 
     im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen.
     \\
-    Eine Aggregation von Objekte, bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut, bzw. Element bedient und somit eine 
+    Eine Aggregation von Objekten, bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut, bzw. Element bedient und somit eine 
     eins-zu-eins-Beziehung zwischen dem Feld und dem \acs{MQTT}-Topic besteht. 
-    %TBD Überprüfen, ob doch eine Verwendung von Objekten möglich ist... 
 
 \subsection{Reflection} 
 \label{subsec:reflection}
@@ -187,8 +184,9 @@ public class Application {
     \\
     \linebreak
     Eingesetzt wird die Reflexion in der Transformation, die der Entwickler definiert, um aus eingehenden Events und Nachrichten Zustandsänderungen zu erzeugen. Konkret wird in der 
-    Transformation der Name des Feldes mitgegeben, der vom Entwickler bei der Definition des Zustandsobjektes vergeben wurde. Somit kann immer auf das Feld und dessen Wert zurückgegriffen werden und bei Bedarf durch eine eingehende Nachricht, bzw. durch eine Zustandsänderung innerhalb einer Regel überprüft und geändert werden. Die Struktur der 
-    Transformation wird in folgendem abschnitt greifbar aufgezeigt.
+    Transformation der Name des Feldes mitgegeben, der vom Entwickler bei der Definition des Zustandsobjektes vergeben wurde. Somit kann immer auf das Feld und dessen Wert 
+    zurückgegriffen werden und bei Bedarf durch eine eingehende Nachricht, bzw. durch eine Zustandsänderung innerhalb einer Regel überprüft und geändert werden. Die Struktur der 
+    Transformation wird im folgenden Abschnitt aufgezeigt.
 
 \subsection{Transformation}
 \label{subsec:transformation}
@@ -198,15 +196,15 @@ public class Application {
     %übertragbar ist. 
     \\
     \linebreak
-    Im Rahmen der Arbeit wurden zwei Lösungswege erarbeitet, die jeweils dem Entwickler ermöglichen, eine Transformation zu definieren. Diese werden beide 
-    erläutert und anschließend gegenübergestellt. Das dabei verfolgte Ziel, ist dem Anwender einen möglichst komfortablen Weg zu bieten, eine 
-    Transformation zu implementieren, sodass die Aufwände für denjenigen gering bleiben.
+    Im Rahmen der Thesis wurden zwei Lösungswege erarbeitet, die jeweils dem Entwickler ermöglichen, eine Transformation zu definieren. Diese werden beide 
+    erläutert und anschließend gegenübergestellt. Dem Anwender einen möglichst komfortablen Weg zur Implementierung einer Transformation mit geringem Aufwand zu bieten ist das dabei verfolgte Ziel. 
+
     \subsubsection*{Transformationsobjekt mittels Switch-Case-Anweisung}
     Die erste Option ist die Nutzung einer Switch-Case-Anweisung. Hierbei wird die \textit{transform}-Methode bis zum Anwender durchgereicht. An dieser Stelle 
     wird klar definiert, welches \acs{MQTT}-Topic eine bestimmte Zustandsänderung auslöst. Innerhalb eines Falles (Case) wird über eine 
     \textit{Lambda}\footnote{Java Lambda-Funktion. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html} Besucht am 28.07.2022}-Funktion 
-    der jeweilige Wert im Zustandsobjekt geändert. Mit dem direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
-    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcode (siehe \ref{code:switch-case}) zu entnehmen:
+    der jeweilige Wert im Zustandsobjekt geändert. Durch den direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
+    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcodes (siehe \ref{code:switch-case}) zu entnehmen:
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=8cm,keepaspectratio]{images/Transformation_old.png}
@@ -236,12 +234,12 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
     }
 }
 \end{lstlisting}
-    Dieser Ansatz gibt eine Übersicht des Topics und der dafür vorgesehenen Zustandsänderung. Nachteile dabei sind jedoch, dass die Anweisungen 
-    zunehmen, je mehr Regeln und dafür vorgesehen Zustandsänderungen hinzugefügt werden und die einmalige Verwendung der \acs{MQTT}-Topic-Zeichenkette. Dafür muss der 
-    Anwender, um innerhalb einer Regel eine weitere Zustandsänderung vornehmen zu können, das Topic erneut aufgreifen und in Kenntnis des jeweiligen sein. Mit dem 
-    Topic würde dann über den \acs{MQTT}-Producer eine Nachricht veröffentlicht werden, die die Aktion der Regeländerung steuert. 
+    Dieser Ansatz gibt eine Übersicht über die Topics und deren dafür vorgesehenen Zustandsänderungen. Nachteile dabei sind jedoch die Zunahme der Anweisungen, d.h. 
+    je mehr Regeln und dafür vorgesehene Zustandsänderungen hinzugefügt werden, desto unübersichtlicher und länger wird die Switch-Case-Funktion, und die 
+    Kenntnis der \acs{MQTT}-Topics an verschiedenen Stellen der Anwenderinteraktionen. Um innerhalb einer Regel eine weitere Zustandsänderung vornehmen zu können, muss der 
+    Anwender das Topic erneut aufgreifen, damit über den \acs{MQTT}-Producer eine Nachricht veröffentlicht und eine Aktion ausgelöst wird. 
     \\
-    Diese umständliche Art und Weise galt es dem Anwender zu erleichtern, deshalb wurde ein zweiter Lösungsweg erarbeitet, der in folgendem Abschnitt 
+    Dieser unpraktische Lösungsweg galt es dem Anwender zu erleichtern, weshalb ein zweiter erarbeitet wurde, der im folgenden Abschnitt 
     aufgezeigt wird.
 
     \subsubsection*{Transformationsobjekt mittels eigenem Objekt}
