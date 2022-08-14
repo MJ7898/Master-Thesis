@@ -244,18 +244,18 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
 
     \subsubsection*{Transformationsobjekt mittels eigenem Objekt}
         In Opposition zu der Verwendung einer Switch-Case-Anweisung wird bei diesem Ansatz eine Klasse implementiert, mit der je nach Bedarf 
-        weitere Objekte mit unterschiedlichen Werten erzeugt werden kann. Dabei werden in dem Konstrukt der Klasse die jeweiligen Parameter 
-        definiert. Das zu erzeugende Objekt wird zur Laufzeit dem Framework übergeben und in einer Liste gespeichert, sodass das System damit arbeiten kann. 
+        weitere Objekte mit unterschiedlichen Werten erzeugt werden können. Dabei werden in dem Konstrukt der Klasse die jeweiligen Parameter 
+        definiert. Das zu erzeugende Objekt wird dem Framework zur Laufzeit übergeben und in einer Liste gespeichert, damit auf dieses zurückgegriffen werden kann. 
         Die Parameter, die der Entwickler bestimmt, haben folgende Funktion:
         \begin{itemize}
-            \item 1. Parameter: Hier wird das Topic übergeben. Der \acs{MQTT}-Subscriber prüft, ob das konsumierte Topic einem in der Liste definierten Topics entspricht.
-            \item 2. Parameter: Hier wird der Key definiert. Das über das Topic mitgelieferte JSON-Konstrukt wird auf diesen key überprüft. Dessen Wert für den Zustandsraum relevant. Hierüber wird der Zustand des Objektes transportiert.
+            \item 1. Parameter: Hier wird das Topic übergeben. Der \acs{MQTT}-Subscriber prüft, ob das konsumierte Topic einem in der Liste definierten entspricht.
+            \item 2. Parameter: Hier wird der Key definiert. Das über das Topic mitgelieferte JSON-Konstrukt wird auf diesen Key überprüft. Dessen Wert ist für den Zustandsraum relevant. Hierüber wird der Zustand des Objektes transportiert.
             \item 3. Parameter: Hier wird optional eine Liste übergeben, die nur bestimmte Werte für den Key zulässt, eine sogenannte \textit{White-List}.
             \item 4. Parameter: Hier wird der Name des Feldes im Zustandsraum wiedergegeben, sodass mittels Reflection der Wert im Zustandsraum adressiert werden kann.
-            \item 5. Parameter: Hier wird der Name des Feldes der Komponente im Zustandsraum wiedergegeben, sodass mittels Reflection der Wert der Komponente im Zustandsraum adressiert werden kann.
+            \item 5. Parameter: Hier wird optional der Name des Komponentenfeldes im Zustandsraum wiedergegeben, sodass mittels Reflection der Komponentenwert im Zustandsraum adressiert werden kann.
         \end{itemize}
-        Diese Werte bilden die Transformation, die ebenso für die inverse Transformation (siehe Abschnitt \ref{subsec:inverseTransformation}) gilt.
-        Der Ablauf kann dem folgenden Sequenzdiagramm entnommen werden:
+        Diese Werte bilden die Transformation, die ebenso für die Inverse (siehe Abschnitt \ref{subsec:inverseTransformation}) gilt.
+        Der Ablauf kann dem folgenden Sequenzdiagramm entnommen werden: 
         \\
         \pagebreak
     \begin{figure}[hbt!]
@@ -280,33 +280,30 @@ public class InnovationLogicHubApplication {
     }
 }
 \end{lstlisting}
-    Für die jeweiligen Konfigurationsmöglichkeiten der Transformation gibt es drei Konstrukte, die jeweils benutzt werden können. 
-    Neben der im Code-Beispiel (\ref{code:object}) aufgeführten Struktur gibt es die mit dem zusätzlichen Parameter der \textit{White-List} und 
-    die dritte Möglichkeit, die zusätzlich den Namen eines Feldes innerhalb der Komponente wiedergibt. So können Objekte theoretisch in den Zustandsraum 
-    aufgenommen werden, wovon allerdings zu aktuellem Zeitpunkt abgeraten wird. Die Begründung zu dieser Modellierung wird in dem Abschnitt 
+    Für die jeweiligen Konfigurationsmöglichkeiten der Transformation existieren drei Konstrukte. 
+    Neben der im Code-Beispiel (\ref{code:object}) aufgeführten gibt es die Struktur mit dem zusätzlichen Parameter der \textit{White-List}. 
+    Die dritte Möglichkeit spiegelt zusätzlich den Namen eines Feldes innerhalb einer Komponente wieder. So können Objekte theoretisch in den Zustandsraum 
+    aufgenommen werden, wovon allerdings zum aktuellen Zeitpunkt abgeraten wird. Die Begründung zu dieser Modellierung wird in dem Abschnitt 
     (\ref{subsec:modellierungsgrenzen}) aufgegriffen. 
     \\
     Der interne Ablauf des Frameworks unterscheidet sich bei beiden Transformationsmethoden in Nuancen, wie den beiden Sequenzdiagrammen 
     (\ref{fig:sequenceTransformationOld} und \ref{fig:sequenceTransformationNew}) zu entnehmen ist. Jedoch wird bei dem zweiten Ansatz 
     das Zustandsobjekt mittels Reflection manipuliert und anschließend als Änderung registriert und ausgeführt, während bei der ersten Methode 
     die Änderung direkt über die Lambda-Funktion gesteuert und ausgelöst wird. Dies hat für den Anwender keinerlei Auswirkung auf die 
-    Funktionsweise des Frameworks, bei der Entscheidung war hingegen relevant, welcher Ansatz für den Entwickler den besseren darstellt. 
-    An dieser Stelle bringt der zweite Ansatz Potentiale mit, die dem Entwickler die 
-    Handhabung der Interaktionen formalisieren und erleichtern und zudem übersichtlicher gestalten.
-    \\
-    \linebreak
-    Für die Vorteile, die der zweite Ansatz dem Entwickler gegenüber liefert, wurde dieser in dem Framework angewendet. 
+    Funktionsweise des Frameworks. Innerhalb dieser Thesis war das Ziel die einfache Handhabung der formalisierten Interaktionen und 
+    die übersichtliche Gestaltung. Der zweite Ansatz liefert dem Entwickler diese Vorteile und wird deshalb angewendet. 
     \\
     \linebreak
     Die Funktionsweise der Transformation ist demnach wie folgt umgesetzt:
     \\
     Die vorab definierten Transformationen des Entwicklers werden in einer Liste gespeichert, damit das darin enthaltene Topic mit dem vom \acs{MQTT}-Subscriber eingehenden 
-    verglichen werden kann. Dafür wird über die Liste iteriert und jede Transformation, sowie deren zugewiesenes Topic geprüft. Sofern 
+    verglichen werden kann. Dafür wird die Liste wiederholt überprüft, sowie jede Transformation und deren zugewiesenes Topic. Sofern 
     es eine Übereinstimmung gibt, wird der Key-Wert ermittelt und als Nutzlast (\textit{Payload}) übergeben. An dieser Stelle wird der \textit{ReentrantLock} aktiviert 
-    und die Feldmanipulation für den Wert durchgeführt, der mittels Nutzlast mitgegeben wurde. Nachdem die Zustandsänderung erfolgte, wird der \textit{Lock} deaktiviert und 
-    die Zustandsänderung an die Logikschicht weitergegeben. Somit ist die Transformation für ein eingehendes \acs{MQTT}-Topic abgeschlossen. Der Ablauf kann dem Sequenzdiagramm (siehe Abbildung \ref{fig:kommunikationsequenz}) entnommen werden.  
+    und die Feldmanipulation für den Wert, der mittels Nutzlast mitgegeben wurde, durchgeführt. Nachdem die Zustandsänderung erfolgt ist, wird der \textit{Lock} deaktiviert und 
+    die Zustandsänderung an die Logikschicht weitergegeben. Somit ist die Transformation für ein eingehendes \acs{MQTT}-Topic abgeschlossen. 
+    Der Ablauf kann dem Sequenzdiagramm (siehe Abbildung \ref{fig:kommunikationsequenz}) entnommen werden.  
     \\
-    Die Funktion der inversen Transformation wird in folgendem Abschnitt erläutert.
+    Die Funktion der inversen Transformation wird im folgenden Abschnitt erläutert.
 
 \subsection{Inverse Transformation}
 \label{subsec:inverseTransformation}
