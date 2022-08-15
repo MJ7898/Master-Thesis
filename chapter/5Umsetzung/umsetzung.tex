@@ -139,8 +139,8 @@ public class Application {
     Der vom Anwender zu beschreibende Zustandsraum stellt ein einfaches Java Objekt (\textit{\acs{POJO}}) dar, das in einer eigenen Klasse definiert wird. 
     Die darin enthaltenen Felder und Attribute sollen reelle Gegenstände und deren Werte abbilden. Dies erfolgt durch 
     Klassenvariablen, die sowohl einem primitiven Datentypen entsprechen als auch dem nicht primitiven \textit{String}. Beispielsweise könnte eine LED-Leuchte als \textit{boolean} mit den 
-    Werten \textit{true} und \textit{false} oder als \textit{char} mit jeweils \textit{"y"} und \textit{"n"} oder mit dem nicht primitiven 
-    Typen \textit{String} mit den Zeichenketten \textit{\"on"} und \textit{\"off"} definiert 
+    Werten \textit{true} und \textit{false} oder als \textit{char} mit jeweils \textit{'y'} und \textit{'n'} oder mit dem nicht primitiven 
+    Typen \textit{String} mit den Zeichenketten \textit{'on'} und \textit{'off'} definiert 
     werden. Diese Entscheidung kann alleinig der Entwickler treffen. 
     \\
     \linebreak
@@ -307,19 +307,19 @@ public class InnovationLogicHubApplication {
 
 \subsection{Inverse Transformation}
 \label{subsec:inverseTransformation}
-    Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand erfährt und dennoch dadurch eine weitere 
-    Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation stattfinden. Dadurch wird anhand 
+    Damit der Anwender des Frameworks bei der Regeldefinition einen geringen Aufwand hat und dennoch dadurch eine weitere 
+    Zustandsänderung hervorrufen kann, findet an dieser Stelle eine inverse Transformation statt. Dadurch wird anhand 
     der Zustandsänderung, die der Entwickler durch eine Funktion in der jeweiligen Regel vorgibt, die zugehörige Aktion mittels \acs{MQTT}-Nachricht 
     veröffentlicht. In Folge dessen muss der Entwickler bei der Implementierung einer Regel keine Kenntnis über das 
     \acs{MQTT}-Topic haben, lediglich muss das richtige Attribut im Zustandsraum angesprochen und geändert werden. 
     Ein konkretes Beispiel: 
     \\
     \linebreak
-    Wird ein Lichtschalter eingeschaltet, so wird ein \acs{MQTT}-Topic konsumiert, dass den Zustandsraum ändert, indem 
-    der Schalter betätigt wurde. Daraufhin wird eine Regel ausgeführt, deren Regelaktion die LED-Leuchte aktiviert. 
+    Wird ein Lichtschalter betätigt, wird daraufhin ein \acs{MQTT}-Topic veröffentlicht und unmittelbar von der Steuerzentrale 
+    konsumiert. Dadurch wird der Zustandsraum über eine Transformation geändert. Eine Regel, deren Regelaktion die LED-Leuchte aktiviert, wird ausgeführt. 
     Dementsprechend definiert der Entwickler eine Funktion, die den Wert des Lichtzustandes im Zustandsobjekt verändert. 
     Mit der Veränderung wird überprüft, um welches Attribut es sich im Zustandsraum handelt und wie sich der Wert geändert hat. 
-    Wenn diese Überprüfung zutrifft, wird im Rahmen der inversen Transformation ein \textit{JSON}-Konstrukt generiert, welches 
+    Wenn diese Bedingung zutrifft, wird im Rahmen der inversen Transformation ein \textit{JSON}-Konstrukt generiert, welches 
     mit dem in der Transformation definierten Topic als \acs{MQTT}-Nutzlast an den \acs{MQTT}-Broker publiziert wird. Dabei handelt 
     es sich konkret um das Topic, auf das der \acs{MQTT}-Client der LED-Leuchte reagiert.
     Daraufhin wird die LED-Leuchte angeschaltet. 
@@ -332,17 +332,17 @@ public class InnovationLogicHubApplication {
     aufgeschrieben werden. Dafür kann zu jeder Zeit die Liste der Transformationen genutzt werden, um das erforderliche Topic zu erhalten. 
     \\
     \linebreak
-    Zu aktuellem Zeitpunk wird bei der inversen Transformation ein einfaches \textit{JSON}-Konstrukt erzeugt. Dafür wird der 
+    Zum aktuellen Zeitpunk wird bei der inversen Transformation ein einfaches \textit{JSON}-Konstrukt erzeugt. Dafür wird der 
     \textit{Key}-Wert der Transformation und die Nachricht als Nutzlast verwendet. Zur Veröffentlichung der Nachricht unter einem 
-    \acs{MQTT}-Topic, wird derzeit ausschließlich der \textit{Zigbee2MQTT}-Standard\footnote{Nutzung von Zigbee2MQTT. \url{https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html} Besucht am 30.07.2022} 
-    eingehalten. Dabei wird die Topic-Zeichenkette, die über das Transformationsobjekt abgerufen werden kann, um den Anhang (\textit{/set}) ergänzt. 
-    Hierfür wird vorab das \textit{JSON}-Konstrukt generiert und mit den jeweiligen Werten belegt. Diese Struktur wird als Nutzlast mittels dem 
+    \acs{MQTT}-Topic wird derzeit ausschließlich der \textit{Zigbee2MQTT}-Standard\footnote{Nutzung von Zigbee2MQTT. \url{https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html} Besucht am 30.07.2022} 
+    eingehalten. Dabei ergänzt sich die Topic-Zeichenkette, die über das Transformationsobjekt abgerufen werden kann, um den Anhang (\textit{/set}). 
+    Hierfür wird vorab das \textit{JSON}-Konstrukt generiert, mit den jeweiligen Werten belegt und als Nutzlast mittels dem 
     Topic und dessen Anhang herausgegeben. Soll im Rahmen der Veröffentlichung einer Nachricht kein \textit{JSON}-Konstrukt sondern ein einzelner Wert 
     publiziert werden, so kann dies erfolgen, indem das Topic um den zugehörigen \textit{Key}-Wert der Transformation (\textit{/set/[Key-Wert]}) ergänzt wird. Ein Beispiel dazu:
     \\
-    Eine LED-Leuchte wird mit einer Transformation mit den Werten \textit{"mqtt/topic/test"}, \textit{"key-state"} und dem Attribut \textit{"led-leuchte"} 
-    definiert. Soll in dem Zuge die Nutzlast nur den Wert \textit{"on"} enthalten, so wird kein 
-    \textit{JSON}-Konstrukt erzeugt sondern lediglich die Nachricht über das modifizierte Topic (\textit{"mqtt/topic/test/set/key-state"}) veröffentlicht. 
+    Eine LED-Leuchte wird mit einer Transformation mit den Werten (\textit{'mqtt/topic/test'}), \textit{'key-state'} und dem Attribut \textit{'led-leuchte'} 
+    definiert. Soll in dem Zuge die Nutzlast nur den Wert \textit{'on'} enthalten, so wird kein 
+    \textit{JSON}-Konstrukt erzeugt, sondern lediglich die Nachricht über das modifizierte Topic (\textit{'mqtt/topic/test/set/key-state'}) veröffentlicht. 
     \\
     \linebreak
     Resümierend gibt es im Kontext des \textit{Zigbee2MQTT} zwei Wege, um mit Geräten, die das ZigBee-Protokoll unterstützen, zu kommunizieren. Diese sind beide 
@@ -356,51 +356,61 @@ public class InnovationLogicHubApplication {
 
 \subsection{Regeldefinition}
     Damit die Vorgaben für eine valide Regeldefinition eingehalten werden, wird dem Anwender mittels \textit{Template Methode}-Pattern 
-    eine Schablone vorgegeben, die alle notwendigen Methoden vorgibt, die der Entwickler implementiert sollte. Zusätzlich gibt es eine Annotation, die 
+    eine Schablone vorgeschrieben, die alle notwendigen Methoden bestimmt, die der Entwickler implementieren sollte. Zusätzlich gibt es eine Annotation, die 
     \textit{RuleAnnotation}, die eine Regel als solche kenntlich macht und die Implementierung der Methoden forciert. Die beiden wichtigsten Funktionen 
-    innerhalb der Klasse, die durch die abstrakte Definition zum Softwareentwickler durchgereicht werden, ist zum einen die \textit{checkCondition}-Funktion und 
+    innerhalb der Klasse, die durch die abstrakte Definition zum Softwareentwickler durchgereicht werden, sind zum einen die \textit{checkCondition}-Funktion und 
     zum anderen die \textit{ruleProcess}-Funktion. Innerhalb der erstgenannten Methode gibt der Anwender einen Sachverhalt vor, der zutreffen muss, sodass anschließend diese 
-    Regel ausgeführt werden kann. Die Bedingung ist abhängig von dem Feld des Zustandsraumes und der Absicht für die der Regelprozess gestartet werden soll. Sofern die 
-    Bedingung zutrifft, wird ein boolescher Werte (\textit{true}) zurückgeliefert, der die Regel ausführen lässt. Die ebenso wichtige Funktion des Regelprozesses beinhaltet die Schritte der 
+    Regel ausgeführt werden kann. Die Bedingung ist abhängig von dem Feld des Zustandsraumes und der Absicht, für die der Regelprozess gestartet werden soll. Sofern die 
+    Bedingung zutrifft, wird ein boolescher Wert (\textit{true}) zurückgeliefert, der die Regel ausführen lässt. Die ebenso wichtige Funktion des Regelprozesses beinhaltet die Schritte der 
     Regelausführung als klassische Methode, die keinen konkreten Wert zurückgibt, sondern lediglich die darin enthaltenen Punkte abarbeitet. An dieser Stelle können wiederum 
-    weitere Zustandsänderungen implementiert werden. Dies ist abhängig von dem Inhalt der Regel und liegt ebenso in der Macht des Entwicklers. 
+    weitere Zustandsänderungen implementiert werden. Dies ist abhängig von dem Inhalt der Regel und liegt ebenso in der Verantwortung des Entwicklers. 
     \\
-    Neben den beiden Hauptfunktionen, gibt es eine weitere Funktion, die den Auslöser der Regel definiert. Dieser dient dazu, um Regeln ggf. nur auslösen zu können, sofern ein bestimmter 
-    Auslöser dafür aktiviert wurde. Zusätzlich gibt es weitere Funktionen, die reine Informationswerte halten, darunter den Regelnamen und die -beschreibung. Darüber hinaus hat der 
-    Entwickler keinerlei Einschränkungen, das Regelobjekt ergänzend zu gestalten.
+    Neben den beiden Hauptfunktionen gibt es eine weitere Funktion, die den Auslöser der Regel definiert. Diese dient dazu, um Regeln ggf. nur dann anstoßen zu können, wenn ein bestimmter 
+    Auslöser dafür aktiviert wurde. Zusätzlich gibt es weitere Funktionen, die reine Informationswerte enthalten, wie den Regelnamen und die -beschreibung. Darüber hinaus gibt es für den 
+    Entwickler keinerlei Einschränkungen das Regelobjekt um weitere Funktionen zu ergänzen. 
 
 \subsection{Parallelisierung}
 \label{subsec:parallelisierung}
-    Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel, wird der gesamte Prozess der 
+    Bereits im Konzept wurde der Terminus der Parallelisierung und der Asynchronität aufgegriffen. Für das Auslösen einer Regel wird der gesamte Prozess der 
     Bedingungsprüfung und der anschließenden Ausführung in einen \textit{Thread} ausgelagert, der durch einen 
-    \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im java Code angestoßen wird. 
-    Durch das Auslagern des konkreten Prozesses in einen eigenen \textit{Thread} können mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungsprüfung zutrifft und die 
-    Regel ausgeführt wird. 
-    In folge der Entscheidung, dass nach jeder Zustandsänderung immer alle Regeln durchlaufen werden, wäre eine sequenzielle Ausführung der Regeln sehr ineffektiv und langsam. Dadurch 
-    würde sich das Durchführen von Regeln verzögern, bspw. wenn ein Licht eingeschaltet werden würde, davor allerdings noch zwei Regeln abgearbeitet werden müssten, die jeweils eine 
-    Minute beanspruchen, würde sich das Licht erst nach zwei Minuten einschalten. Durch die Auslagerung des Regelmanagements in jeweils eigene \textit{Threads} entfällt die sequenzielle 
-    Abarbeitung, da diese asynchron durchgeführt wird. Durch die Parallelisierung der Regelprozesse können gleichzeitig weitere Zustandsänderungen entstehen, die anschließend 
-    wieder zusammengeführt werden und darauf gegebenenfalls weitere Regeln ausgeführt werden. An der Stelle der Zustandsänderung selbst greift der 
+    \textit{ThreadPoolExecutor}\footnote{Spezifikation des Thread-Pools. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html} Besucht am 27.07.2022} im Java Code angestoßen wird. 
+    Es können durch mehrere \textit{Threads}, die in sich asynchron arbeiten, mehrere Regeln gleichzeitig ausgeführt werden, sofern die Bedingungen dafür zutreffen. 
+    \\
+    Sowohl die parallele als auch die sequenzielle Ausführung können innerhalb der Regel Zustandsänderungen hervorrufen.
+    \\
+    Eine sequenzielle Ausführung der Regeln ohne Verwendung von \textit{Threads} wäre sehr ineffektiv und langsam, da eine Regel erst dann ausgeführt wird, wenn sie an der Reihe ist. Der Anwender weiß nicht, zu welchem 
+    Zeitpunkt die gewünschte Aktion eintritt, da er die Anzahl der dazwischenliegenden Sequenzen nicht kennt. 
+    Wenn bspw. ein Lichtschalter betätigt werden würde und davor noch zwei Regeln abgearbeitet werden müssten, würde dies Zeit in Anspruch nehmen, wodurch sich das Leuchten der Lampe verzögert. 
+    \\
+    \linebreak 
+    In dieser Arbeit wird die parallele Ausführung bevorzugt. Jedoch ist es durch die Parallelisierung 
+    notwendig, die innerhalb der \textit{Threads} eventuell entstehenden Zustandsänderungen anschließend 
+    zusammenzuführen, indem der Wert auf das eigentliche Objekt übertragen wird. Trotz der hinzukommenden 
+    Komplexität durch die Zusammenführung überwiegt der Vorteil, da 
+    die gewünschte Aktion unmittelbar ausgeführt wird, unabhängig von den derzeit parallel laufenden Prozessen. 
+    \\
+    Damit die Zustandsänderung und die darauf zu erstellende Kopie entsprechend sauber durchgeführt wird, wird dieser gesamte Vorgang durch einen 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} 
-    realisiert ist. Dadurch wird sichergestellt, dass der Zustandsraum, der die aktuell geltenden Zustände wiedergibt, immer nur einen Änderungsvorgang durchführt. 
+    realisiert ist, gesperrt. Dadurch ist sichergestellt, dass die Änderung, sowie die Kopie für die weiteren Schritte tatsächlich zur Verfügung steht. 
 
 \subsection{Regelwerk -und management}
-    Anknüpfend an die abgeschlossene Transformation wird nach der Zustandsänderung der Teil ausgeführt, der basierend auf der Zustandsänderungen 
-    alle bekannten Regel überprüft und die zutreffenden ausführt. Grundlegend gilt hier, wenn eine Zustandsänderung keiner konkreten Regel zugeordnet 
-    werden kann, fehlt entweder die dazugehörige Regel oder es liegt in der Absicht des Entwicklers, darauf keine Regel auszuführen. Wenn eine 
-    Zustandsänderung mehrfach hintereinander erfolgt, wird diese, sofern keine weitere Bedingung darauf zutrifft, ohne Auswirkungen übertragen 
-    und keine Regel ausgeführt. Damit jedoch voneinander unabhängige Regel parallel ausgeführt werden können, wird der Prozess der Regelüberprüfung und -durchführung 
+    Anknüpfend an die abgeschlossene Transformation wird der Teil ausgeführt, der basierend auf der Zustandsänderung 
+    alle bekannten Regeln überprüft und die zutreffenden abarbeitet. Wenn eine Zustandsänderung keiner konkreten Regel zugeordnet 
+    werden kann, fehlt diese entweder, wurde davor schon ausgeführt oder der Entwickler beabsichtigt keine Ausführung und sie 
+    wird ohne Auswirkung übertragen. 
+    \\
+    Damit jedoch voneinander unabhängige Regeln parallel ausgeführt werden können, wird der Prozess der Regelüberprüfung und -durchführung 
     in einen \textit{Thread} ausgelagert, wie bereits im Abschnitt der Parallelisierung (siehe \ref{subsec:parallelisierung}) beschrieben. Der Ablauf kann dem 
     Sequenzdiagramm (siehe Abbildung \ref{fig:logiksequenz}) ab dem Schritt \textit{1.5:copyState} entnommen werden. 
     \\
     \linebreak
-    Nach Implementierung der Funktionen des Frameworks ging es um die Umsetzung der Use Cases, um die Funktionalität des Systems zu testen 
-    und Anhaltspunkte für die Evaluation (siehe Kapitel \ref{chap:evaluation}) zu schaffen. Der folgende Abschnitt behandelt die praktische 
+    Nach Implementierung des Frameworks sind alle Grundlagen des Systems zur Umsetzung der Use Cases gelegt und kann auf seine Funktionalität getestet werden, um 
+    Anhaltspunkte für die Evaluation (siehe Kapitel \ref{chap:evaluation}) zu schaffen. Der folgende Abschnitt behandelt die praktische 
     Umsetzung zweier Anwendungsfälle. 
 
 \subsection{Implementierung von Anwendungsfällen}
-    Zur Überprüfung des Frameworks wurden im Rahmen der Arbeit drei Anwendungsfälle implementiert, um anhand dessen die Funktionsweise 
-    darzustellen. Zum einen wurde ein trivialer Fall, die Steuerung einer LED-Lampe über einen Schalter und ein Steckdosen-Funkmodul, umgesetzt, um einen Vergleich zwischen der 
+    Zur Überprüfung des Frameworks wurden im Rahmen der Arbeit drei Anwendungsfälle implementiert, um anhand deren die Funktionsweise 
+    darzustellen. Zum einen wurde die Steuerung einer LED-Lampe über einen Schalter und ein Steckdosen-Funkmodul umgesetzt, um einen Vergleich zwischen der 
     Regeldefinition in Home Assistant, \acs{OPENHAB} und der Steuerzentrale (InnovationLogicHub) ziehen zu können. Zum anderen wurden die beiden 
     Anwendungsfälle, die im Rahmen der Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse}) als Anwendungsfälle (\ref{sec:usecases}) definiert wurden, realisiert. 
     
@@ -408,26 +418,27 @@ public class InnovationLogicHubApplication {
     Der Lichtschalter-Anwendungsfall besteht darin, dass mittels einem physischen oder virtuellen Schalter eine LED-Leuchte eingeschaltet werden kann. Zur 
     Gegenüberstellung der Umsetzungen wurden jeweils die gleichen Komponenten im selben Netzwerk verwendet. Dadurch sind die identischen Voraussetzungen geschaffen. 
     Zu Beginn musste sichergestellt werden, dass die Komponenten mindestens das \textit{ZigBee}-Kommunikationsprotokoll unterstützen, damit über \textit{Zigbee2mqtt} 
-    die Nutzung von \acs{MQTT} möglich war. 
+    die Nutzung von \acs{MQTT} möglich ist. 
     \\
-    Im Rahmen dieser Arbeit wurden zu Anfang bereits Instanzen der beiden Plattformen, Home Assistant und \acs{OPENHAB}, gestartet, damit eine Grundlage zur Analyse und 
-    Untersuchung der jeweiligen Plattformen gegeben ist. Diese wurden zur Umsetzung des einfachen Anwendungsfalls genutzt, um anschließend die 
-    Resultate beurteilen zu können. Die Integration der Elemente in die jeweilige Plattform wird an dieser Stelle nicht weiter aufgegriffen, zur Veranschaulichung wird 
-    lediglich die Regeldefinition aufgegriffen, damit diese kontrastiert werden können. Im Fokus steht jedoch die Umsetzung über die Steuerzentrale.
+    Um eine Grundlage für die Analyse und Untersuchung der jeweiligen Plattformen zu legen, wurden im Rahmen dieser Arbeit zu Anfang bereits Instanzen von Home Assistant und 
+    \acs{OPENHAB} gestartet. Diese wurden zur Umsetzung des einfachen Anwendungsfalls unter anschließender Beurteilung der Resultate genutzt. 
+    Die Integration der Elemente in die jeweilige Plattform wird an dieser Stelle nicht weiter erläutert, zur Veranschaulichung wird 
+    lediglich die Regeldefinition aufgegriffen. Im Fokus steht jedoch die Umsetzung über die Steuerzentrale.
     \\
     \linebreak
-    Unter Anwendung des Frameworks werden in folgendem Abschnitt die Schritte dargestellt, die notwendig sind, um den Anwendungsfall zu realisieren:
+    Unter Anwendung des Frameworks werden im folgenden Abschnitt die Schritte dargestellt, die für die Realisierung des Anwendungsfalls notwendig sind: 
     \\
-    Damit die Zustände der Komponenten abgebildet werden konnten, mussten diese im Zustandsraum hinterlegt werden. Unter der Berücksichtigung, dass der Schalter, sowie das Funkmodul 
-    beide die trivialen Werte \textit{"on"} und \textit{"off"} über das Kommunikationsprotokoll versenden, wurden die Zustandsattribute jeweils als \textit{String}-Datentyp gewählt, um die 
-    beiden Zustände abbilden zu können. Durch die Nutzung der \textit{lombok}-Bibliothek sind die \textit{Getter}- und \textit{Setter}-Methoden gegeben. 
+    Damit die Zustände der Komponenten abgebildet werden konnten, mussten diese im Zustandsraum hinterlegt werden. Da der Schalter, sowie das Funkmodul 
+    beide die Werte \textit{'on'} und \textit{'off'} über das Kommunikationsprotokoll versenden, wurde zur Abbildung der Zustandsattribute jeweils der \textit{String}-Datentyp gewählt. 
+    Durch die Nutzung der \textit{lombok}-Bibliothek sind die \textit{Getter}- und \textit{Setter}-Methoden gegeben. 
     \\
     Anhand der definierten Zustandsattribute konnten anschließend die Transformationen für beide Komponenten implementiert werden. Dafür notwendig waren jeweils 
     die \acs{MQTT}-Topics, der Name des Wertes innerhalb des \textit{JSON}-Konstruktes, ggf. eine Liste der akzeptierten Zustandswerte und der Name des im Zustandsraum 
     definierten Feldes. Die Transformationen waren daraufhin dem Framework zu übergeben, damit diese in die dafür vorgesehene Liste aufgenommen und zur Laufzeit als Objekte 
-    erzeugt werden konnten. Abschließend war die Regel zu definieren, darunter die zu prüfende Bedingung und die darauf folgende Aktion, das an- bzw. ausschalten des Lichtes über das 
-    Steckdosen-Funkmodul. Die beiden Methoden sind überschaubar und mit weniger als fünf Zeilen Code implementiert. Dem Quellcode-Ausschnitt (siehe Anhang \ref{code:switch}) 
-    sind die folgenden Methoden zu entnehmen.
+    erzeugt werden konnten. Abschließend war die Regel zu definieren, darunter die zu prüfende Bedingung und die darauffolgende Aktion. Diese beinhaltet die Änderung des Zustandsattributes auf den Wert 
+    des Schalters, worauf über die inverse Transformation die \acs{MQTT}-Nachricht publiziert wird, die an das Funkmodul gerichtet ist. 
+    Die beiden Methoden sind überschaubar und mit einem Quellcode weniger als fünf Zeilen zu implementieren. Dem Ausschnitt (siehe Anhang \ref{code:switch}) 
+    sind die Methoden zu entnehmen. 
     \\
     Die Umsetzung des Anwendungsfalls in Home Assistant stellte sich als umständlicher und aufwändiger dar. Hierbei war im Kontext des Home Assistant 
     eine übergreifende Automation, zwei Szenen (Aktionen) für das Schalten des Lichts und ein Auslöser für jede Aktion des Schalters zu definieren. Die Konfigurationsdatei 
