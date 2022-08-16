@@ -509,20 +509,20 @@ public class InnovationLogicHubApplication {
         %Und zur Nutzung der inversen Transformation, um an einer Stelle die Topics etc. zu definieren.
         Die Anwendungsfälle konnten wie erwartet umgesetzt werden und zeigen, dass die konzeptionellen Entscheidungen eine Grundlage für das 
         Framework darstellen. Die Regeln selbst können je nach Anwendungsfall beliebig definiert werden. An dieser Stelle werden dem 
-        Entwickler alle Möglichkeiten offengelassen, dadurch erfährt dieser keine Einschränkungen. Des weiteren ist der Schnitt zwischen 
-        Anwender und Framework klar gegeben, indem der Softwareentwickler sich ausschließlich um die Regeln, Transformationen und Zustandsattribute 
-        kümmern muss. Entscheiden ist die Gegebenheit eines \acs{MQTT}-Brokers, da ohne diesen das Framework keine Verbindung aufbauen und so nicht an 
-        einem Datentransfer teilnehmen kann. 
+        Entwickler alle Möglichkeiten ohne Einschränkungen offengelassen. Des weiteren ist der Schnitt zwischen 
+        Anwender und Framework klar gegeben, indem der Softwareentwickler sich ausschließlich mit den Regeln, Transformationen und Zustandsattributen 
+        befassen muss. Entscheidend ist die Gegebenheit eines \acs{MQTT}-Brokers, ohne diesen das Framework keine Verbindung aufbaut und kein Datentransfer, an dem 
+        die Steuerzentrale teilnehmen kann, stattfindet. 
         \\
         \linebreak
-        Mit der Konzeption der Transformation wird bereits zu Anfang ein zentraler Punkt gegeben, mit dem der Anwender alle notwendig Informationen 
+        Mit der Konzeption der Transformation wird bereits zu Anfang ein zentraler Punkt gegeben, mit dem der Anwender alle notwendigen Informationen 
         bündeln und dem Frameworks zur Verfügung stellen kann. Anhand dieses Beschlusses kann der Entwickler die Zuordnung treffen, bspw. durch welches 
         eingehende \acs{MQTT}-Topic welches Attribut im Zustandsraum geändert werden soll. Mit der Entscheidung zur Nutzung der generischen Programmierung 
-        und somit der flexiblen Gestaltung des Zustandsraumes, musste überlegt werden, wie dieses Objekt dennoch überwacht und manipuliert werden konnte. 
-        Hierfür wurde die Java Reflection genutzt, die eine sehr mächtige Funktion der Java-Programmierung darstellt, dennoch für die Nutzung aktuell 
-        Grenzen einräumt, die im Rahmen der Konzeption hingenommen wurden, allerdings keine Einschränkung bewirken. Trotz dessen kann durch die Einhaltung 
-        von den Modellierungsvorgaben (\ref{subsec:modellierungsgrenzen}) die Grenze umgangen werden und so die Anwendungsfälle, die im Rahmen der Arbeit 
-        definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend ist dabei die Definition der 
+        und somit der flexiblen Gestaltung des Zustandsraumes musste überlegt werden, wie dieses Objekt dennoch zu überwachen und zu manipulieren ist. 
+        Hierfür wurde die Java Reflection genutzt, die eine für diesen Fall geeignete Funktion der Java-Programmierung darstellt. Dennoch gibt es Hürden bei der Nutzung, 
+        die im Rahmen der Konzeption hingenommen wurden, die allerdings zu keinen Einschränkungen führen. Trotz dessen kann durch die Einhaltung 
+        der Modellierungsvorgaben (\ref{subsec:modellierungsgrenzen}) diese umgangen und so die Anwendungsfälle, die im Rahmen der Arbeit 
+        definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend dabei ist die Definition der 
         Transformation, sowie die der Regel selbst. 
         \\
         %\linebreak
@@ -530,40 +530,59 @@ public class InnovationLogicHubApplication {
     
     \subsection{Modellierungsvorgaben und -grenzen}
     \label{subsec:modellierungsgrenzen}
-        Aus Sicht des Anwenders hat dieser drei Stellen, die in seiner Verantwortung liegen. Damit steht  
-        dem Entwickler alles zur Verfügung, was er benötigt, um seine Anwendungsfälle nach den Bedürfnissen zu implementieren. 
-        \\
-        \linebreak
-        In der Klasse, in der die Zustandsattribute abgebildet werden, ist das Nutzen von einfachen Attributen vorgesehen. Es können 
-        zwar Objekte hinzugefügt werden, dies erschwert jedoch die Überprüfung, ob Änderungen darin vorgenommen wurden. 
-        Dies ist zum Teil der Reflection geschuldet, da im Zustandsraum lediglich die Referenz des zur Laufzeit erzeugten Objektes 
-        steht und zum anderen, da bei der Kopie des Zustandsobjektes eine neue Objektreferenz geschaffen wird, die als Änderung 
-        registriert wird. Das bedeutet jedoch nicht, dass immer eine Änderung des Objekts hervorgerufen wurde. Ebenso müsste sichergestellt 
-        werden können, um welches Objekt es sich handelt. Um dies sicherzustellen, wäre ausschließlich das Hinzufügen von Komponenten im 
-        Zustandsraum zugelassen. Damit dies jedoch umgangen werden kann, wird vorerst die Nutzung von einfachen Attributen, darunter 
-        \textit{String}, \textit{Integer}, \textit{Double}, \textit{boolean} und \textit{Long} empfohlen. Andere Felder können zwar hinzugefügt werden, 
-        diese werden jedoch nicht vom Framework berücksichtigt.
-        \\
-        \linebreak
-        Die Transformation gibt ein klar definiertes Konstrukt vor. Dafür gibt es Zwei Klassen, die implementiert werden können, die 
-        jeweils die Oberklasse \textit{AbstractTopicTransformation} erweitern. Zum einen die Transformation ohne 
-        optionale \textit{White-List} von zugelassenen Werten und zum anderen die, in der eine solche Liste übergeben werden kann. Über die 
-        \textit{addTransformation}-Funktion wird zur Laufzeit das Transformationsobjekt erzeugt. Die Inhalte sind klar vorgegeben (siehe Abschnitt \ref{subsec:transformation}) 
-        und müssen vom Entwickler entsprechend definiert und erzeugt werden.
-        \\
-        %\linebreak
-        Die Definition einer Regel sieht vor, dass die Bedingung auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
-        frei implementiert werden. Zum Erstellen einer Regel ist zu Anfang sicherzustellen, dass diese von der Abstrakten Regel klasse erbt. So kann die Regel einer 
-        Oberklasse zugeordnet und vom Framework als solche erkannt werden. Zusätzlich gibt es für die wichtigen Funktionen, die eine Regel zur 
-        Implementierung bereitstellt, Annotationen. Diese geben syntaktische Metadaten vor, die das richtige Implementieren der Funktionen forciert. Die 
-        Annotation muss beim erstellen einer Klasse über der Funktion hinzugefügt werden. Dem Quellcode-Ausschnitt im Anhang (siehe \ref{code:switch}) ist diese 
-        syntaktische Hilfestellung zu entnehmen. Wichtig ist ebenso das Übergeben der definierten Regel an das Framework mittels der \textit{addRule}-Funktion 
-        übergeben. 
-        \\
-        Bei der Verwendung einer Bedingungsprüfung ist darauf zu achten, dass diese aussagekräftig ist. Wird allerdings eine Bedingung so gewählt, dass sie bei jeder Zustandsänderung greift, wird die 
-        Regel rückgekoppelt und endlos oft ausgeführt. Dafür muss entweder innerhalb der Regel der Zustand wieder geändert oder eine treffendere Bedingung definiert werden.
-        \\
-        Diese Anmerkungen sind bei der Nutzung des Frameworks zu berücksichtigen, damit das Framework entsprechend arbeitet und die Regel und Prozesse ausführt. 
+        Der Anwender muss für die Umsetzung jedes Anwendungsfalls folgende drei Punkte erneut implementieren: 
+        \begin{enumerate}
+            \item \textit{Das Attribut im Zustandsraum.}
+            In der Klasse, in der die Zustandsattribute abgebildet werden, ist das Nutzen von einfachen Attributen, darunter 
+            \textit{String}, \textit{Integer}, \textit{Double}, \textit{boolean} und \textit{Long}, empfohlen und vorgesehen. Es können 
+            zwar Objekte hinzugefügt werden, diese werden jedoch nicht vom Framework berücksichtigt. 
+            \\
+            Theoretische wäre die Nutzung von Komponentenobjekten möglich und umsetzbar, jedoch werden im Kontext dieser Arbeit ausschließlich die einfachen Attribute verwendet. Was wiederum zur Folge hat, dass 
+            durch die Nichtanwendung eine Grenze entsteht. Beim Versuch, den Zustandsraum um Objekte zu erweitern, wurde festgestellt, dass bei dem Kopiervorgang die Kopie eine neue Objektreferenz 
+            auf dem Feld der Komponente erzeugt. Dies hat eine ungewollte simulierte Modifikation der Komponente zur Folge, die bei jeder Zustandsänderung hervorgerufen wird, ohne dass sie tatsächlich geändert wurde und 
+            dadurch die inverse Transformation immer ausgeführt wird. 
+            Dies ist ebenso keine absolute Grenze, die nicht umgangen werden könnte, lediglich durch den zeitlichen Faktor nicht weiter ausgeführt wurde. Für die Behebung müsste gegebenenfalls ein optimierter 
+            Algorithmus zum Kopieren des Zustandsraums entwickelt, bzw. verwendet werden. 
+            \\
+            Da die Verwendung des Frameworks ausschließlich unter Gebrauch einfacher Attribute im Zustandsraum ohne weiteres funktioniert, wurde der Ansatz zur Nutzung von Komponenten vorerst verworfen.  
+            % wiederum keine absolute Grenze, die nicht umgangen werden könnte, lediglich durch den zeitlichen Faktor nicht weiter ausgeführt wurde. 
+            % Das Problem entsteht beim Verwenden von Objekten im Zustandsraum. 
+            % Diese Tatsache ist den folgenden Punkten geschuldet: Bei einer Zustandsänderung muss über die Reflection eine absteigende Überprüfung des Komponentenobjektes innerhalb des Zustandsraums durchgeführt werden, um 
+            % das adressierte Feld zu identifizieren. Dieser Vorgang ist eine Hürde, die jedoch noch umsetzbar wäre. Die eigentliche Grenze besteht Der wohl schwerwiegendere Punkt   innerhalb des Komponentenobjektes überprüft werden 
+            
+            % absteigenzum einen der Reflection geschuldet, da im Zustandsraum eine absteigende Überprüfung der einzelnen Felder 
+            % innerhalb des Komponentenobjektes stattfinden muss, um Änderungen vernehmen zu können lediglich die Referenz des zur Laufzeit erzeugten Objektes 
+            % steht, und zum anderen der Kopie des Zustandsobjektes, da innerhalb dieses Vorgangs eine neue Objektreferenz geschaffen wird, die als Änderung 
+            % registriert wird. Das bedeutet jedoch nicht, dass immer eine Änderung des Objekts stattgefunden hat. 
+            
+            % Egal welches Attribut sich ändert, wird auf Grundlage dieser Änderung eine Kopie erstellt, die auf dem Objekt den Anschein erweckt, dass es sich geändert hat ohne tatsächlich geändert worden zu sein.  
+            
+            % bei dieser auf Grundlage der Kopie der daraus  hat, draus folgt dass bei der darauffolgenden Kopie ebenso der Anschein erweckt wird, dass sich das Objekt geändert hat ohne dass das explizit geändert wurde. 
+            
+            % Ebenso müsste sichergestellt 
+            % werden können, um welches Attribut es sich innerhalb des Objekts handelt. Um dies zu garantieren, müsste das Hinzufügen von Komponenten ausschließlich im 
+            % Zustandsraum zugelassen werden. Damit dies jedoch umgangen werden kann, wird vorerst die Nutzung von einfachen Attributen, darunter 
+            % \textit{String}, \textit{Integer}, \textit{Double}, \textit{boolean} und \textit{Long} empfohlen. Andere Felder können zwar hinzugefügt werden, 
+            % diese werden jedoch nicht vom Framework berücksichtigt.
+            \item \textit{Die Transformation.}
+            Die Transformation gibt ein klar definiertes Konstrukt vor. Dafür gibt es zwei Klassen, die implementiert werden können und 
+            jeweils die Oberklasse \textit{AbstractTopicTransformation} erweitern. Zum einen ist dies die Transformation ohne 
+            optionale \textit{White-List} von zugelassenen Werten und zum anderen diejenige, in der eine solche Liste übergeben werden kann. Über die 
+            \textit{addTransformation}-Funktion wird zur Laufzeit das Transformationsobjekt erzeugt. Die Inhalte sind klar vorgegeben (siehe Abschnitt \ref{subsec:transformation}) 
+            und müssen vom Entwickler entsprechend definiert werden.
+            \pagebreak
+            \item \textit{Die Definition der Regel.} 
+            Die Definition einer Regel sieht vor, dass die Bedingung auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
+            frei implementiert werden. Zum Erstellen einer Regel ist zu Anfang zu garantieren, dass diese von der abstrakten Regelklasse erbt. So kann die Regel einer 
+            Oberklasse zugeordnet und vom Framework als solche erkannt werden. Zusätzlich gibt es für die wichtigen Funktionen, die eine Regel zur 
+            Implementierung bereitstellt, Annotationen. Sie geben syntaktische Metadaten vor, die das richtige Implementieren der Funktionen forciert. Die 
+            Annotation muss beim Erstellen einer Klasse über der jeweiligen Funktion positioniert werden. Dem Quellcode-Ausschnitt im Anhang (siehe \ref{code:switch}) ist diese 
+            syntaktische Hilfestellung zu entnehmen. Wichtig ist ebenso das Übergeben der definierten Regel an das Framework mittels der \textit{addRule}-Funktion. 
+            \\
+            Bei der Verwendung einer Bedingungsprüfung ist auf die Aussagekraft zu achten. Wird allerdings eine Bedingung so gewählt, dass sie bei jeder Zustandsänderung greift, kommt 
+            es zu einer Rückkopplung und endlosen Ausführung. Dafür muss entweder innerhalb der Regel der Zustand wieder geändert oder eine treffendere Bedingung definiert werden.
+        \end{enumerate}
+        Diese Anmerkungen sind bei der Nutzung des Frameworks zu berücksichtigen, damit das Framework die Regeln und Prozesse entsprechend ausführt. 
     %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 
     %Problematisch dabei ist die Prüfung der Zustandsänderung, da bei jeder Kopie eine neue 
     %Referenz der Komponente erzeugt wird, die eine Zustandsänderung unter dem Feld simuliert (vorgibt) ohne das diese tatsächlich stattgefunden hat.
