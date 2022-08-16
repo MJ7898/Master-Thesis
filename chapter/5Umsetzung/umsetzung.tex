@@ -440,33 +440,35 @@ public class InnovationLogicHubApplication {
     Die beiden Methoden sind überschaubar und mit einem Quellcode weniger als fünf Zeilen zu implementieren. Dem Ausschnitt (siehe Anhang \ref{code:switch}) 
     sind die Methoden zu entnehmen. 
     \\
-    Die Umsetzung des Anwendungsfalls in Home Assistant stellte sich als umständlicher und aufwändiger dar. Hierbei war im Kontext des Home Assistant 
+    Die Umsetzung des Anwendungsfalls in Home Assistant stellte sich als umständlicher und aufwändiger dar. Hierbei ist im Kontext des Home Assistant 
     eine übergreifende Automation, zwei Szenen (Aktionen) für das Schalten des Lichts und ein Auslöser für jede Aktion des Schalters zu definieren. Die Konfigurationsdatei 
-    erstreckt sich über 50 Zeilen, in denen die eigentliche Funktion definiert wird. Das Erstellen der Automatisierung über die Nutzeroberfläche gestaltet sich einfacher, dennoch 
-    aufwändig mit vielen Interaktionen. Ergänzend dazu ist dem Anhang ein Ausschnitt der Konfigurationsdatei beigefügt (siehe Anhang \ref{code:hoasAutomation}).
+    erstreckt sich über 50 Zeilen, in denen die eigentliche Funktion eingefügt wird. Die Benutzeroberfläche gibt dem Anwender die Möglichkeit, anhand der Informationen die 
+    Konfigurationsdatei zu erzeugen. Dadurch ist der Entwickler nicht an die \textit{YAML}-Struktur gebunden und kann ausschließlich die Werte, um die es sich handelt, eintragen. 
+    Das Erstellen der Automatisierung über die Nutzeroberfläche erschließt sich dem Anwender von der Logik her einfacher, ist dennoch 
+    aufwändiger durch viele Interaktionen. Ergänzend dazu ist dem Anhang ein Ausschnitt der Konfigurationsdatei beigefügt (siehe Anhang \ref{code:hoasAutomation}).
     \\
     \linebreak
     Ähnlicher Konfigurationsaufwand war bei der Umsetzung in \acs{OPENHAB} über die Benutzeroberfläche festzustellen. Das skriptbasierte Definieren von Regeln erfordert eine 
-    hohe Lernkurve, da die Semantik  des \textit{ECMAScript} oder die Funktionsweise von bspw. \textit{Blockly} erst erlernt und verstanden werden muss. Die Regeldefinition 
+    längere Einarbeitungszeit, da die Semantik des \textit{ECMAScripts} oder die Funktionsweise von bspw. \textit{Blockly} erst erlernt und verstanden werden muss. Die Regeldefinition 
     mittels der \textit{Rule \acs{DSL}} hingegen kann mit der der Steuerzentrale verglichen werden. Diese ist in ähnlich wenigen Schritten realisiert. Der 
     Quellcode-Ausschnitt zeigt den Umfang der Regel über die \acs{OPENHAB} \acs{DSL} (siehe Anhang \ref{code:openhabSwitch}). 
     \\
     \linebreak
-    Die Umsetzung der folgenden Anwendungsfälle erfolgte ausschließlich über die Steuerzentrale.
+    Die folgenden Anwendungsfälle wurden ausschließlich über die Steuerzentrale umgesetzt. 
 
     \subsubsection*{Check-in mit einem Service-Roboter}
-        Die Handlungsschritte, um einen Anwendungsfall mit dem Framework zu realisieren, sind grundlegend immer die gleichen. Je nach Bedarf sind mehrere 
-        Aktionen notwendig. Damit alle, für den Fall, notwendigen Zustände abgedeckt sind, wurden diese in dem Zustandsraum hinterlegt. Zu den notwendigen Attributen 
+        Die Handlungsschritte, um einen Anwendungsfall mit dem Framework zu realisieren, gleichen sich grundlegend. 
+        Damit alle für den Fall notwendigen Zustände abgedeckt sind, wurden diese in dem Zustandsraum hinterlegt. Zu den notwendigen Attributen 
         zählen unter anderem die E-Mail-Adresse, bzw. der Name der authentifizierten Person, die Verfügbarkeit des Service-Roboters, sowie dessen 
-        verfügbaren Prozesse. Anschließend wurden die Transformationen definiert. 
+        ausführbare Prozesse. Anschließend wurden die Transformationen zur Erzeugung der Schnittstelle (siehe Kapitel \ref{subsec:transformation}) definiert. 
         \\
         \linebreak
         Sobald eine Person über die Kamera authentifiziert wurde, wird ein \acs{MQTT}-Topic gesendet, welches als Nutzlast ein \textit{JSON}-Konstrukt mit einem Zeitstempel, den 
-        Vor- und Nachnamen, sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, worauf die Regeln auf ihre 
-        Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und einchecken des Gastes gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
-        Gast empfängt. Während der Roboter an die Tür fährt, checkt er die Buchungen und überprüft, ob die Person einen Platz gebucht hat. Dort angekommen, wird die Person zuerst 
-        begrüßt. Nachdem der Gast empfangen und eine Buchung gefunden wurde, checkt der Roboter die Person ein und gibt daraufhin Rückmeldung, dass die Person erfolgreich in dem 
-        Büroplatzbuchungssystem eingecheckt wurde. Ist der Gast bereits eingechekt oder hat vorab keine Buchung getätigt, wird der Gast aktuell darum gebeten, nachträglich 
+        Vor- und Nachnamen, sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, woraufhin die Regeln auf ihre 
+        Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und Einchecken des Gastes gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
+        Gast empfängt und begrüßt. Während der Roboter an die Tür fährt, checkt er die Buchungen und überprüft, ob die Person einen Platz gebucht hat. 
+        Nachdem der Gast empfangen und eine Buchung gefunden wurde, checkt der Roboter die Person ein und gibt daraufhin Rückmeldung, dass die Person erfolgreich im 
+        Büroplatzbuchungssystem eingecheckt wurde. Ist der Gast bereits angemeldet oder hat vorab keine Buchung getätigt, wird er aktuell darum gebeten, nachträglich 
         einen Platz zu buchen und darauf einzuchecken. 
         \\
         Die Regelabfolge kann zusätzlich dem Sequenzdiagramm (siehe Abbildung \ref{fig:sequenceRuleGreet}) entnommen werden.
@@ -480,27 +482,27 @@ public class InnovationLogicHubApplication {
         %\pagebreak
         %\linebreak
         Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
-        Bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein reeller Zustandsaustausch in Echtzeit nicht möglich. 
+        bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein reeller Zustandsaustausch in Echtzeit nicht möglich. 
         Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
         der Roboter in etwa braucht, um einen Ortswechsel, bzw. einen Sprachbefehl durchzuführen. Eine alternative Lösung, sofern der Service-Roboter Statusmeldungen geben 
-        kann, wäre die feingranularere Aufteilung von einzelnen Prozessen, sodass erst nach erfolgreicher Rückmeldung des Roboters der weitere Schritt eingeleitet werden würde.
+        könnte, wäre die feingranularere Aufteilung von einzelnen Prozessen, sodass erst nach erfolgreicher Rückmeldung des Roboters weitere Schritte eingeleitet werden würden.
         \\
         \linebreak
         Wird bspw. ein Sprachbefehl ausgeführt, so wird innerhalb der Regel über eine \textit{Lambda}-Funktion der Zustandsraum erneut geändert, wodurch die inverse Transformation 
-        die Zustandsänderung überprüft und anhand dessen den Sprachbefehl über ein \acs{MQTT}-Topic an den Broker sendet. Hierbei reagiert der Roboter auf das Topic und führt 
+        die Zustandsänderung überprüft und anhand deren der Sprachbefehl über ein \acs{MQTT}-Topic an den Broker gesendet wird. Hierbei reagiert der Roboter auf das Topic und führt 
         den Sprachbefehl aus. Diese Aktion ist dem Sequenzdiagramm (\ref{fig:sequenceRuleGreet}) unter anderem in den Schritten \textit{1.2:() ->} zu entnehmen. 
         \\
-        Der Anwendungsfall wurde erfolgreich umgesetzt und konnte mit dem realen Service-Roboter getestet werden. Für die 
-        Usability-Tests \ref{sec:usabilitytest}, zur Überprüfung der Nutzbarkeit, wurde ein \textit{Mock}\footnote{Simulierte Objekte in der Objekt-orientierten Programmierung. \url{https://en.wikipedia.org/wiki/Mock_object} Besucht am 02.08.2022} 
-        des Service-Roboters entwickelt, um die Interaktionen simulieren zu können.
+        Der Anwendungsfall wurde erfolgreich umgesetzt und konnte mit dem realen Service-Roboter getestet werden. 
+        Ein \textit{Mock}\footnote{Simulierte Objekte in der Objekt-orientierten Programmierung. \url{https://en.wikipedia.org/wiki/Mock_object} Besucht am 02.08.2022} 
+        des Service-Roboters wurde entwickelt, um die Interaktionen zu simulieren und die Usability-Tests durchzuführen. 
     
     \subsubsection*{Notfall-Evakuierung mit einem Service-Roboter}
-        Der Anwendungsfall der Notfall-Evakuierung enthält ähnliche Handlungsschritte als die des Check-ins, weswegen dieser nicht in die 
-        Tiefe aufgegriffen wird. Die Prozessschritte sind ebenso möglich umzusetzen und wurden auch im Rahmen dieser 
-        Arbeit umgesetzt. Der Ablauf gestaltet sich ähnlich zu dem im Sequenzdiagramm \ref{fig:sequenceRuleGreet} dargestellt. 
-        Der Roboter selbst ist aktuell nicht in der Lage Personen zu erkennen. Um dies zu vereinfachen, wurde im Rahmen dieser Arbeit 
-        lediglich ein gebuchter Platz angefahren und die Warnmeldung ausgeführt. Dies erfolgt für jeden gebuchten Platz des Erdgeschosses 
-        im Büro.
+        Der Anwendungsfall der Notfall-Evakuierung enthält ähnliche Handlungsschritte als die des Check-ins, weswegen dieser nicht detailliert 
+        aufgegriffen wird. Die Prozessschritte sind ebenso möglich umzusetzen und wurden auch im Rahmen dieser 
+        Arbeit realisiert. Der Ablauf ist in einigen Aktionen zu vergleichen mit dem im Sequenzdiagramm \ref{fig:sequenceRuleGreet} dargestellten. 
+        \\
+        Der Roboter selbst ist aktuell nicht in der Lage, Personen zu erkennen. Um dies zu vereinfachen, wurden im Rahmen dieser Arbeit 
+        lediglich bestimmte Orte angefahren und die Warnmeldung ausgeführt. 
         
     \section{Fazit der prototypischen Implementierung}
         % Entscheidung für die Nutzung von Reflection. Begründung: Überprüfung der Werte im Zustandsraum, welche sich geändert haben. 
