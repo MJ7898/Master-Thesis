@@ -35,40 +35,41 @@ Ziel der Arbeit abschließend betrachtet.
         \\
         \linebreak
         Es soll ein Anwendungsfall implementiert werden, bei dem ein Service-Roboter einen Mitarbeiter oder Gast, der an der Tür steht, 
-        empfangen und begrüßen soll. Eingangsbedingungen sind, dass eine Kamera zur Authentifizierung für die Anwendung simuliert wird. 
-        Die \acs{MQTT}-Nachricht wird im Rahmen der Aufgabe manuell erzeugt und losgelöst. Auch die Definition des \acs{MQTT}-Topics ist vorgegeben. 
-        Nachdem die simulierte Authentifizierung ausgelöst wurde, soll über die Steuerzentrale eine Regel ausgeführt werden, anhand dessen der simulierte 
+        empfangen und begrüßen soll. Die Eingangsbedingung ist die Authentifizierung über eine Kamera. Der ganze Vorgang wird simuliert, indem die \acs{MQTT}-Nachricht manuell erzeugt und ausgelöst wird. 
+        Auch die Definition des \acs{MQTT}-Topics ist vorgegeben. 
+        Danach soll über die Steuerzentrale eine Regel ausgeführt werden, anhand derer der simulierte 
         Service-Roboter gesteuert wird. Dafür sind folgende Anforderungen zu erfüllen: 
         \begin{itemize}
             \item Nach eingehendem Topic soll der Service-Roboter angesteuert und an die Tür geschickt werden. 
             (Die Ansteuerung des Service-Roboters erfolgt ebenso über \acs{MQTT}. Da in den meisten Fällen kein Roboter verfügbar ist, wird auch 
             diese Kommunikation mittels \acs{MQTT} simuliert.)
             \item Ist der Roboter an der Tür, soll er die Begrüßung starten. (Die folgende Interaktion wird im Rahmen des Test ebenso mittels der Simulation durchgeführt. 
-            Wird die gesendete Nachricht über den Service-Roboter-\textit{Mock} ausgegeben, so gilt die Aufgabe als erledigt.)
+            Wird die gesendete Nachricht über den Service-Roboter-\textit{Mock} auf der Konsole ausgegeben, so gilt die Aufgabe als erledigt.)
         \end{itemize}
-        Für die Aufgabe sind folgende Punkte zu berücksichtigen:
+        Für die Aufgabe sind folgende Punkte zu erfüllen:
         \begin{itemize}
             \item Die Kenntnis über \acs{MQTT}-Topics, die für die Kommunikation benötigt werden.
             \item Ein Zustandsraum, der alle benötigten Komponenten abbildet.
-            \item Der Service-Roboter als Komponente, sodass dieser bei Ausführung einer Aufgabe für weiter Aufgaben geblockt werden kann. 
+            \item Der Service-Roboter als Komponente, sodass dieser bei Ausführung einer Aufgabe für weitere Aufgaben gesperrt werden kann. 
             \item Der Auslöser, welcher durch ein \acs{MQTT} (PlugIn) abgebildet wird.
             \item Die Transformation der eingehenden \acs{MQTT}-Topics zu Zustandsänderungen, auf die Regeln ausgeführt werden sollen.
+            \item Die Regel, die den Vorgang der Begrüßung und des Check-ins vorgibt.
         \end{itemize}
         Dem Anhang (siehe \ref{appendix:usabilitytestpaper}) ist das Dokument zur Durchführung des Usability-Test beigefügt. 
         \\
         \linebreak
-        Nach dem Abschluss der Aufgabe wurden die Probanden gebeten einen Fragebogen, welcher sich an dem \textit{System Usability Scale (SUS)} 
-        Template orientiert, auszufüllen, um damit ihre Erkenntnisse und Meinungen mitzuteilen. Dieser Fragebogen ist ebenso dem Anhang (siehe \ref{appendix:usabilitytestpaper}) zu entnehmen Auf die Auswertung des Fragebogens wird in der 
+        Nach dem Abschluss der Aufgabe wurden die Probanden um ihre Meinung mithilfe eines Fragebogens, der sich an dem \textit{System Usability Scale (SUS)} 
+        Template orientiert, gebeten. Dieser Fragebogen ist ebenso dem Anhang (siehe \ref{appendix:usabilitytestpaper}) zu entnehmen. Auf die Auswertung wird in der 
         Zusammenfassung (\ref{subsec:usabilityFazit}) des Usability-Tests eingegangen. 
 
     \subsection{Fazit}
     \label{subsec:usabilityFazit}
-        Die Durchführung der quantitativen Forschung kann nicht als repräsentativ eingestuft werden. Die Ergebnisse der 
-        Usability-Tests zeigen im Rahmen einer kleinen Auswahl von Experten eine Tendenz, die zeigt, welche Anforderungen abgedeckt, bzw. 
-        welche Verbesserungspotentiale identifiziert wurden. Der Usability-Test konnte erfolgreich durchgeführt werden. 
-        Die Ergebnisse der Probanden waren bis auf die Namensgebung der Attribute im Zustandsraum, sowie der Objekte ähnlich. 
-        Nachdem die praktische Aufgabe abgeschlossen war, wurden die Probanden im Anschluss gebeten, den Fragebogen des \textit{SUS} zu 
-        beantworten. Folgender Auflistung ist der durchschnittliche Wert der Antworten zu entnehmen:
+        Der Usability-Test konnte erfolgreich durchgeführt werden.
+        Das Ergebnis der quantitativen Forschung kann nicht als repräsentativ eingestuft werden, da es sich um eine kleine Auswahl an Experten handelt. Es zeigt dennoch eine Tendenz, 
+        welche Anforderungen abgedeckt sind, bzw. welche Verbesserungspotentiale in dem Framework stecken.  
+        Das Resultat der Aufgabe ähnelte sich bei den Probanden mit Ausnahme der Namensgebung der Attribute im Zustandsraum. 
+        \\
+        Folgender Auflistung ist der durchschnittliche Wert der Antworten zu entnehmen:
         \begin{enumerate}
             \item \textit{Ich denke, dass ich dieses System gerne öfter nutzen würde.} (80 Punkte)
             \item \textit{Ich fand das System unnötig komplex.} (8 Punkte)
@@ -81,11 +82,11 @@ Ziel der Arbeit abschließend betrachtet.
             \item \textit{Ich fühlte mich sehr sicher mit dem System.} (76 Punkte)
             \item \textit{Ich musste viele Dinge lernen, bevor ich mit diesem System loslegen konnte.} (19 Punkte)
         \end{enumerate}
-        Im Rahmen der Bewertung, unter Berücksichtigung, dass 100 die volle Zustimmung und 0 den Widerspruch darstellt, ist das Ergebnis 
-        zufriedenstellend und zeigt das Potential des Frameworks. 
+        Im Rahmen der Bewertung, bei der 100 die volle Zustimmung und 0 die Ablehnung darstellt, ist das Ergebnis 
+        sehr positiv und zeigt das Potential des Frameworks. 
         \\
-        Nachdem der Test abgeschlossen und der Fragebogen beantwortet war, wurde die Befragte Person abschließend noch interviewt, damit 
-        Eindrücke über den Test hinaus gesammelt werden konnten. Diese Interviews werden in folgendem Abschnitt resümiert. 
+        Nachdem der Test abgeschlossen und der Fragebogen beantwortet war, wurde die befragte Person abschließend noch interviewt, damit 
+        Eindrücke über den Test hinaus gesammelt werden konnten. Diese Interviews werden im folgenden Abschnitt resümiert. 
         %1.: - 80 = 100, 75, 60, 80, 85 
         %2.: - 8 = 0, 15, 10, 10, 5 
         %3.: - 76 = 100, 80, 75, 75, 50 
@@ -100,34 +101,33 @@ Ziel der Arbeit abschließend betrachtet.
 \section{Experteninterview}
         Zur umfangreichen Informationsgewinnung wurde anschließend zu dem Usability-Test ein Interview mit dem jeweiligen Probanden 
         durchgeführt. Hierbei wurden sowohl die gesammelten Erkenntnisse und Erfahrungen während der Aufgabe erfragt, sowie auf die Anforderungen 
-        (siehe Kapitel \ref{subsec:experteninterview}) eingegangen, die durch Experteninterviews erhoben wurden. Ein Anteil der Probanden wurde bereits 
-        bei der Erhebung von Anforderungen durch Experteninterviews befragt. Somit konnte ein Bild geschaffen werden, wie die Anforderungen 
-        umgesetzt wurden, bzw. diese von den Experten empfunden wurden.
+        (siehe Kapitel \ref{sec:requirementsFinal}) eingegangen. Ein Teil der Probanden wurde dafür bereits 
+        bei der Erhebung von Anforderungen befragt. Somit konnte sich ein Bild verschafft werden, wie die Anforderungen 
+        umgesetzt, bzw. diese von den Experten empfunden wurden.
     
     \subsection{Ziele des Experteninterviews}
         Das Ziel des abschließenden Experteninterviews ist es, die Erfahrungswerte der Probanden zu sammeln, um diese den Anforderungen gegenüberzustellen. Bei 
-        Experten, die bereits zu der Anforderungserhebung interviewt wurden, kann konkret darauf eingegangen werden, wie die Kriterien und Anforderungen 
-        umgesetzt wurden. Ebenso ist es wünschenswert ein abschließendes Feedback zu erhalten und ggf. Herausforderungen für den Anwender und Schwachstellen 
-        des Systems zu identifizieren. 
+        Experten, die bereits zu der Anforderungserhebung interviewt wurden, konnte konkret auf die Umsetzung der Kriterien und Anforderungen eingegangen werden. 
+        Ebenso ist ein abschließendes Feedback wünschenswert, sowie ein Identifizieren der Herausforderungen für den Anwender und der eventuellen Schwachstellen 
+        des Systems. 
 
     \subsection{Fazit}
         Das Experteninterview wurde, vergleichbar zu dem vorherigen Interview (siehe \ref{subsec:experteninterview}), mit einem semi-strukturierten Ansatz durchgeführt. 
         Anfangs wurde an den Fragebogen angeknüpft, um eine nachträgliche Zusammenfassung der Erkenntnisse jedes einzelnen zu erfahren. Sofern die Zusammenfassung bereits 
-        die notwendigen Informationen enthielt, so wurde ein unstrukturierter Ansatz verfolgt und ein offener Dialog geführt. War die Zusammenfassung jedoch nicht 
-        so aufschlussreich, so wurden anschließend konkret die 
+        die notwendigen Informationen enthielt, wurde ein unstrukturierter Ansatz verfolgt und ein offener Dialog geführt. War die Zusammenfassung jedoch nicht 
+        aufschlussreich, so wurden anschließend konkret die 
         folgenden Fragen gestellt: 
         \begin{enumerate}
             \item \textit{„Wie ist Ihr erster Eindruck des Systems?“}
             \item \textit{„Gibt es aus Ihrer Sicht (Sicht des Anwenders) Mängel, die Ihnen die Nutzung des Frameworks erschweren?“}
             \item \textit{„Gab es Unklarheiten während der Anwendung des Frameworks? - Wenn ja, welche?“}
-            \item \textit{„Haben Sie eine Idee oder Lösung diese Unklarheit zu beseitigen?“}
+            \item \textit{„Haben Sie eine Idee oder Lösung, um diese Unklarheit zu beseitigen?“}
             \item \textit{„Gibt es allgemein Anregungen, bzw. Vorschläge für Verbesserungen?“}
             \item \textit{„Was gefällt Ihnen an dem Framework am meisten? - Was gefällt Ihnen nicht?“}
         \end{enumerate} 
-        Rekapitulierend wurde ein überwiegend lehrreiches Ergebnis erzielt. Die Antworten gaben eine klare Meinung und Resonanz der Probanden wieder. 
-        In Summe wurde ein erfreuliches Ergebnis erzielt. Aus Sicht des Anwenders gab es wenige Anmerkungen, da die Strukturen und Anforderungen dem Anwender 
-        gegenüber deutlich sind. Mit der konkreten Anweisung, welcher Anwendungsfall umgesetzt werden soll, bzw. welche Randbedingungen dafür gelten, kann 
-        schnell ein Ergebnis erzielt werden. 
+        Rekapitulierend wurde ein aufschlussreiches und erfreuliches Ergebnis erzielt. Die Antworten gaben ein klares Meinungsbild von der Einfachheit der 
+        Handhabung der formalisierten Interaktionen der Steuerzentrale wieder und bestätigen die Erfüllung des Ziels dieser Arbeit. 
+        Aus Sicht des Anwenders gab es wenige Anmerkungen zum Aufbau des Frameworks. 
         \\
         Eine erwähnenswerte Anmerkung war folgende:
         \begin{quote}
@@ -136,90 +136,101 @@ Ziel der Arbeit abschließend betrachtet.
             Bekommt man dementsprechend eine Hilfestellung, bzw. eine detailliertes Beispiel an die Hand, so können kleinere Schritte und Anwendungsfälle 
             relativ schnell umgesetzt werden.“
         \end{quote}
-        Ein Ergänzungs-, bzw. Verbesserungsvorschlag, der während eines Interviews erwähnt wurde, ist die Optimierung zum Anlegen von sämtlichen Objekten. 
-        Hierfür wurde vorgeschlagen, das eine Art \textit{\ac{CLI}}, wie bspw. die von Angular\footnote{TypeSkript basiertes Web Application Framework. \url{https://angular.io/} Besucht am 05.08.2022} 
-        implementiert wird. Diesbezüglich war die Idee, über die Kommandozeile Befehle geben zu können, um bspw. Attribute im Zustandsobjekt anlegen zu können, leere Transformationen zu erzeugen, bzw. mit der 
-        Übergabe von den dafür vorgesehenen Parameterwerten diese auch vollends zu erzeugen und das Erstellen eines leeren Regelkonstruktes. Dadurch müsste sich der Entwickler 
-        ausschließlich um das Implementieren der Regel kümmern. Dadurch würde der notwendige Code generiert und dem Anwender zur Verfügung gestellt werden.
-        
-\section{Evaluation der Anforderungen}
-    Im Rahmen der Arbeit werden die Anforderungen (siehe Kapitel \ref{sec:requirementsFinal}) abschließend anhand von dafür vorgesehenen Praktiken evaluiert. 
-    Die Reihenfolge entspricht der tabellarischen Aufstellung der Anforderungen. Zuerst erfolgt die Abarbeitung der \textit{funktionalen Anforderungen}, 
-    anschließend die der \textit{nicht funktionalen Anforderungen} und zum Schluss die der \textit{zusätzlichen Anforderungen}, die ebenso Randbedingungen adressieren.
-    
-    \subsection*{Funktionale Anforderungen}
-        Während der Konzeption und Entwicklung des Frameworks wurden die funktionalen Anforderungen (FA1 - FA6, siehe Tabelle \ref{tab:functionalRequirements}) stets 
-        berücksichtigt. Diese stellen die wichtigsten Anhaltspunkte dar und die grundlegende Funktionen bereit. Deren Erfüllung konnte durch die abschließenden 
-        Experteninterviews identifiziert werden. Die Resonanz der Experten gab auch deutlich wieder, dass auf Grundlage der Anforderungen der Prototyp aufbaut. Die Struktur 
-        des Regelobjektes (FA1) wird gegeben, indem eine Klasse von der Oberklasse erbt und diese erweitert. Umgesetzt wurde diese Anforderung mithilfe des 
-        \textit{Template Method} Architekturmuster, auf das auch bereits in der Konzeption (siehe Kapitel \ref{chap:konzept}) eingegangen wird. Die Anforderung (FA2) ist 
-        umgesetzt, indem der Regel über eine Methode Namens \textit{ruleTrigger} ein Wert eines \textit{Enum Types}\footnote{Spezieller Datentyp. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html} Besucht am 05.08.2022} 
-        zugeordnet wird. Ein unumgänglicher Teil des Frameworks ist der vom Anwender implementierte Zustandsraum, welcher über eine separate Klasse vorgegeben wird. Dadurch 
-        ist auch die Anforderung (FA3) als umgesetzt anzusehen. Die Individualität der Implementierung des Zustandsraume ist durch die frameworkseitige Verwendung der 
-        Java \textit{Generics} gegeben. Dadurch arbeitet das Framework mit dem vom Entwickler übergebenen Klassenobjekt. 
+        Ein Ergänzungs-, bzw. Verbesserungsvorschlag, der während eines Interviews erwähnt wurde, ist die Optimierung des Anlegens von sämtlichen Objekten. 
+        Hierfür wurde vorgeschlagen, eine Art \textit{\ac{CLI}}, wie bspw. die von Angular\footnote{TypeSkript basiertes Web Application Framework. \url{https://angular.io/} Besucht am 05.08.2022}, 
+        zu implementieren. Die Idee war Befehle über die Kommandozeile geben zu können, bspw. das Anlegen von Attributen im Zustandsobjekt, das Erzeugen leerer, bzw. mit den dafür 
+        vorgesehenen Parameterwerten befüllter Transformationen, und das Erstellen eines leeren Regelkonstruktes. Dadurch würde der notwendige Code generiert und dem Entwickler zur Verfügung gestellt werden, wodurch dieser 
+        sich ausschließlich um das Implementieren der Regeln kümmern muss. 
         \\
         \linebreak
-        Zu den Regeln sind die Bedingungen zur Ausführung des Prozesses unabdingbar. Diese sind durch eine eigenständige Funktion der 
-        Regelklasse gegeben und müssen vom Anwender aufgestellt werden (FA4). Die darauf folgende Forderung (FA5) ist prinzipiell gegeben, wird allerdings durch die Einschränkung im 
-        Zustandsraum durch die Nutzung von Java \textit{Reflection}, bzw. die Umsetzung der inversen Transformation aktuell nicht als geeignet angesehen. Deshalb wird derzeit von der Einbindung von 
-        Komponenten in das Zustandsobjekt abgeraten. Das Erstellen von Komponenten ist dennoch möglich und kann im Regelkontext angewendet werden, sofern bestimmte Eigenschaften für eine Regel relevant sind. Der 
-        letzte Punkt der funktionalen Anforderungen (FA6) ist ebenso ermöglicht, da innerhalb der Regel keine Einschränkungen greifen, bis auf die Voraussetzung, dass die Regelbedingung, sowie der -prozess 
-        implementiert werden. Zusätzlich können bspw. sämtliche \acs{HTTP}-Abfragen getätigt werden. Im Falle des Use Cases, Check-in mit einem Service-Roboter, werden \acs{HTTP}-Abfragen ausgeführt, damit 
+        Abschließend lässt sich anmerken, dass mit der konkreten Anweisung, welcher Anwendungsfall umgesetzt werden soll, bzw. welche Randbedingungen 
+        dafür gelten, schnell ein Ergebnis erzielt werden kann. 
+        
+\section{Evaluation der Anforderungen}
+    Im Rahmen der Arbeit werden die Anforderungen (siehe Kapitel \ref{sec:requirementsFinal}) zum Abschluss anhand von dafür vorgesehenen Praktiken evaluiert. 
+    Die Reihenfolge entspricht der tabellarischen Aufstellung der Anforderungen. Zuerst erfolgt die Abarbeitung der \textit{funktionalen Anforderungen}, 
+    anschließend die der \textit{nicht funktionalen Anforderungen} und zum Ende hin die der \textit{zusätzlichen Anforderungen}. 
+    
+    \subsection*{Funktionale Anforderungen}
+        Während der Konzeption und Entwicklung des Frameworks wurden die funktionalen Anforderungen (FA1 - FA6, siehe Tabelle \ref{tab:functionalRequirements}) 
+        berücksichtigt. Sie stellen den wichtigsten Kernpunkt dar. Deren Erfüllung konnte durch die abschließenden 
+        Experteninterviews identifiziert werden. Die Resonanz der Experten gab auch deutlich wieder, dass auf Grundlage der Anforderungen der Prototyp aufbaut. Die Struktur 
+        des Regelobjektes (FA1) wird gegeben, indem eine Klasse von der Oberklasse erbt und diese erweitert. Umgesetzt wurde diese Anforderung mithilfe des 
+        \textit{Template Method} Architekturmusters, auf das auch bereits in der Konzeption (siehe Kapitel \ref{chap:konzept}) eingegangen wurde. 
+        \\
+        \linebreak
+        Die Anforderung (FA2) ist 
+        umgesetzt, indem der Regel mit der \textit{ruleTrigger}-Methode ein Wert eines \textit{Enum Types}\footnote{Spezieller Datentyp. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html} Besucht am 05.08.2022} 
+        zugeordnet wird. Ein essentieller Teil des Frameworks ist der vom Anwender zu implementierende Zustandsraum, welcher über eine separate Klasse vorgegeben wird. Dadurch 
+        ist auch die Anforderung (FA3) als umgesetzt anzusehen. Die Individualität der Implementierung des Zustandsraume ist durch die frameworkseitige Verwendung der 
+        Java \textit{Generics} gegeben. Demzufolge arbeitet das Framework mit dem vom Entwickler übergebenen Klassenobjekt. 
+        \\
+        \linebreak
+        Die Ausprägungen der Bedingungen zur Ausführung der Regelprozesse sind unverzichtbar. Sie müssen vom Anwender aufgestellt werden (FA4). Damit eine Aufstellung erfolgen kann, ist in der Regelklasse eine 
+        Funktion gegeben, die das Implementieren der Bedingung erzwingt. 
+        Die darauffolgende Forderung (FA5) ist prinzipiell gegeben, wird allerdings durch die Einschränkung im 
+        Zustandsraum aktuell nicht als geeignet angesehen. Die Nutzung von Java \textit{Reflection}, bzw. die Umsetzung der inversen Transformation erschwert dies. Derzeit wird von der Komponenteneinbindung 
+        in das Zustandsobjekt abgeraten. Das Erstellen von Komponenten ist dennoch möglich und kann im Regelkontext angewendet werden, sofern bestimmte Eigenschaften für eine Regel relevant sind. 
+        \\
+        \linebreak
+        Der letzte Punkt (FA6) ist ebenso umgesetzt, da innerhalb der Regel bis auf die Voraussetzung der Implementierung der Regelbedingung, sowie des -prozesses keine Einschränkungen bestehen. 
+        Zusätzlich können bspw. sämtliche \acs{HTTP}-Abfragen getätigt werden. Im Falle des Use Cases "Check-in mit einem Service-Roboter" werden \acs{HTTP}-Abfragen ausgeführt, damit 
         Informationen der Büroplatzbuchungssoftware abgerufen werden können. 
 
     \subsection*{Nicht funktionale Anforderungen}
         Zur Überprüfung der \textit{nicht funktionalen Anforderungen} wurden Methoden für deren Überprüfung verwendet. Zusätzlich zu den 
         verifizierten \textit{User Stories} mittels der Usability-Tests konnten ebenso die aufgestellten Forderungen, die allgemein 
-        die Benutzerfreundlichkeit (BF) adressieren, überprüft werden. Der durch die Experteninterviews aufgestellte Anspruch (NFA1) konnte 
-        durch die Usability-Tests erfüllt werden, da die Probanden überwiegend einen Schritt benötigten, um die bereits erstellte Regel 
-        dem Framework zu übergeben. Grund dafür ist die Funktion der Steuerzentrale \textit{addRule(...)}. Der Anwender kann die Funktion 
-        schnell zuordnen und bekommt mitgeteilt, welche Übergabeparameter die Funktion erwartet.
+        die Benutzerfreundlichkeit (BF) umfassen, überprüft werden. Der durch die Experteninterviews aufgestellte Anspruch (NFA1) konnte 
+        durch die Usability-Tests erfüllt werden, da die Probanden selten mehr als eine Aktion benötigten, um die bereits erstellte Regel 
+        dem Framework zu übergeben. Grund dafür ist die Funktion der Steuerzentrale \textit{addRule(...)}. Der Anwender kann die Aufgabe der Funktion 
+        schnell zuordnen und bekommt über die Entwicklungsumgebung die erwarteten Übergabeparameter mitgeteilt. 
         \\
         \linebreak 
-        Im Rahmen des überschaubaren, jedoch nicht repräsentativen Usability-Tests waren alle Teilnehmer in der Lage eine Regel zu erstellen 
+        Im Rahmen des Usability-Tests waren alle Teilnehmer in der Lage eine Regel zu erstellen 
         und diese dem Regelwerk hinzuzufügen (NFA2). Ausgehend von dieser Anforderung wurden 
         während der Experteninterviews Anregungen angebracht, die gegebenenfalls eine weitere Vereinfachung für den Entwickler darstellen. 
         Diese werden im Ausblick (siehe Kapitel \ref{chap:ausblick}) aufgegriffen. 
         \\
-        Durch die rein programmatische Anwendung des Frameworks, kann der Entwickler zu jedem Zeitpunkt auf die Funktionen der Steuerzentrale zugreifen (NFA3). 
-        Dies wurde ebenso von den Testteilnehmern im anschließenden Experteninterview bestätigt. Zu aktuellem Zeitpunkt sind die nutzbaren Funktionen sehr 
-        überschaubar und decken die zum derzeitigen Stand notwendigsten Funktion ab, darunter das Hinzufügen von Regeln, 
-        das Erstellen aller notwendigen Objekte und Komponenten, das Aufsetzen der notwendigen \acs{MQTT}-Konfiguration, das Ergänzen von Transformationen, das Starten 
+        Durch die rein programmatische Anwendung des Frameworks kann der Entwickler zu jedem Zeitpunkt auf die Funktionen der Steuerzentrale zugreifen (NFA3). 
+        Dies wurde ebenso von den Testteilnehmern im anschließenden Experteninterview bestätigt. Zum aktuellen Zeitpunkt sind die nutzbaren Funktionen sehr 
+        überschaubar und decken die notwendigsten Funktion ab, darunter das Hinzufügen von Regeln, 
+        Erstellen aller wesentlichen Objekte und Komponenten, Aufsetzen der erforderlichen \acs{MQTT}-Konfiguration, Ergänzen von Transformationen, Starten 
         des \acs{MQTT}-Clients und das Erweitern um zeitbasierte Regelauslöser. 
         \\
         \linebreak 
         Die Anforderung (NFA4) ist ebenso gegeben, da der Anwender sich 
-        ausschließlich um die Definitionen der Regeln, der Transformationen und des Zustandsraumes kümmern braucht. Dennoch gibt es zur weiteren 
+        ausschließlich um die Definitionen der Regeln, der Transformationen und des Zustandsraumes kümmern muss. Dennoch gibt es zur weiteren 
         Vereinfachung der Regeldefinition zusätzliche Möglichkeiten, die im Rahmen dieser Arbeit nicht umgesetzt wurden. Diese werden im Ausblick 
-        aufgegriffen, um zu zeigen, welche potentiellen Erweiterungen stattfinden können. 
+        aufgegriffen, um weitere Potentiale aufzuzeigen. 
         \\
         \linebreak
-        Ein weiterer Aspekt ist die allgemeine Zuverlässigkeit des Systems. Zur Überprüfung der Zuverlässigkeitsanforderung (NFA5) wurden im Rahmen der 
+        Ein nennenswerter Aspekt ist die allgemeine Zuverlässigkeit des Systems. Zur Überprüfung der Zuverlässigkeitsanforderung (NFA5) wurden im Rahmen der 
         Entwicklung \textit{JUnit-Tests}\footnote{Test Framework für Java. \url{https://junit.org/junit5/} Besucht am 08.08.2022} implementiert, die 
-        einen bestimmten Sachverhalt auslösen und überprüfen. Demnach wird ein Zustand vorausgesetzt, der nach dem Auslösen einer Regel eintreffen sollte. Somit kann 
-        die Zuverlässigkeit überprüft werden. Dennoch gibt es eine starke Abhängigkeit zur Regelbedingung, die der Anwender definiert. Ist diese 
+        einen bestimmten Sachverhalt auslösen und überprüfen. Demnach wird ein Zustand erwartet, der nach dem Auslösen einer Regel eintreffen sollte. Anschließend 
+        wird der Ist-Zustand mit dem Soll-Zustand abgeglichen und somit die Zuverlässigkeit überprüft. 
+        Dennoch gibt es eine starke Abhängigkeit zur Regelbedingung, die der Anwender definiert. Ist diese 
         nicht deutlich genug, kann es passieren, dass Regeln ungewollt ausgeführt werden. Deshalb ist die Validierung der Regelbedingung durch den 
         Entwickler essentiell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
         systemseitig keine negativen Auswirkungen von mehrdeutigen Bedingungen, die fälschlicherweise die Zuordnung und Ausführung einer Regel gefährden. Wird jedoch durch die 
-        Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat. So würde das 
+        Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat, so würde das 
         Framework eine Endlosschleife und Rückkopplung bilden und dadurch einen \textit{StackOverflowError} erzeugen. Demnach ist die Auswahl der Bedingung einer der wichtigsten 
         Punkte, die zu berücksichtigen sind.
         \\
         \linebreak
-        Durch die Verwendung von \textit{Threads} werden Regeln, deren Bedingung im Vorfeld zutreffen, asynchron ausgeführt. Dadurch können voneinander 
+        Durch die Verwendung von \textit{Threads} werden Regeln, deren Bedingungen im Vorfeld zutreffen, asynchron ausgeführt. Es können dadurch voneinander 
         unabhängige Regel parallel abgearbeitet werden. Somit ist die Performanz des Systems erhöht (NFA6). Die Reaktionszeit und die Performanz der 
-        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, sowie die dafür verwendete Hardware 
-        und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zu aktuellem Zeitpunkt keine 
+        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, sowie von der dafür verwendeten Hardware 
+        und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zum aktuellen Zeitpunkt keine 
         Auswirkungen auf das System selbst haben. Dennoch ist unter Verwendung der derzeitigen Technologien eine gewisse Performanz vorauszusetzen und zu erwarten. 
         \\
         \linebreak
         Die \textit{nicht funktionalen Anforderungen}, die allgemein die Verfügbarkeit des Systems beschreiben (NFA8 \& NFA9), sind aktuell zu vernachlässigen und wurden im Rahmen dieser 
-        Arbeit nicht überprüft. Trotz dessen kann erwähnt werden, dass das Framework selbst keine Einbusen der Verfügbarkeit hervorruft. Entscheidend sind dabei die 
-        Verbindungen zu dem \acs{MQTT}-Broker und Internet, sowie die Stromversorgung, da das Framework lokal auf einem \textit{Raspberry Pi} betrieben wird. 
+        Arbeit nicht überprüft. Das Framework selbst produziert von sich aus keine Downtime. Entscheidend sind dabei die Richtigkeit der Regeldefinition, 
+        Verbindungen zum \acs{MQTT}-Broker und Internet, sowie die Stromversorgung, da das Framework lokal auf einem \textit{Raspberry Pi} betrieben wird. 
         \\
         \linebreak
-        Zur Überprüfung der Fehlertoleranz (NFA10) wurden die \textit{JUnit-Tests} um weitere Testfälle ergänzt. Hierbei wird eine fehlerhafte Regel definiert, die innerhalb des 
-        Tests ausgelöst und ausgeführt wird. Die Resultate erzielten eine gewissen Fehlertoleranz, die in weiterer Entwicklung stets verbessert werden kann.
+        Zur Überprüfung der Fehlertoleranz (NFA10) wurden die \textit{JUnit-Tests} um weitere Testfälle ergänzt. Hierbei wurde eine fehlerhafte Regel definiert, die innerhalb des 
+        Tests ausgelöst und ausgeführt wurde. Die Resultate erzielten eine gewisse Fehlertoleranz, die durch eine Weiterentwicklung stets verbessert werden kann.
         \\
         \linebreak
         Der letzte Punkt (NFA11) der Tabelle (\ref{tab:notfunctionalRequirements}) zählt als Erweiterung des Frameworks, sodass ein ständiger Informationsaustausch stattfindet und der 
@@ -233,63 +244,64 @@ Ziel der Arbeit abschließend betrachtet.
         \\
         Für den Zustandsraum ist eine gewissen Modellierungsempfehlung vorgegeben, die keine Objekte als Felder im Zustandsraum zulässt. Die 
         Abbildung von reellen Zuständen findet 
-        ausschließlich über Attribute statt, die bereits gegeben sind. Somit ist (ZAF2) minimalistisch erfüllt. 
+        ausschließlich über Attribute statt. Somit ist die Mindestanforderung für (ZAF2) erfüllt. 
         \\
         \linebreak
-        Die Anforderung (ZAF3) ist erfüllt, da die Regelprüfung uns -ausführung über einen \textit{Thread Pool} in einen eigenen \textit{Thread} ausgelagert wird. Ebenso 
-        ist (ZAF4) erfüllt, da die Kommunikation zu aktuellem Zeitpunkt ausschließlich über \acs{MQTT} erfolgt. Das Auslösen von Regeln über definierte Zeitpunkte kann durch 
-        \textit{Cronjobs} oder durch die Annotation (\textit{\@ Scheduled}) des Spring Frameworks erfolgen. Demnach stellen diese beide Möglichkeiten die einzige Option eines 
-        Auslösers dar. In Folge dessen gilt auch die Forderung (ZAF5) als erfüllt.
+        Die Anforderung (ZAF3) ist abgedeckt, da die Regelprüfung uns -ausführung über einen \textit{Thread Pool} in einen eigenen \textit{Thread} ausgelagert wird. Ebenso 
+        ist (ZAF4) erfüllt, da die Kommunikation zum aktuellen Zeitpunkt ausschließlich über \acs{MQTT} erfolgt. Das Auslösen von Regeln über definierte Zeitpunkte kann durch 
+        \textit{Cronjobs} oder durch die Annotation (\textit{\@ Scheduled}) des Spring Frameworks stattfinden. Demnach stellen diese beide Möglichkeiten die einzigen Optionen eines 
+        Auslösers dar. In Folge dessen gilt auch die Forderung (ZAF5) als erledigt.
         \\
         \linebreak
-        Durch die Verwendung der generischen Programmierung in Java ist sichergestellt, dass das Zustandsobjekt zur Laufzeit dem Framework übergeben wird (ZAF6). Zusätzlich zu dem generischen 
-        Typ wird ebenfalls eine Objektinstanz erzeugt, die den Zustandsraum wiedergibt. Somit kann das Framework mit dem Objekt arbeiten, unabhängig von der Struktur der Klasse.
+        Durch die Verwendung der generischen Programmierung in Java ist sichergestellt, dass das Zustandsobjekt zur Laufzeit dem Framework übergeben wird (ZAF6). %Zusätzlich zum generischen 
+        %Typ wird ebenfalls eine Objektinstanz erzeugt, die den Zustandsraum wiedergibt. 
+        Somit kann das Framework mit dem Objekt arbeiten, unabhängig von der Struktur der Klasse.
         \\
         \linebreak
-        Anhand der Anforderung (ZAF7) findet die Kommunikation überwiegend über \acs{MQTT} statt. Ein Punkt, der nicht von dem Framework abgedeckt ist, ist die Sicherheit der 
-        Kommunikation. Der Anwender muss sicherstellen, dass dementsprechend die Vorkehrungen getroffen sind, damit der \acs{MQTT}-Broker und die darüber laufende Kommunikation abgeschirmt und für 
-        dritte nicht zugänglich ist (ZAF8). Im Rahmen der Arbeit ist der \acs{MQTT}-Broker ausschließlich im lokalen Netzwerk verfügbar und erlaubt den Zugriff nur für bestimmte Nutzer und Kommunikationsteilnehmer. 
+        Anhand der Anforderung (ZAF7) findet die Kommunikation überwiegend über \acs{MQTT} statt. Ein Punkt, der nicht vom Framework abgedeckt ist, ist die Sicherheit der 
+        Kommunikation. Der Anwender muss sicherstellen, dass dementsprechende Vorkehrungen getroffen sind, damit der \acs{MQTT}-Broker und die darüber laufende Kommunikation abgeschirmt und für 
+        Dritte nicht zugänglich sind (ZAF8). Im Rahmen der Arbeit ist der \acs{MQTT}-Broker ausschließlich im lokalen Netzwerk verfügbar und erlaubt den Zugriff nur für bestimmte Nutzer und Kommunikationsteilnehmer. 
         \\
         \linebreak
-        Der \textit{\acl{SPC}} ist gegeben, dadurch dass die Einstellungen und das Hinzufügen von Regeln und Transformationen ausschließlich über eine einzige Klasse funktioniert, die \textit{InnovationLogicHubApplication}. 
+        Der \textit{\acl{SPC}} ist gegeben, da die Einstellungen und das Hinzufügen von Regeln und Transformationen ausschließlich über eine einzige Klasse funktionieren, die \textit{InnovationLogicHubApplication}. 
         \\
         \linebreak
-        Nachdem die aufgestellten Anforderungen evaluiert wurden, wird in folgendem Abschnitt auf die Evaluation der Forschungsfrage eingegangen.
+        Nachdem die aufgestellten Anforderungen evaluiert wurden, wird im folgenden Abschnitt auf die Evaluation der Forschungsfrage eingegangen.
         \pagebreak
 
 \section{Evaluation der Forschungsfrage}
     %Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, sodass die formalen Interaktionen für den Softwareentwickler einfacher in der Handhabung sind?
     Der in dieser Arbeit verfolgte Ansatz bietet dem Softwareentwickler eine Möglichkeit, mit wenigen Schritten eine 
     Prozessautomatisierung oder Regeldefinition basierend auf einem Anwendungsfall im Bereich des intelligenten 
-    Büros, bzw. \textit{Smart Office} oder \textit{\acl{SH}}, umzusetzen. Hierbei wird vergleichbar zu anderen 
+    Büros, bzw. \textit{Smart Office} oder \textit{\acl{SH}}, umzusetzen. Hierbei wird im Vergleich zu anderen 
     Lösungen, darunter \acs{OPENHAB} und Home Assistant, nicht der Weg über eine Integration angestrebt. 
     Die Gestaltung solcher Komponenten, die über Integrationen abgebildet werden, findet in dem konzipierten 
-    Framework über den Zustandsraum statt, der dem Entwickler die Ausprägung dessen offen lässt. Zusätzlich 
+    Framework über den Zustandsraum statt. Er lässt dem Entwickler die Ausprägung offen. Zusätzlich 
     wird darauf verzichtet eine Benutzeroberfläche bereitzustellen, mit der die Interaktionen gegebenenfalls 
-    aufwändig, bzw. mehrschrittig sein können. Durch die alleinige Nutzung der Programmiersprache Java ist innerhalb des 
+    aufwändig, bzw. mehrschrittig sein könnten. Durch die alleinige Nutzung der Programmiersprache Java ist innerhalb des 
     Frameworks kein Kontextwechsel, bzw. Syntaxwechsel erforderlich, wodurch die Interaktionen ebenso vereinfacht bleiben. 
     Mithilfe der reduzierten Interaktionspunkte für den Entwickler ist gleichermaßen eine Formalisierung der Interaktionen 
     gewährleistet. So ist lediglich pro Anwendungsfall eine klar vorgegebene Struktur zu implementieren. Diese besteht aus mindestens einer 
     Transformation, einer Regel und einem Attribut im Zustandsraum. 
     \\
     \linebreak
-    Die Usability-Tests, sowie die Experteninterviews zeigten das Potential dieses Systems, welches bei weitem nicht ausgenutzt ist 
-    und in Zukunft gefördert werden kann. 
+    Die Usability-Tests, sowie die Experteninterviews zeigen das Potential dieses Systems, welches bei Weitem nicht ausgeschöpft ist 
+    und in Zukunft vorangetrieben werden kann. 
     \\
     \linebreak
-    Durch die einfache Erweiterbarkeit, die durch die Architektur gewährleistet ist, können weitere nützliche Funktionen hinzugefügt 
-    werden und bestätigt dessen erweiterbare Alltagstauglichkeit. 
+    Durch die einfache Erweiterbarkeit, die durch die Architektur gewährleistet ist, können nützliche Funktionen hinzugefügt 
+    werden. 
     \\
     In der Gesamtheit wurde das System als überaus hilfreich und entwicklungsfähig eingestuft. In dieser Arbeit stehen ausschließlich die 
     Konzeption, Grundlagenschaffung und prototypische Entwicklung zur Erreichung der Zielsetzung im Fokus. Die Grundlagen und -funktionen 
     wurden implementiert und zur Verfügung gestellt.
     \\
     \linebreak
-    Das Framework kann dennoch nicht direkt mit den bestehenden Softwarelösungen, bspw. Home Assistand und \acs{OPENHAB}, verglichen 
+    Das Framework kann dennoch nicht direkt mit den bestehenden Softwarelösungen, bspw. Home Assistant und \acs{OPENHAB}, verglichen 
     werden, da diese weitaus mehr Funktionalitäten anbieten, die im Rahmen dieser Arbeit nicht vorgesehen waren. 
     \\
     \linebreak
     Zusammenfassend lässt sich sagen, dass die Usability von Prozessautomatisierungen und Regeldefinitionen durch das Framework 
     optimiert werden können. Dieses bietet klare Strukturen und zeigt alle Handlungsschritte auf. Die Softwareentwickler erfahren 
-    durch das Framework die einfache Handhabung der formalisierten Interaktionen. Das System zeigt einen möglichen Lösungsweg auf, 
+    durch das Framework die einfache Handhabung der formalisierten Interaktionen. Das System bietet einen möglichen Lösungsweg, 
     der die Forschungsfrage beantwortet. 
