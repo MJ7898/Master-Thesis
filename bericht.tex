@@ -81,7 +81,7 @@
   \begin{center}
     \vspace*{-3cm}
     
-    \cgiFirmenLogo
+    %\cgiFirmenLogo
     \FirmenLogoDeckblatt\hfill\includegraphics[]{kfru}\\[2cm]
     
     {\Huge \Titel}\\[1.5cm]
@@ -128,43 +128,48 @@
 \newpage
 \selectlanguage{german}
 \begin{abstract}
-  Augmented Reality ist eine Technologie, die dem Nutzer ein visuelles 
-  Erlebnis mit einer angereicherten Welt voller virtueller Objekte ermöglicht. Das Resultat, eine 
-  Kombination aus Realität und Virtualität, bietet dem Benutzer eine neue Art der Wahrnehmung der Gegenwart. %Realitätswahrnehmung.  
-  \\ 
-  \linebreak
-  Diese Bachelorarbeit befasst sich mit der Konzeption und Umsetzung eines industriellen Assistenzsystems unter Verwendung der Augmented Reality Technologie. Dabei soll die Umgebung 
-  mit Hilfe des SLAM Verfahrens analysiert werden, um auf dieser Basis dreidimensionale Objekte als Referenz zu realen Objekten im Raum virtuell platzieren zu können. 
-  Durch die entstehende Visualisierung können Informationen zu den jeweiligen Objekten in eine Datenbank eingetragen und angezeigt werden, dadurch kann das Überwachen von 
-  Industriemaschinen vereinfacht werden. 
-  \\ 
-  \linebreak
-  Zu dem Konzept gehört sowohl die Ausarbeitung der grundlegenden Softwarearchitektur, als auch ein allgemein-gültiges Datenmodell zur 
-  Persistierung der generierten Daten. Für die bestmögliche Umsetzung der Augmented Reality Experience werden hierzu bereits schon bestehende Frameworks und Software 
-  Development Kits, beispielsweise Google ARCore, verwendet. 
-  \\ 
-  Der entstandene Prototyp ist ein eigenständiges System. Die Architektur ist modular aufgebaut, um eine stetige Weiterentwicklung zu gewährleisten.  
+  Smart Home, sowie die detaillierte Ausprägung des Smart Office zählen als wesentliche Teile zum Oberbegriff 
+  Internet of Things (IoT), und fokussieren die Vernetzung aller Arten von technischen Geräten und die 
+  Realisierung verschiedenster Automatisierungsverfahren und Prozessabbildungen. 
+  
+  
+  %Augmented Reality ist eine Technologie, die dem Nutzer ein visuelles 
+  %Erlebnis mit einer angereicherten Welt voller virtueller Objekte ermöglicht. Das Resultat, eine 
+  %Kombination aus Realität und Virtualität, bietet dem Benutzer eine neue Art der Wahrnehmung der Gegenwart. %Realitätswahrnehmung.  
+  %\\ 
+  %\linebreak
+  %Diese Bachelorarbeit befasst sich mit der Konzeption und Umsetzung eines industriellen Assistenzsystems unter Verwendung der Augmented Reality Technologie. Dabei soll die Umgebung 
+  %mit Hilfe des SLAM Verfahrens analysiert werden, um auf dieser Basis dreidimensionale Objekte als Referenz zu realen Objekten im Raum virtuell platzieren zu können. 
+  %Durch die entstehende Visualisierung können Informationen zu den jeweiligen Objekten in eine Datenbank eingetragen und angezeigt werden, dadurch kann das Überwachen von 
+  %Industriemaschinen vereinfacht werden. 
+  %\\ 
+  %\linebreak
+  %Zu dem Konzept gehört sowohl die Ausarbeitung der grundlegenden Softwarearchitektur, als auch ein allgemein-gültiges Datenmodell zur 
+  %Persistierung der generierten Daten. Für die bestmögliche Umsetzung der Augmented Reality Experience werden hierzu bereits schon bestehende Frameworks und Software 
+  %Development Kits, beispielsweise Google ARCore, verwendet. 
+  %\\ 
+  %Der entstandene Prototyp ist ein eigenständiges System. Die Architektur ist modular aufgebaut, um eine stetige Weiterentwicklung zu gewährleisten.  
 \end{abstract}
 
 \newpage
 \selectlanguage{english}
 \begin{abstract}
-  Augmented Reality is a technology that enables the user to have a visual 
-  experience with an enriched world full of virtual objects. The result offers the user a new 
-  way of perceiving surrounding as an Combination of reality and virtuality.
-  \\
-  \linebreak
-  This bachelor thesis deals with the conception and implementation of an industrial assistance system using augmented reality technology. The environment %should
-  can be analyzed with the help of the SLAM method in order to be able to place three-dimensional objects virtually as a reference to real objects in space.
-  The resulting visualization enables information on the respective objects to be entered in a database and displayed, which enables the simplified 
-  monitoring of Industrial machines.
-  \\
-  \linebreak
-  The concept includes the development of the basic software architecture as well as a generally applicable data model for
-  saving the generated data. Already existing frameworks and software development kits where used for the best possible implementation of the 
-  augmented reality experience as Google ARCore.
-  \\
-  The created prototype is an standalone system. The architecture is modular in order to ensure continuous further development.
+  %Augmented Reality is a technology that enables the user to have a visual 
+  %experience with an enriched world full of virtual objects. The result offers the user a new 
+  %way of perceiving surrounding as an Combination of reality and virtuality.
+  %\\
+  %\linebreak
+  %This bachelor thesis deals with the conception and implementation of an industrial assistance system using augmented reality technology. The environment %should
+  %can be analyzed with the help of the SLAM method in order to be able to place three-dimensional objects virtually as a reference to real objects in space.
+  %The resulting visualization enables information on the respective objects to be entered in a database and displayed, which enables the simplified 
+  %monitoring of Industrial machines.
+  %\\
+  %\linebreak
+  %The concept includes the development of the basic software architecture as well as a generally applicable data model for
+  %saving the generated data. Already existing frameworks and software development kits where used for the best possible implementation of the 
+  %augmented reality experience as Google ARCore.
+  %\\
+  %The created prototype is an standalone system. The architecture is modular in order to ensure continuous further development.
 \end{abstract}
 
 \newpage
@@ -394,10 +399,10 @@
 
 \chapter{}
 \label{appendix:brandings}
-\pagebreak
 \begin{figure}[hbt!]
   \centering
-  \includepdf[scale=0.65, pages=-, fitpaper=false]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
+  \includegraphics[width=13.5cm,height=13.5cm,keepaspectratio]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.png}
+  %\includepdf[scale=0.65, pages=-, fitpaper=false]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
   \caption{Umfrage der Statista GCS. Abgerufen am 22.05.2022}
   %\label{appendix:brandings}
 \end{figure}
@@ -446,7 +451,92 @@
 
 \chapter{}
 \label{appendix:user-story-uc1}
-\include{chapter/9Anhang/UC1_UserStory}
+%\include{chapter/9Anhang/UC1_UserStory}
+\section*{Use Case 1 - Check-in mit einem Service-Roboter}
+\subsection*{Aufgabenbeschreibung UC 1}
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{| p{3cm} | p{12.75cm} | }
+            \hline
+                \textbf{Task:} & \textbf{Begrüßung / Check-In von Member und Gästen} \\
+            \hline
+                \textbf{Ziel:} & Einen Member (Mitarbeiter) oder einen Gast in der Lokation mit einem Service-Roboter zu begrüßen, wenn dieser eintreten möchte. Nach der Begrüßung findet der Check-In statt, bei dem der Member seinem Platz zugewiesen und der Gast zu seinem Ansprechpartner geleitet wird. \\
+            \hline
+                \textbf{Eingriffs-möglichkeiten:} & Auswahl der Situation, Interaktion mit dem Service-Roboter (Informieren, Begleiten). \\
+            \hline
+                \textbf{Ursachen:} & Terminbuchung, Anmeldung, Klingeln an der Tür, Authentifizierung / Authentisierung an der Tür mittels Biometrische Eingangskontrolle. \\
+            \hline
+                \textbf{Priorität:} & Hoch \\
+            \hline
+                \textbf{Durchführungs-profil:} & Nach Anmeldung oder Eintritt eines Gastes oder Members, Unterbrechungen möglich (Verbindungsfehler, Fehlerhafte Abfrage der Verfügbarkeiten von Platzreservierungen), mittlere Komplexität. \\ 
+            \hline
+                \textbf{Vorbedingung:} & Platzbuchung / Reservierung und Einbuchung für ein Meeting fand im Vorfeld statt, Einverständniserklärung von den Personen liegt vor, Authentisierung über die Eingangskontrolle hat funktioniert / stattgefunden. \\
+            \hline 
+                \textbf{Info-In:} & Die Person, die eintreten will, ist durch die Buchung oder Authentisierung bekannt, Buchung ist registriert und kann abgerufen werden. \\
+            \hline
+                \textbf{Info-Out:} & Begrüßung Standardprotokoll mit Interaktionsmöglichkeiten und Kenntnis des Namens der Person, Check-In Informationen für die einzucheckende Person. \\
+            \hline
+                \textbf{Ressourcen:} & Service-Roboter, Eintrittskontrolle per Biometrischer Authentisierung, Buchung der Person abrufbar über die API. \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Aufgabenbeschreibung UC 1 - Begrüßung / Check-in}
+    \label{tab:checkIn}
+\end{table}
+
+%\subsection*{UC 1 - Beschreibung}
+%    Steuerzentrale:
+%    \begin{itemize}
+%        \item Input: MQTT Nachricht von UC 1 (Verifizierung ok?, Name des Gastes / Members und Prozessanstoß (Check In))
+%        \item Input: Terminregistrierung durch DoorJames (Übertragung der Termindaten) 
+%        \item Output: Zu durchlaufender Prozess (CheckIn) und Name des Gastes / Members
+%        \subItem (CheckIn) Genauer Begrüssungsprozess? Aktiv / Passiv 
+%        \subsubItem Zuständigkeit Service-Roboter / Member / Gast / Steuerzentrale (Zentral / dezentral)
+%        \subsubItem Begrüßungsprozess durch Service-Roboter selbst (Möglichkeiten sind im Service-Roboter implementiert) Steuerzentrale dient nur als Event-Auslöser 
+%    \end{itemize}
+	
+%    Service-Roboter: 
+%    \begin{itemize}
+%        \item Input: MQTT (Prozess-Trigger durch Steuerzentrale und Name des Gastes / Members)
+%        \item Input: Mitarbeiter lädt Kunde ein / Prepare / Nachweis der Platzbuchungssoftware
+%        \item Output: (An Steuerzentrale) – Prozess erfolgreich abgeschlossen
+%        \subItem Event-Möglichkeiten werden von Service-Roboter direkt verarbeitet. (Interaktion mit Gast, Ausrichten mit Hilfe Objekterkennung zur Person) 
+%        \subItem Event-Möglichkeiten: 
+%        \subsubItem Kunde: 
+%        \subsubsubItem Begrüßen von Kunde und einchecken mit QR / Wenn eingeladen, Service-Roboter wartet schon vorher 5-15min vor der Tür
+%        \subsubsubItem Zum Einladenden führen oder einen Call starten
+%        \subsubItem Mitarbeiter: 
+%        \subsubsubItem Anbieten eines Kaffees (zum Arbeitsplatz?) / oder zur Kaffee Maschine führen
+%    \end{itemize}
+
+\subsection*{UC 1 - User Story}
+\textbf{Gast:}
+\\
+Als Gast möchte ich für den Zugang in das Gebäude ein Bild für den Anmeldeprozess hinterlegen können. Vor Ort möchte ich über die Kamera 
+am Eingang mein Gesicht Authentisieren, bei nicht Hinterlegung eines Bildes bei der Anmeldung, möchte ich klingeln. Nach der 
+Authentisierung, bzw. nach Betätigung der Klingel soll sich die Tür öffnen. Beim Hineintreten in das Gebäude nehme ich einen Service-Roboter 
+(Service-Roboter) wahr. Dieser begrüßt mich und startet eine Konversation mit mir. Er bietet mir an die Registrierung, bzw. das Antreffen im Gebäude 
+per QR Code über den Service-Roboter-Bildschirm durchzuführen. Somit werde ich als anwesend markiert und der Mitarbeiter, mit dem ich einen Termin 
+habe, wird informiert. Nach erfolgreicher Registrierung führt mich der Service-Roboter zum Mitarbeiter mit dem ich einen Termin vereinbart habe.
+\\
+\linebreak
+\textbf{Member:}\\
+
+Als Member möchte ich die Buchung eines Arbeitsplatzes wahrnehmen können. Um in das Gebäude eintreten zu können, ist eine Authentifizierung durch 
+die Gesichtserkennung oder das Abscannen der Chipkarte notwendig. Nach erfolgreicher Autorisierung werde ich von Service-Roboter bei Eintritt des Gebäudes 
+begrüßt. Service-Roboter gibt mir den Arbeitsplatz bekannt und fragt, ob ich zum Platz begleitet werden soll. 
+(oder Service-Roboter mir einen Kaffee an den Arbeitsplatz bringt.) -> (Erweiterung des Use Cases in Planung)
+%Kunden zum Ausgangführen/Checkout anderer use case
+
+\subsubsection*{Akzeptanzkriterien}
+\begin{itemize}
+    \item AK-01: Eine MQTT-Message mit dem Namen der Authentisierten Person wird empfangen.
+    \item AK-02: Die MQTT-Message wird gelesen und mittels den Informationen können Abfragen an die DoorJames API erfolgen.
+    \item AK-03: Informationen der DoorJames API werden empfangen und können weiterverarbeitet werden. 
+    \item AK-04: Die benötigten Informationen können an den Service-Roboter (Temi) weitergeleitet werden.
+    \item Ak-05: Eine MQTT-Message wird empfangen, sobald der Service-Roboter alle Tasks (ToDo's)  des Prozesses abgearbeitet hat. 
+\end{itemize}
+
 \begin{landscape}
   \AddToShipoutPictureBG*{%
   \AtPageLowerLeft{%
@@ -460,10 +550,85 @@
 }% \AddToShipoutPictureBG*
   \includepdf[scale=0.75, pages=-, angle=90, fitpaper]{images/UC1_Ablaufdiagramm_Sichtweisen.pdf}
 \end{landscape}
-
-\chapter{}
+\pagebreak
 \label{appendix:user-story-uc2}
-\include{chapter/9Anhang/UC2_UserStory}
+%\include{chapter/9Anhang/UC2_UserStory}
+\section*{Use Case 2 - Notfall-Evakuierung}
+\subsection*{Aufgabenbeschreibung UC 2}
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{| p{3cm} | p{12.75cm} | }
+            \hline
+                \textbf{Task:} & \textbf{Begrüßung / Check-In von Member und Gästen} \\
+            \hline
+                \textbf{Ziel:} & Einen Notfall zu erkennen und darauf hin alle Member und Gäste, die sich im Büro befinden, informieren und bitten das Gebäude zu verlassen. \\
+            \hline
+                \textbf{Eingriffs-möglichkeiten:} & Keine, (Evtl. direkte Interaktion mit dem Service-Roboter). \\
+            \hline
+                \textbf{Ursachen:} & Aktivierung des Sensors durch äußerliche Einwirkung. \\
+            \hline
+                \textbf{Priorität:} & Hoch \\
+            \hline
+                \textbf{Durchführungs-profil:} & nach Meldung eines Notfalls durch Sensoren und Melder \\ 
+            \hline
+                \textbf{Vorbedingung:} & Ein Melder kann Nachrichten veröffentlichen, Topics für die Melder und Empfänger sind definiert. \\
+            \hline 
+                \textbf{Info-In:} & Meldung eines Sensors (Melder) über einen Notfall (Rauch, Feuer, Wasser, Gas). \\
+            \hline
+                \textbf{Info-Out:} & Kenntnis der gebuchten Plätze, Interaktionsmöglichkeiten mit dem Service-Roboter, Benachrichtigung bei Beendung des Prozesses. \\
+            \hline
+                \textbf{Ressourcen:} & Service-Roboter, Sensor (Rauch-, Feuer- oder Gas-Melder), Information über aktuelle Buchungen, Zuordnung von Positionen von Büroplätzen. \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Aufgabenbeschreibung UC 2 - Notfall-Evakuierung}
+    \label{tab:evacuation}
+\end{table}
+
+%\subsection*{UC 2 - Beschreibung}
+%%    Steuerzentrale:
+%    \begin{itemize}
+%        \item Input: MQTT Nachricht angestoßen von einem Member (Aktion; Uhrzeit)
+%        \item Input: DoorJames API - Gebuchte Büroplätze und Personen die einen Termin vor Ort registriert haben
+%        \item -	Output: Zu durchlaufender Prozess (Evakuierung) und Name des Gastes / Members und Position der Plätze und Räume, die gebucht wurden. 
+%    \end{itemize}
+	
+%    Service-Roboter: 
+%    \begin{itemize}
+%        \item Input: MQTT (Prozess-Trigger durch Steuerzentrale und Position gebuchter Plätze und Räume
+%        \item Input: Objekterkennung (Personenerkennung) durch die Kamera
+%        \item Output: (An Steuerzentrale) – Status / Prozess (erfolgreich/nicht erfolgreich) abgeschlossen
+%        \item -> Event-Möglichkeiten werden von Service-Roboter direkt verarbeitet. (Interaktion mit Person, Anweisungen an die Person) 
+%        \item -> Event-Möglichkeiten: 
+%        \item --> Kunde, Gast & Member: 
+%        \item ---> Alarmieren und bitten das Gebäude auf schnellstem Weg zu
+%    \end{itemize}
+
+\subsection*{UC 2 - User Story}
+\textbf{Gast:}
+\\
+    Als Gast, Member und Manager möchte ich bei einem Notfall alarmiert werden. Bei eintretendem Fall möchte ich 
+    Anweisungen, die zu beachten und umzusetzen sind, erhalten. Ebenso ist ein Hinweis zu den Notausgängen 
+    sinnvoll und hilft bei der Flucht, bzw. beim Verlassen des Gebäudes. Damit keine Personen im Büro 
+    bleiben, ist eine Information über Anwesende von belangen. Der Member sollte die Möglichkeit haben, den 
+    Service-Roboter aufzufordern nach Leuten zu rufen, die nicht in Sichtweite sind. Sobald alle Plätze 
+    abgefahren sind, bzw. durch den Service-Roboter keine Personen mehr erkannt werden, soll eine Benachrichtigung 
+    erfolgen, dass alle aus dem Gebäude sind, bzw. keine mehr gesichtet wurden. Diese Information hilft bei der 
+    anschließenden Kontrolle über am Treffpunkt anwesender Personen. Abschließend soll ggf. Eine Information über die 
+    Platzbuchungen gezeigt werden, damit bei der Kontrolle keine Fehler unterlaufen und keine Personen, die nicht 
+    gesehen werden, vergessen werden.
+
+\subsection*{Akzeptanzkriterien}
+\begin{itemize}
+    \item AK-01: Eine MQTT-Message des Rauchmelders (Sensors) wird von der Steuerzentrale empfangen.
+    \item AK-02: Die MQTT-Message wird gelesen und Abfragen an die DoorJames API erfolgen (Abfrage der Personen zum Zeitpunk im Bürogebäude)
+    \item AK-03: Informationen der DoorJames API werden empfangen und können weiterverarbeitet werden. 
+    \item AK-04: Die benötigten Informationen können an den Service-Roboter (Temi) weitergeleitet werden.
+    \item AK-05: Temi wird losgeschickt, um nach Personen im Gebäude zu suchen.
+    \item AK-06: Die Steuerzenrale schickt eine SMS, E-Mail an die Gebäudeverantwortliche Person, dass ein Notfall losgetreten wurde.
+    \item Ak-07: Eine MQTT-Message wird empfangen, sobald der Service-Roboter alle Tasks (ToDo's)  des Prozesses abgearbeitet hat. 
+\end{itemize}
+
 \begin{landscape}
   \AddToShipoutPictureBG*{%
   \AtPageLowerLeft{%

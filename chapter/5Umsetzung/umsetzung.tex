@@ -204,7 +204,8 @@ public class Application {
     wird klar definiert, welches \acs{MQTT}-Topic eine bestimmte Zustandsänderung auslöst. Innerhalb eines Falles (Case) wird über eine 
     \textit{Lambda}\footnote{Java Lambda-Funktion. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html} Besucht am 28.07.2022}-Funktion 
     der jeweilige Wert im Zustandsobjekt geändert. Durch den direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
-    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcodes (siehe \ref{code:switch-case}) zu entnehmen:
+    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcodes (siehe \ref{code:switch-case}) zu entnehmen.
+    \pagebreak
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=14cm,height=8cm,keepaspectratio]{images/Transformation_old.png}
