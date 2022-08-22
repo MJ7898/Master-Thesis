@@ -6,13 +6,13 @@
     dargestellt. Durch die bereits erfolgte Anforderungsanalyse (siehe Kapitel \ref{chap:anforderungsanalyse})
     sind erste Schritte der Konzeption abgeschlossen. 
     \\
-    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes, sowie die konkrete Absicht hinter dieser Arbeit 
+    Zu Anfang des Kapitels wird das allgemeine Ziel eines Konzeptes sowie die konkrete Absicht hinter dieser Arbeit 
     erläutert. Anschließend 
     wird auf das Anwendungsumfeld des Systems (\ref{sec:anwendungsumfeld}) eingegangen, darunter die
     zusätzlichen Komponenten, die notwendig sind, um das Framework in einer dafür vorgesehenen Umgebung sinnvoll 
     einzusetzen. Darauffolgend wird anhand der zugrundeliegenden Informationen und Anforderungen das 
     Architekturkonzept (\ref{sec:architekturkonzept}) ausgeführt. 
-    Dabei wird auf verschiedene kontextabhängige Aspekte, sowie auf die Sichtweisen des Anwenders und des Frameworks eingegangen.
+    Dabei wird auf verschiedene kontextabhängige Aspekte sowie auf die Sichtweisen des Anwenders und des Frameworks eingegangen.
 
 
 \section{Ziel der Konzeption}
@@ -144,7 +144,7 @@
     \subsection{Sichtweisen}
     \label{subsec:sichtweisen}
         Wie bereits aus dem Kontext hervorgeht, wird das System aus zwei Perspektiven beleuchtet. Zum einen aus Sicht des Anwenders, 
-        der das Aufsetzen und in Betrieb nehmen des Systems, sowie das Definieren und Implementieren von Regeln als 
+        der das Aufsetzen und in Betrieb nehmen des Systems sowie das Definieren und Implementieren von Regeln als 
         Aufgabe übernimmt. Zum anderen die 
         Bereitstellungssicht, die das Framework als ausführende Kraft besetzt. Dieses sorgt für die Erfüllung der vom 
         Anwender definierten Regeln. Ebenso stellt es Funktionen bereit, die das Empfangen von Events, das Starten 
@@ -171,7 +171,7 @@
         erläutert. Abschließend sind die Kommunikationswege zu aktivieren. 
         Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle 
         abbildet, ist die Konfiguration des \acs{MQTT}-Clients einzustellen. Hierfür muss der Entwickler 
-        dem Framework den Host des \acs{MQTT}-Brokers, sowie den Nutzernamen des Clients und dessen Passwort übergeben. Über das 
+        dem Framework den Host des \acs{MQTT}-Brokers sowie den Nutzernamen des Clients und dessen Passwort übergeben. Über das 
         Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumierbar 
         sind. Im Zuge dessen muss der Anwender die Topics innerhalb der jeweiligen Transformation definieren, wodurch gewährleistet wird, dass 
         die Steuerzentrale nur auf diese reagiert. Durch die Transformation erfolgt ebenso die 

@@ -36,7 +36,7 @@
         Abhängigkeitsmanagement, das Fernmanagement des laufenden Systems über sogenannte Management Agents und die Nutzung des 
         serviceorientierten Programmiermodells, \ac{SOA}\footnote{Erläuterung des SOA Modells. \url{https://www.ibm.com/cloud/learn/soa} Besucht am 20.06.2022}. 
         Die Funktionsweise und die technisch 
-        fundierte Erläuterung kann dem Buch \cite{osgibuch}, sowie der Dokumentation \cite{osgipraesentation} eines ausgearbeiteten Workshops entnommen werden. 
+        fundierte Erläuterung kann dem Buch \cite{osgibuch} sowie der Dokumentation \cite{osgipraesentation} eines ausgearbeiteten Workshops entnommen werden. 
         Nachteile der Plattform sind zum einen der geringere Einsatz und zum anderen die kleine Community. 
         Ebenso findet eine Weiterentwicklung der Plattform nur mäßig statt, was eine aufwändige Erweiterung, bzw. schleppende Entwicklung des darauf 
         aufbauenden Systems zur Folge hat. 
@@ -154,7 +154,7 @@ public class Application {
     Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Java-Klasse, die zusätzlich zu einem Konstruktor alle Felder, bzw. Attribute besitzt, die Zustände reeller 
     Geräte abbilden sollen. Damit der Anwender in seinen definierten Regeln die Werte setzen und abfragen kann, gibt es zu jedem Attribut eine \textit{Getter}- und \textit{Setter}-Methode.
     Es ist wichtig anzumerken, dass das Zustandsobjekt mit dem \textit{Singleton}-Pattern markiert und der Konstruktor dementsprechend initialisiert werden muss. Dadurch wird 
-    die Integrität des Objektes, sowie die dadurch vermeidbare Redundanz gewährleistet. Anhand der Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
+    die Integrität des Objektes sowie die dadurch vermeidbare Redundanz gewährleistet. Anhand der Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
     kann mittels der \textit{@Data}-Annotation der (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
     Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Das Konstrukt könnte in diesem Zusammenhang als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
     Transaktionshistorie der Zustandsänderungen zu erstellen.
@@ -204,7 +204,7 @@ public class Application {
     wird klar definiert, welches \acs{MQTT}-Topic eine bestimmte Zustandsänderung auslöst. Innerhalb eines Falles (Case) wird über eine 
     \textit{Lambda}\footnote{Java Lambda-Funktion. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html} Besucht am 28.07.2022}-Funktion 
     der jeweilige Wert im Zustandsobjekt geändert. Durch den direkten Aufruf der Methode zur Zustandsänderung wird mit dem neuen Wert die Regelüberprüfung und -ausführung 
-    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm, sowie dem Ausschnitt des Quellcodes (siehe \ref{code:switch-case}) zu entnehmen.
+    ausgelöst. Das konkrete Vorgehen ist dem folgenden Sequenzdiagramm sowie dem Ausschnitt des Quellcodes (siehe \ref{code:switch-case}) zu entnehmen.
     \pagebreak
     \begin{figure}[hbt!]
         \centering
@@ -298,7 +298,7 @@ public class InnovationLogicHubApplication {
     Die Funktionsweise der Transformation ist demnach wie folgt umgesetzt:
     \\
     Die vorab definierten Transformationen des Entwicklers werden in einer Liste gespeichert, damit das darin enthaltene Topic mit dem vom \acs{MQTT}-Subscriber eingehenden 
-    verglichen werden kann. Dafür wird die Liste wiederholt überprüft, sowie jede Transformation und deren zugewiesenes Topic. Sofern 
+    verglichen werden kann. Dafür wird die Liste wiederholt überprüft sowie jede Transformation und deren zugewiesenes Topic. Sofern 
     es eine Übereinstimmung gibt, wird der Key-Wert ermittelt und als Nutzlast (\textit{Payload}) übergeben. An dieser Stelle wird der \textit{ReentrantLock} aktiviert 
     und die Feldmanipulation für den Wert, der mittels Nutzlast mitgegeben wurde, durchgeführt. Nachdem die Zustandsänderung erfolgt ist, wird der \textit{Lock} deaktiviert und 
     die Zustandsänderung an die Logikschicht weitergegeben. Somit ist die Transformation für ein eingehendes \acs{MQTT}-Topic abgeschlossen. 
@@ -392,7 +392,7 @@ public class InnovationLogicHubApplication {
     \\
     Damit die Zustandsänderung und die darauf zu erstellende Kopie entsprechend sauber durchgeführt wird, wird dieser gesamte Vorgang durch einen 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} 
-    realisiert ist, gesperrt. Dadurch ist sichergestellt, dass die Änderung, sowie die Kopie für die weiteren Schritte tatsächlich zur Verfügung steht. 
+    realisiert ist, gesperrt. Dadurch ist sichergestellt, dass die Änderung sowie die Kopie für die weiteren Schritte tatsächlich zur Verfügung steht. 
 
 \subsection{Regelwerk -und management}
     Anknüpfend an die abgeschlossene Transformation wird der Teil ausgeführt, der basierend auf der Zustandsänderung 
@@ -429,7 +429,7 @@ public class InnovationLogicHubApplication {
     \linebreak
     Unter Anwendung des Frameworks werden im folgenden Abschnitt die Schritte dargestellt, die für die Realisierung des Anwendungsfalls notwendig sind: 
     \\
-    Damit die Zustände der Komponenten abgebildet werden konnten, mussten diese im Zustandsraum hinterlegt werden. Da der Schalter, sowie das Funkmodul 
+    Damit die Zustände der Komponenten abgebildet werden konnten, mussten diese im Zustandsraum hinterlegt werden. Da der Schalter sowie das Funkmodul 
     beide die Werte \textit{'on'} und \textit{'off'} über das Kommunikationsprotokoll versenden, wurde zur Abbildung der Zustandsattribute jeweils der \textit{String}-Datentyp gewählt. 
     Durch die Nutzung der \textit{lombok}-Bibliothek sind die \textit{Getter}- und \textit{Setter}-Methoden gegeben. 
     \\
@@ -524,7 +524,7 @@ public class InnovationLogicHubApplication {
         die im Rahmen der Konzeption hingenommen wurden, die allerdings zu keinen Einschränkungen führen. Trotz dessen kann durch die Einhaltung 
         der Modellierungsvorgaben (\ref{subsec:modellierungsgrenzen}) diese umgangen und so die Anwendungsfälle, die im Rahmen der Arbeit 
         definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend dabei ist die Definition der 
-        Transformation, sowie die der Regel selbst. 
+        Transformation sowie die der Regel selbst. 
         \\
         %\linebreak
         Der Prototyp erfüllt alle Voraussetzungen, um die definierten Anwendungsfälle umzusetzen.
