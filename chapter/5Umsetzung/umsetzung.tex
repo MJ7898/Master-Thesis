@@ -173,7 +173,7 @@ public class Application {
     \\
     Eine Aggregation von Objekten, bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut, bzw. Element bedient und somit eine 
     eins-zu-eins-Beziehung zwischen dem Feld und dem \acs{MQTT}-Topic besteht. 
-
+\pagebreak
 \subsection{Reflection} 
 \label{subsec:reflection}
     Mit der Reflection\footnote{Java Reflection. \url{https://www.oracle.com/technical-resources/articles/java/javareflection.html} Besucht am 27.07.2022} 
@@ -208,7 +208,7 @@ public class Application {
     \pagebreak
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=14cm,height=8cm,keepaspectratio]{images/Transformation_old.png}
+        \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Transformation_old.png}
         \caption{Transformation über Switch-Case-Anweisung}
         \label{fig:sequenceTransformationOld}
     \end{figure}
@@ -261,7 +261,7 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
         \pagebreak
     \begin{figure}[hbt!]
         \centering
-        \includegraphics[width=14cm,height=9cm,keepaspectratio]{images/Transformation_new.drawio.png}
+        \includegraphics[width=14cm,height=10cm,keepaspectratio]{images/Transformation_new.drawio.png}
         \caption{Transformation über eigenes Objekt}
         \label{fig:sequenceTransformationNew}
     \end{figure}
@@ -393,7 +393,7 @@ public class InnovationLogicHubApplication {
     Damit die Zustandsänderung und die darauf zu erstellende Kopie entsprechend sauber durchgeführt wird, wird dieser gesamte Vorgang durch einen 
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} 
     realisiert ist, gesperrt. Dadurch ist sichergestellt, dass die Änderung sowie die Kopie für die weiteren Schritte tatsächlich zur Verfügung steht. 
-
+\pagebreak
 \subsection{Regelwerk -und management}
     Anknüpfend an die abgeschlossene Transformation wird der Teil ausgeführt, der basierend auf der Zustandsänderung 
     alle bekannten Regeln überprüft und die zutreffenden abarbeitet. Wenn eine Zustandsänderung keiner konkreten Regel zugeordnet 
@@ -481,7 +481,7 @@ public class InnovationLogicHubApplication {
         \end{figure}
         \\
         %\pagebreak
-        %\linebreak
+        \linebreak
         Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
         bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein reeller Zustandsaustausch in Echtzeit nicht möglich. 
         Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
@@ -565,13 +565,13 @@ public class InnovationLogicHubApplication {
             % Zustandsraum zugelassen werden. Damit dies jedoch umgangen werden kann, wird vorerst die Nutzung von einfachen Attributen, darunter 
             % \textit{String}, \textit{Integer}, \textit{Double}, \textit{boolean} und \textit{Long} empfohlen. Andere Felder können zwar hinzugefügt werden, 
             % diese werden jedoch nicht vom Framework berücksichtigt.
+            \pagebreak
             \item \textit{Die Transformation.}
             Die Transformation gibt ein klar definiertes Konstrukt vor. Dafür gibt es zwei Klassen, die implementiert werden können und 
             jeweils die Oberklasse \textit{AbstractTopicTransformation} erweitern. Zum einen ist dies die Transformation ohne 
             optionale \textit{White-List} von zugelassenen Werten und zum anderen diejenige, in der eine solche Liste übergeben werden kann. Über die 
             \textit{addTransformation}-Funktion wird zur Laufzeit das Transformationsobjekt erzeugt. Die Inhalte sind klar vorgegeben (siehe Abschnitt \ref{subsec:transformation}) 
             und müssen vom Entwickler entsprechend definiert werden.
-            \pagebreak
             \item \textit{Die Definition der Regel.} 
             Die Definition einer Regel sieht vor, dass die Bedingung auf eine Zustandsänderung zutreffen muss. Der Regelprozess kann vom Anwender 
             frei implementiert werden. Zum Erstellen einer Regel ist zu Anfang zu garantieren, dass diese von der abstrakten Regelklasse erbt. So kann die Regel einer 
