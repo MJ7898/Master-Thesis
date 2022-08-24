@@ -1,7 +1,7 @@
 \section{openHAB}
 \label{sec:openhab} 
     Neben der erläuterten Home Assistant Plattform zählt openHAB zu den bekanntesten Open-Source-Systemen im 
-    Bereich des \acs{SH}. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
+    Bereich des \acl{SH}. Der \ac{OPENHAB} ist eine Plattform, bei der es sich um eine 
     Softwarelösung handelt, die auf Basis der Programmiersprache Java aufgebaut ist. Die Software steht unter 
     der Eclipse Public License und zählt zu der Rubrik der Open-Source-Software. Durch die Verwendung 
     von Java ist die Anwendung betriebssystemunabhängig und kann auf beliebigen Betriebssystemen laufen. 
@@ -49,12 +49,12 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     Hierbei ist zu berücksichtigen, dass die Dinge nicht 
     immer Geräte sein müssen, sondern auch andere Informationsquellen oder Webdienste sein können. 
     Aus Sicht des Benutzers sind sie für den Einrichtungs- und Konfigurationsprozess relevant, für den Betrieb 
-    jedoch potentiell zu vernachlässigen. Dinge können Konfigurationseigenschaften haben, die optional sein 
+    jedoch potenziell zu vernachlässigen. Dinge können Konfigurationseigenschaften haben, die optional sein 
     können. Solche Eigenschaften können grundlegende Informationen wie eine IP-Adresse, ein Zugriffstoken für einen Webdienst 
     oder eine gerätespezifische Konfiguration sein, die veränderbar sind \cite{openHAB-article}. Mit dem Konzept der Dinge 
     gehen zwei Unterkategorien einher:
     \begin{itemize}
-        \item Kanäle (Channels): Jedes Gerät, bzw. Ding stellt Kanäle bereit, mit denen die jeweiligen Funktionen abgebildet werden. 
+        \item Kanäle (Channels): Jedes Gerät bzw. Ding stellt Kanäle bereit, mit denen die jeweiligen Funktionen abgebildet werden. 
         Mit der Anbindung des physischen Gerätes an die Plattform ist der Kanal eine konkrete Funktion dieser Entität. Beispielsweise 
         kann eine Glühbirne einen Kanal für die Farbtemperatur und einen für den Farbwert besitzen. Diese stellen beide die 
         Funktionalität der Glühbirne für das System bereit. Grundlegend sind Kanäle mit Elementen verknüpft, mit denen 
@@ -64,7 +64,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         Kommunikation zwischen Gerät und Plattform, andererseits werden Ereignisse für Objekte nur dann gesendet, wenn diese 
         mit mindestens einem Kanal des Dinges verknüpft sind \cite{openHAB-article}.
         \item Brücken (Bridges): Die Brücke ist eine besondere Art eines Gerätes. Diese müssen dem System hinzugefügt werden, damit der 
-        Zugriff auf andere Dinge ermöglicht wird, bzw. erhalten bleibt. Ein IP-Gateway für Hausautomationssysteme, welches nicht 
+        Zugriff auf andere Dinge ermöglicht wird bzw. erhalten bleibt. Ein IP-Gateway für Hausautomationssysteme, welches nicht 
         IP-basiert funktioniert, ist ein typisches Beispiel für so eine Brücke.
     \end{itemize}
     An zweiter Stelle stehen die Artikel (Items). Diese Elemente stellen Funktionen dar, die von der Anwendung selbst verwendet 
@@ -96,7 +96,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         Ereignis eine Aktion ausgeführt. Wird z.B. ein Fenster geöffnet, soll die Heizung bis zu dessen Schließung abgeschaltet werden. 
         \item Persistenz (Persistence): Mit der Persistenzschicht kann festgelegt werden, welche historischen Zustandsereignisse 
         und Informationen gespeichert werden sollen. Dadurch kann nach Systemausfall der Status des Elementes wiederhergestellt werden. 
-        \item Modelle (Models): Modelle stellen baumbasierte Gruppierungen von Elementen dar. In der Baumstruktur können Elemente 
+        \item Modelle (Models): Modelle stellen baumbasierte Gruppierungen von Elementen dar. In der Baumstruktur können Elemente, 
         Orte, Punkte und Ausrüstungen sein. Beinhaltet z.B. ein Wohnzimmer als Standort zwei intelligente Geräte, Heizung und LED-Leuchte, so kann dies als Modell 
         definiert werden. Die Heizung als Ausstattung kann wiederum weiter Informationen abbilden, bspw. die \textit{Ist- und Soll-Temperatur}.
         \item Seiten (Pages): Alle Seiten und Seitenverzeichnisse kontrollieren die Zustände von Elementen und greifen auf diese zu. 
@@ -106,7 +106,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         können manuell, aber auch über andere Skripte und Regeln ausgeführt werden. 
     \end{itemize}
     Die anfängliche Architektur der \acs{OPENHAB} Anwendung teilt sich in drei Sektionen auf: Die Kernkomponenten (blau), das drunter 
-    liegende \acs{OSGI}-Framework (grün) und die Erweiterungen (Add-Ons) (gelb). 
+    liegende \acs{OSGI}-Framework (grün) und die Erweiterungen (Add-ons) (gelb). 
     \begin{figure}[hbt!]
         \centering
         \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/openhab-architecture.png}
@@ -136,7 +136,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
     \textit{Eclipse Equinox}\footnote{Eclipse Equinox. \url{https://www.eclipse.org/equinox/} Abgerufen am 29.04.2022} ist eine modulare 
     Java basierte Laufzeitumgebung und eine Implementierung des \acs{OSGI} Frameworks. Der Begriff der \textit{Bundles} ist das 
     Kernstück der \acs{OSGI}-Spezifikation. Diese werden verwendet, um die Modularität für Java zu erfassen. Ein Bundle ist 
-    eine Standard-Java-JAR-Datei, dessen Manifest zusätzliches Markup enthält, welches das Bundle identifiziert und seine Abhängigkeiten 
+    eine Standard-Java-JAR-Datei, dessen Manifest zusätzliches Mark-up enthält, welches das Bundle identifiziert und seine Abhängigkeiten 
     angibt. Als solches ist jedes Bundle vollständig selbstbeschreibend \cite{openHAB-article}. 
     \begin{figure}[hbt!]
         \centering
@@ -229,7 +229,7 @@ implementiert wurde. Die Software wird bis heute regelmäßig gepatched und von 
         end
         \end{lstlisting}
         Jede Regel bekommt einen eindeutigen Namen. Danach muss eine Bedingung implementiert werden, bei deren Eintreffen 
-        eine bestimmte, beliebige Aktion ausgelöst wird. Die Logik der Regel wird über den Skript-Block eingesetzt. Für die Syntax 
+        eine bestimmte beliebige Aktion ausgelöst wird. Die Logik der Regel wird über den Skript-Block eingesetzt. Für die Syntax 
         der Regellogik wird \textit{Xtend} verwendet. 
 
 \section{Vergleich von Home Assistant und openHAB}

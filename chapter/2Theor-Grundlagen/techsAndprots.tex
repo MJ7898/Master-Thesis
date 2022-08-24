@@ -44,7 +44,7 @@
         Die Leichtgewichtigkeit des Protokolls ermöglicht es, die Nachrichten bei eingeschränkter Netzwerkverfügbarkeit zu 
         übermitteln. Ausschlaggebend dafür ist das binär-basierte Protokoll, welches normalerweise einen festen Header von 
         zwei Bytes mit kleinen Nachrichtennutzlasten von maximal bis zu einer Größe von 256 MB \cite{Naik2017} enthält. Grundlegend 
-        ist \acs{MQTT} auf der Basis des Transportprotokoll \ac{TCP} aufgebaut und nutzt zur Verstärkung der Sicherheit die 
+        ist \acs{MQTT} auf der Basis des Transportprotokolls \ac{TCP} aufgebaut und nutzt zur Verstärkung der Sicherheit die 
         \ac{TLS}/\ac{SSL}-Verschlüsselung. Dadurch sind Client und Broker mit ihrer Kommunikation verbindungsorientiert. 
         Die Anwendung von \acs{MQTT} im Bereich des \acl{SH} zeichnet sich durch die Möglichkeit aus, große Netzwerke mit 
         vielen kleineren Geräten, die von einem Backend-Server, bzw. dem Backend-System überwacht und gesteuert werden müssen, zu 
@@ -68,7 +68,7 @@
         Alle Kommunikationspartner können so Informationen (Nachrichten / Messages) auf bestimmte Topics (Endpunkten) senden und 
         diese abonnieren (publish / subscribe). 
 
-        \subsubsection*{Publish/Subscribe Kommunikationmodell}
+        \subsubsection*{Publish/Subscribe Kommunikationsmodell}
         \label{subsubsec:pubsub}
             Das Prinzip des Publish/Subscribe Kommunikationsmodells besteht darin, dass Komponenten, die an vorgegebenen Topics 
             interessiert sind, bestimmte Informationen konsumieren und ihr Interesse anmelden \cite{Hunkeler2008}. Dieser Vorgang wird als 
@@ -95,7 +95,7 @@
             Damit am Beispiel der Steuerzentrale, die im Rahmen dieser Arbeit konzipiert und prototypisch implementiert wird, 
             ein Prozess gestartet werden kann, müssen bestimmte Ereignisse durch \acs{MQTT}-Nachrichten eintreten. Das hier 
             verwendete Beispiel ist das Öffnen einer Büroeingangstür. Hierbei wird von einem Relais an der Tür, welches das 
-            Türschloss steuert, eine Nachricht and den \textit{Broker} herausgegeben:
+            Türschloss steuert, eine Nachricht an den \textit{Broker} herausgegeben:
             \\
             \begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:pubmqtt}, captionpos=b, caption={Erzeugung und Veröffentlichung einer Nachricht}]
                 publish -topic: Buero/Tuer/Zustand -message: "offen"
@@ -124,7 +124,7 @@
         \cite{Naik2017}.
         \\ 
         Das binäre Protokoll \acs{AMQP} erfordert einen Header von acht Byte mit Nachrichtennutzlasten. Die Größe der Nachricht ist abhängig 
-        von dem Broker, bzw. dem Server. Die verbindungsorientierte Kommunikation von \acs{AMQP} baut auf dem Standard-Transportprotokoll 
+        von dem Broker bzw. dem Server. Die verbindungsorientierte Kommunikation von \acs{AMQP} baut auf dem Standard-Transportprotokoll 
         \acs{TCP} auf. Durch das \acs{TLS}/\acs{SSL}-Protokoll wird die Kommunikationssicherheit gewährleistet. Ein Wesensmerkmal des \acs{AMQP} 
         Kommunikationsmodells ist die Zuverlässigkeit \cite{Naik2017}. 
         \\
@@ -134,20 +134,6 @@
         \linebreak
         Neben den beiden aufgeführten Kommunikationsmodellen gibt es noch weitere, darunter das klassische \ac{HTTP} und das \ac{COAP}, die allerdings 
         im Rahmen dieser Arbeit nicht weiter ausgeführt werden. 
-
-        %Der Fokus in dieser Arbeit liegt auf dem \acs{MQTT}-Protokoll. 
-        
-        %Vergleich in den Anhang packen??
-        %\subsubsection*{Vergleich von MQTT und AMQP}
-        %\label{subsubsec:mqtt-vs-amqp}
-        
-        
-        %Dadurch wird die Konfiguration und Einsetzbarkeit der Technologie komplexer im Gegenzug zu MQTT
-
-
-        % Vergleich zu MQTT
-
-    
-    % Überlegen, bzw. abwarten, ob das benötigt wird.... 
-    %\subsection{Raspberry Pi}
-    %\label{subsec:raspberrypi} 
+        \\
+        \linebreak
+        Der Fokus liegt in dieser Arbeit auf dem \acs{MQTT}-Protokoll. 

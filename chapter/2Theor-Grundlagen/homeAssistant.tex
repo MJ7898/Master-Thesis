@@ -2,14 +2,14 @@
 \label{sec:homeassistant}
     Eine der etablierten \acl{SH} Plattformen ist das sogenannte Home Assistant System. Die Open-Source-Software ist ein zentrales 
     Steuerungssystem von Heimautomationen, ebenso ist eine Verwaltung von intelligenten Geräten mit dem Fokus der lokalen Steuerung und Sicherung der 
-    Privatsphäre möglich. Der Zugriff kann über die Smartphone-App, jeweils verfügbar für iOS und Android, oder auch über die webbasierte 
-    Benutzeroberfläche (Web-App) erfolgen. In dem lokalen System können auch Geräte per Sprachbefehl gesteuert werden. Kompatible 
+    Privatsphäre möglich. Der Zugriff kann über die Smartphone-App, jeweils verfügbar für iOS und Android, oder über die webbasierte 
+    Benutzeroberfläche (Web-App) erfolgen. In dem lokalen System können Geräte per Sprachbefehl gesteuert werden. Kompatible 
     Plattformen sind unter anderem Google Assistant, Amazon Alexa und Apple HomeKit. %Dies sind weitaus nur eine Selektion von bekannten 
     %Herstellern. 
     Home Assistant bietet eine vielfältigere Verknüpfung von Geräten, Services und Plattformen. Die zentrale Steuerung 
     unterstützt durch modulare Integrationskomponenten die einzelnen Geräte, Anwendungen und Services. Für die drahtlose Kommunikation 
     werden native Integrationskomponenten verwendet, darunter Bluetooth, ZigBee und Z-Wave. Diese werden verwendet, um lokale \ac{PAN} mit 
-    Geräten mit geringem Stromverbrauch aufzubauen. Die Steuerung kann auch mit proprietären Ökosystemen stattfinden, sofern diese eine offene 
+    Geräten mit geringem Stromverbrauch aufzubauen. Die Steuerung kann mit proprietären Ökosystemen stattfinden, sofern diese eine offene 
     \acs{API} oder Anbindungen über \acs{MQTT} anbieten.\footnote{Definition von Home Assistant. \url{https://en.wikipedia.org/wiki/Home_Assistant} Besucht am 16.04.2022}
     \\
     Die Platform ist in Python geschrieben, wird aktiv instand gehalten und durch eine große Community unterstützt. Die Software ist allgemein unter 
@@ -26,7 +26,7 @@
         Dadurch gelang der Durchbruch der vereinfachten Verwendung der Home Assistant Plattform auf kleineren Computern, sogenannten 
         Einplatinencomputern, wie beispielsweise ein Gerät der Raspberry Pi Serie. In Zusammenhang mit dem Betriebssystem kam ein 
         \textit{Supervisor}-Verwaltungssystem hinzu, das den Benutzern die Verwaltung, Sicherung und Aktualisierung der lokalen Installation 
-        erleichtert. Ein weiteres Feature des Supervisors ist die Möglichkeit, der Plattform über Add Ons weitere Funktionalitäten zur Verfügung zu 
+        erleichtert. Ein weiteres Feature des Supervisors ist die Möglichkeit, der Plattform über Add-ons weitere Funktionalitäten zur Verfügung zu 
         stellen.\footnote{Einstieg in das Hass.io Betriebssystem. \url{https://www.home-assistant.io/blog/2017/07/25/introducing-hassio/} Besucht am 18.04.2022}
         \\
         \linebreak
@@ -36,7 +36,7 @@
 \subsection{Konzept und Architektur}
 \label{sec:conceptArchitectureHAOS}
     Home Assistant bietet eine Plattform für die zentrale Haussteuerung und die damit einhergehende Steuerung von Heimautomationen. Die 
-    Software ist nicht nur eine einfache Steuerungs- und Konfigurations-Software, sondern ein eingebettetes Betriebssystem, das 
+    Software ist nicht nur eine einfache Steuerungs- und Konfigurationssoftware, sondern ein eingebettetes Betriebssystem, das 
     verbraucher- und nutzerorientiert das Verwenden und Konfigurieren von Haussteuerungen erleichtert. \footnote{Konzept und Architektur von Home Assistant. \url{https://developers.home-assistant.io/docs/architecture_index} Besucht am 19.04.2022}
     \\
     \linebreak
@@ -46,20 +46,20 @@
     aufgeteilt, mit der die Vereinheitlichung vorangetrieben werden kann: 
     \begin{itemize}
         \item Integration (Integration): Integrationen repräsentieren die Geräte und Dienste innerhalb der Home Assistant Anwendung. 
-              Ebenso können mittels Integrationen auch Daten von Datenpunkten abgerufen werden.
+              Ebenso können mittels Integrationen Daten von Datenpunkten abgerufen werden.
         \item Gerät (Device): Nach der Konfiguration der Integration werden die Geräte in Home Assistant angelegt. 
               Diese werden dann als erkannte Geräte der Integration dargestellt, z.B. als Temperatur-, Licht- oder Feuchtigkeitssensor.
         \item Entität (Entity): Die Datenpunkte sind die Geräte, die sogenannten Entitäten, die durch die Integrationen standardisiert werden. 
               Dies sind Objekte, die Funktionalitäten oder Daten des Gerätes darstellen, z.B. die Temperatur, Helligkeit oder die Feuchtigkeit.
         \item Automatisierung (Automation): Automatisierungen sind Prozesse, die bei einem bestimmten ausgelösten Event ausgeführt werden 
-              sollen. Dieses Auslöser (trigger) können Zeitpunkte, Ereignisse oder manuell gesteuerte Aktionen des Nutzers sein, z.B. das 
+              sollen. Diese Auslöser (Trigger) können Zeitpunkte, Ereignisse oder manuell gesteuerte Aktionen des Nutzers sein, z.B. das 
               Ausschalten des Bürolichts, wenn durch einen Bewegungssensor fünf Minuten keine Bewegung festgestellt wurde oder wenn der 
-              Helligkeitswert, der über den Sensor festgestellt wurde einen bestimmten Wert erreicht hat, soll das Licht ebenso 
+              Helligkeitswert, der über den Sensor festgestellt wurde, einen bestimmten Wert erreicht hat, soll das Licht ebenso 
               ausgeschaltet werden.
     \end{itemize}
-    Die Architektur der Home Assistant Anwendung ist grundlegend als eingebettetes System eines Betriebssystem aufgestellt, welches in 
+    Die Architektur der Home Assistant Anwendung ist grundlegend als eingebettetes System eines Betriebssystems aufgestellt, welches in 
     drei Schichten aufgeteilt ist. In unterster Ebene befindet sich das Betriebssystem, welches als minimales Linux System postiert 
-    ist, um die darauf liegenden Schichten, den Aufseher (supervisor) und den Kern (core), zu betreiben. Mit dem Supervisor wird das 
+    ist, um die darauf liegenden Schichten, den Aufseher (Supervisor) und den Kern (Core), zu betreiben. Mit dem Supervisor wird das 
     Betriebssystem verwaltet und konfiguriert. Der eigentliche Kern interagiert mit dem Supervisor, den Geräten und den Services. 
     \\
     \linebreak
@@ -73,7 +73,7 @@
         \item Dieser führt die Updates des Home Assistant Core aus.
         \item Dieser führt einen \textit{Rollback} bei fehlgeschlagenem Update durch.
         \item Dieser führt Sicherungen und Wiederherstellungen durch.
-        \item Dieser verwaltet die Add Ons der Core Instanz.
+        \item Dieser verwaltet die Add-ons der Core Instanz.
     \end{itemize}
     \begin{figure}[hbt!]
         \centering
@@ -123,16 +123,17 @@
     %Haltbarkeit wird an der Stelle adressiert, an der die Plattform uneingeschränkt verfügbar ist und Geräte zur Anbindung verwendbar sind. 
     %Damit ist auch zu erwarten, dass Geräte, die eingebunden werden können, so konzipiert und gebaut sind, damit sie eine lange Lebensdauer 
     %besitzen.
-    Mit den von Home Assistant verfolgten Zielen gehen folgende Schwerpunkte einher:
+    Mit den von Home Assistant verfolgten Zielen gehen folgende Schwerpunkte einher.
     \\
     \linebreak
+    \linebreak
     Dazu gehört die Kontrollierbarkeit über eine einzige zentrale Stelle und die Konfiguration von 
-    Automationen, die Prozesse selbstständig auslöst. Durch die Möglichkeit der Automatisierung und Steuerung von Komponenten im Eigenheim, 
+    Automationen, die Prozesse selbstständig auslöst. Durch die Möglichkeit der Automatisierung und Steuerung von Komponenten im Eigenheim 
     bzw. im Büro kann der Komfort erhöht als auch die Energie- und Stromkosten gesenkt werden. Die Kompatibilität der Plattform 
     ermöglicht die Verwendung von mehreren Geräten und Herstellern über eine zentrale Stelle, der Home Assistant Software. Dies ermöglicht 
     dem Nutzer die uneingeschränkte Verwendung von Geräten und die Unabhängigkeit zu Herstellern, die ggf. die Geräte preislich über dem 
     Marktdurchschnitt anbieten. Ein weiterer Schwerpunkt ist die Reduzierung des Datenkommunikationsflusses über das Internet, die durch das 
-    geschlossenen System mit wenig Kommunikationsschnittstellen nach außen erreicht werden kann. Ein Indiz dafür ist die zugrundeliegende 
+    geschlossene System mit wenig Kommunikationsschnittstellen nach außen erreicht werden kann. Ein Indiz dafür ist die zugrunde liegende 
     lokale Datenhaltung über eine Datenbank, die direkt auf der Hardware läuft, auf der ebenso die Plattform betrieben wird. 
 
     %https://apiumhub.com/tech-blog-barcelona/domotics-with-home-assistant-concepts/
