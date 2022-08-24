@@ -21,7 +21,7 @@
         \item Ausschluss von Web-Frameworks
     \end{enumerate}  
     Nach Anwendung der oben aufgeführten Kriterien bleiben noch die Frameworks \acs{OSGI} und Spring übrig. Die 
-    Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, konnten das letzte Kriterium nicht erfüllen, bzw. basieren 
+    Frameworks, wie bspw. Grails, Quarkus, Blade, und Play, konnten das letzte Kriterium nicht erfüllen bzw. basieren 
     auf dem Spring-Framework. 
 
     \subsection{OSGi}
@@ -38,7 +38,7 @@
         Die Funktionsweise und die technisch 
         fundierte Erläuterung kann dem Buch \cite{osgibuch} sowie der Dokumentation \cite{osgipraesentation} eines ausgearbeiteten Workshops entnommen werden. 
         Nachteile der Plattform sind zum einen der geringere Einsatz und zum anderen die kleine Community. 
-        Ebenso findet eine Weiterentwicklung der Plattform nur mäßig statt, was eine aufwändige Erweiterung, bzw. schleppende Entwicklung des darauf 
+        Ebenso findet eine Weiterentwicklung der Plattform nur mäßig statt, was eine aufwändige Erweiterung bzw. schleppende Entwicklung des darauf 
         aufbauenden Systems zur Folge hat. 
 
     \subsection{Spring}
@@ -63,13 +63,13 @@
         \\
         \linebreak
         Zusammengefasst sind beide Frameworks dazu geeignet, das Konzept der Steuerzentrale unterstützend zu realisieren. 
-        Ein direkter Vergleich zwischen den Frameworks kann nicht gezogen werden, da die Funktionalitäten, bzw. die aus der Nutzung 
+        Ein direkter Vergleich zwischen den Frameworks kann nicht gezogen werden, da die Funktionalitäten bzw. die aus der Nutzung 
         profitablen Eigenschaften nicht vergleichbar sind. Während sich Spring auf die Unterstützung zur Erstellung von Applikationen konzentriert, 
-        legt \acs{OSGI} den Mehrwert auf die Modularisierung durch Kontainerisierung. Durchaus ist eine Kombination aus beiden 
+        legt \acs{OSGI} den Mehrwert auf die Modularisierung durch Containerisierung. Durchaus ist eine Kombination aus beiden 
         Frameworks möglich, um Vorteile beider zu vereinen. Grundlegend bietet Spring jedoch weitaus mehr Möglichkeiten und Unterstützungen 
         zur Entwicklung von Applikationen und Frameworks, weshalb es im Rahmen dieser Arbeit eingesetzt wird. Mit Spring Boot, welches auf Spring 
         aufbaut, können auch \acl{MVC} Web-Architekturen und \acs{REST} \acs{API}s implementiert werden. So kann 
-        ein vollumfängliches System erstellt werden. Unter zusätzlicher Verwendung von \acs{OSGI} wäre eine weitere Modularisierung und Kontainerisierung möglich. Dies 
+        ein vollumfängliches System erstellt werden. Unter zusätzlicher Verwendung von \acs{OSGI} wäre eine weitere Modularisierung und Containerisierung möglich. Dies 
         ist auch durch Spring mit Hilfe von Microservices in einer anderen Form realisierbar. 
         \\
         \linebreak
@@ -99,10 +99,10 @@
     werden. Bei der Verwendung von generischen Typen gibt es 
     Varianzfälle, die unterschiedliche Auswirkungen aufzeigen. Der für das Konzept relevante Fall ist der des 
     einfachen Typ-Parameters. 
-    \\
+    \\ 
     \linebreak
     Ein konkretes Anwendungsbeispiel, wie es 
-    auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus:
+    auch im Rahmen dieser Arbeit verwendet wird, sieht wie folgt aus. 
     \\
     Das Framework arbeitet mit dem generischen Typ \textit{E}. Der Anwender soll nach der Implementierung der Klasse des Zustandsraumes das 
     jeweilige Objekt dem Framework übergeben. So ist zur Laufzeit das konkrete Objekt bekannt. Zur Veranschaulichung dient folgendes Code-Beispiel:
@@ -145,18 +145,18 @@ public class Application {
     \\
     \linebreak
     Die im Zustandsraum erstellten Felder werden direkt an eine Transformation (siehe Abschnitt \ref{subsec:transformation}) gebunden. So kann sichergestellt werden, dass 
-    das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert, bzw. empfangen wurde. Dadurch kann 
+    das Attribut im Zustandsobjekt immer den Wert erhält, der über die Transformation registriert bzw. empfangen wurde. Dadurch kann 
     auch die Dopplung von Felder vermieden werden, was bedeutet, dass ein Feld nicht für mehrere reelle Gegenstände stehen kann. Für jedes 
     Gerät ist mindestens ein eigenes Feld zu definieren. Durch die Verwendung von einfachen primitiven und nicht primitiven Datentypen innerhalb 
     des Zustandsobjektes kann eine Rückkopplung umgangen werden. 
     \\
     \linebreak
-    Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Java-Klasse, die zusätzlich zu einem Konstruktor alle Felder, bzw. Attribute besitzt, die Zustände reeller 
+    Der Aufbau des \textit{\acs{POJO}}s entspricht einer einfachen Java-Klasse, die zusätzlich zu einem Konstruktor alle Felder bzw. Attribute besitzt, die Zustände reeller 
     Geräte abbilden sollen. Damit der Anwender in seinen definierten Regeln die Werte setzen und abfragen kann, gibt es zu jedem Attribut eine \textit{Getter}- und \textit{Setter}-Methode.
     Es ist wichtig anzumerken, dass das Zustandsobjekt mit dem \textit{Singleton}-Pattern markiert und der Konstruktor dementsprechend initialisiert werden muss. Dadurch wird 
     die Integrität des Objektes sowie die dadurch vermeidbare Redundanz gewährleistet. Anhand der Verwendung der \textit{Lombok}-Bibliothek\footnote{Project Lombok. \url{https://projectlombok.org/features/Data} Besucht am 31.07.2022} 
     kann mittels der \textit{@Data}-Annotation der (\textit{boilerplate}) Quellcode reduziert werden. Zu Überprüfungszwecken wird mittels der Annotation das Objekt mit den einzelnen 
-    Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Das Konstrukt könnte in diesem Zusammenhang als Datenobjekt, bzw. als Datenmodell abgespeichert werden, um eine 
+    Feldern und Werten ausgegeben, wodurch das Objekt für den Entwickler lesbar wird. Das Konstrukt könnte in diesem Zusammenhang als Datenobjekt bzw. als Datenmodell abgespeichert werden, um eine 
     Transaktionshistorie der Zustandsänderungen zu erstellen.
     \\
     \linebreak
@@ -171,7 +171,7 @@ public class Application {
     Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des agilen Vorgangs könnte eine weitere Alternative konzipiert werden, die Objekte 
     im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen.
     \\
-    Eine Aggregation von Objekten, bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut, bzw. Element bedient und somit eine 
+    Eine Aggregation von Objekten bzw. deren Serialisierung ist nicht beabsichtigt, da die Transformation jeweils ein Attribut bzw. Element bedient und somit eine 
     eins-zu-eins-Beziehung zwischen dem Feld und dem \acs{MQTT}-Topic besteht. 
 \pagebreak
 \subsection{Reflection} 
@@ -185,7 +185,7 @@ public class Application {
     \linebreak
     Eingesetzt wird die Reflexion in der Transformation, die der Entwickler definiert, um aus eingehenden Events und Nachrichten Zustandsänderungen zu erzeugen. Konkret wird in der 
     Transformation der Name des Feldes mitgegeben, der vom Entwickler bei der Definition des Zustandsobjektes vergeben wurde. Somit kann immer auf das Feld und dessen Wert 
-    zurückgegriffen werden und bei Bedarf durch eine eingehende Nachricht, bzw. durch eine Zustandsänderung innerhalb einer Regel überprüft und geändert werden. Die Struktur der 
+    zurückgegriffen werden und bei Bedarf durch eine eingehende Nachricht bzw. durch eine Zustandsänderung innerhalb einer Regel überprüft und geändert werden. Die Struktur der 
     Transformation wird im folgenden Abschnitt aufgezeigt.
 
 \subsection{Transformation}
@@ -235,7 +235,7 @@ public class MqttTransformer extends AbstractTransformer<InnovationLabKA> {
     }
 }
 \end{lstlisting}
-    Dieser Ansatz gibt eine Übersicht über die Topics und deren dafür vorgesehenen Zustandsänderungen. Nachteile dabei sind jedoch die Zunahme der Anweisungen, d.h. 
+    Dieser Ansatz gibt eine Übersicht über die Topics und deren dafür vorgesehenen Zustandsänderungen. Nachteile dabei sind jedoch die Zunahme der Anweisungen, d. h. 
     je mehr Regeln und dafür vorgesehene Zustandsänderungen hinzugefügt werden, desto unübersichtlicher und länger wird die Switch-Case-Funktion, und die 
     Kenntnis der \acs{MQTT}-Topics an verschiedenen Stellen der Anwenderinteraktionen. Um innerhalb einer Regel eine weitere Zustandsänderung vornehmen zu können, muss der 
     Anwender das Topic erneut aufgreifen, damit über den \acs{MQTT}-Producer eine Nachricht veröffentlicht und eine Aktion ausgelöst wird. 
@@ -333,7 +333,7 @@ public class InnovationLogicHubApplication {
     aufgeschrieben werden. Dafür kann zu jeder Zeit die Liste der Transformationen genutzt werden, um das erforderliche Topic zu erhalten. 
     \\
     \linebreak
-    Zum aktuellen Zeitpunk wird bei der inversen Transformation ein einfaches \textit{JSON}-Konstrukt erzeugt. Dafür wird der 
+    Zum aktuellen Zeitpunkt wird bei der inversen Transformation ein einfaches \textit{JSON}-Konstrukt erzeugt. Dafür wird der 
     \textit{Key}-Wert der Transformation und die Nachricht als Nutzlast verwendet. Zur Veröffentlichung der Nachricht unter einem 
     \acs{MQTT}-Topic wird derzeit ausschließlich der \textit{Zigbee2MQTT}-Standard\footnote{Nutzung von Zigbee2MQTT. \url{https://www.zigbee2mqtt.io/guide/usage/mqtt_topics_and_messages.html} Besucht am 30.07.2022} 
     eingehalten. Dabei ergänzt sich die Topic-Zeichenkette, die über das Transformationsobjekt abgerufen werden kann, um den Anhang (\textit{/set}). 
@@ -347,7 +347,7 @@ public class InnovationLogicHubApplication {
     \\
     \linebreak
     Resümierend gibt es im Kontext des \textit{Zigbee2MQTT} zwei Wege, um mit Geräten, die das ZigBee-Protokoll unterstützen, zu kommunizieren. Diese sind beide 
-    über das Framework, somit auch über die inverse Transformation abgedeckt.
+    über das Framework, somit auch über die inverse Transformation abgedeckt. 
 
 %
 %Hierfür muss erneut eine  \acs{MQTT}-Nachricht 
@@ -394,7 +394,7 @@ public class InnovationLogicHubApplication {
     Lock-Mechanismus, der durch einen \textit{ReentrantLock}\footnote{Spezifikation des Locks. \url{https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/ReentrantLock.html} Besucht am 27.07.2022} 
     realisiert ist, gesperrt. Dadurch ist sichergestellt, dass die Änderung sowie die Kopie für die weiteren Schritte tatsächlich zur Verfügung steht. 
 \pagebreak
-\subsection{Regelwerk -und management}
+\subsection{Regelwerk und -management}
     Anknüpfend an die abgeschlossene Transformation wird der Teil ausgeführt, der basierend auf der Zustandsänderung 
     alle bekannten Regeln überprüft und die zutreffenden abarbeitet. Wenn eine Zustandsänderung keiner konkreten Regel zugeordnet 
     werden kann, fehlt diese entweder, wurde davor schon ausgeführt oder der Entwickler beabsichtigt keine Ausführung und sie 
@@ -460,12 +460,12 @@ public class InnovationLogicHubApplication {
     \subsubsection*{Check-in mit einem Service-Roboter}
         Die Handlungsschritte, um einen Anwendungsfall mit dem Framework zu realisieren, gleichen sich grundlegend. 
         Damit alle für den Fall notwendigen Zustände abgedeckt sind, wurden diese in dem Zustandsraum hinterlegt. Zu den notwendigen Attributen 
-        zählen unter anderem die E-Mail-Adresse, bzw. der Name der authentifizierten Person, die Verfügbarkeit des Service-Roboters, sowie dessen 
+        zählen unter anderem die E-Mail-Adresse bzw. der Name der authentifizierten Person, die Verfügbarkeit des Service-Roboters sowie dessen 
         ausführbare Prozesse. Anschließend wurden die Transformationen zur Erzeugung der Schnittstelle (siehe Kapitel \ref{subsec:transformation}) definiert. 
         \\
         \linebreak
         Sobald eine Person über die Kamera authentifiziert wurde, wird ein \acs{MQTT}-Topic gesendet, welches als Nutzlast ein \textit{JSON}-Konstrukt mit einem Zeitstempel, den 
-        Vor- und Nachnamen, sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, woraufhin die Regeln auf ihre 
+        Vor- und Nachnamen sowie die E-Mail-Adresse der Person übergibt. Anhand dessen wird im Zustandsraum der Wert der E-Mail geändert, woraufhin die Regeln auf ihre 
         Bedingung überprüft werden. Dabei wird die Regel zum Begrüßen und Einchecken des Gastes gestartet. Hierfür wird der Service-Roboter an die Tür geschickt, an der er den 
         Gast empfängt und begrüßt. Während der Roboter an die Tür fährt, checkt er die Buchungen und überprüft, ob die Person einen Platz gebucht hat. 
         Nachdem der Gast empfangen und eine Buchung gefunden wurde, checkt der Roboter die Person ein und gibt daraufhin Rückmeldung, dass die Person erfolgreich im 
@@ -521,9 +521,9 @@ public class InnovationLogicHubApplication {
         eingehende \acs{MQTT}-Topic welches Attribut im Zustandsraum geändert werden soll. Mit der Entscheidung zur Nutzung der generischen Programmierung 
         und somit der flexiblen Gestaltung des Zustandsraumes musste überlegt werden, wie dieses Objekt dennoch zu überwachen und zu manipulieren ist. 
         Hierfür wurde die Java Reflection genutzt, die eine für diesen Fall geeignete Funktion der Java-Programmierung darstellt. Dennoch gibt es Hürden bei der Nutzung, 
-        die im Rahmen der Konzeption hingenommen wurden, die allerdings zu keinen Einschränkungen führen. Trotz dessen kann durch die Einhaltung 
+        die im Rahmen der Konzeption hingenommen wurden, die allerdings zu keinen Einschränkungen führen. Trotzdessen kann durch die Einhaltung 
         der Modellierungsvorgaben (\ref{subsec:modellierungsgrenzen}) diese umgangen und so die Anwendungsfälle, die im Rahmen der Arbeit 
-        definiert wurden, bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend dabei ist die Definition der 
+        definiert wurden bzw. in der Umgebung eines smarten Büros auftreten können, umgesetzt werden. Entscheidend dabei ist die Definition der 
         Transformation sowie die der Regel selbst. 
         \\
         %\linebreak
@@ -543,7 +543,7 @@ public class InnovationLogicHubApplication {
             auf dem Feld der Komponente erzeugt. Dies hat eine ungewollte simulierte Modifikation der Komponente zur Folge, die bei jeder Zustandsänderung hervorgerufen wird, ohne dass sie tatsächlich geändert wurde und 
             dadurch die inverse Transformation immer ausgeführt wird. 
             Dies ist ebenso keine absolute Grenze, die nicht umgangen werden könnte, lediglich durch den zeitlichen Faktor nicht weiter ausgeführt wurde. Für die Behebung müsste gegebenenfalls ein optimierter 
-            Algorithmus zum Kopieren des Zustandsraums entwickelt, bzw. verwendet werden. 
+            Algorithmus zum Kopieren des Zustandsraums entwickelt bzw. verwendet werden. 
             \\
             Da die Verwendung des Frameworks ausschließlich unter Gebrauch einfacher Attribute im Zustandsraum ohne weiteres funktioniert, wurde der Ansatz zur Nutzung von Komponenten vorerst verworfen.  
             % wiederum keine absolute Grenze, die nicht umgangen werden könnte, lediglich durch den zeitlichen Faktor nicht weiter ausgeführt wurde. 

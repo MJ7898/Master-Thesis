@@ -2,7 +2,7 @@
 \label{sec:architekturkonzept}
     Das Framework stellt die Kern-Funktionalität zur Steuerung von implementierten Regeln und Prozessen innerhalb eines 
     Gebäudes, bspw. eines Büroraumes, dar. Mit dem Architekturkonzept wird der grundlegende Aufbau sowie die Funktionalität des Systems erläutert. 
-    Potentielle Erweiterungen und Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
+    Potenzielle Erweiterungen und Adaptionen werden im Ausblick (\ref{chap:ausblick}) aufgegriffen.
     \\ 
     \linebreak
     Das System soll in drei Schichten aufgeteilt werden. Die oberste Schicht stellt die Kommunikationsschicht dar, die mittlere 
@@ -45,7 +45,7 @@
         \item I - Interface-Segregation-Prinzip: „Clients sollen nicht dazu gezwungen werden, von Interfaces abzuhängen, die sie nicht verwenden.“ \cite{martin1996interface}
         \item D - Dependency-Inversion-Prinzip: „A. Module hoher Ebenen sollten nicht von Modulen niedriger Ebenen abhängen. Beide sollten von Abstraktionen abhängen. B. Abstraktionen sollten nicht von Details abhängen. Details sollten von Abstraktionen abhängen.“ \cite{martin2003agile}
     \end{itemize}
-    Besonders das \textit{Single-Responsibility} und das \textit{Open-Closed}-Prinzip wurden bei der Konzeption berücksichtigt. 
+    Besonders das \textit{Single-Responsibility}- und das \textit{Open-Closed}-Prinzip wurden bei der Konzeption berücksichtigt. 
     Da es sich bei diesem System nicht um eine klassische 
     Webanwendung handelt und keine direkte Kommunikation unter anderem über \acs{REST} \acs{API}s stattfindet, wird ein allgemeines 
     Programmiermuster, wie bspw. das \ac{MVC}\footnote{Architekturmuster für Webapplikationen. \url{https://de.wikipedia.org/wiki/Model_View_Controller} Besucht am 10.07.2022} 
@@ -70,7 +70,7 @@
         \\
         \linebreak
         Ähnlich zum Aufbau des Regelwerks sollen die Komponenten, die reale Gegenstände abbilden, ebenso vom Schablonenmethoden-Entwurfsmuster Gebrauch machen. 
-        Unterschied zu der Regel-Schablone ist lediglich die Funktion der Sperrung einer Komponenten für weitere Aufgaben. Diese soll bereits in der abstrakten Klasse 
+        Unterschied zu der Regel-Schablone ist lediglich die Funktion der Sperrung einer Komponente für weitere Aufgaben. Diese soll bereits in der abstrakten Klasse 
         definiert sein. Konkrete Eigenschaften von Komponenten und konkrete Zustandsattribute können vom Anwender selbst implementiert werden.
         \\
         \linebreak
@@ -136,7 +136,7 @@
     \subsection{Logik- und Prozessschicht}
     \label{subsec:logikschicht}
     Die Logik- und Prozessschicht wird aktiv, wenn durch eine bestimmte Kommunikationsschnittstelle, im Rahmen der Arbeit ausschließlich durch \acs{MQTT} realisiert, ein eingehendes 
-    Event, bzw. eine eingehende Nachricht konsumiert und daraufhin das Zustandsobjekt geändert wurde. Die in erster Linie dafür benötigten Objekte sind dem 
+    Event bzw. eine eingehende Nachricht konsumiert und daraufhin das Zustandsobjekt geändert wurde. Die in erster Linie dafür benötigten Objekte sind dem 
     Klassendiagramm (\ref{fig:patternlogik}) zu entnehmen. Die an zentraler Stelle stehende Klasse des \textit{LogicHubState} soll die Koordination 
     der Zustandsänderung sowie das nachträgliche Prüfen der Regelbedingungen und das Ausführen des Regelprozesses übernehmen. 
     \\
@@ -174,7 +174,7 @@
     Datenbank sowie die Modellierung der Datenobjekte und deren Speicherung ohne weiteres möglich ist. 
 \\
 \linebreak
-Für die Generierung mehrerer konkurrierender Sichten wurden die Diagramme, darunter Klassen- und Sequenzidagramme 
+Für die Generierung mehrerer konkurrierender Sichten wurden die Diagramme, darunter Klassen- und Sequenzdiagramme 
 (siehe \ref{fig:patternkommunikation}, \ref{fig:kommunikationsequenz}, \ref{fig:patternlogik} \& \ref{fig:logiksequenz}) 
 unter Verwendung des \textit{4+1 Sichtenmodells} von Philippe Kruchten \cite{Kruchten1995}, erstellt. 
 Die Beschreibung der Szenarien fand bereits in der Anforderungsanalyse (siehe \ref{subsec:checkin} \& \ref{subsec:evacuation}) statt. 

@@ -18,7 +18,7 @@ Ziel der Arbeit abschließend betrachtet.
         \\
         Damit die Erfüllung der Anforderungen überprüfbar ist, wird ausgewählten Anwendern der Zielgruppe %im Rahmen der Nutzbarkeit 
         eine Aufgabe gestellt, mit der das Framework getestet wird und dabei die oben genannten Anforderungen genauestens betrachtet werden. 
-        Ziel dabei ist die Überprüfung der Erfüllung der oben genannten Anforderungen an das System, bzw. Verbesserungen zu eruieren. 
+        Ziel dabei ist die Überprüfung der Erfüllung der oben genannten Anforderungen an das System bzw. Verbesserungen zu eruieren. 
 
     \subsection{Durchführung des Usability-Tests}
         Für die Durchführung der Tests wurde vorab eine Aufgabe erstellt. Diese 
@@ -43,7 +43,7 @@ Ziel der Arbeit abschließend betrachtet.
             \item Nach eingehendem Topic soll der Service-Roboter angesteuert und an die Tür geschickt werden. 
             (Die Ansteuerung des Service-Roboters erfolgt ebenso über \acs{MQTT}. Da in den meisten Fällen kein Roboter verfügbar ist, wird auch 
             diese Kommunikation mittels \acs{MQTT} simuliert.)
-            \item Ist der Roboter an der Tür, soll er die Begrüßung starten. (Die folgende Interaktion wird im Rahmen des Test ebenso mittels der Simulation durchgeführt. 
+            \item Ist der Roboter an der Tür, soll er die Begrüßung starten. (Die folgende Interaktion wird im Rahmen des Tests ebenso mittels der Simulation durchgeführt. 
             Wird die gesendete Nachricht über den Service-Roboter-\textit{Mock} auf der Konsole ausgegeben, so gilt die Aufgabe als erledigt.)
         \end{itemize}
         Für die Aufgabe sind folgende Punkte zu erfüllen:
@@ -66,7 +66,7 @@ Ziel der Arbeit abschließend betrachtet.
     \label{subsec:usabilityFazit}
         Der Usability-Test konnte erfolgreich durchgeführt werden.
         Das Ergebnis der quantitativen Forschung kann nicht als repräsentativ eingestuft werden, da es sich um eine kleine Auswahl an Experten handelt. Es zeigt dennoch eine Tendenz, 
-        welche Anforderungen abgedeckt sind, bzw. welche Verbesserungspotentiale in dem Framework stecken.  
+        welche Anforderungen abgedeckt sind bzw. welche Verbesserungspotenziale in dem Framework stecken.  
         Das Resultat der Aufgabe ähnelte sich bei den Probanden mit Ausnahme der Namensgebung der Attribute im Zustandsraum. 
         \\
         Folgender Auflistung ist der durchschnittliche Wert der Antworten zu entnehmen:
@@ -105,12 +105,12 @@ Ziel der Arbeit abschließend betrachtet.
         durchgeführt. Hierbei wurden sowohl die gesammelten Erkenntnisse und Erfahrungen während der Aufgabe erfragt sowie auf die Anforderungen 
         (siehe Kapitel \ref{sec:requirementsFinal}) eingegangen. Ein Teil der Probanden wurde dafür bereits 
         bei der Erhebung von Anforderungen befragt. Somit konnte sich ein Bild verschafft werden, wie die Anforderungen 
-        umgesetzt, bzw. diese von den Experten empfunden wurden.
+        umgesetzt bzw. diese von den Experten empfunden wurden.
     
     \subsection{Ziele des Experteninterviews}
         Das Ziel des abschließenden Experteninterviews ist es, die Erfahrungswerte der Probanden zu sammeln, um diese den Anforderungen gegenüberzustellen. Bei 
         Experten, die bereits zu der Anforderungserhebung interviewt wurden, konnte konkret auf die Umsetzung der Kriterien und Anforderungen eingegangen werden. 
-        Ebenso ist ein abschließendes Feedback wünschenswert, sowie ein Identifizieren der Herausforderungen für den Anwender und der eventuellen Schwachstellen 
+        Ebenso ist ein abschließendes Feedback wünschenswert sowie ein Identifizieren der Herausforderungen für den Anwender und der eventuellen Schwachstellen 
         des Systems. 
 
     \subsection{Fazit}
@@ -221,14 +221,14 @@ Ziel der Arbeit abschließend betrachtet.
         \linebreak
         Durch die Verwendung von \textit{Threads} werden Regeln, deren Bedingungen im Vorfeld zutreffen, asynchron ausgeführt. Es können dadurch voneinander 
         unabhängige Regel parallel abgearbeitet werden. Somit ist die Performanz des Systems erhöht (NFA6). Die Reaktionszeit und die Performanz der 
-        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, sowie von der dafür verwendeten Hardware 
+        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden sowie von der dafür verwendeten Hardware 
         und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zum aktuellen Zeitpunkt keine 
         Auswirkungen auf das System selbst haben. Dennoch ist unter Verwendung der derzeitigen Technologien eine gewisse Performanz vorauszusetzen und zu erwarten. 
         \\
         \linebreak
         Die \textit{nicht funktionalen Anforderungen}, die allgemein die Verfügbarkeit des Systems beschreiben (NFA8 \& NFA9), sind aktuell zu vernachlässigen und wurden im Rahmen dieser 
         Arbeit nicht überprüft. Das Framework selbst produziert von sich aus keine Downtime. Entscheidend sind dabei die Richtigkeit der Regeldefinition, 
-        Verbindungen zum \acs{MQTT}-Broker und Internet, sowie die Stromversorgung, da das Framework lokal auf einem \textit{Raspberry Pi} betrieben wird. 
+        Verbindungen zum \acs{MQTT}-Broker und Internet sowie die Stromversorgung, da das Framework lokal auf einem \textit{Raspberry Pi} betrieben wird. 
         \\
         \linebreak
         Zur Überprüfung der Fehlertoleranz (NFA10) wurden die \textit{JUnit-Tests} um weitere Testfälle ergänzt. Hierbei wurde eine fehlerhafte Regel definiert, die innerhalb des 

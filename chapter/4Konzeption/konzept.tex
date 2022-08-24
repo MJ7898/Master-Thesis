@@ -10,7 +10,7 @@
     erläutert. Anschließend 
     wird auf das Anwendungsumfeld des Systems (\ref{sec:anwendungsumfeld}) eingegangen, darunter die
     zusätzlichen Komponenten, die notwendig sind, um das Framework in einer dafür vorgesehenen Umgebung sinnvoll 
-    einzusetzen. Darauffolgend wird anhand der zugrundeliegenden Informationen und Anforderungen das 
+    einzusetzen. Darauffolgend wird anhand der zugrunde liegenden Informationen und Anforderungen das 
     Architekturkonzept (\ref{sec:architekturkonzept}) ausgeführt. 
     Dabei wird auf verschiedene kontextabhängige Aspekte sowie auf die Sichtweisen des Anwenders und des Frameworks eingegangen.
 
@@ -18,10 +18,10 @@
 \section{Ziel der Konzeption}
 \label{sec:konzeptziele}
     Das Ziel einer Konzeption ist die Veranschaulichung von abstrakten Ideen und Entwürfen. %und Leitideen. 
-    Hierbei werden aus den zugrundeliegenden Problemstellungen, Szenarien und Anforderungen Entwürfe und 
+    Hierbei werden aus den zugrunde liegenden Problemstellungen, Szenarien und Anforderungen Entwürfe und 
     Lösungsmöglichkeiten erarbeitet und identifiziert. Diese helfen bei der Aufstellung von notwendigen Schritten 
     und dienen als Grundlage zur Untermauerung und Darlegung von Entscheidungen. Somit wird Dritten der Kontext, die 
-    Domäne und das zu lösende Problem, bzw. die Lösung dargestellt. 
+    Domäne und das zu lösende Problem bzw. die Lösung dargestellt. 
     \\
     \linebreak
     Das Konzept dieser Thesis 
@@ -68,7 +68,7 @@
     \\
     \linebreak
     Stützend auf den vorab ermittelten Anwendungsfällen (siehe Abschnitt \ref{subsec:checkin} und \ref{subsec:evacuation}) sind unabhängige 
-    Komponenten, darunter bspw. ein Service-Roboter und weitere einsatzfähige Geräte, sowie ein \acs{MQTT}-Broker notwendig. Ein \acs{MQTT}-Broker 
+    Komponenten, darunter bspw. ein Service-Roboter und weitere einsatzfähige Geräte sowie ein \acs{MQTT}-Broker notwendig. Ein \acs{MQTT}-Broker 
     wird im Zuge der Konzeption von dem Framework selbst nicht bereitgestellt, lediglich die Client-Anbindung wird gegeben. Der Anwender muss sich selbstständig um den verfügbaren Broker kümmern. 
     Dadurch kann die Anforderung einer Kommunikation mittels \acs{MQTT} umgesetzt werden. Eine denkbare infrastrukturelle 
     Architektur kann wie folgt aussehen: 
@@ -152,7 +152,7 @@
         Das Konzept widmet sich grundlegend dem initialen Aufbau des Frameworks. 
         \\
         \linebreak
-        Der Anwender hat das initiale Setup des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
+        Der Anwender hat das initiale Set-up des Frameworks zur Aufgabe. Zuerst sollte der Zustandsraum erstellt werden. 
         Darin sind alle notwendigen Zustände als Attribute und Objektfelder abzubilden. Diese können konkret Geräte sein, die im Rahmen des 
         intelligenten Büros verwendet werden, bspw. ein Service-Roboter, ein Türöffner und weitere steuerbare Geräte, die 
         ihren Zustand ändern können. Nachdem das Zustandsobjekt 
@@ -165,7 +165,7 @@
         des eigentlichen Regeldurchlaufs. Die darin enthaltenen Aufgaben werden nach zutreffender Bedingung abgearbeitet.
         \\
         Nach Fertigstellung aller drei Funktionen muss das Objekt dem System übergeben werden. Anschließend ist die 
-        konkrete Transformation zu definieren. Darüber wird festgelegt, welches eingehende Event, bzw. \acs{MQTT}-Topic 
+        konkrete Transformation zu definieren. Darüber wird festgelegt, welches eingehende Event bzw. \acs{MQTT}-Topic 
         eine bestimmte Zustandsänderung bewirkt. Erst nach Änderung des Zustandes wird die Überprüfung und Ausführung 
         von Regeln ausgelöst. Das konkrete Konstrukt der Transformation wird im Kapitel der Umsetzung (siehe Abschnitt \ref{subsec:transformation}) 
         erläutert. Abschließend sind die Kommunikationswege zu aktivieren. 
@@ -194,7 +194,7 @@
         Nach erfolgreichem Einstellen und Starten des Systems soll der \acs{MQTT}-Client hochgefahren werden. Dieser baut daraufhin eine 
         Verbindung zu dem \acs{MQTT}-Broker auf und startet das Zuhören auf eingehende Themen. Dabei soll bereits nach den Topics,  
         die der Nutzer über die Einstellungen im Rahmen der Transformation übergeben hat, gefiltert werden. Sobald eine der bekannten 
-        \acs{MQTT}-Nachrichten konsumiert wurde, soll mittels des Transformers der Zustandsraum, bzw. das Zustandsobjekt 
+        \acs{MQTT}-Nachrichten konsumiert wurde, soll mittels des Transformers der Zustandsraum bzw. das Zustandsobjekt 
         auf die im Topic enthaltenen Informationen abgeändert werden. Der Transformer stellt den Ausgangspunkt für die Transformation 
         des Nachrichteninhalts zur Zustandsänderung dar. Innerhalb dieser Komponente findet die Zuordnung 
         des Topics zu den darauf adressierten Feldern des Zustandsobjektes statt. Mittels der Nachricht sollen die Informationen dieser 
@@ -239,7 +239,7 @@
         \\
         Aus dem Ablaufdiagramm gehen die parallele Ausführung von zwei voneinander unabhängigen Zustandsänderungen und die 
         erneute Änderung des Zustandes durch eine Regel selbst nicht hervor. Sofern die Änderungen unabhängig 
-        sind, sollen Prozesse asynchron ablaufen, bzw. Regeln neue Zustandsänderungen hervorrufen können. 
+        sind, sollen Prozesse asynchron ablaufen bzw. Regeln neue Zustandsänderungen hervorrufen können. 
         \\
         %\linebreak
         Zur Veranschaulichung hilft die nachfolgende Abbildung. 
