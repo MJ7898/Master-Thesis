@@ -55,7 +55,7 @@
     % und dennoch Konfiguration und Ausführung umsetzt. Der Entwickler muss lediglich den Zustandsraum, die MQTT-Topics und die Regeln definieren.
     % Der Entwickler bekommt ein Framework an die Hand, welches die Umsetzung von Prozessen in einem smarten Büro ermöglicht. Das Framework kümmert sich um die 
     % Organisation und die Ausführung der Regeln. Die Richtigkeit der Regeln und des Zustandsraumes muss der Entwickler sicherstellen. 
-    % Die Kommunikation über MQTT ist nur eine Möglichkeit. Das Setup wird wegabstrahiert 
+    % Die Kommunikation über MQTT ist nur eine Möglichkeit. Das Set-up wird wegabstrahiert 
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -95,7 +95,7 @@
     wurden (siehe Kapitel \ref{sec:homeassistant} und \ref{sec:openhab}), ist die Vielfalt der Regelausprägung auf 
     den Kontext des Systems eingeschränkt und benötigt mehrere Schritte, um sie zu realisieren. Dies bedeutet, dass 
     Regeln und Prozesse nur mit Komponenten und Informationen innerhalb des Systems arbeiten können bzw. benötigte 
-    Informationen erst durch eine systemseitige Erweiterung durch Plugins verfügbar sind, auf die der Nutzer keinen direkten 
+    Informationen erst durch eine systemseitige Erweiterung durch Plug ins verfügbar sind, auf die der Nutzer keinen direkten 
     Einfluss nehmen kann. Mit den bestehenden Lösungen wird versucht, die Regeldefinition für Endnutzer so 
     einfach wie möglich zu gestalten, wodurch eventuell erst zahlreiche Selektionen über die Benutzeroberfläche zum gewünschten Ziel führen.   
     \\
@@ -107,7 +107,7 @@
     Dadurch soll dem Framework-Verwender die Möglichkeit geboten werden, das zur Verfügung gestellte System 
     mit individuellen Regeln, dafür vorgesehenen Bedingungen, Komponenten und deren Zustände zu implementieren. Beispielsweise 
     können bei Regeldefinitionen Informationen direkt von Datenpunkten über \acs{HTTP}-Abfragen bezogen werden bzw. Ressourcen 
-    und Inhalte individuell nachgezogen werden.
+    und Inhalte individuell nachgezogen werden. 
     \\ 
     Das Konzept beinhaltet die in folgendem Abschnitt dargelegten grundsätzlichen Komponenten. %Aus denen bildet sich der grundlegende Aufbau 
     %des Frameworks.
@@ -172,7 +172,7 @@
         Da \acs{MQTT} zum aktuellen Zeitpunkt und zur Abdeckung der Anforderungen die einzige Kommunikationsschnittstelle 
         abbildet, ist die Konfiguration des \acs{MQTT}-Clients einzustellen. Hierfür muss der Entwickler 
         dem Framework den Host des \acs{MQTT}-Brokers sowie den Nutzernamen des Clients und dessen Passwort übergeben. Über das 
-        Framework wird dann das Setup durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumierbar 
+        Framework wird dann das Set-up durchgeführt, sodass Topics (Themen), die über den Broker veröffentlicht werden, konsumierbar 
         sind. Im Zuge dessen muss der Anwender die Topics innerhalb der jeweiligen Transformation definieren, wodurch gewährleistet wird, dass 
         die Steuerzentrale nur auf diese reagiert. Durch die Transformation erfolgt ebenso die 
         Zuordnung, welches Zustandsattribut mittels eines bestimmten Topics geändert werden soll. Hierfür ein Beispiel:  
@@ -205,7 +205,7 @@
         die Gültigkeit des Zustandsraumes nicht erlischt und nach wie vor reale Zuständen wiedergegeben werden. Anschließend erfolgt die 
         Erstellung einer Kopie des Zustandsobjektes, mit der 
         darauffolgend weiter verfahren wird. Nachdem das Zustandsobjekt geklont wurde, wird der Sperrvorgang aufgehoben und die 
-        Überprüfung aller Regeln, die dem Framework bekannt sind, iteriert, d.h. es werden alle Regeln der Liste durchlaufen bis eine Bedingung zutrifft. In diesem Prozess 
+        Überprüfung aller Regeln, die dem Framework bekannt sind, iteriert, d.h. es werden alle Regeln der Liste durchlaufen, bis eine Bedingung zutrifft. In diesem Prozess 
         wird jeweils nochmals eine Kopie des Zustandsobjektes erzeugt, mit dem bei der Iteration die Regel-Bedingungen überprüft werden. 
         Bei zutreffender Bedingung wird die entsprechende Regel ausgeführt. Zur Abarbeitung mehrerer Prozesse 
         gleichzeitig soll durch Asynchronität die Bedingungsprüfung und Durchführung der Regel in einen separaten \textit{Thread} ausgelagert 
