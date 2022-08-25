@@ -167,7 +167,7 @@ public class Application {
     \\ 
     Diese Entscheidung wurde getroffen, da in der Mehrheit der Anwendungsfälle die Zustände über primitive Typen abgebildet werden können. 
     Ein Designnachteil ist dabei die Anlegung ggf. mehrere Attribute für ein Gerät im Zustandsraum, wodurch das Zustandsobjekt 
-    deutlich umfangreicher wird. Eine bessere Übersicht wäre gegeben, wenn die Felder in ein eigenes Objekt, bzw. eine eigene Klasse ausgelagert werden könnten. 
+    deutlich umfangreicher wird. Eine bessere Übersicht wäre gegeben, wenn die Felder in ein eigenes Objekt bzw. eine eigene Klasse ausgelagert werden könnten. 
     Der optische Nachteil ist dabei vertretbar. In weiteren Iterationen des agilen Vorgangs könnte eine weitere Alternative konzipiert werden, die Objekte 
     im Zustandsraum zulässt. Im Rahmen dieser Arbeit war dies jedoch nicht vorgesehen.
     \\
@@ -485,7 +485,7 @@ public class InnovationLogicHubApplication {
         Der Check-in wurde im Rahmen dieser Arbeit als eine Handlungskette implementiert, da der Roboter zu aktuellem Zeitpunkt noch keine interaktiven Statusmeldungen geben kann. Dies 
         bedeutet, dass derzeit Befehle entgegengenommen werden können, darauf allerdings keine Rückmeldung erfolgt. Somit ist ein reeller Zustandsaustausch in Echtzeit nicht möglich. 
         Aus diesem Grund wurde nach jedem ausgehenden Befehl ein Intervall eingebaut, damit die Regel sequenziell abgearbeitet werden kann. Dafür wurden Zeitspannen definiert, die 
-        der Roboter in etwa braucht, um einen Ortswechsel, bzw. einen Sprachbefehl durchzuführen. Eine alternative Lösung, sofern der Service-Roboter Statusmeldungen geben 
+        der Roboter in etwa braucht, um einen Ortswechsel bzw. einen Sprachbefehl durchzuführen. Eine alternative Lösung, sofern der Service-Roboter Statusmeldungen geben 
         könnte, wäre die feingranularere Aufteilung von einzelnen Prozessen, sodass erst nach erfolgreicher Rückmeldung des Roboters weitere Schritte eingeleitet werden würden.
         \\
         \linebreak
@@ -584,7 +584,7 @@ public class InnovationLogicHubApplication {
             es zu einer Rückkopplung und endlosen Ausführung. Dafür muss entweder innerhalb der Regel der Zustand wieder geändert oder eine treffendere Bedingung definiert werden.
         \end{enumerate}
         Diese Anmerkungen sind bei der Nutzung des Frameworks zu berücksichtigen, damit das Framework die Regeln und Prozesse entsprechend ausführt. 
-    %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN, BZW. OBJEKTE SIND MÖGLICH, 
+    %WICHTIG: ZUSTANDSRAUM MODELLIERUNG VON KOMPONENTEN BZW. OBJEKTE SIND MÖGLICH, 
     %Problematisch dabei ist die Prüfung der Zustandsänderung, da bei jeder Kopie eine neue 
     %Referenz der Komponente erzeugt wird, die eine Zustandsänderung unter dem Feld simuliert (vorgibt) ohne das diese tatsächlich stattgefunden hat.
     %UND DA DIE INVERSE TRANSFORMATION ZUM AUSLÖSEN VON AKTIONEN NUR DIE OBERSTE EBENE DES ZUSTANDSRAUMES ANSCHAUT UND ÜBERPRÜFT.
@@ -593,7 +593,7 @@ public class InnovationLogicHubApplication {
     
     % IST ABER AUCH NICHT NÖTIG, DA ALLE 
     %NOTWENDIGEN GEGENSTÄNDE ÜBER EINEN ODER MEHRERE ATTRIBUTE IM ZUSTANDSRAUM ABGEBILDET WERDEN KÖNNEN. BSP.? 
-    % UND DIE ATTRIBUTE, BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
+    % UND DIE ATTRIBUTE BZW. DIE FELDER ÜBER DIE TRANSFORMATION GEBUNDEN WERDEN. 
     
     %Grenzen 
     %Modellierungsempfehlungen - Regel, Bedingung und Zustandraum 

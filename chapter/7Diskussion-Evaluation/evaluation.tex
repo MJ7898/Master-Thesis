@@ -115,7 +115,7 @@ Ziel der Arbeit abschließend betrachtet.
 
     \subsection{Fazit}
         Das Experteninterview wurde, vergleichbar zu dem vorherigen Interview (siehe \ref{subsec:experteninterview}), mit einem semi-strukturierten Ansatz durchgeführt. 
-        Anfangs wurde an den Fragebogen angeknüpft, um eine nachträgliche Zusammenfassung der Erkenntnisse jedes einzelnen zu erfahren. Sofern die Zusammenfassung bereits 
+        Anfangs wurde an den Fragebogen angeknüpft, um eine nachträgliche Zusammenfassung der Erkenntnisse jedes Einzelnen zu erfahren. Sofern die Zusammenfassung bereits 
         die notwendigen Informationen enthielt, wurde ein unstrukturierter Ansatz verfolgt und ein offener Dialog geführt. War die Zusammenfassung jedoch nicht 
         aufschlussreich, so wurden anschließend konkret die 
         folgenden Fragen gestellt: 
@@ -124,7 +124,7 @@ Ziel der Arbeit abschließend betrachtet.
             \item \textit{„Gibt es aus Ihrer Sicht (Sicht des Anwenders) Mängel, die Ihnen die Nutzung des Frameworks erschweren?“}
             \item \textit{„Gab es Unklarheiten während der Anwendung des Frameworks? - Wenn ja, welche?“}
             \item \textit{„Haben Sie eine Idee oder Lösung, um diese Unklarheit zu beseitigen?“}
-            \item \textit{„Gibt es allgemein Anregungen, bzw. Vorschläge für Verbesserungen?“}
+            \item \textit{„Gibt es allgemein Anregungen bzw. Vorschläge für Verbesserungen?“}
             \item \textit{„Was gefällt Ihnen an dem Framework am meisten? - Was gefällt Ihnen nicht?“}
         \end{enumerate} 
         Rekapitulierend wurde ein aufschlussreiches und erfreuliches Ergebnis erzielt. Die Antworten gaben ein klares Meinungsbild von der Einfachheit der 
@@ -135,17 +135,17 @@ Ziel der Arbeit abschließend betrachtet.
         \begin{quote}
             „Wenn man wenig bis keine Erfahrung mit der Java Entwicklung hat, gibt es klar die ein oder andere Wissenslücke, die zuerst beseitigt werden muss. 
             Durch die wenigen Handlungsschritte, die jedoch viel Interpretationsfreiheiten bieten, besonders bei der Regeldefinition, ist dies doch überschaubar. 
-            Bekommt man dementsprechend eine Hilfestellung, bzw. eine detailliertes Beispiel an die Hand, so können kleinere Schritte und Anwendungsfälle 
+            Bekommt man dementsprechend eine Hilfestellung bzw. ein detailliertes Beispiel an die Hand, so können kleinere Schritte und Anwendungsfälle 
             relativ schnell umgesetzt werden.“
         \end{quote}
-        Ein Ergänzungs-, bzw. Verbesserungsvorschlag, der während eines Interviews erwähnt wurde, ist die Optimierung des Anlegens von sämtlichen Objekten. 
+        Ein Ergänzungs- bzw. Verbesserungsvorschlag, der während eines Interviews erwähnt wurde, ist die Optimierung des Anlegens von sämtlichen Objekten. 
         Hierfür wurde vorgeschlagen, eine Art \textit{\ac{CLI}}, wie bspw. die von Angular\footnote{TypeSkript basiertes Web Application Framework. \url{https://angular.io/} Besucht am 05.08.2022}, 
-        zu implementieren. Die Idee war Befehle über die Kommandozeile geben zu können, bspw. das Anlegen von Attributen im Zustandsobjekt, das Erzeugen leerer, bzw. mit den dafür 
-        vorgesehenen Parameterwerten befüllter Transformationen, und das Erstellen eines leeren Regelkonstruktes. Dadurch würde der notwendige Code generiert und dem Entwickler zur Verfügung gestellt werden, wodurch dieser 
+        zu implementieren. Die Idee war, Befehle über die Kommandozeile geben zu können, bspw. das Anlegen von Attributen im Zustandsobjekt, das Erzeugen leerer bzw. mit den dafür 
+        vorgesehenen Parameterwerten befüllter Transformationen und das Erstellen eines leeren Regelkonstruktes. Dadurch würde der notwendige Code generiert und dem Entwickler zur Verfügung gestellt werden, wodurch dieser 
         sich ausschließlich um das Implementieren der Regeln kümmern muss. 
-        \\
+        \\ 
         \linebreak
-        Abschließend lässt sich anmerken, dass mit der konkreten Anweisung, welcher Anwendungsfall umgesetzt werden soll, bzw. welche Randbedingungen 
+        Abschließend lässt sich anmerken, dass mit der konkreten Anweisung, welcher Anwendungsfall umgesetzt werden soll bzw. welche Randbedingungen 
         dafür gelten, schnell ein Ergebnis erzielt werden kann. 
         
 \section{Evaluation der Anforderungen}
@@ -163,20 +163,20 @@ Ziel der Arbeit abschließend betrachtet.
         \linebreak
         Die Anforderung (FA2) ist 
         umgesetzt, indem der Regel mit der \textit{ruleTrigger}-Methode ein Wert eines \textit{Enum Types}\footnote{Spezieller Datentyp. \url{https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html} Besucht am 05.08.2022} 
-        zugeordnet wird. Ein essentieller Teil des Frameworks ist der vom Anwender zu implementierende Zustandsraum, welcher über eine separate Klasse vorgegeben wird. Dadurch 
-        ist auch die Anforderung (FA3) als umgesetzt anzusehen. Die Individualität der Implementierung des Zustandsraume ist durch die frameworkseitige Verwendung der 
+        zugeordnet wird. Ein essenzieller Teil des Frameworks ist der vom Anwender zu implementierende Zustandsraum, welcher über eine separate Klasse vorgegeben wird. Dadurch 
+        ist auch die Anforderung (FA3) als umgesetzt anzusehen. Die Individualität der Implementierung des Zustandsraumes ist durch die frameworkseitige Verwendung der 
         Java \textit{Generics} gegeben. Demzufolge arbeitet das Framework mit dem vom Entwickler übergebenen Klassenobjekt. 
         \\
         \linebreak
         Die Ausprägungen der Bedingungen zur Ausführung der Regelprozesse sind unverzichtbar. Sie müssen vom Anwender aufgestellt werden (FA4). Damit eine Aufstellung erfolgen kann, ist in der Regelklasse eine 
         Funktion gegeben, die das Implementieren der Bedingung erzwingt. 
         Die darauffolgende Forderung (FA5) ist prinzipiell gegeben, wird allerdings durch die Einschränkung im 
-        Zustandsraum aktuell nicht als geeignet angesehen. Die Nutzung von Java \textit{Reflection}, bzw. die Umsetzung der inversen Transformation erschwert dies. Derzeit wird von der Komponenteneinbindung 
+        Zustandsraum aktuell nicht als geeignet angesehen. Die Nutzung von Java \textit{Reflection} bzw. die Umsetzung der inversen Transformation erschwert dies. Derzeit wird von der Komponenteneinbindung 
         in das Zustandsobjekt abgeraten. Das Erstellen von Komponenten ist dennoch möglich und kann im Regelkontext angewendet werden, sofern bestimmte Eigenschaften für eine Regel relevant sind. 
         \\
         \linebreak
         Der letzte Punkt (FA6) ist ebenso umgesetzt, da innerhalb der Regel bis auf die Voraussetzung der Implementierung der Regelbedingung sowie des -prozesses keine Einschränkungen bestehen. 
-        Zusätzlich können bspw. sämtliche \acs{HTTP}-Abfragen getätigt werden. Im Falle des Use Cases "Check-in mit einem Service-Roboter" werden \acs{HTTP}-Abfragen ausgeführt, damit 
+        Zusätzlich können bspw. sämtliche \acs{HTTP}-Abfragen getätigt werden. Im Falle des Use Cases \textit{Check-in mit einem Service-Roboter} werden \acs{HTTP}-Abfragen ausgeführt, damit 
         Informationen der Büroplatzbuchungssoftware abgerufen werden können. 
 
     \subsection*{Nicht funktionale Anforderungen}
@@ -195,7 +195,7 @@ Ziel der Arbeit abschließend betrachtet.
         \\
         Durch die rein programmatische Anwendung des Frameworks kann der Entwickler zu jedem Zeitpunkt auf die Funktionen der Steuerzentrale zugreifen (NFA3). 
         Dies wurde ebenso von den Testteilnehmern im anschließenden Experteninterview bestätigt. Zum aktuellen Zeitpunkt sind die nutzbaren Funktionen sehr 
-        überschaubar und decken die notwendigsten Funktion ab, darunter das Hinzufügen von Regeln, 
+        überschaubar und decken die notwendigsten Funktionalitäten ab, darunter das Hinzufügen von Regeln, 
         Erstellen aller wesentlichen Objekte und Komponenten, Aufsetzen der erforderlichen \acs{MQTT}-Konfiguration, Ergänzen von Transformationen, Starten 
         des \acs{MQTT}-Clients und das Erweitern um zeitbasierte Regelauslöser. 
         \\
@@ -212,7 +212,7 @@ Ziel der Arbeit abschließend betrachtet.
         wird der Ist-Zustand mit dem Soll-Zustand abgeglichen und somit die Zuverlässigkeit überprüft. 
         Dennoch gibt es eine starke Abhängigkeit zur Regelbedingung, die der Anwender definiert. Ist diese 
         nicht deutlich genug, kann es passieren, dass Regeln ungewollt ausgeführt werden. Deshalb ist die Validierung der Regelbedingung durch den 
-        Entwickler essentiell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
+        Entwickler essenziell. Somit ist die Zuverlässigkeit abhängig von den Interaktionen und der Implementierung des Anwenders. Grundsätzlich gibt es 
         systemseitig keine negativen Auswirkungen von mehrdeutigen Bedingungen, die fälschlicherweise die Zuordnung und Ausführung einer Regel gefährden. Wird jedoch durch die 
         Regel der Zustand an einer anderen Stelle erneut geändert, ohne dass sich der vorherige Wert und dessen Bedingung wieder negiert hat, so würde das 
         Framework eine Endlosschleife und Rückkopplung bilden und dadurch einen \textit{StackOverflowError} erzeugen. Demnach ist die Auswahl der Bedingung einer der wichtigsten 
@@ -221,7 +221,7 @@ Ziel der Arbeit abschließend betrachtet.
         \linebreak
         Durch die Verwendung von \textit{Threads} werden Regeln, deren Bedingungen im Vorfeld zutreffen, asynchron ausgeführt. Es können dadurch voneinander 
         unabhängige Regel parallel abgearbeitet werden. Somit ist die Performanz des Systems erhöht (NFA6). Die Reaktionszeit und die Performanz der 
-        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden sowie von der dafür verwendeten Hardware 
+        Kommunikation ist sowohl abhängig von den jeweiligen Protokollen und Technologien, die eingesetzt werden, sowie von der dafür verwendeten Hardware 
         und Infrastruktur (NFA7). Eine konkrete Überprüfung der Anforderungen wurde im Rahmen der Arbeit nicht durchgeführt, da diese zum aktuellen Zeitpunkt keine 
         Auswirkungen auf das System selbst haben. Dennoch ist unter Verwendung der derzeitigen Technologien eine gewisse Performanz vorauszusetzen und zu erwarten. 
         \\
@@ -244,12 +244,12 @@ Ziel der Arbeit abschließend betrachtet.
         \\
         Die Randbedingung (ZAF1), Nutzung der Programmiersprache Java, wurde eingehalten. Das Framework ist ausschließlich in Java entwickelt. 
         \\
-        Für den Zustandsraum ist eine gewissen Modellierungsempfehlung vorgegeben, die keine Objekte als Felder im Zustandsraum zulässt. Die 
+        Für den Zustandsraum ist eine gewisse Modellierungsempfehlung vorgegeben, die keine Objekte als Felder im Zustandsraum zulässt. Die 
         Abbildung von reellen Zuständen findet 
         ausschließlich über Attribute statt. Somit ist die Mindestanforderung für (ZAF2) erfüllt. 
         \\
         \linebreak
-        Die Anforderung (ZAF3) ist abgedeckt, da die Regelprüfung uns -ausführung über einen \textit{Thread Pool} in einen eigenen \textit{Thread} ausgelagert wird. Ebenso 
+        Die Anforderung (ZAF3) ist abgedeckt, da die Regelprüfung und -ausführung über einen \textit{Thread Pool} in einen eigenen \textit{Thread} ausgelagert wird. Ebenso 
         ist (ZAF4) erfüllt, da die Kommunikation zum aktuellen Zeitpunkt ausschließlich über \acs{MQTT} erfolgt. Das Auslösen von Regeln über definierte Zeitpunkte kann durch 
         \textit{Cronjobs} oder durch die Annotation (\textit{\@ Scheduled}) des Spring Frameworks stattfinden. Demnach stellen diese beide Möglichkeiten die einzigen Optionen eines 
         Auslösers dar. In Folge dessen gilt auch die Forderung (ZAF5) als erledigt.
@@ -275,13 +275,13 @@ Ziel der Arbeit abschließend betrachtet.
     %Wie kann man die Usability von Prozessautomatisierungen und Regeldefinitionen von SmartHome-Plattformen optimieren, sodass die formalen Interaktionen für den Softwareentwickler einfacher in der Handhabung sind?
     Der in dieser Arbeit verfolgte Ansatz bietet dem Softwareentwickler eine Möglichkeit, mit wenigen Schritten eine 
     Prozessautomatisierung oder Regeldefinition basierend auf einem Anwendungsfall im Bereich des intelligenten 
-    Büros, bzw. \textit{Smart Office} oder \textit{\acl{SH}}, umzusetzen. Hierbei wird im Vergleich zu anderen 
+    Büros bzw. \textit{Smart Office} oder \textit{\acl{SH}}, umzusetzen. Hierbei wird im Vergleich zu anderen 
     Lösungen, darunter \acs{OPENHAB} und Home Assistant, nicht der Weg über eine Integration angestrebt. 
     Die Gestaltung solcher Komponenten, die über Integrationen abgebildet werden, findet in dem konzipierten 
     Framework über den Zustandsraum statt. Er lässt dem Entwickler die Ausprägung offen. Zusätzlich 
     wird darauf verzichtet eine Benutzeroberfläche bereitzustellen, mit der die Interaktionen gegebenenfalls 
-    aufwändig, bzw. mehrschrittig sein könnten. Durch die alleinige Nutzung der Programmiersprache Java ist innerhalb des 
-    Frameworks kein Kontextwechsel, bzw. Syntaxwechsel erforderlich, wodurch die Interaktionen ebenso vereinfacht bleiben. 
+    aufwändig bzw. mehrschrittig sein könnten. Durch die alleinige Nutzung der Programmiersprache Java ist innerhalb des 
+    Frameworks kein Kontextwechsel bzw. Syntaxwechsel erforderlich, wodurch die Interaktionen ebenso vereinfacht bleiben. 
     Mithilfe der reduzierten Interaktionspunkte für den Entwickler ist gleichermaßen eine Formalisierung der Interaktionen 
     gewährleistet. So ist lediglich pro Anwendungsfall eine klar vorgegebene Struktur zu implementieren. Diese besteht aus mindestens einer 
     Transformation, einer Regel und einem Attribut im Zustandsraum. 

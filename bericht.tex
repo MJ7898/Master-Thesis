@@ -133,7 +133,7 @@
   Realisierung verschiedenster Automatisierungsverfahren und Prozessabbildungen. Durch die Vielzahl an Möglichkeiten zur  
   Erfassung von Automationen, Regeln und Geräten kann der Input der Anwender bzw. Entwickler rasant ansteigen. 
   Es ist dem Anwender meist kaum gestattet mit den vorhandenen Softwarelösungen eine inhaltlich individuelle Anpassung 
-  der Regeldefinitionen vorzunehmen. %, wodurch die formalisierten Interaktionen nicht einfach zu handhaben sind. 
+  der Regeldefinitionen vorzunehmen. 
   \\
   \linebreak
   Diese Masterthesis befasst sich mit der Konzeption und prototypischen Umsetzung eines Frameworks einer Steuerzentrale im Rahmen eines 
@@ -362,7 +362,7 @@
           \hline
             \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
           \hline
-            Architektur & Robustheit und Starrheit, sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
+            Architektur & Robustheit und Starrheit sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
           \hline
             Installation und Wartung & Installation ist genauestens dokumentiert. Initiale Konfiguration muss über die Kommandozeile durchgeführt werden, Updates ebenso. & Ein-Klick-Installationsprozess. Initiale Konfiguration benötigt das Verständnis von YAML-Dateien. Updates können über die UI verwaltet werden \cite{sh-uni-comparison}. \\ 
           \hline
@@ -513,15 +513,15 @@ Die Personas sind auf die folgenden drei Seiten (XVII - XIX) verteilt.
 \textbf{Gast:}
 \\
 Als Gast möchte ich für den Zugang in das Gebäude ein Bild für den Anmeldeprozess hinterlegen können. Vor Ort möchte ich über die Kamera 
-am Eingang mein Gesicht Authentisieren, bei nicht Hinterlegung eines Bildes bei der Anmeldung, möchte ich klingeln. Nach der 
-Authentisierung, bzw. nach Betätigung der Klingel soll sich die Tür öffnen. Beim Hineintreten in das Gebäude nehme ich einen Service-Roboter 
-(Service-Roboter) wahr. Dieser begrüßt mich und startet eine Konversation mit mir. Er bietet mir an die Registrierung, bzw. das Antreffen im Gebäude 
+am Eingang mein Gesicht authentisieren, bei nicht Hinterlegung eines Bildes bei der Anmeldung, möchte ich klingeln. Nach der 
+Authentisierung bzw. nach Betätigung der Klingel soll sich die Tür öffnen. Beim Hineintreten in das Gebäude nehme ich einen Service-Roboter 
+(Service-Roboter) wahr. Dieser begrüßt mich und startet eine Konversation mit mir. Er bietet mir an die Registrierung bzw. das Antreffen im Gebäude 
 per QR Code über den Service-Roboter-Bildschirm durchzuführen. Somit werde ich als anwesend markiert und der Mitarbeiter, mit dem ich einen Termin 
-habe, wird informiert. Nach erfolgreicher Registrierung führt mich der Service-Roboter zum Mitarbeiter mit dem ich einen Termin vereinbart habe.
+habe, wird informiert. Nach erfolgreicher Registrierung führt mich der Service-Roboter zum Mitarbeiter, mit dem ich einen Termin vereinbart habe.
 \\
 \linebreak
-\textbf{Member:}\\
-
+\textbf{Member:}
+\\
 Als Member möchte ich die Buchung eines Arbeitsplatzes wahrnehmen können. Um in das Gebäude eintreten zu können, ist eine Authentifizierung durch 
 die Gesichtserkennung oder das Abscannen der Chipkarte notwendig. Nach erfolgreicher Autorisierung werde ich von Service-Roboter bei Eintritt des Gebäudes 
 begrüßt. Service-Roboter gibt mir den Arbeitsplatz bekannt und fragt, ob ich zum Platz begleitet werden soll. 
@@ -607,16 +607,16 @@ begrüßt. Service-Roboter gibt mir den Arbeitsplatz bekannt und fragt, ob ich z
 \subsection*{UC 2 - User Story}
 \textbf{Gast:}
 \\
-    Als Gast, Member und Manager möchte ich bei einem Notfall alarmiert werden. Bei eintretendem Fall möchte ich 
-    Anweisungen, die zu beachten und umzusetzen sind, erhalten. Ebenso ist ein Hinweis zu den Notausgängen 
-    sinnvoll und hilft bei der Flucht, bzw. beim Verlassen des Gebäudes. Damit keine Personen im Büro 
-    bleiben, ist eine Information über Anwesende von belangen. Der Member sollte die Möglichkeit haben, den 
-    Service-Roboter aufzufordern nach Leuten zu rufen, die nicht in Sichtweite sind. Sobald alle Plätze 
-    abgefahren sind, bzw. durch den Service-Roboter keine Personen mehr erkannt werden, soll eine Benachrichtigung 
-    erfolgen, dass alle aus dem Gebäude sind, bzw. keine mehr gesichtet wurden. Diese Information hilft bei der 
-    anschließenden Kontrolle über am Treffpunkt anwesender Personen. Abschließend soll ggf. Eine Information über die 
-    Platzbuchungen gezeigt werden, damit bei der Kontrolle keine Fehler unterlaufen und keine Personen, die nicht 
-    gesehen werden, vergessen werden.
+Als Gast, Member und Manager möchte ich bei einem Notfall alarmiert werden. Bei eintretendem Fall möchte ich 
+Anweisungen, die zu beachten und umzusetzen sind, erhalten. Ebenso ist ein Hinweis zu den Notausgängen 
+sinnvoll und hilft bei der Flucht bzw. beim Verlassen des Gebäudes. Damit keine Personen im Büro 
+bleiben, ist eine Information über Anwesende von belangen. Der Member sollte die Möglichkeit haben, den 
+Service-Roboter aufzufordern, nach Leuten zu rufen, die nicht in Sichtweite sind. Sobald alle Plätze 
+abgefahren sind bzw. durch den Service-Roboter keine Personen mehr erkannt werden, soll eine Benachrichtigung 
+erfolgen, dass alle aus dem Gebäude sind bzw. keine mehr gesichtet wurden. Diese Information hilft bei der 
+anschließenden Kontrolle über am Treffpunkt anwesender Personen. Abschließend soll ggf. eine Information über die 
+Platzbuchungen gezeigt werden, damit bei der Kontrolle keine Fehler unterlaufen und keine Personen, die nicht 
+gesehen werden, vergessen werden.
 
 \subsection*{Akzeptanzkriterien}
 \begin{itemize}
