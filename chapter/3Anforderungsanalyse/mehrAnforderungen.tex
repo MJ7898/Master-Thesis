@@ -1,0 +1,38 @@
+\subsubsection*{}
+Eine Auswahl an zusätzlichen Anforderungen, die ergänzend zu den bereits Bestehenden aus der Zielgruppenanalyse und den Anwendungsfällen entstanden sind und sowohl die funktionalen 
+(\ref{tab:functionalRequirements}) als auch die nicht funktionalen Anforderungen (\ref{tab:notfunctionalRequirements}) erweitern, ist der folgenden 
+Tabelle zu entnehmen. Diese sind als zusätzliche Anforderungen (ZAF) gekennzeichnet: 
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{ | p{1.0cm} | p{9.2cm} | p{1.6cm} | p{3.1cm} | }
+            \hline
+                \textbf{} & \textbf{Anforderung} & \textbf{Priorität} & \textbf{Quelle} \\
+            \hline
+                ZAF1 & Zur Entwicklung des Frameworks soll Java als Programmiersprache verwendet werden. & Hoch & Experteninterview, Zielgruppenanalyse \\ 
+            \hline
+                ZAF2 & Die Abbildung von Komponenten soll über einen Zustandsraum dargestellt werden. & Niedrig & Anwendungsfall, Experteninterview \\ 
+            \hline
+                ZAF3 & Zur parallelen Ausführung von Regeln soll ein Thread Pool eingesetzt werden, der die Regeln jeweils als eigenen Thread laufen lässt. & Hoch & Anwendungsfall, Experteninterview \\ 
+            \hline
+                ZAF4 & Regeln sollen über zeitbasierte oder MQTT basierte Auslöser gestartet werden, nachdem die dafür vorgesehene Bedingung zutrifft. (Im Rahmen der Anwendungsfälle wird MQTT als Kommunikationsprotokoll und Auslöser gewählt.) & Hoch & Anwendungsfall \\
+            \hline
+                ZAF5 & Regeln und damit einhergehende Aktionen dürfen erst nach Aktivierung eines bestimmten Auslösers (Triggers) ausgeführt werden. & Essentiell & Experteninterview \\
+            \hline
+                ZAF6 & Der Zustandsraum muss zur Laufzeit zur Verfügung stehen. & Hoch & Experteninterview \\ 
+            \hline
+                ZAF7 & Die Kommunikation erfolgt überwiegend durch MQTT. & Hoch & Anwendungsfall \\ 
+            \hline
+                ZAF8 & Sicherheit: Die Kommunikation soll über einen MQTT Broker im eigenen Netzwerk erfolgen. Das System soll nach außen nicht erreichbar sein. & Hoch & Experteninterview \\
+            \hline
+                ZAF9 & Bereitstellung eines \ac{SPC} (Implementierung, Anpassung und Erweiterung der Regel und der Logik). & Hoch & Zielgruppenanalyse, Experteninterview \\ 
+            \hline
+            %    ZAF10 & Die Zustände der Komponenten sollen persistiert werden, damit bei einem Systemausfall die letzten Transaktionen und Änderungen nachvollzogen werden können. (Ist zur Konzeption zu berücksichtigen, Priorität aus dem Proof of Concept (PoC) jedoch gering.) & Niedrig & Experteninterview \\ 
+            %\hline 
+        \end{tabular}
+    \end{center}
+    \caption{Zusätzliche Anforderungen}
+    \label{tab:furtherRequirements}
+\end{table} 
+\\
+Alle relevanten Anforderungen, die mithilfe den genannten und durchgeführten Erhebungsmethoden eruiert wurden, fließen in die Konzeption 
+des Frameworks mit ein. Diese bilden die Grundlage des Konzeptes. 

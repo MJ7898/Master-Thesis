@@ -1,8 +1,325 @@
 \chapter{Anforderungsanalyse}
 \label{chap:anforderungsanalyse}
+    Dieses Kapitel befasst sich im Allgemeinen mit der Anforderungsanalyse und -erhebung. Hierbei wird eine
+    Marktanalyse präsentiert, um das Potenzial rundum \acl{SH} aufzuzeigen und die entstehenden oder bereits 
+    bestehenden Anforderungen aufzuzeigen. Die Analyse ist 
+    mit repräsentativen Statistiken, Studien und Umfragen belegt. Hauptsächlich wird im Rahmen der Anforderungserhebung 
+    auf die Methodiken und Techniken eingegangen, die verwendet werden, um 
+    Anforderungen zu identifizieren. Diese dienen als Grundlage für die Konzeption der Steuerzentrale. Bestandteile der 
+    Anforderungserhebung sind unter anderem zentrale Prozesse des \acl{RE}, ein \textit{user-centered Design} (nutzerzentriertes Design), 
+    eine \textit{Target Group Analysis} (Zielgruppenanalyse), und die Durchführung von 
+    Experteninterviews. Diese Interviews sind nicht repräsentativ und dienen lediglich der weiträumigeren Informationsgewinnung. 
+    \\
+    Vorab wird sichergestellt, dass im Rahmen des benutzerzentrierten Designs der Softwareentwickler als Nutzer und Anwender im 
+    Vordergrund steht, da dieser die Plattform betreibt bzw. für die Erweiterung der Software als auch für die 
+    Anpassungen auf die eigenen Anwendungsfälle zuständig ist.
+    \\
+    \linebreak
+    Damit ein Eindruck entsteht, welches Marktpotenzial \acl{SH} Anwendungen haben und welche Anforderungen somit 
+    verbunden sind, wird basierend auf bestehenden Studien, Statistiken und Umfragen eine Marktanalyse durchgeführt.
+
 \section{Marktanalyse}
 \label{sec:marktanalyse}
-\section{Use Cases}
-\subsection{Check in mit Temi}
-\subsection{Notfallevakuierung mit Temi}
-\section{Anforderungen}
+    Der Marktanteil rundum \acl{SH} wächst weiter an, 
+    sei es in Bezug auf die Entwicklung von neuen intelligenten Geräten, die 
+    Massentauglichkeit von Geräten 
+    oder die stetig wachsende Abdeckung von Anwendungsfällen und Übernahme von Aufgaben und Prozessen. Durch die Vielzahl an 
+    Produktanbietern und diversen Kommunikationsmöglichkeiten ist es schwierig, eine Lösung für alle Alternativen und 
+    Produktausprägungen anzubieten. Hersteller versuchen mit ihrer Produktpalette ihr eigenes Ökosystem im Bereich 
+    \acl{SH} zu erstellen, um die Nutzer abhängig zu machen. Der repräsentativen Studie von Deloitte zufolge ist jedoch eine 
+    Insellösung bei den Nutzern in Deutschland nicht gefragt \cite{deloitte2018}. Befragt wurden 2000 Konsumenten zwischen 
+    19 und 75 Jahren. Einem geringen Anteil von 22 Prozent der 
+    Befragten ist die Erweiterbarkeit des Systems mit Produkten anderer Hersteller weniger bzw. nicht wichtig. Im Gegensatz dazu 
+    empfinden 43 Prozent der Befragten die Erweiterbarkeit als wichtig und 28 Prozent als sehr wichtig \cite{deloitte2018}. 
+    Demnach sollten die Hersteller eine flexiblere Einsetzbarkeit gewährleisten, damit solche Systeme den Marktdurchbruch 
+    erlangen. Allerdings wird dadurch die Weiterentwicklung von Plattformen komplexer und umfangreicher, was sich wiederum als 
+    Nachteil erweist. Beispielsweise sind die am weitverbreitetsten Open-Source-Plattformen, openHAB und Home Assistant, 
+    vielschichtig und bilden ein großes System mit zunehmend integrierbaren Geräten ab, deren Funktionsumfang stetig steigt. 
+
+    \subsection{Allgemeine Marktsituation und Marktprognose}
+        Derzeit gibt es viele Anbieter für intelligente Produkte. Diese bieten zum einen einzelne Geräte an, die in 
+        beliebige Plattformen integriert werden können und zum anderen ein eigenes Ökosystem, sofern der Anwender 
+        mehrere Produkte eines Anbieters nutzen möchte. Dennoch ist in den meisten Fällen die Konfiguration der Geräte nur auf 
+        den hauseigenen Plattformen möglich. Somit kann der Nutzer nicht alle Komponenten ausschließlich über eine Plattform 
+        konfigurieren und steuern. 
+        \\
+        \linebreak
+        Eine repräsentative Umfrage der \ac{SGCS} mit 1384 Teilnehmern, die im April 2022 veröffentlicht wurde, zeigt, welche 
+        Anbieter in Deutschland am populärsten sind bzw. am häufigsten von den Nutzern gekauft werden. An oberster Stelle 
+        steht Philips und Samsung mit jeweils 25 Prozent und an dritter Stelle Bosch mit 23 Prozent. Weitere Anbieter können dem 
+        Diagramm im Anhang (siehe \ref{appendix:brandings}) entnommen werden. Es sind jedoch nicht alle Hersteller und 
+        Anbieter aufgelistet. 
+        \\
+        \linebreak
+        Der aktuelle Markt für intelligente Produkte ist in sechs primäre Segmente aufgeteilt, die jeweils andere Anwendungsfälle 
+        abdecken \cite{statista2021}:
+        \begin{itemize}
+            \item Kontrolle und Konnektivität: Gateways, die alle Geräte jeglicher Segmente kontrollieren, intelligente Lautsprecher 
+            mit dem Fokus zur Kontrolle und der digitalen Unterstützung und bspw. intelligente Steckdosen
+            \item Intelligente Geräte (Smart Appliances): Kühlschrank, Waschmaschine und Geschirrspüler, Kaffeemaschine, Mikrowelle 
+            und Staubsaugerroboter
+            \item Sicherheit: Bewegungs-, Wasser- und Rauchmelder, Kameras und Türschlösser
+            \item Heimunterhaltung (Home Entertainment): Fernseher, Entertainment-Systeme 
+            \item Komfort und Licht: Intelligente LEDs, Fenster- und Tür-Sensoren etc.
+            \item Energiemanagement: Thermostate und Regler, Luftqualitätsmesser etc. 
+        \end{itemize}
+        \pagebreak
+        Die aufgelisteten Segmente werden von vielen Herstellern bedient. Der folgenden Abbildung sind die repräsentativen Schlüsselanbieter zu entnehmen:
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/keyplayers.png}
+            \caption{Übersicht der repräsentativen Schlüsselanbieter \cite{statista2021}} 
+            \label{pic:landscape}
+        \end{figure}
+        \\
+        Die Übersicht deckt jedoch nicht alle Anbieter ab und spezialisiert sich in diesem Fall auf die bekanntesten und die am 
+        Markt etablierten. 
+        \\
+        \linebreak
+        Laut den von Statista veröffentlichten Daten war die USA mit einem Umsatz von 28,86 Milliarden US-Dollar der größte 
+        \acl{SH} Markt im Jahr 2021, wogegen Deutschland einen Umsatz von 6,59 Milliarden US-Dollar erzielte. Zu berücksichtigen sind 
+        dabei jedoch die demografische Lage als auch die Bevölkerungsdichte. Diese Aufstellung steht in keinem direkten Vergleich und 
+        dient lediglich zur Veranschaulichung und zur Unterscheidung der Marktanteile. Deutlich wird dabei trotzdem das ähnlich prozentual ansteigende 
+        Marktwachstum. 
+        \\
+        \linebreak
+        Der Abbildung (\ref{pic:revenue}) ist die nahezu Verdoppelung des Umsatzes bis 2026 zu entnehmen. Die Darstellung 
+        (\ref{pic:globalmarket}) der einzelnen Segmente zeigt die Zunahme am Weltmarkt von 
+        2021 bis 2026 um ca. 100 Prozent. Die Zeitspanne von 2019 bis 2026 stellt einen durchschnittlichen Zuwachs von 
+        17,4 Prozent dar. Anhand der Prognose und des Berichts von Statista ist deutlich zu sehen, dass der \acl{SH} Markt in 
+        den nächsten Jahren erheblich wachsen wird. Prognostiziert ist ein globaler Marktwert bei ca. 207,8 Milliarden 
+        US-Dollar bis 2026.
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=9.25cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Revenue-Total-United-States---Germany-billion-USD-US.png}
+            \caption{Umsatz-Prognose von Deutschland und den USA \cite{statista2021}} 
+            \label{pic:revenue}
+        \end{figure}
+        \\
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/global_Worth_smart-home.png}
+            \caption{Globaler Smart Home Marktwert \cite{statista2021}} 
+            \label{pic:globalmarket}
+        \end{figure}
+        \pagebreak 
+    \subsection*{Schlüsseltechnologien und Barrieren}
+        Unter den Schlüsseltechnologien im \acl{SH} sind Komponenten zu verstehen, die den Gedanken eines intelligenten 
+        Wohnraumes und Gebäudes forcieren. Dazu zählen unter anderem die Spracherkennung, die bei Sprachassistenten, 
+        darunter bspw. Amazon Alexa, Apple HomePod (Siri) und dem Google Nest, eingesetzt wird, sowie \ac{AI} und \ac{KI} 
+        zur Analyse, Auswertung und Optimierung von Verhaltensmustern und weiteren Analysezwecken \cite{statista2021}. 
+        Zu berücksichtigen sind dabei jedoch die dafür geeigneten Anwendungsfälle und 
+        die Akzeptanz der Nutzer ihre Verhaltensmuster analysieren zu lassen.
+            
+        \subsubsection*{Interoperabilität}
+            Die Kommunikation von \acl{SH} Geräten findet meistens über drahtlose Netzwerke auf Frequenz-Bandbreiten statt, die oft nicht 
+            miteinander kompatibel sind. Neben den drahtlosen Systemen gibt es auch, wie in Abschnitt (\ref{subsec:netzwerkprotokolle}) beschrieben, 
+            weitere Übertragungsmethoden, darunter Strom- und Datenleitungen. Ursächlich für die Inkompatibilität der Übertragungsmethoden 
+            ist die Entwicklung eines Protokolls für einen bestimmten 
+            Zweck, der darauf abgestimmt ist, den Anwendungsfall abzudecken und eine Markteintrittsbarriere zu 
+            schaffen, um einen Wechsel zwischen Anbietern zu erschweren \cite{statista2021}. 
+            Die damit einhergehende Schwachstelle eines \acl{SH} ist, dass die Geräte mit den bereits entwickelten 
+            Protokollen genutzt werden. So ist die Kommunikation über verschiedene Methoden nicht vorgesehen, was 
+            eine fehlende Interoperabilität zur Folge hat. Dies würde die Kombination von Geräten erschweren oder gar verhindern, die eventuell 
+            für den Anwender wünschenswert wäre. Um dies zu ermöglichen, müssten Integrationen 
+            oder Plug-ins von bestehenden Plattformen zur Verfügung gestellt werden oder allgemein kompatible Kommunikationsprotokolle 
+            entwickelt werden, die bspw. mehrere Protokolle kombinieren können, darunter z.B. Zigbee2MQTT. 
+            Voraussetzung dafür ist die Fähigkeit zur Kompatibilität und die Übereinstimmung der Technologie, auf die das Protokoll aufbaut.
+            Der Anwender muss vorab selbst prüfen, welche Geräte miteinander kompatibel sind \cite{statista2021}.
+            \\
+            \linebreak
+            Die Einführung von Bluetooth Low Energy (LE) Mesh\footnote{Bluetooth Mesh Technologie. \url{https://www.bluetooth.com} Besucht am 23.05.2022} 
+            ist eine aktuelle Entwicklung, um der Herausforderung der Bewältigung der Interoperabilität einen Schritt näher zu kommen. Bei cloudbasierten 
+            Sprachdiensten muss ebenso die Kompatibilität geprüft werden. 
+            Neben der Datensicherheit und dem Schutz der Privatsphäre ist die fehlende Interoperabilität ein weiterer kritisch zu betrachtender Aspekt von 
+            \acl{SH} Lösungen.
+            \\ 
+            \linebreak
+            Derzeit häufig verwendete Protokolle sind unter anderem Bluetooth, \ac{WLAN} (WiFi), KNX, ZigBee, Z-Wave, 
+            MQTT und weitere (siehe \ref{tab:protocolsSH}). Um Beispielsweise mit ZigBee über \acs{MQTT} kommunizieren zu 
+            können, gibt es ein Framework, welches die Interoperabilität der beiden Protokolle ermöglicht. Dies ist das 
+            sogenannte \textit{Zigbee2MQTT} Framework\footnote{Erschafft eine Brücke zwischen ZigBee und MQTT. \url{https://www.zigbee2mqtt.io/} Besucht am 23.05.2022}.
+%\pagebreak
+\section{Zielgruppenanalyse}
+\label{sec:zielgruppenanalyse}
+    Um den Adressaten dieser Arbeit näher zu definieren, erfolgt in diesem Abschnitt eine Zielgruppenanalyse. %Hierbei wird zwischen 
+    %zwei Gruppen differenziert. 
+    Im Rahmen dieser Tätigkeit wird die konkrete Zielgruppe identifiziert, die das Framework als Grundlage nutzt, um die individuellen 
+    Anwendungsfälle in der Umgebung des Büros umzusetzen und ggf. zu erweitern. Die Verwendung des Frameworks ist nicht zwangsläufig auf die Büroumgebung beschränkt, ebenso kann 
+    das Framework in privatem Gebrauch angewendet werden. Da es sich bei der Zielgruppenanalyse um einen fortlaufenden Prozess handelt, wird in dieser Arbeit die erste Iteration durchgeführt, 
+    die anschließend weiter verfolgt werden kann. 
+    %Im Kontext der Arbeit wird unterschieden zwischen den Benutzern, die Produkte und Softwarelösungen von Herstellern ohne 
+    %sie zu verändern gebrauchen und den Anwendern, die Frameworks als Grundlage verwenden und ihren Bedürfnissen entsprechend erweitern. Der Übergang von 
+    %Benutzer zu Anwender kann fließend sein. 
+    
+    \subsection{Ziel der Zielgruppenanalyse}
+        Die Absicht einer Zielgruppenanalyse\footnote{Beschreibung und Definition der Zielgruppenanalyse. \url{https://www.eology.net/magazine/target-group-analysis} Besucht am 24.05.2022.} 
+        ist die Identifizierung der Personengruppen, die als potenzielle Nutzer eines Produktes 
+        oder eines Marktsegmentes gelten. Diese Methodik ist ein relevantes Werkzeug in der Produktkonzeption und -entwicklung 
+        als auch in der Marktforschung. Maßnahmen und Anforderungen können aus der Zielgruppenanalyse abgeleitet und 
+        erarbeitet werden. 
+        \\
+        Ein weiteres Ziel ist das bessere Kennenlernen der Zielgruppe, um dadurch deren Bedürfnisse und Interessen 
+        genauer zu identifizieren und zu betrachten. 
+    
+    \subsection{Zielgruppendefinition}
+    \label{subsec:zielgruppendefinition}
+        Zur Bestimmung einer Zielgruppe werden folgende Kriterien unter Verwendung des Prozesstemplates der \textit{Target Group Analysis} verwendet:  
+        \begin{itemize}
+            \item Beruf: \textit{Ist das System nur für bestimmte Berufsgruppen interessant?} - Im Kontext der Arbeit, in der sich auf das smarte Büro bezogen wird, stehen Personen mit Programmierkenntnissen im Vordergrund. 
+            \item Bildung: \textit{Über welchen Bildungsstand verfügt die Zielgruppe, die das System anspricht?} - Überwiegend Personen mit Ausbildung im IT-Umfeld sowie Akademiker im Bereich der Softwareentwicklung sind bedeutsam.
+            \item Interessen: \textit{Für Personen welcher Interessengebiete ist das System relevant?} -  Personen, die Innovationen vorantreiben, aktuelle und neueste Technologien und Frameworks im Bereich \acl{SH} nutzen, könnten sich für dieses Konzept begeistern.
+            \item Werte: \textit{Über welche Werte verfügen die Interessenten?} - Von Bedeutung könnten die folgenden Werte sein, wie Weiterentwicklung, Ordnung, Disziplin und Selbstbestimmung, da das Framework ein selbstständiges Erarbeiten von Lösungen für Anwendungsfälle bietet. 
+        \end{itemize} 
+        Mithilfe der Zielgruppendefinition kann die Bestimmung und Eingrenzung der Interessenten erfolgen. Diese wird in 
+        folgendem Abschnitt verwendet, um die Zielgruppe zu erläutern. Stützend dazu werden bereits erhobenen Daten durch offizielle 
+        Statistiken und Umfragen genutzt.     
+
+    \subsection{Zielgruppe} % Benutzer}
+        % Smart Home - Deutschland. Zugriff: 11. Mai 2022. https://de.statista.com/outlook/dmo/smart-home/deutschland
+        Die in der Marktanalyse (\ref{sec:marktanalyse}) identifizierten Segmente werden in der Abbildung 
+        (\ref{pic:segments}) nochmals aufgegriffen. Hierbei wird in der repräsentativen Statistik und Prognose der 
+        Statista GmbH die Nutzung des jeweiligen Segments veranschaulicht. Der Fokus dieser Prognose liegt 
+        auf der verstärkten Vertretung eines Segments in einem \acl{SH} in Deutschland. Die derzeit am meisten eingesetzten 
+        Segmente sind \textit{Vernetzung und Steuerung} (rot) und \textit{Komfort und Licht} 
+        (gelb). Das am wenigsten genutzte Segment stellt die \textit{Gebäudesicherheit} 
+        (schwarz) in der Prognose dar. Im Jahr 2021 lag die Nutzung von Geräten des Segments \textit{Vernetzung und Steuerung} 
+        bei 6,6 Millionen Nutzern, dicht gefolgt von dem Segment \textit{Komfort und Licht} mit 
+        6,5 Millionen Nutzern. Dagegen liegt das Segment \textit{Home Entertainment} im Jahr 2021 bei 3,8 Millionen Nutzern.
+        \\
+        \linebreak
+        Die bis 2026 veröffentlichte Prognose sagt voraus, dass die jeweiligen Segmente stark zunehmen %werden 
+        und sich jeweils vervierfachen.  
+        %\pagebreak
+        \begin{figure}[hbt!]
+            \centering
+            \includegraphics[width=15cm,height=10cm,keepaspectratio]{images/Statista-Outlook-Smart-Home---Anzahl-Smart-Homes-nach-Segment-Deutschland-Millionen-Nutzer.png}
+            \caption{Anzahl Smart Home nach Segment \cite{statista2021}} 
+            \label{pic:segments}
+        \end{figure}
+        \\
+        Das Schaubild zeigt die prognostizierte Anzahl an Personen, die bereits Komponenten der Segmente 
+        \textit{Vernetzung und Steuerung} und \textit{Komfort und Licht} nutzen. Daraus könnte man die Hypothese entwickeln, dass sich dieses Wachstum 
+        ebenso auf Unternehmen übertragen lässt. 
+        \\
+        \linebreak
+        Im Fokus der Arbeit steht der Softwareentwickler als Anwender, welcher das System betreibt und auf die 
+        individuellen Bedürfnisse anpasst. 
+        \\
+        Die Zielgruppe bzw. Anwender des Frameworks für ein smartes Büro sollten gewisse Anforderungen mitbringen.
+        Es ist eine grundlegende Kenntnis der Programmierung erforderlich. Im Rahmen dieser Arbeit handelt es sich 
+        um die Programmiersprache Java. Einer Umfrage der Developer Nation\footnote{Umfragen, Statistiken rundum Softwareentwickler. \url{https://www.developernation.net/developer-reports/dn21} Besucht am 27.05.2022} 
+        zufolge, benutzen von ca. 12 500 Befragten im Jahr 2021 35.8 Prozent die Programmiersprache Java. Somit kann 
+        ein Rückschluss erfolgen, dass Java eine der am häufigsten verwendete Programmiersprache ist.
+        \\
+        \linebreak
+        Laut des Berichts der Developer Nation\footnote{Berichte rundum Softwareentwickler. \url{https://www.developernation.net/developer-reports/dn21} Besucht am 27.05.2022}
+        des dritten Quartals 2021 gibt es zu diesem Zeitpunkt 26.8 Millionen Softwareentwickler weltweit. Davon sind dem 
+        Bericht von Daxx\footnote{Zusammenfassung mehrerer Berichte. \url{https://www.daxx.com/de/blog/entwicklungstrends/anzahl-an-softwareentwicklern-deutschland-weltweit-usa} Besucht am 27.05.2022}
+        zufolge 0.9 Millionen in Deutschland angesiedelt. 
+        \\
+        \linebreak
+        Eine vergleichbare Anwendergruppe ist die der Softwarelösung \acs{OPENHAB}. Diese ist weltweit bekannt und zählt zu den 
+        beliebtesten und am meist genutzten Open-Source-Lösungen. Anhand der eigenen Statistiken kann die Community\footnote{Website Statistik der openHAB Community. \url{https://community.openhab.org/about} Besucht am 27.05.2022} 
+        der \acs{OPENHAB} Foundation ca. 42 000 Anwender vorweisen. Dem GitHub Repository der \textit{openhab-core} 
+        Software sind 73 Mitwirkende zugeschrieben, die dazu beitragen die Software weiterzuentwickeln bzw. zu verbessern und zu 
+        stabilisieren.
+    \\
+    \linebreak 
+    Damit die adressierte Zielgruppe etwas greifbarer wird und die Anwendungsschritte der \textit{target group analysis} und 
+    dem \textit{user-centered design} eingehalten werden, sind Persona\footnote{Eine repräsentative Vorstellung einer Person. \url{https://www.romanpichler.com/the-persona-template/} Besucht am 28.05.2022} 
+    entwickelt worden. Diese geben die Anwenderzielgruppe wieder und vermittelt einen Eindruck von Personen, die sich mit dem 
+    Softwareprodukt bzw. mit dem Konzept auseinandersetzen. Ein konkretes Beispiel ist folgender Abbildung zu entnehmen, weitere Exemplare sind dem Anhang beigefügt (\ref{appendix:persona}).
+    \\
+    \pagebreak
+    \linebreak
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=16cm,height=12cm,keepaspectratio]{chapter/9Anhang/Persona-4_MA.png}
+        %\includepdf[scale=1.00, pages=1, pagecommand={}]{chapter/9Anhang/Persona-4_MA.pdf}
+        \caption{Persona zur Zielgruppenanalyse}
+        \label{fig:persona}
+    \end{figure}
+    \\
+    Der Zielgruppe werden folgende Eigenschaften, wie IT-affin, innovativ, zielstrebig, selbstständig, flexibel, neugierig, erfinderisch, fortschrittlich beispielhaft zugeschrieben. 
+    Diese garantieren das Einsetzen und ständige Vorantreiben zum eigenen Nutzen. 
+
+\section{Anwendungsfälle - Use Cases}
+\label{sec:usecases}
+    Für die Erhebung und Ausarbeitung von Anforderungen an das zu entwickelnde Framework der Steuerzentrale und dessen 
+    einfache Handhabung der formalisierten Interaktionen des Softwareentwicklers wurden Anwendungsfälle, sogenannte 
+    \textit{Use Cases} definiert. Diese helfen dabei, alle Ansprüche und Kriterien zu identifizieren und für das 
+    Konzept zu berücksichtigen. Im Rahmen des \acl{RE} wurden die Anwendungsfälle dokumentiert und für die Konzeption sowie 
+    für die Umsetzung des Prototyps, dem \textit{Proof of Concept (PoC)}, einbezogen. 
+    \\ 
+    Das \acs{RE} nach \cite{pohl2021basiswissen} gibt Schablonen, Vorgehensmodelle und Aufgaben 
+    vor, die dabei helfen, den Kontext des Projektes zu erläutern und aus den anliegenden Sachverhalten und Anwendungsfällen 
+    die Anforderungen abzuleiten. Nach der strukturierten \acs{RE} Methode \ac{TORE} \cite{tore2014} werden die 
+    Aufgaben, die Systemfunktionen und die Interaktionen deutlich. Zum besseren Verständnis des Kontextes und der daraus 
+    resultierenden Anforderungen werden die jeweils generierten Anwendungsfälle in den folgenden Abschnitten 
+    erläutert.
+
+\subsection{Check-in mit einem Service-Roboter}
+\label{subsec:checkin}
+    Der erste Anwendungsfall skizziert den Check-in mit einem Service-Roboter. 
+    Daraus können Anforderungen abgeleitet werden, die für das Konzept eine wichtige Rolle spielen. Mithilfe der 
+    Erläuterung des \textit{Use Cases} kann der Prozess aus mehreren Sichtweisen betrachtet werden, die zur Erhebung weiterer 
+    Anforderungen beitragen können. 
+    \\ 
+    Anhand dessen können die Schritte identifiziert werden, die notwendig sind, um die Interaktionen für den 
+    Softwareentwickler zu identifizieren und so zu verallgemeinern, dass die formalisierten Interaktionen einfach zu 
+    handhaben sind. Des weiteren soll durch die Komplexität der Anwendungsfälle auch ersichtlich werden, welche 
+    Konzeptentscheidungen notwendig sind, damit über die Steuerzentrale Anwendungsfälle mit einem Service-Roboter abgebildet werden 
+    können.
+    \\
+    \linebreak
+    Die Begrüßung und der Check-in eines Mitarbeiters oder angemeldeten Gastes an der Tür des Bürogebäudes erfordert mehrere Teilnehmer. 
+    Darunter zählt die jeweilige Person, die den Check-in erfährt, eine Kamera, mit der die davor stehende Person authentifiziert wird, 
+    ein Service-Roboter, der die Begrüßung und den Check-in durchführt, und die Steuerzentrale, die den gesamten Prozess koordiniert. 
+    \\
+    \linebreak
+    Für den Zeitpunkt des Check-ins muss die Person an 
+    der Tür bekannt sein. Hierfür findet eine Authentifizierung der Person über die Kamera an der Eingangstür statt. Der 
+    Authentifizierungsvorgang wird bereits als gegeben vorausgesetzt und ist kein direkter Bestandteil der Steuerzentrale. 
+    \\
+    Sobald eine Person über die Kamera verifiziert wurde, wird eine \acs{MQTT}-Nachricht über ein dafür definiertes Topic 
+    an den \acs{MQTT}-Broker veröffentlicht, 
+    auf das die Steuerzentrale lauscht und dessen Inhalt konsumiert. Das Konsumieren des \acs{MQTT}-Topics und die damit gesendete 
+    Nachricht wird als eingehendes Ereignis verwendet, worauf die Steuerzentrale reagiert. Basierend auf dem eingehenden Event wird der 
+    weitere Prozess gestartet. Nach dem Erhalt des Topics wird auf dessen Grundlage die Nachricht zugeordnet und die dafür 
+    vorgesehene Regel ausgeführt. Hierfür wird der Service-Roboter über die Steuerzentrale an die Tür geschickt, an der die Begrüßung 
+    stattfinden soll. Nach erfolgreichem Vorgang wird der Check-in durchgeführt, worauf die Person einen Platz buchen oder bei vorab getätigter 
+    Buchung diese bestätigen und sich als anwesend eintragen kann. Die grobe Skizzierung ist folgendem Diagramm zu entnehmen. 
+    \begin{figure}[hbt!]
+        \centering
+        \includegraphics[width=15cm,height=15cm,keepaspectratio]{images/UC1_Diagramm_Check-in.png}
+        \caption{Use Case 1 - Anwendungsfalldiagramm}
+        \label{fig:uc1-check-in}
+    \end{figure}
+    \\
+    \pagebreak
+    \linebreak
+    Sobald eine Person an der Tür authentifiziert und der Begrüßungsprozess gestartet wurde, werden über eine 
+    Schnittstelle zur internen Büroplatzbuchungssoftware die Platzbuchungen abgefragt. Währenddessen bewegt sich der 
+    Service-Roboter an die Tür, die sich daraufhin öffnet und die Person eintreten lässt. 
+    Zum aktuellen Zeitpunkt wird vorausgesetzt, dass die Person, die vor dem Service-Roboter steht, diejenige 
+    ist, die an der Tür authentifiziert wurde. In zukünftiger Arbeit könnte die Person auch über die Kamera des Roboters erneut 
+    authentifiziert werden, um eine Übereinstimmung zwischen der Person an der Tür und der Person vor dem Service-Roboter zu 
+    erzielen. Damit wäre der korrekte Adressat des Check-ins gewährleistet. Dies ist für diesen Anwendungsfall jedoch nicht erforderlich und 
+    wird deshalb an der Stelle nicht weiter verfolgt.
+    \\
+    \linebreak
+    Nachdem der Roboter die Person erkannt hat, startet die formale Begrüßung. Anschließend wird die Information der 
+    vorherigen Büroplatzbuchung verwendet, um das Einchecken der Person zu starten. Wurde bei der Abfrage der Platzbuchungen ein 
+    Eintrag der jeweiligen Person gefunden, so kann sich diese als anwesend einchecken und an den Arbeitsplatz gehen. Ist jedoch keine 
+    Buchung gefunden worden, so kann ein freier Platz über den Roboter reserviert bzw. gebucht werden. Die Buchung wird 
+    anschließend an die Steuerzentrale zurückgegeben und über diese in das Buchungsportal eingepflegt. Nachdem dieser 
+    Schritt abgearbeitet ist, endet der Anwendungsfall und der Service-Roboter wird an seine Ausgangsposition bzw. an dessen 
+    Ladestation geschickt. Somit ist das Szenario abgearbeitet und der Roboter steht für weitere Aufgaben zur Verfügung. 
+    \\
+    \linebreak
+    Eine konkrete Aufgabenbeschreibung sowie eine definierte User Story und ein ergänzendes Ablaufdiagramm ist dem Anhang (siehe Anhang \ref{appendix:user-story-uc1}) beigefügt. 
+    \\
+    Zur besseren Veranschaulichung des Anwendungsfalls sind die Prozesse visualisiert und grob skizziert. Den folgenden Diagrammen, darunter 
+    einem Aktivitätsdiagramm und einem Sequenzdiagramm, 
+    ist die visuelle Ergänzung zu entnehmen. 

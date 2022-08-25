@@ -1,2 +1,57 @@
 \chapter{Ausblick}
 \label{chap:ausblick}
+    Das Framework liefert aus Sicht der Usability ausgezeichnete Ergebnisse und gibt dem Anwender die zu implementierenden Elemente klar vor. 
+    Vorausgesetzt werden hierbei jedoch Grundkenntnisse der Programmierung sowie die Kenntnis über die zu implementierenden Elemente des Systems. 
+    Zukünftige Weiterentwicklungen des im Rahmen dieser Arbeit vorgestellten Frameworks sollten demnach zum Ziel haben, das entworfene Konzept 
+    sowie den aktuellen Prototypen entsprechend zu erweitern. 
+    \\
+    \linebreak
+    Für die Optimierung des Systems bietet primär der Algorithmus der Regelprüfung und -ausführung Potenzial. Dieser ließe sich beispielsweise 
+    um einen \textit{Queuing}-Mechanismus ergänzen, damit alle eintreffenden Zustandsänderungen berücksichtigt und nacheinander abgearbeitet werden. 
+    Kann eine Aktion auf Grundlage der Änderung nicht durchgeführt werden, würde sie zurückgehalten und die Bedingung immer wieder überprüft 
+    werden, bis diese zutrifft und die Zustandsänderung eine entsprechende Aktion ausführt, sofern dies beabsichtigt ist. 
+    \\
+    \linebreak
+    Des weiteren kann das derzeit statische \textit{JSON}-Konstrukt der inversen Transformation so optimiert werden, dass beliebige Konstrukte 
+    als \acs{MQTT}-Nutzlast veröffentlicht werden können. Dadurch wäre eine Versendung mehrerer Informationen möglich. 
+    \\
+    Denkbar wäre eine Optimierung des Kopieralgorithmus, sodass verwendete Komponenten im Zustandsraum nach dem Kopiervorgang keine neue 
+    Objektreferenz zur Programmlaufzeit erhalten. In Kombination dieser Schritte wäre nachfolgend eine Verwendung von Komponenten im Zustandsraum denkbar, wobei 
+    dies nach wie vor keine konkreten Vorteile aufweist. Dadurch würde lediglich die Gestaltung des Zustandsraumes auf die Komponenten verlagert werden. 
+    %\\
+    Die Java Reflection müsste dahingehend geringfügig angepasst werden, sodass Überprüfungen im Stile des absteigenden Baumgraphs entlang der Pfade stattfindet.
+    \\
+    \linebreak
+    Neben den inhaltlichen Optimierungen gibt es ebenso Erweiterungsmöglichkeiten, um die formalisierten Interaktionen der Softwareentwickler zusätzlich zu vereinfachen und 
+    weitere Funktionalitäten dem Framework zu übergeben. 
+    %\\
+    Damit der Softwareentwickler zu den Annotationen und der vorgegebenen Regelstruktur dessen Richtigkeit überprüfen kann, wäre ein Debug-Mechanismus für die implementierten Regeln sinnvoll. 
+    Mithilfe diesem könnte zusätzlich die Syntax und zu verwendende Struktur der Regel sichergestellt werden. Infolgedessen wäre ein Ansatz für ein Testframework zu konzipieren, das 
+    ergänzend zu JUnit-Tests die Funktionalitäten des Systems überprüft. 
+    \\
+    \linebreak
+    Eine weitere Maßnahme, mit der die formalisierten Interaktionen der Softwareentwickler künftig noch einfacher zu handhaben sind, wäre die Entwicklung eines \ac{CLI}s. Dadurch könnten mithilfe 
+    dynamischer Quellcode-Generierungen die einzelnen Komponenten, darunter Attribute im Zustandsraum, leere und befüllte Transformationsobjekte und Regelklassen, erstellt werden. Als Grundlage dafür 
+    würde beispielsweise das \acs{CLI} von \textit{Apache Maven}\footnote{Kommandozeilenwerkzeug aus der Kategorie der Build-Werkzeuge. \url{https://maven.apache.org/index.html} Besucht am 12.08.2022} 
+    dienen. Über einen einfachen Befehl könnten alle Elemente, die für eine Regel notwendig sind, erstellt werden. Es entfiele z.B. die 
+    eigenständige Erstellung der Regel. Wobei derzeit zu beachten ist, dass die richtige abstrakte Klasse verwendet wird und alle zu implementierenden Funktionen präsent sind. 
+    \\
+    Alternativ wäre die Entwicklung eines \ac{IDE} Plug-ins möglich, anhand dessen das Regelkonstrukt erzeugt werden kann. 
+    \\
+    \linebreak
+    Zum stetigen Ausbau des Frameworks wäre eine Erweiterung zur Nutzung zusätzlicher Kommunikationsprotokolle durchaus denkbar. Die notwendigen Vorkehrungen sind durch die Architektur gegeben. 
+    Ähnlich zu Home Assistant wäre die Bereitstellung einer \acs{MQTT}-Broker-Instanz möglich, sodass das Framework autark und unabhängiger verwendet werden kann bzw. das Management der grundlegenden Funktionen 
+    gebündelt wird. 
+    \\
+    \linebreak
+    Zur Steigerung der Integrität und Konsistenz des Zustandsraumes kann mittels der Persistenzschicht beispielsweise eine Transaktionshistorie erstellt werden, die jede Zustandsänderung als Datenmodell bzw. Objekt in eine 
+    Datenbank speichert. So kann nach einem Ausfall der konkrete Zustandsraum wieder eingespielt und die eigentlichen Zustände verwendet werden. Aktuell müssten alle Geräte ihren derzeitigen Zustand erneut übermitteln, wodurch 
+    die Steuerzentrale diese nochmals registrieren könnte. Durch das Einspielen einer Transaktion würden alle Zustände im Zustandsraum wieder vorhanden sein. Die Ausprägung dieser Schicht ist für weitere Entwicklungen offengehalten. 
+    \\
+    \linebreak
+    Für die Fähigkeit der Überwachung von aktuell ablaufenden Regeln könnte ein sogenanntes \textit{Monitoring} entwickelt und beliebig ausgeprägt werden, sodass auch Prognosen erhoben und Interaktionspunkte geschaffen 
+    werden könnten. Über einen separaten Monitor könnte beispielsweise im Büro angezeigt werden, welche Regel durchlaufen wird bzw. wie die Zustände im Zustandsraum aussehen. 
+    \\
+    \linebreak
+    Der Ansatz bietet allgemein eine Möglichkeit, in einer Umgebung neue Automationen und Prozesse schnellstmöglich umzusetzen. Durch das stetige Wachstum und die Akzeptanz des Bereiches \acl{SH} und dessen Spezifikation des 
+    \textit{Smart Office} wäre das Vorantreiben dieser Idee durch ein Open-Source-Ansatz möglich. Die geschaffene Grundlage ermöglicht die Umsetzung aller Optimierungs- sowie Erweiterungsmöglichkeiten. 

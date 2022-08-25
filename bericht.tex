@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für die Master-Thesis an der KFRU 
+%% Descr:       Vorlage für die Masterthesis an der KFRU 
 %% Author:      Mikka Jenne, mikka.jenne@cgi.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -32,7 +32,10 @@
 % This package is responsible for the "draft" watermark on the background of the pdf
 \usepackage{background}
 % This removes the watermark 
-%\backgroundsetup{contents={}}
+\backgroundsetup{contents={}}
+%Is used to get Pages at landscape format
+\usepackage{pdflscape}
+%\usepackage{lscape}% works
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Angaben zur Arbeit
@@ -50,7 +53,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\Was}{Master-Thesis }
+\newcommand{\Was}{Masterthesis}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -78,7 +81,7 @@
   \begin{center}
     \vspace*{-3cm}
     
-    \cgiFirmenLogo
+    %\cgiFirmenLogo
     \FirmenLogoDeckblatt\hfill\includegraphics[]{kfru}\\[2cm]
     
     {\Huge \Titel}\\[1.5cm]
@@ -94,15 +97,15 @@
     
     \vfill
   \end{center}
-  \begin{tabular}{l@{\hspace{4cm}}l}
+  \begin{tabular}{l@{\hspace{5cm}}l}
 
     Bearbeitungszeitraum	         & \Dauer 			    \\
     Teilnehmernummer	             & \MatrikelNummer	\\
     Kurs			                     & \Kursbezeichnung	\\
     %Standort der Universität	     & \FirmenName			\\
     %Standort der Firma			       & \FirmenStadt			\\
-    ErstprüferIn	                 & \BetreuerDHBW		\\
-    ZweitprüferIn	                 & \BetreuerFirma		\\
+    Erstprüferin	                 & \BetreuerDHBW		\\
+    Zweitprüfer 	                 & \BetreuerFirma		\\
   \end{tabular}
 
   % Fußzeile enthält die Anschrift und das Logo der Reutlingen University
@@ -125,43 +128,47 @@
 \newpage
 \selectlanguage{german}
 \begin{abstract}
-  Augmented Reality ist eine Technologie, die dem Nutzer ein visuelles 
-  Erlebnis mit einer angereicherten Welt voller virtueller Objekte ermöglicht. Das Resultat, eine 
-  Kombination aus Realität und Virtualität, bietet dem Benutzer eine neue Art der Wahrnehmung der Gegenwart. %Realitätswahrnehmung.  
-  \\ 
+  Smart Home sowie Smart Office, die detaillierte Ausprägung des Smart Home, sind Unterrubriken des Internet of Things (IoT). 
+  Diese fokussieren die Vernetzung aller Arten von technischen Geräten und die 
+  Realisierung verschiedenster Automatisierungsverfahren und Prozessabbildungen. Durch die Vielzahl an Möglichkeiten zur  
+  Erfassung von Automationen, Regeln und Geräten kann der Input der Anwender bzw. Entwickler rasant ansteigen. 
+  Es ist dem Anwender meist kaum gestattet mit den vorhandenen Softwarelösungen eine inhaltlich individuelle Anpassung 
+  der Regeldefinitionen vorzunehmen. 
+  \\
   \linebreak
-  Diese Bachelorarbeit befasst sich mit der Konzeption und Umsetzung eines industriellen Assistenzsystems unter Verwendung der Augmented Reality Technologie. Dabei soll die Umgebung 
-  mit Hilfe des SLAM Verfahrens analysiert werden, um auf dieser Basis dreidimensionale Objekte als Referenz zu realen Objekten im Raum virtuell platzieren zu können. 
-  Durch die entstehende Visualisierung können Informationen zu den jeweiligen Objekten in eine Datenbank eingetragen und angezeigt werden, dadurch kann das Überwachen von 
-  Industriemaschinen vereinfacht werden. 
-  \\ 
-  \linebreak
-  Zu dem Konzept gehört sowohl die Ausarbeitung der grundlegenden Softwarearchitektur, als auch ein allgemein-gültiges Datenmodell zur 
-  Persistierung der generierten Daten. Für die bestmögliche Umsetzung der Augmented Reality Experience werden hierzu bereits schon bestehende Frameworks und Software 
-  Development Kits, beispielsweise Google ARCore, verwendet. 
-  \\ 
-  Der entstandene Prototyp ist ein eigenständiges System. Die Architektur ist modular aufgebaut, um eine stetige Weiterentwicklung zu gewährleisten.  
+  Diese Masterthesis befasst sich mit der Konzeption und prototypischen Umsetzung eines Frameworks einer Steuerzentrale im Rahmen eines 
+  intelligenten Büros mit dem Fokus auf eine einfache Handhabung der formalisierten Interaktionen für Softwareentwickler. Das System bietet eine 
+  klare Struktur zur Definition von Regeln, sodass individuelle Anwendungsfälle in wenigen Schritten umgesetzt werden können. Die Komplexität dieser ist jedoch 
+  abhängig von dem zu realisierenden Prozess und kann durch die formalisierten Interaktionen selbst nicht reduziert werden. 
+  \\
+  Um die Forschungsfrage im Rahmen dieser Thesis zu beantworten sowie das Ziel dieser Arbeit zu erreichen, werden mehrere Forschungsmethoden 
+  angewendet. Es wird ein systematisches Literaturreview durchgeführt, das den aktuellen Stand der Technik in Bezug auf die Forschungsfrage dieser Arbeit eruiert. 
+  Anschließend wird eine Zielgruppenanalyse erstellt sowie Anwendungsfälle entwickelt und Experteninterviews geleitet, wodurch Anforderungen an das System extrahiert und identifiziert werden. 
+  Mithilfe der erhobenen Informationen und gewonnenen Ergebnissen wird das Framework konzipiert und prototypisch implementiert. Damit der entstandene Prototyp 
+  auf die Usability testbar ist und die Anforderungen als auch die Forschungsfrage evaluiert werden können, werden nach der Implementierung 
+  Usability-Tests und abschließende Experteninterviews veranlasst. Diese helfen bei der Evaluation. 
 \end{abstract}
 
 \newpage
 \selectlanguage{english}
 \begin{abstract}
-  Augmented Reality is a technology that enables the user to have a visual 
-  experience with an enriched world full of virtual objects. The result offers the user a new 
-  way of perceiving surrounding as an Combination of reality and virtuality.
+  Smart home and smart office, the detailed form of the smart home, are sub-categories of the Internet of Things (IoT). These focus on the 
+  networking of all types of technical devices and the implementation of a wide variety of automation processes and process mapping. 
+  Due to the large number of options for recording automations, rules and devices, the input from users and developers can increase 
+  rapidly. In most cases, the user is not allowed to adapt the content of the rule definitions individually with the existing software solutions.
   \\
   \linebreak
-  This bachelor thesis deals with the conception and implementation of an industrial assistance system using augmented reality technology. The environment %should
-  can be analyzed with the help of the SLAM method in order to be able to place three-dimensional objects virtually as a reference to real objects in space.
-  The resulting visualization enables information on the respective objects to be entered in a database and displayed, which enables the simplified 
-  monitoring of Industrial machines.
+  This master's thesis deals with the conception and prototypical implementation of a system for a control center within the framework of a 
+  intelligent office with the focus on easy handling of formalized interactions for software developers. The system offers a clear structure 
+  for defining rules so that individual use cases can be implemented in just a few steps. However, the complexity of these depends on the process 
+  to be implemented and cannot be reduced by the formalized interactions themselves.
   \\
-  \linebreak
-  The concept includes the development of the basic software architecture as well as a generally applicable data model for
-  saving the generated data. Already existing frameworks and software development kits where used for the best possible implementation of the 
-  augmented reality experience as Google ARCore.
-  \\
-  The created prototype is an standalone system. The architecture is modular in order to ensure continuous further development.
+  In order to answer the research question in this thesis and to achieve the goal of this work, several research methods are used. A systematic 
+  literature review is carried out, which determines the current state of the art in relation to the research question of this work. A target group 
+  analysis is created, use cases are developed and expert interviews are conducted, whereby requirements for the system are extracted and 
+  identified. With the help of the information collected and the results obtained, the framework is designed and implemented as a prototype. So that 
+  the resulting prototype can be tested for usability and the requirements as well as the research question can be evaluated, usability tests and 
+  concluding expert interviews are caused after implementation. These help with the evaluation. 
 \end{abstract}
 
 \newpage
@@ -180,40 +187,97 @@
 %\include{chapter/1Einleitung/zielerreichung}
 %\include{chapter/1Einleitung/aufbau}
 \include{chapter/2Theor-Grundlagen/iot}
-\include{chapter/2Theor-Grundlagen/smartHome}
+%\include{chapter/2Theor-Grundlagen/smartHome}
 \include{chapter/2Theor-Grundlagen/techsAndprots}
 %\include{chapter/2Theor-Grundlagen/roboter}
 \include{chapter/2Theor-Grundlagen/homeAssistant}
 \include{chapter/2Theor-Grundlagen/openHAB}
-\include{chapter/2Theor-Grundlagen/requirementsengineering}
+%\include{chapter/2Theor-Grundlagen/requirementsengineering}
 \include{chapter/1Einleitung/technikstand}
 \include{chapter/3Anforderungsanalyse/anforderungen}
-\include{chapter/4Konzeption/konzeptanforderungen}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Aktionsdiagramm_Check-in.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC1_Sequenzdiagramm_Check-in.pdf}
+\end{landscape}
+\include{chapter/3Anforderungsanalyse/anforderungenUC}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Aktionsdiagramm_Notfall.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/UC2_Sequenzdiagramm_Notfall.pdf}
+\end{landscape}
+\include{chapter/3Anforderungsanalyse/expertenInterviewUndAnforderungen}
+\include{chapter/3Anforderungsanalyse/nichtfunktionaleAnf}
+\include{chapter/3Anforderungsanalyse/mehrAnforderungen}
+\include{chapter/4Konzeption/konzept}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper=true, ]{images/konzept_MA.pdf}
+\end{landscape}
+\include{chapter/4Konzeption/architekturkonzept}
 \include{chapter/5Umsetzung/umsetzung}
-\include{chapter/6Ergebnisse/ergebnis}
+%\include{chapter/5Umsetzung/useCaseImpl}
 \include{chapter/7Diskussion-Evaluation/evaluation}
 \include{chapter/8Fazit/fazit}
 \include{chapter/8Fazit/xausblick}
 
-% \include{1Einleitung/kapitel1}
-% \include{2Grundlagen/kapitel2}
-% \include{2Grundlagen/kapitel2A}
-% \include{2Grundlagen/kapitel2Aa}
-% \include{2GrundlagenX/kapitel2X}
-% \include{3Konzeption/kapitel3}
-% \include{4Umsetzung/kapitel4}
-% \include{4Umsetzung/kapitel4A}
-% \include{4Umsetzung/kapitel4X}
-% \include{5Fazit/fazit}
-
-
 \pagenumbering{Roman}
 % Ab hier beginnt der Anhang
 \appendix
-\addcontentsline{toc}{chapter}{Anhang}
 
-\addcontentsline{toc}{chapter}{Index}
-\printindex
+%\addcontentsline{toc}{chapter}{Index}
+%\printindex
 
 %\newpage
 %\addcontentsline{toc}{chapter}{Liste der ToDo's}
@@ -241,11 +305,416 @@
 % \bibliography{bericht}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-% BIBLATEX
+% BIBLATEX 
 % Benutzt man das "biblatex"-Paket, muß man folgendes schreiben:
 \def\refname{Literaturverzeichnis}
 \printbibliography
 
+\addcontentsline{toc}{chapter}{Anhang}
+
+\chapter{}
+\label{appendix:mqtt-amqp}
+  \begin{table}[hbt!]
+    \begin{center}
+      \begin{tabular}{| p{3.25cm} | p{6cm} | p{6cm} | }
+        \hline
+          \textbf{Kriterium} & \textbf{MQTT} & \textbf{AMQP}\\
+        \hline
+          Jahr & 1999 & 2003 \\ 
+        \hline
+          Architektur & Client/Broker, & Client/Broker Client/Server \\ 
+        \hline
+          Abstraktion & Publish/Subscribe & Publish/Subscribe Request/response \\ 
+        \hline
+          Header Größe & 2 Byte,  & 8 Byte \\ 
+        \hline
+          Nachrichtengröße & max. 265 MB & Abhängig von Broker/Server \\ 
+        \hline 
+          Semantik / Methoden & Connect, Disconnect, Publish, Subscribne, Unsubscribe, Close & Consume, Deliver, Publish, Get, Select, Ack, Delete, Nack, Recover, Reject, Open, Close \\
+        \hline
+          Zwischenspeicher (Cache) und Proxy & Teilweise & Ja \\
+        \hline
+          Standards & OASIS, Eclipse Foundation  & OASIS, ISO/IEC \\ 
+        \hline
+          Transport-Protokoll & TCP & TCP, SCTP \\
+        \hline
+          Sicherheit & TLS/SSL & TLS/SSL \\ 
+        \hline
+          Standard-Port & 1883/8883 (TLS/SSL) & 5671 (TLS/SSL), 5672 \\
+        \hline
+          Format & binär  & Binär \\ 
+        \hline
+          Lizenzmodell & Open Source & Open Source \\
+        \hline
+          Support & IBM, Facebook, Eurotech, Cisco, Red Hat Amazon (AWS) etc. & Microsoft, JP Morgan, Bank of America, Barclays, Goldman Sachs Credit Suisse \\ 
+        \hline
+      \end{tabular}
+    \end{center}
+    \caption{Vergleich von MQTT und AMQP \cite{Naik2017}}
+    \label{tab:mqtt-vs-amqp}
+  \end{table}
+
+\chapter{}
+\label{appendix:comparison}
+\begin{table}[hbt!]
+  \begin{center}
+      \begin{tabular}{| p{3.0cm} | p{6.2cm} | p{6.2cm} | }
+          \hline
+            \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
+          \hline
+            Architektur & Robustheit und Starrheit sowie die gewissenhafte Entwicklung & Erfordert häufigere Updates, bietet jedoch eine schnelle Entwicklung und eine viel modernere und anspruchsvollere Architektur \cite{sh-uni-comparison}. \\ 
+          \hline
+            Installation und Wartung & Installation ist genauestens dokumentiert. Initiale Konfiguration muss über die Kommandozeile durchgeführt werden, Updates ebenso. & Ein-Klick-Installationsprozess. Initiale Konfiguration benötigt das Verständnis von YAML-Dateien. Updates können über die UI verwaltet werden \cite{sh-uni-comparison}. \\ 
+          \hline
+            Unterstützte Geräte und Verknüpfungen & Durch die gängigen Smart Home Protokolle werden über 1000 Komponenten unterstützt. & Home Assistant unterstützt ebenso über 1000 Komponenten, wobei die Benutzerfreundlichkeit beim Anlegen und Verwalten bei Home Assistant deutlich angenehmer und leichter erscheint \cite{msuttner-comparison}. \\ 
+          \hline
+            Automatisierungs-regeln & Bereitstellung von Automationen durch Xtend. Xtend ist ein flexibler und ausdrucksstarker Java-Dialekt, der sich in Quellcode basierend auf Java 8 kompilieren lässt. Ebenso können über Blockly Automatisierungsregeln erstellt werden. Blocky ist eine clientseitige JavaScript Bibliothek, die visuelle Blöcke mit Anweisungen, Bedingungen uvm. erstellen und editieren lässt. Eine weitere Alternative ist die Verwendung von Node-RED.  & Home Assistant bietet die Möglichkeit, Automatisierungen per YAML zu erstellen. Alternativ über ein Node-RED Add-On. YAML-Dateien sind flexibler, jedoch nicht unbedingt benutzerfreundlich. \\ 
+          \hline
+      \end{tabular}
+  \end{center}
+  \caption{Vergleich der Plattformen \cite{sh-uni-comparison} \cite{msuttner-comparison} \cite{barclay-comparison}}
+  \label{tab:comparisonTableHAOS-openHAB-part1}
+\end{table}
+
+\begin{table}[hbt!]
+  \begin{center}
+      \begin{tabular}{| p{3.0cm} | p{6.2cm} | p{6.2cm} | }
+          \hline
+            \textbf{Attribut} & \textbf{openHAB} & \textbf{Home Assistant} \\
+          \hline
+            User Interface & openHAB hat in den User Interface viele Duplikate und zu viele ähnliche Optionen zur Verfügung bei unterschiedlicher Oberfläche. & Die Benutzeroberfläche der Home Assistant Plattform ist für Einsteiger und Anfänger deutlich benutzerfreundlicher und weniger komplex als openHAB. \\
+          \hline
+            Mobile Anwendungen & openHAB bietet eine dedizierte App für iOS und Android. Diese ist mit innovativen Optionen ausgestattet.  & Home Assistant bietet ebenso eine App für iOS und Android, jedoch bei weitem nicht so stark entwickelt als die von openHAB. Die Benachrichtigungsdienste sind jedoch mit Home Assistant besser genutzt. \\ 
+          \hline
+            Community und Dokumentation & openHAB bietet eine sehr starke und repräsentative Community. Die Dokumentation ist ausführlich und beschreibt die Prozesse, Konzept und Architektur ausführlich. & Home Assistant unterscheidet sich in diesen Punkten nicht von openHAB. Eine starke Community und eine solide Dokumentation der Plattform.  \\
+          \hline
+            Vergleich von Xtend \& YAML & Xtend ist eine sehr mächtige Skriptsprache mit vielen verfügbaren komplexen Strukturen und Funktionen. Dennoch gibt es keine klare Dokumentation, keine Unterstützung von Funktionen, eine seltsame Syntax und kein echtes Tooling. & YAML ist ein lesbarer Datenserialisierungsstandard für Programmiersprachen. Es ist sehr mühsam in größerer Struktur zu verwenden und bieten ebenso keine Funktionen.  \\ 
+          \hline 
+      \end{tabular}
+  \end{center}
+  \caption{Vergleich der Plattformen \cite{sh-uni-comparison} \cite{msuttner-comparison} \cite{barclay-comparison}}
+  \label{tab:comparisonTableHAOS-openHAB-part2}
+\end{table}
+
+\chapter{}
+\label{appendix:brandings}
+\begin{figure}[hbt!]
+  \centering
+  \includegraphics[width=13.5cm,height=13.5cm,keepaspectratio]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.png}
+  %\includepdf[scale=0.65, pages=-, fitpaper=false]{chapter/9Anhang/beliebteste-smart-home-marken-in-deutschland-2022.pdf} %\includegraphics[width=13cm,height=13cm,keepaspectratio]{images/smart_home_connection.png}
+  \caption{Umfrage der Statista GCS. Abgerufen am 22.05.2022}
+  %\label{appendix:brandings}
+\end{figure}
+
+\chapter{}
+\label{appendix:persona}
+Die Personas sind auf die folgenden drei Seiten (XVII - XIX) verteilt. 
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+\includepdf[scale=0.75, pages=-, angle=90, fitpaper]{chapter/9Anhang/Persona-1_MA.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+\includepdf[scale=0.75, pages=-, angle=90, fitpaper]{chapter/9Anhang/Persona-2_MA.pdf}
+\end{landscape}
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+\includepdf[scale=0.75, angle=90, pages=-, fitpaper]{chapter/9Anhang/Persona-3_MA.pdf}
+\end{landscape}
+
+\chapter{}
+\label{appendix:user-story-uc1}
+%\include{chapter/9Anhang/UC1_UserStory}
+\section*{Use Case 1 - Check-in mit einem Service-Roboter}
+\subsection*{Aufgabenbeschreibung UC 1}
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{| p{3cm} | p{12.75cm} | }
+            \hline
+                \textbf{Task:} & \textbf{Begrüßung / Check-In von Member und Gästen} \\
+            \hline
+                \textbf{Ziel:} & Einen Member (Mitarbeiter) oder einen Gast in der Lokation mit einem Service-Roboter zu begrüßen, wenn dieser eintreten möchte. Nach der Begrüßung findet der Check-In statt, bei dem der Member seinem Platz zugewiesen und der Gast zu seinem Ansprechpartner geleitet wird. \\
+            \hline
+                \textbf{Eingriffs-möglichkeiten:} & Auswahl der Situation, Interaktion mit dem Service-Roboter (Informieren, Begleiten). \\
+            \hline
+                \textbf{Ursachen:} & Terminbuchung, Anmeldung, Klingeln an der Tür, Authentifizierung / Authentisierung an der Tür mittels Biometrische Eingangskontrolle. \\
+            \hline
+                \textbf{Priorität:} & Hoch \\
+            \hline
+                \textbf{Durchführungs-profil:} & Nach Anmeldung oder Eintritt eines Gastes oder Members, Unterbrechungen möglich (Verbindungsfehler, Fehlerhafte Abfrage der Verfügbarkeiten von Platzreservierungen), mittlere Komplexität. \\ 
+            \hline
+                \textbf{Vorbedingung:} & Platzbuchung / Reservierung und Einbuchung für ein Meeting fand im Vorfeld statt, Einverständniserklärung von den Personen liegt vor, Authentisierung über die Eingangskontrolle hat funktioniert / stattgefunden. \\
+            \hline 
+                \textbf{Info-In:} & Die Person, die eintreten will, ist durch die Buchung oder Authentisierung bekannt, Buchung ist registriert und kann abgerufen werden. \\
+            \hline
+                \textbf{Info-Out:} & Begrüßung Standardprotokoll mit Interaktionsmöglichkeiten und Kenntnis des Namens der Person, Check-In Informationen für die einzucheckende Person. \\
+            \hline
+                \textbf{Ressourcen:} & Service-Roboter, Eintrittskontrolle per Biometrischer Authentisierung, Buchung der Person abrufbar über die API. \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Aufgabenbeschreibung UC 1 - Begrüßung / Check-in}
+    \label{tab:checkIn}
+\end{table}
+
+%\subsection*{UC 1 - Beschreibung}
+%    Steuerzentrale:
+%    \begin{itemize}
+%        \item Input: MQTT Nachricht von UC 1 (Verifizierung ok?, Name des Gastes / Members und Prozessanstoß (Check In))
+%        \item Input: Terminregistrierung durch DoorJames (Übertragung der Termindaten) 
+%        \item Output: Zu durchlaufender Prozess (CheckIn) und Name des Gastes / Members
+%        \subItem (CheckIn) Genauer Begrüssungsprozess? Aktiv / Passiv 
+%        \subsubItem Zuständigkeit Service-Roboter / Member / Gast / Steuerzentrale (Zentral / dezentral)
+%        \subsubItem Begrüßungsprozess durch Service-Roboter selbst (Möglichkeiten sind im Service-Roboter implementiert) Steuerzentrale dient nur als Event-Auslöser 
+%    \end{itemize}
+	
+%    Service-Roboter: 
+%    \begin{itemize}
+%        \item Input: MQTT (Prozess-Trigger durch Steuerzentrale und Name des Gastes / Members)
+%        \item Input: Mitarbeiter lädt Kunde ein / Prepare / Nachweis der Platzbuchungssoftware
+%        \item Output: (An Steuerzentrale) – Prozess erfolgreich abgeschlossen
+%        \subItem Event-Möglichkeiten werden von Service-Roboter direkt verarbeitet. (Interaktion mit Gast, Ausrichten mit Hilfe Objekterkennung zur Person) 
+%        \subItem Event-Möglichkeiten: 
+%        \subsubItem Kunde: 
+%        \subsubsubItem Begrüßen von Kunde und einchecken mit QR / Wenn eingeladen, Service-Roboter wartet schon vorher 5-15min vor der Tür
+%        \subsubsubItem Zum Einladenden führen oder einen Call starten
+%        \subsubItem Mitarbeiter: 
+%        \subsubsubItem Anbieten eines Kaffees (zum Arbeitsplatz?) / oder zur Kaffee Maschine führen
+%    \end{itemize}
+
+\subsection*{UC 1 - User Story}
+\textbf{Gast:}
+\\
+Als Gast möchte ich für den Zugang in das Gebäude ein Bild für den Anmeldeprozess hinterlegen können. Vor Ort möchte ich über die Kamera 
+am Eingang mein Gesicht authentisieren, bei nicht Hinterlegung eines Bildes bei der Anmeldung, möchte ich klingeln. Nach der 
+Authentisierung bzw. nach Betätigung der Klingel soll sich die Tür öffnen. Beim Hineintreten in das Gebäude nehme ich einen Service-Roboter 
+(Service-Roboter) wahr. Dieser begrüßt mich und startet eine Konversation mit mir. Er bietet mir an die Registrierung bzw. das Antreffen im Gebäude 
+per QR Code über den Service-Roboter-Bildschirm durchzuführen. Somit werde ich als anwesend markiert und der Mitarbeiter, mit dem ich einen Termin 
+habe, wird informiert. Nach erfolgreicher Registrierung führt mich der Service-Roboter zum Mitarbeiter, mit dem ich einen Termin vereinbart habe.
+\\
+\linebreak
+\textbf{Member:}
+\\
+Als Member möchte ich die Buchung eines Arbeitsplatzes wahrnehmen können. Um in das Gebäude eintreten zu können, ist eine Authentifizierung durch 
+die Gesichtserkennung oder das Abscannen der Chipkarte notwendig. Nach erfolgreicher Autorisierung werde ich von Service-Roboter bei Eintritt des Gebäudes 
+begrüßt. Service-Roboter gibt mir den Arbeitsplatz bekannt und fragt, ob ich zum Platz begleitet werden soll. 
+(oder Service-Roboter mir einen Kaffee an den Arbeitsplatz bringt.) -> (Erweiterung des Use Cases in Planung)
+%Kunden zum Ausgangführen/Checkout anderer use case
+
+\subsubsection*{Akzeptanzkriterien}
+\begin{itemize}
+    \item AK-01: Eine MQTT-Message mit dem Namen der Authentisierten Person wird empfangen.
+    \item AK-02: Die MQTT-Message wird gelesen und mittels den Informationen können Abfragen an die DoorJames API erfolgen.
+    \item AK-03: Informationen der DoorJames API werden empfangen und können weiterverarbeitet werden. 
+    \item AK-04: Die benötigten Informationen können an den Service-Roboter (Temi) weitergeleitet werden.
+    \item Ak-05: Eine MQTT-Message wird empfangen, sobald der Service-Roboter alle Tasks (ToDo's)  des Prozesses abgearbeitet hat. 
+\end{itemize}
+
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper]{images/UC1_Ablaufdiagramm_Sichtweisen.pdf}
+\end{landscape}
+\pagebreak
+\label{appendix:user-story-uc2}
+%\include{chapter/9Anhang/UC2_UserStory}
+\section*{Use Case 2 - Notfall-Evakuierung}
+\subsection*{Aufgabenbeschreibung UC 2}
+\begin{table}[hbt!]
+    \begin{center}
+        \begin{tabular}{| p{3cm} | p{12.75cm} | }
+            \hline
+                \textbf{Task:} & \textbf{Begrüßung / Check-In von Member und Gästen} \\
+            \hline
+                \textbf{Ziel:} & Einen Notfall zu erkennen und darauf hin alle Member und Gäste, die sich im Büro befinden, informieren und bitten das Gebäude zu verlassen. \\
+            \hline
+                \textbf{Eingriffs-möglichkeiten:} & Keine, (Evtl. direkte Interaktion mit dem Service-Roboter). \\
+            \hline
+                \textbf{Ursachen:} & Aktivierung des Sensors durch äußerliche Einwirkung. \\
+            \hline
+                \textbf{Priorität:} & Hoch \\
+            \hline
+                \textbf{Durchführungs-profil:} & nach Meldung eines Notfalls durch Sensoren und Melder \\ 
+            \hline
+                \textbf{Vorbedingung:} & Ein Melder kann Nachrichten veröffentlichen, Topics für die Melder und Empfänger sind definiert. \\
+            \hline 
+                \textbf{Info-In:} & Meldung eines Sensors (Melder) über einen Notfall (Rauch, Feuer, Wasser, Gas). \\
+            \hline
+                \textbf{Info-Out:} & Kenntnis der gebuchten Plätze, Interaktionsmöglichkeiten mit dem Service-Roboter, Benachrichtigung bei Beendung des Prozesses. \\
+            \hline
+                \textbf{Ressourcen:} & Service-Roboter, Sensor (Rauch-, Feuer- oder Gas-Melder), Information über aktuelle Buchungen, Zuordnung von Positionen von Büroplätzen. \\
+            \hline
+        \end{tabular}
+    \end{center}
+    \caption{Aufgabenbeschreibung UC 2 - Notfall-Evakuierung}
+    \label{tab:evacuation}
+\end{table}
+
+%\subsection*{UC 2 - Beschreibung}
+%%    Steuerzentrale:
+%    \begin{itemize}
+%        \item Input: MQTT Nachricht angestoßen von einem Member (Aktion; Uhrzeit)
+%        \item Input: DoorJames API - Gebuchte Büroplätze und Personen die einen Termin vor Ort registriert haben
+%        \item -	Output: Zu durchlaufender Prozess (Evakuierung) und Name des Gastes / Members und Position der Plätze und Räume, die gebucht wurden. 
+%    \end{itemize}
+	
+%    Service-Roboter: 
+%    \begin{itemize}
+%        \item Input: MQTT (Prozess-Trigger durch Steuerzentrale und Position gebuchter Plätze und Räume
+%        \item Input: Objekterkennung (Personenerkennung) durch die Kamera
+%        \item Output: (An Steuerzentrale) – Status / Prozess (erfolgreich/nicht erfolgreich) abgeschlossen
+%        \item -> Event-Möglichkeiten werden von Service-Roboter direkt verarbeitet. (Interaktion mit Person, Anweisungen an die Person) 
+%        \item -> Event-Möglichkeiten: 
+%        \item --> Kunde, Gast & Member: 
+%        \item ---> Alarmieren und bitten das Gebäude auf schnellstem Weg zu
+%    \end{itemize}
+
+\subsection*{UC 2 - User Story}
+\textbf{Gast:}
+\\
+Als Gast, Member und Manager möchte ich bei einem Notfall alarmiert werden. Bei eintretendem Fall möchte ich 
+Anweisungen, die zu beachten und umzusetzen sind, erhalten. Ebenso ist ein Hinweis zu den Notausgängen 
+sinnvoll und hilft bei der Flucht bzw. beim Verlassen des Gebäudes. Damit keine Personen im Büro 
+bleiben, ist eine Information über Anwesende von belangen. Der Member sollte die Möglichkeit haben, den 
+Service-Roboter aufzufordern, nach Leuten zu rufen, die nicht in Sichtweite sind. Sobald alle Plätze 
+abgefahren sind bzw. durch den Service-Roboter keine Personen mehr erkannt werden, soll eine Benachrichtigung 
+erfolgen, dass alle aus dem Gebäude sind bzw. keine mehr gesichtet wurden. Diese Information hilft bei der 
+anschließenden Kontrolle über am Treffpunkt anwesender Personen. Abschließend soll ggf. eine Information über die 
+Platzbuchungen gezeigt werden, damit bei der Kontrolle keine Fehler unterlaufen und keine Personen, die nicht 
+gesehen werden, vergessen werden.
+
+\subsection*{Akzeptanzkriterien}
+\begin{itemize}
+    \item AK-01: Eine MQTT-Message des Rauchmelders (Sensors) wird von der Steuerzentrale empfangen.
+    \item AK-02: Die MQTT-Message wird gelesen und Abfragen an die DoorJames API erfolgen (Abfrage der Personen zum Zeitpunk im Bürogebäude)
+    \item AK-03: Informationen der DoorJames API werden empfangen und können weiterverarbeitet werden. 
+    \item AK-04: Die benötigten Informationen können an den Service-Roboter (Temi) weitergeleitet werden.
+    \item AK-05: Temi wird losgeschickt, um nach Personen im Gebäude zu suchen.
+    \item AK-06: Die Steuerzenrale schickt eine SMS, E-Mail an die Gebäudeverantwortliche Person, dass ein Notfall losgetreten wurde.
+    \item Ak-07: Eine MQTT-Message wird empfangen, sobald der Service-Roboter alle Tasks (ToDo's)  des Prozesses abgearbeitet hat. 
+\end{itemize}
+
+\begin{landscape}
+  \AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \raisebox{\dimexpr.5\paperheight-.5\height}{%
+      \makebox[.9\paperwidth][r]{%
+        \rotatebox{90}
+        {\thepage}
+      }% \makebox
+    }% \raisebox
+  }% \AtPageCenter
+}% \AddToShipoutPictureBG*
+  \includepdf[scale=0.75, pages=-, angle=90, fitpaper]{images/UC2_Ablaufdiagramm_Sichtweisen.pdf}
+\end{landscape}
+
+\chapter{}
+\label{appendix:steuerzentrale}
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:switch}, captionpos=b, caption={Regeldefinition der Lichtschaltung}]
+@Scope("singleton")
+public class RuleLampSwitch extends Rule<InnovationLabKA> {
+  ...
+  @Override
+  @TriggerAnnotation
+  public Trigger ruleTrigger(InnovationLabKA state) {
+    return Trigger.MQTT;
+  }
+  
+  @Override
+  @ConditionAnnotation
+  public boolean checkCondition(InnovationLabKA state) {
+    return state.isSchalterOn() != state.isLampeOn();
+  }
+  
+  @Override
+  @ProcessAnnotation
+  public void ruleProcess(InnovationLabKA state) {
+    logicHubState.setState((state) -> {
+        state.setLampe(state.getSchalter());
+    });
+  }
+  ...
+}
+\end{lstlisting}
+\pagebreak
+\label{appendix:hoasAutomation}
+\begin{lstlisting}[language=xml, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:hoasAutomation}, captionpos=b, caption={Regeldefinition der Lichtschaltung über Home Assistant}]
+  id: '1632733838684'
+  alias: Schalter Kueche Licht An
+  description: ''
+  trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 7281b0009a1b5a48f077dc0873070ce5
+      type: action
+      subtype: 'on'
+      discovery_id: 0x804b50fffe8f57fc action_on
+  condition: []
+  action:
+    - scene: scene.licht_kuche
+  mode: single
+\end{lstlisting}
+
+\label{appendix:openhabCode}
+\begin{lstlisting}[language=Java, frame=lines, xleftmargin=\parindent, style=algoBericht, label={code:openhabSwitch}, captionpos=b, caption={Regeldefinition der Lichtschaltung via openHAB}]
+rule "Ikea_FB_Button" 
+when Channel "deconz:switch:XXXXXXXX:XXXXXX:buttonevent"  triggered
+         
+then
+  if (TRADFRIFernbedienungIKEAofSweden_Button.state==5002){
+    if (IkeaLight.state==ON) {
+      IkeaLight.sendCommand(OFF)
+    }
+    if (IkeaLight.state==OFF) {
+      IkeaLight.sendCommand(ON)
+    }
+  }
+end
+\end{lstlisting}
+
+\chapter{}
+\label{appendix:usabilitytestpaper}
+Die PDF-Datei für die Usability-Test-Aufgabe ist den folgenden vier Seiten zu entnehmen. 
+%\begin{figure}[hbt!]
+\includepdf[pages=-, fitpaper]{chapter/9Anhang/Usability-Dokument_MA.pdf}
+%  \caption{Dokument zum Usability-Test}
+%  \label{appendix:usabilitypaper}
+%\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \input{erklaerung.tex}

@@ -1,0 +1,89 @@
+\section{Experteninterview}
+\label{sec:experteninterviewReqirements}
+    Zur Analyse und Erhebung von Anforderungen, die sich an das System richten, werden Experteninterviews durchgeführt. 
+    Dabei wird sich, wie in dem Abschnitt (\ref{subsec:experteninterview}) beschrieben, an dem unstrukturierten Ansatz der 
+    Führung eines solchen Interviews orientiert \cite{robson2002real}. Deshalb werden keine konkreten offenen oder 
+    geschlossenen Fragen gestellt. Der Aufbau des Interviews wird in weiteren Schritten aufgegriffen. 
+    \\
+    Die Ergebnisse der Interviews sind nicht repräsentativ, da sie im Rahmen dieser Arbeit mit einigen wenigen Experten durchgeführt wurden. Sie 
+    dienen lediglich der Informationsgewinnung und dem Einholen mehrerer Meinungsbilder, um aus allen 
+    Ideen, Gedankenanstößen und Ansichten ein Gesamtbild zu erzeugen und daraus mehrere Anforderungen zu gewinnen 
+    und abzuleiten. 
+
+\subsection{Ziel des Experteninterviews}
+    Ziel des Experteninterviews ist die Informationsgewinnung aus bestimmten Sachverhalten, für die es 
+    noch keine repräsentativen Umfragen gibt. Der Experte kann seine Sicht auf den Sachverhalt 
+    wiedergeben und neue Blickwinkel eröffnen. Dadurch können Rückschlüsse gezogen und Erfahrungen ausgetauscht werden. Diese sind oft wichtige 
+    Informationen zur Erhebung von Anforderungen zu einem bestimmten Sachverhalt. 
+
+\subsection{Aufbau des Experteninterviews}
+    Die Experteninterviews wurden im Gesamten als unstrukturierte Interviews durchgeführt. Lediglich die Rahmenbedingungen sowie 
+    der Einstieg in das Interview waren vorgegeben und ähneln sich bei jeder interviewten Person. Zu Anfang des Gesprächs wurde 
+    der Kontext und die Intension erläutert, damit der Experte die Situation und die Absichten kennenlernt und die 
+    eigentliche Herausforderung 
+    erkennt. Grundlage dafür war die Erläuterung der Zielsetzung der Arbeit (\ref{sec:zielsetzung}) zur Verdeutlichung der 
+    Intension. Mit den identifizierten Anwendungsfällen (\ref{sec:usecases}), die als Basis 
+    zur Extraktion von Anforderungen und als potenziell umsetzbare Funktionalitäten gelten, wurden Szenarien veranschaulicht, 
+    die dabei halfen, das Anwendungsumfeld zu konkretisieren.  
+    Nach der Schilderung des Kontextes und der zugrunde liegenden Ausgangspunkte wurde das Gespräch in Richtung Anforderungen 
+    gelenkt. Hierbei lag der Fokus auf dem Sammeln von Ideen, Sichtweisen und Meinungen, die als Grundlage 
+    dienten oder gar direkte Anforderungen an das System ergaben. Dabei war der Ausgang des Gesprächs offen. Falls während 
+    eines Gespräches der Fokus verloren ging bzw. Exkurse ein zu großes Ausmaß annahmen, wurde wieder auf die 
+    vorliegende Sachlage aufmerksam gemacht und der Fokus erneut auf die Anforderungen geworfen. 
+    Schwerpunkte bei den Interviews waren zum einen die Anforderungen, welche für eine einfache Handhabung der 
+    formalisierten Interaktionen für den Softwareentwickler gelten, und zum anderen die Funktionalitäten, die der 
+    Experte dem System gegenüber sieht, um ein Regelwerk für ein intelligentes Büro zu erstellen. 
+    Ebenso wurden nicht funktionale Anforderungen, die ein solches System mit sich bringen soll, adressiert. 
+    Die zusammengefassten Anforderungen und die daraus abgeleiteten Bedingungen sind dem Abschnitt (\ref{sec:requirementsFinal}) 
+    zu entnehmen.
+     
+\subsection{Zusammenfassung der Experteninterviews}
+    In Summe wurden insgesamt fünf Experteninterviews durchgeführt. Jedes Gespräch war individuell und hatte dementsprechend 
+    einen anderen Verlauf bzw. ein anderes Ergebnis. Dennoch konnte der inhaltliche Fokus gewahrt und verschiedene 
+    Meinungsbilder eingeholt werden. Jeder befragte Experte konnte zu dem anliegenden Sachverhalt seine Meinung äußern und 
+    wichtige Informationen und Sichtweisen mitteilen. Die erhobenen Informationen wurden analysiert, aufbereitet und 
+    als Anforderungen dokumentiert. Die dabei entstandenen Informationen und Anforderungen werden in 
+    folgendem Abschnitt aufgezeigt. 
+    
+%\pagebreak
+\section{Anforderungen}
+\label{sec:requirementsFinal}
+    In Folge der vorangestellten Literaturrecherche, der Markt- und Zielgruppenanalyse, der entwickelten Anwendungsfälle und 
+    der durchgeführten Experteninterviews ergaben sich Anforderungen an das System, 
+    die in der Konzeption und der anschließenden prototypischen Implementierung zu berücksichtigen sind. 
+    Zur Dokumentation der nicht funktionalen Anforderungen wird sich an dem 
+    \textit{Software Produkt Qualitätsmodell} nach der ISO Norm 25010\footnote{Qualitätscharakteristiken nach ISO. \url{https://iso25000.com/index.php/en/iso-25000-standards/iso-25010} Besucht am 24.06.2022.} 
+    orientiert. 
+    \\
+    %\linebreak
+    Der folgenden Tabelle (\ref{tab:functionalRequirements}) sind die funktionalen Anforderungen (FA) zu entnehmen: 
+    %\pagebreak
+    \begin{table}[hbt!]
+        \begin{center}
+            \begin{tabular}{ | p{0.6cm} | p{9.5cm} | p{1.6cm} | p{3.1cm} | }
+                \hline
+                    \textbf{} & \textbf{Anforderung (User Story)} & \textbf{Priorität} & \textbf{Quelle} \\
+                \hline
+                    FA1 & Als Softwareentwickler möchte ich mit einer vorgegebenen Struktur Regeln definieren, die zur Laufzeit ausgeführt werden können. & Essentiell & Zielsetzung der Arbeit \\  %, wenn das zutreffende Ereignis eintrifft.
+                \hline
+                    FA2 & Als Softwareentwickler möchte ich, dass alle Regeln, die ich definiert habe, zu bestimmtem Auslöser gestartet werden. & Essentiell & Experteninterview \\
+                \hline
+                    FA3 & Als Softwareentwickler möchte ich einen Zustandsraum erstellen, der individuell implementiert werden kann. & Essentiell & Experteninterview \\ 
+                \hline
+                    FA4 & Als Softwareentwickler möchte ich Bedingungen definieren und abfragen können, die basierend auf dem Ereignis die dazugehörige Regel ausführen. & Essentiell & Experteninterview \\ 
+                \hline
+                    FA5 & Als Softwareentwickler möchte ich Komponenten anlegen können, die reelle Gegenstände und dessen Zustände abbilden. & Hoch & Experteninterview \\
+                \hline
+                    FA6 & Als Softwareentwickler möchte ich das vorgegebene Framework individuell nutzen können, indem ich bei der Definition der Regeln und der Informationsbeschaffung nicht eingeschränkt bin. & Essentiell & Zielsetzung der Arbeit, Experteninterview \\
+                \hline
+                %    FA7 & Als Softwareentwickler möchte ich Auslöser aktivieren bzw. definieren können, nach denen die Regeln ausgelöst werden. & Essentiell & Experteninterview \\ 
+                %\hline
+            \end{tabular}
+        \end{center}
+        \caption{Funktionale Anforderungen (FAs)}
+        \label{tab:functionalRequirements}
+    \end{table}
+    %\\
+    %\pagebreak
+    %Nach der Aufstellung der funktionalen Anforderungen folgt die der nicht funktionalen Anforderungen (NFA):
+   
